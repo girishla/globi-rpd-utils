@@ -25,18 +25,14 @@
 	</properties>
 
 	<dependencies>
-<!-- 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency> -->
-<!-- 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency> -->
- 		<dependency>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-rest</artifactId> 
+			</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jdbc</artifactId> 
+			</dependency> -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> 
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,15 +49,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
 		</dependency>
-		    <dependency>
-    	<groupId>ch.qos.logback</groupId>
-    	<artifactId>logback-classic</artifactId>
-    	<version>${logback.version}</version>
-    </dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.massfords</groupId>
+			<artifactId>jaxb-visitor</artifactId>
+			<version>2.7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -92,6 +93,22 @@
 					<!-- Default is unspecified -->
 					<generatePackage>xudml</generatePackage>
 					<addCompileSourceRoot>true</addCompileSourceRoot>
+
+
+<!-- 					<args>
+						<arg>-Xvisitor</arg>
+						<arg>-Xvisitor-package:com.globi</arg>
+					</args>
+
+					<plugins>
+						<plugin>
+							<groupId>com.massfords</groupId>
+							<artifactId>jaxb-visitor</artifactId>
+							<version>2.7</version>
+						</plugin>
+					</plugins> -->
+
+
 				</configuration>
 			</plugin>
 			<plugin>
