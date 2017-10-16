@@ -30,7 +30,7 @@ public class XudmlUnmarshallingVisitor extends BaseVisitor<Object, Exception> {
 
 			log.debug(table.getPresentationTableRef());
 			presCatalog.getPresentationTables()
-					.add(new PresentationTable(XudmlConstants.XUDML_BASEURL + table.getPresentationTableRef()));
+					.add(new PresentationTable(XudmlConstants.XUDML_BASEURL + table.getPresentationTableRef().split("#")[0]));
 
 		});
 		
@@ -45,7 +45,7 @@ public class XudmlUnmarshallingVisitor extends BaseVisitor<Object, Exception> {
 
 		log.info("================================Unmarshalling PresentationTable from file: " + presTable.getResourceUri());
 		
-		presTable.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL(presTable.getResourceUri())));
+		presTable.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL("file:" + presTable.getResourceUri())));
 		
 		
 		return presTable;

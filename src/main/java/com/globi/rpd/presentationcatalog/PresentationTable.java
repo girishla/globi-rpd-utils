@@ -3,24 +3,19 @@ package com.globi.rpd.presentationcatalog;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.core.io.Resource;
-
 import com.globi.Visitable;
 import com.globi.Visitor;
-import com.globi.rpd.xudml.ResourceFactory;
-import com.globi.rpd.xudml.XudmlConstants;
-import com.globi.rpd.xudml.XudmlMarshaller;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import xudml.PresentationTableT;
+import xudml.PresentationTableW;
 
 @Data
 @Slf4j
 public class PresentationTable     implements Visitable{
 
-	private PresentationTableT xudmlObject;
-	private final String resourceUri;
+	private PresentationTableW xudmlObject;
+	private String resourceUri;
 	
 	private final List<PresentationColumn> presentationColumns = new ArrayList<PresentationColumn>();
 

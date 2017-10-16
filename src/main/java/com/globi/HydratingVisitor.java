@@ -3,7 +3,6 @@ package com.globi;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;
 import com.globi.rpd.presentationcatalog.PresentationTable;
-import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationColumnW;
@@ -33,7 +32,7 @@ public class HydratingVisitor extends BaseVisitor<Object, Exception> {
 			presTable.getPresentationColumns().add(new PresentationColumn(column));
 		}
 		
-
+		
 		
 		return presTable;
 		

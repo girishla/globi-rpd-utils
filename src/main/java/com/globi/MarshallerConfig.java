@@ -20,7 +20,6 @@ public enum MarshallerConfig {
 		marshallerProps.put(Marshaller.JAXB_FRAGMENT, false);
 //		marshallerProps.put("com.sun.xml.bind.xmlHeaders","<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		marshaller.setMarshallerProperties(marshallerProps);
-//		marshaller.setSupportDtd(true);
 		return marshaller;
 	}
 }

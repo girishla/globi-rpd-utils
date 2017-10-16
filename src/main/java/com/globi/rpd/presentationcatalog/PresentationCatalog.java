@@ -21,7 +21,7 @@ import xudml.PresentationCatalogW;
 @Slf4j
 public class PresentationCatalog  implements Visitable{
 
-	private final String resourceUri;
+	private String resourceUri;
 	private PresentationCatalogW xudmlObject;
 	
 	private final List<PresentationTable> presentationTables = new ArrayList<PresentationTable>();
