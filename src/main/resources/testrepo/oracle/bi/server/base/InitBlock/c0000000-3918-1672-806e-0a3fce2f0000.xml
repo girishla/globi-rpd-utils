@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InitBlock mdsid="mc0000000-3918-1672-806e-0a3fce2f0000" name="SA Names" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" isRowWiseInit="true" isRowWiseCacheEnabled="false" refreshPeriod="86400" connectionPoolRef="/oracle/bi/server/base/ConnectionPool/40000000-c408-162a-98ff-0a3fce3e0000.xml#m40000000-c408-162a-98ff-0a3fce3e0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT 'CN_Global_Reporting_-_Measures_-_Activity' NAME, 				'Activity' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_DMR_Results', 			'Administration - DMR' FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_ETL_Execution' NAME, 		'Administration - ETL' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Internal_Use_ONLY' NAME, 	'Administration - Internal Use ONLY' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Links' NAME, 			'Administration - Links' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Role_Members' NAME, 		'Administration - Roles' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Usage_Tracking' NAME, 		'Administration - Usage Tracking' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Entitlement' NAME, 				'Entitlement' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Invoice_Line' NAME, 				'Invoice Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Performance_Metrics' NAME, 			'Performance Metrics' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline' NAME, 				'Pipeline' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Opportunity_Line' NAME, 		'Opportunity Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Order_Line' NAME, 			'Order Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Quote_Line' NAME, 			'Quote Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Service_Request' NAME, 			'Service Request' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Source_Usage' NAME, 				'Source Usage' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Subscription_Revision' NAME, 			'Subscription Revision' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey' NAME, 				'Survey' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Invite' NAME, 				'Survey Invite' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Response' NAME, 			'Survey Response' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Response_Reason' NAME, 		'Survey Response Reason' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Usage_Tracking' NAME, 			'Usage Tracking' VALUE FROM DUAL
+SELECT 'CN_Global_Reporting_-_Measures_-_Global_Reporting' NAME, 			'Administration - Global Reporting' VALUE FROM DUAL]]></Value>
+</DBMapItem>
+<InitString><![CDATA[SELECT 'CN_Global_Reporting_-_Measures_-_Activity' NAME, 				'Activity' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_DMR_Results', 			'Administration - DMR' FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_ETL_Execution' NAME, 		'Administration - ETL' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Internal_Use_ONLY' NAME, 	'Administration - Internal Use ONLY' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Links' NAME, 			'Administration - Links' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Role_Members' NAME, 		'Administration - Roles' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Administration_-_Usage_Tracking' NAME, 		'Administration - Usage Tracking' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Entitlement' NAME, 				'Entitlement' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Invoice_Line' NAME, 				'Invoice Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Performance_Metrics' NAME, 			'Performance Metrics' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline' NAME, 				'Pipeline' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Opportunity_Line' NAME, 		'Opportunity Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Order_Line' NAME, 			'Order Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Pipeline_-_Quote_Line' NAME, 			'Quote Line' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Service_Request' NAME, 			'Service Request' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Source_Usage' NAME, 				'Source Usage' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Subscription_Revision' NAME, 			'Subscription Revision' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey' NAME, 				'Survey' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Invite' NAME, 				'Survey Invite' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Response' NAME, 			'Survey Response' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Survey_Response_Reason' NAME, 		'Survey Response Reason' VALUE FROM DUAL UNION ALL
+SELECT 'CN_Global_Reporting_-_Measures_-_Usage_Tracking' NAME, 			'Usage Tracking' VALUE FROM DUAL
+SELECT 'CN_Global_Reporting_-_Measures_-_Global_Reporting' NAME, 			'Administration - Global Reporting' VALUE FROM DUAL]]></InitString>
+</InitBlock>

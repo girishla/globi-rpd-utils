@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTableSource mdsid="m80000005-9a35-1670-806e-0ab93c9f0000" name="Fact_DMR_Discrepancies" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isActive="true" logicalTableRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000000-9a30-1670-806e-0ab93c9f0000">
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000001-01f4-0000-4bba-d77500000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Lookup - DMR Discrepancies"."Key (RUN_ID)"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-4bba-d77500000000-m80000003-9a35-1670-806e-0ab93c9f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m80000003-9a35-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000002-01f4-0000-f0c8-add000000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."MDT"."Fact_DMR_Discrepancies"."RUN_ID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-f0c8-add000000000-m80000006-9a25-1670-806e-0ab93c9f0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000006-9a25-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000003-01f4-0000-79bd-38ef00000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Lookup - DMR Discrepancies"."Key (LOCATION)"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000003-01f4-0000-79bd-38ef00000000-m00000002-9a3a-1670-806e-0ab93c9f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3a-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000004-01f4-0000-1f77-a7a300000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."MDT"."Fact_DMR_Discrepancies"."MIS_LOC"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000004-01f4-0000-1f77-a7a300000000-m80000004-9a25-1670-806e-0ab93c9f0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000004-9a25-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000005-01f4-0000-9e75-537400000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Lookup - DMR Discrepancies"."Data"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000005-01f4-0000-9e75-537400000000-m00000002-9a3b-1670-806e-0ab93c9f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3b-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000006-01f4-0000-b527-546d00000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."MDT"."Fact_DMR_Discrepancies"."ROW_DATA"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000006-01f4-0000-b527-546d00000000-m80000005-9a25-1670-806e-0ab93c9f0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000005-9a25-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000007-01f4-0000-1c6f-965200000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Lookup - DMR Discrepancies"."Data Hash"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000007-01f4-0000-1c6f-965200000000-mc0000002-9ad3-1670-806e-0ab93c9f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000008-01f4-0000-167a-c77f00000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."MDT"."Fact_DMR_Discrepancies"."HASH"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000008-01f4-0000-167a-c77f00000000-m80000002-9a25-1670-806e-0ab93c9f0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000002-9a25-1670-806e-0ab93c9f0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<Link startNodeTableRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000000-9a25-1670-806e-0ab93c9f0000">
+</Link>
+<WhereClause mdsid="m00000009-01f4-0000-f714-decf00000000" name="WhereClause">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</WhereClause>
+<GroupBy mdsid="m0000000a-01f4-0000-9f33-cf3500000000" name="GroupBy">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</GroupBy>
+<FragmentContent mdsid="m0000000b-01f4-0000-22dc-367e00000000" name="FragmentContent">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</FragmentContent>
+</LogicalTableSource>

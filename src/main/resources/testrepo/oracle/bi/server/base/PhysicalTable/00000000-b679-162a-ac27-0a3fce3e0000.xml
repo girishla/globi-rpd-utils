@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m00000000-b679-162a-ac27-0a3fce3e0000" name="Dim_Agreement_Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" pollFreq="0" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000" sourceTableRef="/oracle/bi/server/base/PhysicalTable/40000020-286e-1627-806e-0a3fce3c0000.xml#m40000020-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m00000001-b679-162a-ac27-0a3fce3e0000" name="AGREE_NAME" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000020-286e-1627-806e-0a3fce3c0000.xml#m40000021-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000002-b679-162a-ac27-0a3fce3e0000" name="AGREE_NUM" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000020-286e-1627-806e-0a3fce3c0000.xml#m40000022-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000004-b679-162a-ac27-0a3fce3e0000" name="AGREE_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000020-286e-1627-806e-0a3fce3c0000.xml#m40000024-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000005-b679-162a-ac27-0a3fce3e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000020-286e-1627-806e-0a3fce3c0000.xml#m40000025-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalKey mdsid="mc0000000-b6b8-162a-ac27-0a3fce3e0000" name="PK">
+<RefColumns>
+<RefColumn refId="mc0000000-b6b8-162a-ac27-0a3fce3e0000-m00000005-b679-162a-ac27-0a3fce3e0000" columnRef="/oracle/bi/server/base/PhysicalTable/00000000-b679-162a-ac27-0a3fce3e0000.xml#m00000005-b679-162a-ac27-0a3fce3e0000"/>
+</RefColumns>
+</PhysicalKey>
+</PhysicalTable>

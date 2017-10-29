@@ -10,7 +10,7 @@ import xudml.AliasW;
 public class NameModificationVisitor extends BaseVisitor<Object, Exception> {
 
 	@Override
-	public PresentationCatalog visit(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
 
 		if(presCatalog.getXudmlObject()==null)
 			throw new RuntimeException("Cannot process without a XUDML instance set");
@@ -26,7 +26,7 @@ public class NameModificationVisitor extends BaseVisitor<Object, Exception> {
 	
 	
 	@Override
-	public PresentationTable visit(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) throws Exception {
 	
 		if(presTable.getXudmlObject()==null)
 			throw new RuntimeException("Cannot process withour a XUDML instance set");

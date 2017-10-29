@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m4000004a-286e-1627-806e-0a3fce3c0000" name="D_CUSTOMER" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[D_CUSTOMER]]></Value>
+</DBMapItem>
+<PhysicalColumn mdsid="m4000004b-286e-1627-806e-0a3fce3c0000" name="ACCNT_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004c-286e-1627-806e-0a3fce3c0000" name="ACCNT_NUM" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004d-286e-1627-806e-0a3fce3c0000" name="ACCNT_STAT" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004e-286e-1627-806e-0a3fce3c0000" name="ACCNT_TYPE" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004f-286e-1627-806e-0a3fce3c0000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000050-286e-1627-806e-0a3fce3c0000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000051-286e-1627-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000052-286e-1627-806e-0a3fce3c0000" name="DELETE_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000053-286e-1627-806e-0a3fce3c0000" name="EFF_END_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000054-286e-1627-806e-0a3fce3c0000" name="EFF_START_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000055-286e-1627-806e-0a3fce3c0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000056-286e-1627-806e-0a3fce3c0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000057-286e-1627-806e-0a3fce3c0000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000058-286e-1627-806e-0a3fce3c0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000059-286e-1627-806e-0a3fce3c0000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005a-286e-1627-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005b-286e-1627-806e-0a3fce3c0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005c-286e-1627-806e-0a3fce3c0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005d-286e-1627-806e-0a3fce3c0000" name="TZ_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005e-286e-1627-806e-0a3fce3c0000" name="W_CREATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000005f-286e-1627-806e-0a3fce3c0000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000000-cd98-1677-806e-0a3fcf280000" name="PR_POS_WID" dataType="DOUBLE" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

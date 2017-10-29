@@ -16,39 +16,39 @@ public class PresentationCatalogTraverser<E extends Throwable >
 
 
     @Override
-    public void traverse(PresentationCatalog aBean, Visitor<?, E> aVisitor)
+    public void traverse(PresentationCatalog presCatalog, Operator<?, E> anOperator)
         throws E
     {
     	
     	log.debug("----------------------------------");
     	log.debug("----------------------------------");
-    	log.debug("----------------------------------" + aBean.getPresentationTables().size());
-    	log.debug("----------------------------------" + aBean.getXudmlObject().getName());
+    	log.debug("----------------------------------" + presCatalog.getPresentationTables().size());
+    	log.debug("----------------------------------" + presCatalog.getXudmlObject().getName());
     	
     	
-        for (PresentationTable bean: aBean.getPresentationTables()) {
-            bean.accept(aVisitor);
+        for (PresentationTable presTable: presCatalog.getPresentationTables()) {
+        	
+        	log.debug("^^^^^^^^^^^^^^^^^^^^" + presTable.getResourceUri());
+        	presTable.accept(anOperator);
         }
 
     }
 
     @Override
-    public void traverse(PresentationTable aBean, Visitor<?, E> aVisitor)
+    public void traverse(PresentationTable presTable, Operator<?, E> anOperator)
         throws E
     {
     	
-    	
-    	
-        for (PresentationColumn bean: aBean.getPresentationColumns()) {
-            bean.accept(aVisitor);
+        for (PresentationColumn presColumn: presTable.getPresentationColumns()) {
+        	presColumn.accept(anOperator);
         }
         
     }
 
 	@Override
-	public void traverse(PresentationColumn aBean, Visitor<?, E> aVisitor) throws E {
+	public void traverse(PresentationColumn presColumn, Operator<?, E> anOperator) throws E {
 		
-		//no-op
+		// nowhere to go from here.
 		
 	}
     

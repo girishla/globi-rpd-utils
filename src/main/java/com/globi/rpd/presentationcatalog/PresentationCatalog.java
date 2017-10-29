@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.core.io.Resource;
 
 import com.globi.Visitable;
-import com.globi.Visitor;
+import com.globi.Operator;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlMarshaller;
@@ -62,10 +62,10 @@ public class PresentationCatalog  implements Visitable{
 //	}
 
 	@Override
-    public<R, E extends Throwable >R accept(Visitor<R, E> aVisitor)
+    public<R, E extends Throwable >R accept(Operator<R, E> anOperator)
             throws E
         {
-            return aVisitor.visit(this);
+            return anOperator.operate(this);
         }
 	
 

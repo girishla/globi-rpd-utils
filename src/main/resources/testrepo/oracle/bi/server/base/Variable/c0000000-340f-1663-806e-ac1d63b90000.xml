@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="mc0000000-340f-1663-806e-ac1d63b90000" name="USER_BU" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" initBlockRef="/oracle/bi/server/base/InitBlock/00000000-c40b-162a-98ff-0a3fce3e0000.xml#m00000000-c40b-162a-98ff-0a3fce3e0000">
+<Expr mdsid="m00000001-01f4-0000-e7d9-8ca900000000" name="Expr">
+<ExprText><![CDATA['Unspecified']]></ExprText>
+<ExprTextDesc><![CDATA['Unspecified']]></ExprTextDesc>
+</Expr>
+</Variable>

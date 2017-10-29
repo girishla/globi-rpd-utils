@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m4000002b-6120-162e-ac27-0aac74cf0000" name="D_STAGE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m4000002d-6120-162e-ac27-0aac74cf0000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000002f-6120-162e-ac27-0aac74cf0000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000031-6120-162e-ac27-0aac74cf0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000033-6120-162e-ac27-0aac74cf0000" name="DELETE_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000035-6120-162e-ac27-0aac74cf0000" name="EFF_END_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000037-6120-162e-ac27-0aac74cf0000" name="EFF_START_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000039-6120-162e-ac27-0aac74cf0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000003b-6120-162e-ac27-0aac74cf0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000003d-6120-162e-ac27-0aac74cf0000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000003f-6120-162e-ac27-0aac74cf0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000041-6120-162e-ac27-0aac74cf0000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000043-6120-162e-ac27-0aac74cf0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000047-6120-162e-ac27-0aac74cf0000" name="STG_DESC" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000049-6120-162e-ac27-0aac74cf0000" name="STG_NAME" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004b-6120-162e-ac27-0aac74cf0000" name="STG_NUM" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004d-6120-162e-ac27-0aac74cf0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000004f-6120-162e-ac27-0aac74cf0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000051-6120-162e-ac27-0aac74cf0000" name="TZ_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000053-6120-162e-ac27-0aac74cf0000" name="W_CREATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000055-6120-162e-ac27-0aac74cf0000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-aaed-164e-806e-0a3fce1f0000" name="CL_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000001-2055-165e-806e-0a3fcf3a0000" name="STG_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

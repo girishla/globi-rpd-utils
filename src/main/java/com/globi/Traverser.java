@@ -8,13 +8,13 @@ import com.globi.rpd.presentationcatalog.PresentationTable;
 
 public interface Traverser<E extends Throwable >{
 
-    void traverse(PresentationCatalog aBean, Visitor<?, E> aVisitor)
+    void traverse(PresentationCatalog aBean, Operator<?, E> anOperator)
             throws E;
 
-        void traverse(PresentationTable aBean, Visitor<?, E> aVisitor)
+        void traverse(PresentationTable aBean, Operator<?, E> anOperator)
             throws E;
         
-        void traverse(PresentationColumn aBean, Visitor<?, E> aVisitor)
+        void traverse(PresentationColumn aBean, Operator<?, E> anOperator)
                 throws E;
         
         

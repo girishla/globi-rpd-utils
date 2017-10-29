@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="m40000000-46af-1637-98ff-0a3fce410000" name="Financial Account Team" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="m00000047-46e7-1637-98ff-0a3fce410000" name="Key (WID)" isWriteable="false">
+<AttributeDefn mdsid="m00000001-01f4-0000-3612-0c6800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."ROW_WID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-3612-0c6800000000-m00000016-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000016-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000037-46e7-1637-98ff-0a3fce410000" name="Integration ID" isWriteable="false">
+<AttributeDefn mdsid="m00000002-01f4-0000-4a39-e54800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."INTEGRATION_ID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-4a39-e54800000000-m0000000e-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000000e-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000039-46e7-1637-98ff-0a3fce410000" name="PGUID" isWriteable="false">
+<AttributeDefn mdsid="m00000003-01f4-0000-e463-bb9700000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."PGUID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000003-01f4-0000-e463-bb9700000000-m0000000f-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000000f-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000003-4719-1637-98ff-0a3fce410000" name="------------------[ Attributes ]------------------" isWriteable="false">
+<AttributeDefn mdsid="m00000004-01f4-0000-43d8-b3e100000000" name="AttributeDefn">
+<ExprText><![CDATA['Do Not Use']]></ExprText>
+<ExprTextDesc><![CDATA['Do Not Use']]></ExprTextDesc>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000002d-46e7-1637-98ff-0a3fce410000" name="Employee Login" isWriteable="false">
+<AttributeDefn mdsid="m00000005-01f4-0000-156c-53cc00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."EMP_LOGIN"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000005-01f4-0000-156c-53cc00000000-m00000009-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000009-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000002f-46e7-1637-98ff-0a3fce410000" name="Employee Name" isWriteable="false">
+<AttributeDefn mdsid="m00000006-01f4-0000-6b72-e9f800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."EMP_NAME"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000006-01f4-0000-6b72-e9f800000000-m0000000a-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000000a-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000003b-46e7-1637-98ff-0a3fce410000" name="Position" isWriteable="false">
+<AttributeDefn mdsid="m00000007-01f4-0000-d2f5-101d00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."POSTN_NAME"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000007-01f4-0000-d2f5-101d00000000-m00000010-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000010-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000043-46e7-1637-98ff-0a3fce410000" name="Position Type" isWriteable="false">
+<AttributeDefn mdsid="m00000008-01f4-0000-e9c3-42ad00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."POSTN_TYPE"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000008-01f4-0000-e9c3-42ad00000000-m00000014-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000014-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000003f-46e7-1637-98ff-0a3fce410000" name="Position Role" isWriteable="false">
+<AttributeDefn mdsid="m00000009-01f4-0000-5a05-1ad200000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."POSTN_ROLE"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000009-01f4-0000-5a05-1ad200000000-m00000012-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000012-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000041-46e7-1637-98ff-0a3fce410000" name="Position Team" isWriteable="false">
+<AttributeDefn mdsid="m0000000a-01f4-0000-dc63-622200000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."POSTN_TEAM"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000a-01f4-0000-dc63-622200000000-m00000013-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000013-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000003d-46e7-1637-98ff-0a3fce410000" name="Primary Flag" isWriteable="false">
+<AttributeDefn mdsid="m0000000b-01f4-0000-f72a-75b800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."POSTN_PR_FLG"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000b-01f4-0000-f72a-75b800000000-m00000011-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000011-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000008-4719-1637-98ff-0a3fce410000" name="--------------[ SCD Attributes ]--------------" isWriteable="false">
+<AttributeDefn mdsid="m0000000c-01f4-0000-009b-941500000000" name="AttributeDefn">
+<ExprText><![CDATA['Do Not Use']]></ExprText>
+<ExprTextDesc><![CDATA['Do Not Use']]></ExprTextDesc>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000023-46e7-1637-98ff-0a3fce410000" name="Current Flag" isWriteable="false">
+<AttributeDefn mdsid="m0000000d-01f4-0000-2da3-0af600000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."CURRENT_FLG"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000d-01f4-0000-2da3-0af600000000-m00000004-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000004-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000029-46e7-1637-98ff-0a3fce410000" name="Effective End Date" isWriteable="false">
+<AttributeDefn mdsid="m0000000e-01f4-0000-b1f5-0c4900000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."EFF_END_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000e-01f4-0000-b1f5-0c4900000000-m00000007-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000007-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000002b-46e7-1637-98ff-0a3fce410000" name="Effective Start Date" isWriteable="false">
+<AttributeDefn mdsid="m0000000f-01f4-0000-d6dd-598f00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."EFF_START_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000f-01f4-0000-d6dd-598f00000000-m00000008-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000008-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000000b-4719-1637-98ff-0a3fce410000" name="-------------[ System Attributes ]------------" isWriteable="false">
+<AttributeDefn mdsid="m00000010-01f4-0000-d68d-5dcd00000000" name="AttributeDefn">
+<ExprText><![CDATA['Do Not Use']]></ExprText>
+<ExprTextDesc><![CDATA['Do Not Use']]></ExprTextDesc>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000021-46e7-1637-98ff-0a3fce410000" name="Business Unit" isWriteable="false">
+<AttributeDefn mdsid="m00000011-01f4-0000-2141-1bbd00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."BU_PGUID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000011-01f4-0000-2141-1bbd00000000-m00000003-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000003-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000025-46e7-1637-98ff-0a3fce410000" name="Data Source ID" isWriteable="false">
+<AttributeDefn mdsid="m00000012-01f4-0000-1cdb-778e00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."DATASOURCE_NUM_ID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000012-01f4-0000-1cdb-778e00000000-m00000005-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000005-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000027-46e7-1637-98ff-0a3fce410000" name="Delete Flag" isWriteable="false">
+<AttributeDefn mdsid="m00000013-01f4-0000-9242-6b2700000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."DELETE_FLG"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000013-01f4-0000-9242-6b2700000000-m00000006-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000006-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000004f-46e7-1637-98ff-0a3fce410000" name="DWH Created Date" isWriteable="false">
+<AttributeDefn mdsid="m00000014-01f4-0000-b092-0a1a00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."W_CREATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000014-01f4-0000-b092-0a1a00000000-m0000001a-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000001a-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000051-46e7-1637-98ff-0a3fce410000" name="DWH Updated Date" isWriteable="false">
+<AttributeDefn mdsid="m00000015-01f4-0000-3bb8-00a800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."W_UPDATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000015-01f4-0000-3bb8-00a800000000-m0000001b-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000001b-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000031-46e7-1637-98ff-0a3fce410000" name="ETL Process ID" isWriteable="false">
+<AttributeDefn mdsid="m00000016-01f4-0000-f3bc-8fb500000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."ETL_PROC_WID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000016-01f4-0000-f3bc-8fb500000000-m0000000b-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m0000000b-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000049-46e7-1637-98ff-0a3fce410000" name="Source Created Date" isWriteable="false">
+<AttributeDefn mdsid="m00000017-01f4-0000-e009-d5ff00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."S_CREATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000017-01f4-0000-e009-d5ff00000000-m00000017-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000017-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000004b-46e7-1637-98ff-0a3fce410000" name="Source Updated Date" isWriteable="false">
+<AttributeDefn mdsid="m00000018-01f4-0000-1cf1-1ff100000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."S_UPDATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000018-01f4-0000-1cf1-1ff100000000-m00000018-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000018-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000004d-46e7-1637-98ff-0a3fce410000" name="Time Zone" isWriteable="false">
+<AttributeDefn mdsid="m00000019-01f4-0000-4f8b-5b7200000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Bridge"."TZ_NAME"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000019-01f4-0000-4f8b-5b7200000000-m00000019-46c9-1637-98ff-0a3fce410000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-46c9-1637-98ff-0a3fce410000.xml#m00000019-46c9-1637-98ff-0a3fce410000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalKey mdsid="mc0000000-4733-1637-98ff-0a3fce410000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="mc0000000-4733-1637-98ff-0a3fce410000-m00000047-46e7-1637-98ff-0a3fce410000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000000-46af-1637-98ff-0a3fce410000.xml#m00000047-46e7-1637-98ff-0a3fce410000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="m40000000-46af-1637-98ff-0a3fce410000-m00000053-46e7-1637-98ff-0a3fce410000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/00000053-46e7-1637-98ff-0a3fce410000.xml#m00000053-46e7-1637-98ff-0a3fce410000"/>
+<RefLogicalTableSource refId="m40000000-46af-1637-98ff-0a3fce410000-m80000002-47a7-1637-98ff-0a3fce410000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/80000002-47a7-1637-98ff-0a3fce410000.xml#m80000002-47a7-1637-98ff-0a3fce410000"/>
+</RefTableSources>
+</LogicalTable>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalDisplayFolder mdsid="m00000000-cdd3-1627-b306-ac1d80d30000" name="Pipeline Model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" databaseRef="/oracle/bi/server/base/Database/40000000-286e-1627-806e-0a3fce3c0000.xml#m40000000-286e-1627-806e-0a3fce3c0000">
+<RefTables>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-b668-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-b668-162a-ac27-0a3fce3e0000.xml#m40000000-b668-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m00000000-b679-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/00000000-b679-162a-ac27-0a3fce3e0000.xml#m00000000-b679-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-b664-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b664-162a-ac27-0a3fce3e0000.xml#m80000000-b664-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m00000000-b661-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/00000000-b661-162a-ac27-0a3fce3e0000.xml#m00000000-b661-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-b67d-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-b67d-162a-ac27-0a3fce3e0000.xml#m40000000-b67d-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-b680-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000000-b680-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-c3bc-162a-98ff-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000000-c3bc-162a-98ff-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-287d-1627-806e-0a3fce3c0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-287d-1627-806e-0a3fce3c0000.xml#m40000000-287d-1627-806e-0a3fce3c0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-2893-1627-806e-0a3fce3c0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000000-2893-1627-806e-0a3fce3c0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-2889-1627-806e-0a3fce3c0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-2889-1627-806e-0a3fce3c0000.xml#m40000000-2889-1627-806e-0a3fce3c0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-b687-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b687-162a-ac27-0a3fce3e0000.xml#m80000000-b687-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-b68a-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b68a-162a-ac27-0a3fce3e0000.xml#m80000000-b68a-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000000-b866-1629-ac27-0a3fce1e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b866-1629-ac27-0a3fce1e0000.xml#m80000000-b866-1629-ac27-0a3fce1e0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-cc40-1627-b306-ac1d80d30000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-cc40-1627-b306-ac1d80d30000.xml#m40000000-cc40-1627-b306-ac1d80d30000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m80000001-cc26-1627-b306-ac1d80d30000" tableRef="/oracle/bi/server/base/PhysicalTable/80000001-cc26-1627-b306-ac1d80d30000.xml#m80000001-cc26-1627-b306-ac1d80d30000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m00000000-28a8-1627-806e-0a3fce3c0000" tableRef="/oracle/bi/server/base/PhysicalTable/00000000-28a8-1627-806e-0a3fce3c0000.xml#m00000000-28a8-1627-806e-0a3fce3c0000"/>
+<RefPhysicalTable refId="m00000000-cdd3-1627-b306-ac1d80d30000-m40000000-6142-162e-ac27-0aac74cf0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-6142-162e-ac27-0aac74cf0000.xml#m40000000-6142-162e-ac27-0aac74cf0000"/>
+</RefTables>
+</PhysicalDisplayFolder>

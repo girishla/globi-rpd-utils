@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ComplexJoin mdsid="m40000000-c3fe-162a-98ff-0a3fce3e0000" name="Dim_ExchangeRate_Fact_OpportunityLine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" cardinality=" ONE TO MANY" table1Ref="/oracle/bi/server/base/PhysicalTable/00000000-28a8-1627-806e-0a3fce3c0000.xml#m00000000-28a8-1627-806e-0a3fce3c0000" table2Ref="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000000-c3bc-162a-98ff-0a3fce3e0000">
+<Expr mdsid="m00000001-01f4-0000-6021-36cc00000000" name="Expr">
+<ExprText><![CDATA["%1" = VALUEOF(NQ_SESSION."%2") AND "%3" = "%4" AND "%5" =  VALUEOF(NQ_SESSION."%6")]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_ExchangeRate"."CURCY_CD_TO" = VALUEOF(NQ_SESSION."USER_CURRENCY") AND "GLOBI".""."LAW"."Dim_ExchangeRate"."FX_WID" = "GLOBI".""."LAW"."Fact_OpportunityLine"."FX_WID" AND "GLOBI".""."LAW"."Dim_ExchangeRate"."EXCH_CD" =  VALUEOF(NQ_SESSION."USER_FX_RATE")]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-m80000002-c3bc-162a-98ff-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000002-c3bc-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-m00000000-c411-162a-98ff-0a3fce3e0000" objectRef="/oracle/bi/server/base/Variable/00000000-c411-162a-98ff-0a3fce3e0000.xml#m00000000-c411-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-m00000003-c3db-162a-98ff-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m00000003-c3db-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-m40000003-c3c9-162a-98ff-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/00000000-28a8-1627-806e-0a3fce3c0000.xml#m40000003-c3c9-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-m80000001-c3bc-162a-98ff-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000001-c3bc-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-6021-36cc00000000-mc0000001-1978-162b-8a27-0a3fce3e0000" objectRef="/oracle/bi/server/base/Variable/c0000001-1978-162b-8a27-0a3fce3e0000.xml#mc0000001-1978-162b-8a27-0a3fce3e0000"/>
+</ObjectRefList>
+</Expr>
+</ComplexJoin>

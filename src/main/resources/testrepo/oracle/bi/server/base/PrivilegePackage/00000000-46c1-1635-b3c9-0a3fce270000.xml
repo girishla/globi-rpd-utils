@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PrivilegePackage mdsid="m00000000-46c1-1635-b3c9-0a3fce270000" name="PrivPack_4209:136841490361058" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" roleRef="/oracle/bi/server/base/Group/00000000-4694-1635-b3c9-0a3fce270000.xml#m00000000-4694-1635-b3c9-0a3fce270000" LogicalQueryMaxExecTime="0">
+<FilterMapping status="enable" objectTypeId="2035" objectRef="/oracle/bi/server/base/LogicalTable/c0000000-b899-162a-ac27-0a3fce3e0000.xml#mc0000000-b899-162a-ac27-0a3fce3e0000">
+<Expr mdsid="m00000001-01f4-0000-f52c-547200000000" name="Expr">
+<ExprText><![CDATA["%1" = 'New Zealand']]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Customer"."BU PGUID" = 'New Zealand']]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-f52c-547200000000-mc0000030-b89c-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/c0000000-b899-162a-ac27-0a3fce3e0000.xml#mc0000030-b89c-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</Expr>
+</FilterMapping>
+</PrivilegePackage>

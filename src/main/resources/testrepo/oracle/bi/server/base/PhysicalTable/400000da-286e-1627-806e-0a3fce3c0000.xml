@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m400000da-286e-1627-806e-0a3fce3c0000" name="D_FIN_ACCNT_X" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m400000db-286e-1627-806e-0a3fce3c0000" name="ACCNT_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000dc-286e-1627-806e-0a3fce3c0000" name="ACCNT_NUM" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000dd-286e-1627-806e-0a3fce3c0000" name="ACCNT_REF" dataType="VARCHAR" precision="15" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000de-286e-1627-806e-0a3fce3c0000" name="ACCNT_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000df-286e-1627-806e-0a3fce3c0000" name="ACCNT_TYPE" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e0-286e-1627-806e-0a3fce3c0000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e1-286e-1627-806e-0a3fce3c0000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e2-286e-1627-806e-0a3fce3c0000" name="CUST_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e3-286e-1627-806e-0a3fce3c0000" name="CUST_NUM" dataType="VARCHAR" precision="15" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e4-286e-1627-806e-0a3fce3c0000" name="CUST_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e5-286e-1627-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e6-286e-1627-806e-0a3fce3c0000" name="DELETE_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e7-286e-1627-806e-0a3fce3c0000" name="EFF_END_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e8-286e-1627-806e-0a3fce3c0000" name="EFF_START_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000e9-286e-1627-806e-0a3fce3c0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000ea-286e-1627-806e-0a3fce3c0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000eb-286e-1627-806e-0a3fce3c0000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000ec-286e-1627-806e-0a3fce3c0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000ed-286e-1627-806e-0a3fce3c0000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000ee-286e-1627-806e-0a3fce3c0000" name="PR_POS_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000ef-286e-1627-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000f0-286e-1627-806e-0a3fce3c0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000f1-286e-1627-806e-0a3fce3c0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000f2-286e-1627-806e-0a3fce3c0000" name="TZ_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000f3-286e-1627-806e-0a3fce3c0000" name="W_CREATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000f4-286e-1627-806e-0a3fce3c0000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000003-37bd-1672-806e-0a3fce2f0000" name="LD_DEPLOYMENT_STATUS" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000008-37bd-1672-806e-0a3fce2f0000" name="LD_INDICATOR_DESCR" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000001-37bd-1672-806e-0a3fce2f0000" name="LD_LICENSES" dataType="VARCHAR" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000006-37bd-1672-806e-0a3fce2f0000" name="LD_TARGET_USERS" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000000b-37bd-1672-806e-0a3fce2f0000" name="LD_TOTAL_USERS" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000010-37bd-1672-806e-0a3fce2f0000" name="LD_TRAINED_USERS" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000015-37bd-1672-806e-0a3fce2f0000" name="LD_TYPE_DESCR" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000001a-37bd-1672-806e-0a3fce2f0000" name="LD_VERSION" dataType="VARCHAR" precision="20" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

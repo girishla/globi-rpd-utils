@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PresentationTable mdsid="m40000001-6dc5-167d-806e-c0a838100000" name="Lookup - DMR Discrepancies" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" hasDispName="false" hasDispDescription="false" containerRef="/oracle/bi/server/base/PresentationCatalog/40000000-6dc5-167d-806e-c0a838100000.xml#m40000000-6dc5-167d-806e-c0a838100000">
+<PresentationColumn mdsid="m40000002-6dc5-167d-806e-c0a838100000" name="Key (RUN_ID)" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m80000003-9a35-1670-806e-0ab93c9f0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m40000003-6dc5-167d-806e-c0a838100000" name="Key (LOCATION)" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3a-1670-806e-0ab93c9f0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m40000004-6dc5-167d-806e-c0a838100000" name="Data" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3b-1670-806e-0ab93c9f0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m40000005-6dc5-167d-806e-c0a838100000" name="Data Hash" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000">
+</PresentationColumn>
+</PresentationTable>

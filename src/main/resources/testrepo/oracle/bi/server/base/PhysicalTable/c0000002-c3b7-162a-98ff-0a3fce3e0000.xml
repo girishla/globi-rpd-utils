@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc0000002-c3b7-162a-98ff-0a3fce3e0000" name="D_FX_RATE_M" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[D_FX_RATE_M]]></Value>
+</DBMapItem>
+<PhysicalColumn mdsid="mc0000003-c3b7-162a-98ff-0a3fce3e0000" name="EXCH_CD" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000004-c3b7-162a-98ff-0a3fce3e0000" name="CURCY_CD_TO" dataType="VARCHAR" precision="3" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000007-c3b7-162a-98ff-0a3fce3e0000" name="EXCH_RATE" dataType="DOUBLE" scale="7" precision="22" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000008-c3b7-162a-98ff-0a3fce3e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000002-c3db-162a-98ff-0a3fce3e0000" name="FX_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

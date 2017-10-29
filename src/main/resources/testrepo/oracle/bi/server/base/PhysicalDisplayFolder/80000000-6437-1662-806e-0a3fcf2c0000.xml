@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalDisplayFolder mdsid="m80000000-6437-1662-806e-0a3fcf2c0000" name="Entitlement Model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" databaseRef="/oracle/bi/server/base/Database/40000000-286e-1627-806e-0a3fce3c0000.xml#m40000000-286e-1627-806e-0a3fce3c0000">
+<RefTables>
+<RefPhysicalTable refId="m80000000-6437-1662-806e-0a3fcf2c0000-m80000000-b664-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b664-162a-ac27-0a3fce3e0000.xml#m80000000-b664-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m80000000-6437-1662-806e-0a3fcf2c0000-m00000000-b661-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/00000000-b661-162a-ac27-0a3fce3e0000.xml#m00000000-b661-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m80000000-6437-1662-806e-0a3fcf2c0000-m80000000-b680-162a-ac27-0a3fce3e0000" tableRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000000-b680-162a-ac27-0a3fce3e0000"/>
+<RefPhysicalTable refId="m80000000-6437-1662-806e-0a3fcf2c0000-m40000000-287d-1627-806e-0a3fce3c0000" tableRef="/oracle/bi/server/base/PhysicalTable/40000000-287d-1627-806e-0a3fce3c0000.xml#m40000000-287d-1627-806e-0a3fce3c0000"/>
+</RefTables>
+</PhysicalDisplayFolder>

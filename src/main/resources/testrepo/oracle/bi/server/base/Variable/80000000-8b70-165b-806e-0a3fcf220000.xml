@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="m80000000-8b70-165b-806e-0a3fcf220000" name="PROXYLEVEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" initBlockRef="/oracle/bi/server/base/InitBlock/00000000-8aed-165b-806e-0a3fcf220000.xml#m00000000-8aed-165b-806e-0a3fcf220000">
+<Expr mdsid="m00000001-01f4-0000-ebba-585400000000" name="Expr">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</Expr>
+</Variable>

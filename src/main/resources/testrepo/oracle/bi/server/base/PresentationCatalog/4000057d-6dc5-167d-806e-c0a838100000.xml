@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PresentationCatalog mdsid="m4000057d-6dc5-167d-806e-c0a838100000" name="Global Reporting - Lookup - Data Source" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" hasDispName="false" hasDispDescription="false" isAutoAggr="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<RefTables>
+<RefPresentationTable refId="m4000057d-6dc5-167d-806e-c0a838100000-m4000057e-6dc5-167d-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/4000057e-6dc5-167d-806e-c0a838100000.xml#m4000057e-6dc5-167d-806e-c0a838100000"/>
+</RefTables>
+</PresentationCatalog>

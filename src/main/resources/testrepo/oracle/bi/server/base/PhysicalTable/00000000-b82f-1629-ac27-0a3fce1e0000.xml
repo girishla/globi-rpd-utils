@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m00000000-b82f-1629-ac27-0a3fce1e0000" name="D_PERIOD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m00000002-b82f-1629-ac27-0a3fce1e0000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000004-b82f-1629-ac27-0a3fce1e0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000005-b82f-1629-ac27-0a3fce1e0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000006-b82f-1629-ac27-0a3fce1e0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000007-b82f-1629-ac27-0a3fce1e0000" name="HLF_END_DT" dataType="DATETIME" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000008-b82f-1629-ac27-0a3fce1e0000" name="HLF_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000009-b82f-1629-ac27-0a3fce1e0000" name="HLF_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000a-b82f-1629-ac27-0a3fce1e0000" name="HLF_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000b-b82f-1629-ac27-0a3fce1e0000" name="HLF_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000c-b82f-1629-ac27-0a3fce1e0000" name="HLF_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000d-b82f-1629-ac27-0a3fce1e0000" name="HLF_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000e-b82f-1629-ac27-0a3fce1e0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000f-b82f-1629-ac27-0a3fce1e0000" name="PER_END_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000010-b82f-1629-ac27-0a3fce1e0000" name="PER_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000011-b82f-1629-ac27-0a3fce1e0000" name="PER_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000012-b82f-1629-ac27-0a3fce1e0000" name="PER_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000013-b82f-1629-ac27-0a3fce1e0000" name="PER_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000014-b82f-1629-ac27-0a3fce1e0000" name="PER_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000015-b82f-1629-ac27-0a3fce1e0000" name="PER_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000016-b82f-1629-ac27-0a3fce1e0000" name="PER_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000017-b82f-1629-ac27-0a3fce1e0000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000018-b82f-1629-ac27-0a3fce1e0000" name="QTR_END_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000019-b82f-1629-ac27-0a3fce1e0000" name="QTR_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001a-b82f-1629-ac27-0a3fce1e0000" name="QTR_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001b-b82f-1629-ac27-0a3fce1e0000" name="QTR_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001c-b82f-1629-ac27-0a3fce1e0000" name="QTR_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001d-b82f-1629-ac27-0a3fce1e0000" name="QTR_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001e-b82f-1629-ac27-0a3fce1e0000" name="QTR_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001f-b82f-1629-ac27-0a3fce1e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000020-b82f-1629-ac27-0a3fce1e0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000021-b82f-1629-ac27-0a3fce1e0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000022-b82f-1629-ac27-0a3fce1e0000" name="W_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000023-b82f-1629-ac27-0a3fce1e0000" name="W_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000024-b82f-1629-ac27-0a3fce1e0000" name="YR_END_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000025-b82f-1629-ac27-0a3fce1e0000" name="YR_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000026-b82f-1629-ac27-0a3fce1e0000" name="YR_HLF" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000027-b82f-1629-ac27-0a3fce1e0000" name="YR_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000028-b82f-1629-ac27-0a3fce1e0000" name="YR_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000029-b82f-1629-ac27-0a3fce1e0000" name="YR_PER" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002a-b82f-1629-ac27-0a3fce1e0000" name="YR_QTR" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002b-b82f-1629-ac27-0a3fce1e0000" name="YR_START_DT" dataType="DATETIME" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002c-b82f-1629-ac27-0a3fce1e0000" name="YR_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000001-202d-165e-806e-0a3fcf3a0000" name="CALENDAR" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InitBlock mdsid="m00000000-35ac-1678-806e-ac1d61f70000" name="Set Hierarchy Level" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" refreshPeriod="86400" connectionPoolRef="/oracle/bi/server/base/ConnectionPool/40000000-c408-162a-98ff-0a3fce3e0000.xml#m40000000-c408-162a-98ff-0a3fce3e0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT COALESCE((SELECT ROUND(POSTN_LVL_CURR)-1
+FROM D_POSITION_H
+JOIN D_POSITION
+ON D_POSITION.ROW_WID     =D_POSITION_H.ROW_WID
+WHERE D_POSITION.EMP_LOGIN= UPPER(':USER')
+AND D_POSITION.CURRENT_FLG='Y'
+AND D_POSITION.ACTV_FLG='Y'), 9)
+FROM   DUAL;
+
+
+]]></Value>
+</DBMapItem>
+<RefVariables>
+<RefVariable refId="m00000000-35ac-1678-806e-ac1d61f70000-mc0000000-35af-1678-806e-ac1d61f70000" variableRef="/oracle/bi/server/base/Variable/c0000000-35af-1678-806e-ac1d61f70000.xml#mc0000000-35af-1678-806e-ac1d61f70000"/>
+</RefVariables>
+<InitString><![CDATA[SELECT COALESCE((SELECT ROUND(POSTN_LVL_CURR)-1
+FROM D_POSITION_H
+JOIN D_POSITION
+ON D_POSITION.ROW_WID     =D_POSITION_H.ROW_WID
+WHERE D_POSITION.EMP_LOGIN= UPPER(':USER')
+AND D_POSITION.CURRENT_FLG='Y'
+AND D_POSITION.ACTV_FLG='Y'), 9)
+FROM   DUAL;
+
+
+]]></InitString>
+</InitBlock>

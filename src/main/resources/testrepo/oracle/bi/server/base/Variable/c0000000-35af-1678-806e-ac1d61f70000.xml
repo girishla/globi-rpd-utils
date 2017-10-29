@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="mc0000000-35af-1678-806e-ac1d61f70000" name="HIER_LEVEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" initBlockRef="/oracle/bi/server/base/InitBlock/00000000-35ac-1678-806e-ac1d61f70000.xml#m00000000-35ac-1678-806e-ac1d61f70000">
+<Expr mdsid="m00000001-01f4-0000-6cb7-91dc00000000" name="Expr">
+<ExprText><![CDATA[9]]></ExprText>
+<ExprTextDesc><![CDATA[9]]></ExprTextDesc>
+</Expr>
+</Variable>

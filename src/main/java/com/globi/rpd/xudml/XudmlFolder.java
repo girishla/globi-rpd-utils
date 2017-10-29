@@ -15,7 +15,7 @@ public class XudmlFolder {
 	
 	public XudmlFolder(String uri) throws IOException{
 		
-		this.resources=Arrays.asList(ResourceFactory.loadResources(uri));
+		this.resources=Arrays.asList(ResourceFactory.loadResources(uri + "/*.xml"));
 		
 	}
 

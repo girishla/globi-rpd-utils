@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m40000000-b67d-162a-ac27-0a3fce3e0000" name="Dim_Customer_Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" pollFreq="0" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000" sourceTableRef="/oracle/bi/server/base/PhysicalTable/40000060-286e-1627-806e-0a3fce3c0000.xml#m40000060-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m40000001-b67d-162a-ac27-0a3fce3e0000" name="ACCNT_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000060-286e-1627-806e-0a3fce3c0000.xml#m40000061-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000002-b67d-162a-ac27-0a3fce3e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/40000060-286e-1627-806e-0a3fce3c0000.xml#m40000062-286e-1627-806e-0a3fce3c0000">
+</PhysicalColumn>
+<PhysicalKey mdsid="mc0000000-b6bf-162a-ac27-0a3fce3e0000" name="PK">
+<RefColumns>
+<RefColumn refId="mc0000000-b6bf-162a-ac27-0a3fce3e0000-m40000002-b67d-162a-ac27-0a3fce3e0000" columnRef="/oracle/bi/server/base/PhysicalTable/40000000-b67d-162a-ac27-0a3fce3e0000.xml#m40000002-b67d-162a-ac27-0a3fce3e0000"/>
+</RefColumns>
+</PhysicalKey>
+</PhysicalTable>

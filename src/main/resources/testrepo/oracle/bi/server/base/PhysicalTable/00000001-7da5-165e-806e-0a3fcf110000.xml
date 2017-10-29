@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m00000001-7da5-165e-806e-0a3fcf110000" name="D_AGREE_REV" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m00000003-7da5-165e-806e-0a3fcf110000" name="AGREE_NUM" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000005-7da5-165e-806e-0a3fcf110000" name="AGREE_PGUID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000007-7da5-165e-806e-0a3fcf110000" name="AGREE_REV" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000009-7da5-165e-806e-0a3fcf110000" name="AGREE_START_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000b-7da5-165e-806e-0a3fcf110000" name="AGREE_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000d-7da5-165e-806e-0a3fcf110000" name="AGREE_TYPE" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000f-7da5-165e-806e-0a3fcf110000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000011-7da5-165e-806e-0a3fcf110000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000013-7da5-165e-806e-0a3fcf110000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000015-7da5-165e-806e-0a3fcf110000" name="DELETE_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000017-7da5-165e-806e-0a3fcf110000" name="EFF_END_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000019-7da5-165e-806e-0a3fcf110000" name="EFF_START_DT" dataType="DATETIME" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001b-7da5-165e-806e-0a3fcf110000" name="END_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001d-7da5-165e-806e-0a3fcf110000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000001f-7da5-165e-806e-0a3fcf110000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000021-7da5-165e-806e-0a3fcf110000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000023-7da5-165e-806e-0a3fcf110000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000025-7da5-165e-806e-0a3fcf110000" name="MYD_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000027-7da5-165e-806e-0a3fcf110000" name="MYD_TRM" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000029-7da5-165e-806e-0a3fcf110000" name="MYD_YR" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002b-7da5-165e-806e-0a3fcf110000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002d-7da5-165e-806e-0a3fcf110000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000002f-7da5-165e-806e-0a3fcf110000" name="START_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000031-7da5-165e-806e-0a3fcf110000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000033-7da5-165e-806e-0a3fcf110000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000035-7da5-165e-806e-0a3fcf110000" name="TZ_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000037-7da5-165e-806e-0a3fcf110000" name="W_CREATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000039-7da5-165e-806e-0a3fcf110000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000003b-7da5-165e-806e-0a3fcf110000" name="AGREE_END_DT" dataType="DATETIME" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000003d-7da5-165e-806e-0a3fcf110000" name="AGREE_NAME" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

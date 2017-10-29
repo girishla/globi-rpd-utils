@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="m80000000-b90c-162a-ac27-0a3fce3e0000" name="Lookup - Data Source" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isLookupTable="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="m00000032-b90f-162a-ac27-0a3fce3e0000" name="Key (WID)" isWriteable="false">
+<AttributeDefn mdsid="m00000001-01f4-0000-02ca-b45f00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."ROW_WID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-02ca-b45f00000000-m8000000d-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m8000000d-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000030-b90f-162a-ac27-0a3fce3e0000" name="Integration ID" isWriteable="false">
+<AttributeDefn mdsid="m00000002-01f4-0000-8adf-9c6400000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."INTEGRATION_ID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-8adf-9c6400000000-m8000000b-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m8000000b-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000031-b90f-162a-ac27-0a3fce3e0000" name="PGUID" isWriteable="false">
+<AttributeDefn mdsid="m00000003-01f4-0000-dd54-e8ff00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."PGUID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000003-01f4-0000-dd54-e8ff00000000-m8000000c-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m8000000c-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m40000003-b966-162a-ac27-0a3fce3e0000" name="------------------[ Attributes ]------------------" isWriteable="false">
+<AttributeDefn mdsid="m00000004-01f4-0000-b385-210300000000" name="AttributeDefn">
+<ExprText><![CDATA['Do Not Use']]></ExprText>
+<ExprTextDesc><![CDATA['Do Not Use']]></ExprTextDesc>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000002a-b90f-162a-ac27-0a3fce3e0000" name="Source Code" isWriteable="false">
+<AttributeDefn mdsid="m00000005-01f4-0000-286d-078000000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."DS_NAME"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000005-01f4-0000-286d-078000000000-m80000005-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000005-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m80000003-c7cd-162a-98ff-0a3fce3e0000" name="Source Name" isWriteable="false">
+<AttributeDefn mdsid="m00000006-01f4-0000-2fb6-293600000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."DS_DESC"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000006-01f4-0000-2fb6-293600000000-m40000003-c7c8-162a-98ff-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m40000003-c7c8-162a-98ff-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m40000008-b966-162a-ac27-0a3fce3e0000" name="-------------[ System Attributes ]------------" isWriteable="false">
+<AttributeDefn mdsid="m00000007-01f4-0000-92f6-b2ed00000000" name="AttributeDefn">
+<ExprText><![CDATA['Do Not Use']]></ExprText>
+<ExprTextDesc><![CDATA['Do Not Use']]></ExprTextDesc>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000036-b90f-162a-ac27-0a3fce3e0000" name="DWH Created Date" isWriteable="false">
+<AttributeDefn mdsid="m00000008-01f4-0000-86b5-380600000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."W_CREATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000008-01f4-0000-86b5-380600000000-m80000011-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000011-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000037-b90f-162a-ac27-0a3fce3e0000" name="DWH Updated Date" isWriteable="false">
+<AttributeDefn mdsid="m00000009-01f4-0000-684f-491800000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."W_UPDATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000009-01f4-0000-684f-491800000000-m80000012-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000012-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m0000002d-b90f-162a-ac27-0a3fce3e0000" name="ETL Process ID" isWriteable="false">
+<AttributeDefn mdsid="m0000000a-01f4-0000-ecfa-0cba00000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."ETL_PROC_WID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000a-01f4-0000-ecfa-0cba00000000-m80000008-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m80000008-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000033-b90f-162a-ac27-0a3fce3e0000" name="Source Created Date" isWriteable="false">
+<AttributeDefn mdsid="m0000000b-01f4-0000-2d63-7e8000000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."S_CREATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000b-01f4-0000-2d63-7e8000000000-m8000000e-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m8000000e-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalColumn mdsid="m00000034-b90f-162a-ac27-0a3fce3e0000" name="Source Updated Date" isWriteable="false">
+<AttributeDefn mdsid="m0000000c-01f4-0000-bc50-ed4100000000" name="AttributeDefn">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_DataSource"."S_UPDATED_DT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m0000000c-01f4-0000-bc50-ed4100000000-m8000000f-b680-162a-ac27-0a3fce3e0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-b680-162a-ac27-0a3fce3e0000.xml#m8000000f-b680-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</AttributeDefn>
+</LogicalColumn>
+<LogicalKey mdsid="m00000038-b90f-162a-ac27-0a3fce3e0000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="m00000038-b90f-162a-ac27-0a3fce3e0000-m00000032-b90f-162a-ac27-0a3fce3e0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m00000032-b90f-162a-ac27-0a3fce3e0000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="m80000000-b90c-162a-ac27-0a3fce3e0000-m0000004b-b90f-162a-ac27-0a3fce3e0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/0000004b-b90f-162a-ac27-0a3fce3e0000.xml#m0000004b-b90f-162a-ac27-0a3fce3e0000"/>
+</RefTableSources>
+</LogicalTable>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="mc0000001-1978-162b-8a27-0a3fce3e0000" name="USER_FX_RATE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" initBlockRef="/oracle/bi/server/base/InitBlock/00000000-c40b-162a-98ff-0a3fce3e0000.xml#m00000000-c40b-162a-98ff-0a3fce3e0000">
+<Expr mdsid="m00000001-01f4-0000-dff0-0a5f00000000" name="Expr">
+<ExprText><![CDATA['Daily']]></ExprText>
+<ExprTextDesc><![CDATA['Daily']]></ExprTextDesc>
+</Expr>
+</Variable>

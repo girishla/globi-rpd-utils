@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Group mdsid="m00000000-0000-0000-0000-000000010101" name="BIAuthor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository">
+<Description><![CDATA[BI EE Authors]]></Description>
+<RefChildGroups>
+<RefGroup refId="m00000000-0000-0000-0000-000000010101-m00000000-0000-0000-0000-000000000101" groupRef="/oracle/bi/server/base/Group/00000000-0000-0000-0000-000000000101.xml#m00000000-0000-0000-0000-000000000101"/>
+</RefChildGroups>
+</Group>

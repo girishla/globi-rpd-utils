@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InitBlock mdsid="m00000000-8aed-165b-806e-0a3fcf220000" name="SET_RUNAS_USERS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" refreshPeriod="86400" connectionPoolRef="/oracle/bi/server/base/ConnectionPool/40000000-c408-162a-98ff-0a3fce3e0000.xml#m40000000-c408-162a-98ff-0a3fce3e0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT
+	USR_ID
+,	LVL
+FROM
+	S_GLOBI_USER_PROXY_V
+WHERE
+	UPPER('VALUEOF(NQ_SESSION.RUNAS)')=PRXY_USR_ID
+AND	UPPER(PRXY_USR_ID)=UPPER(':USER')]]></Value>
+</DBMapItem>
+<RefVariables>
+<RefVariable refId="m00000000-8aed-165b-806e-0a3fcf220000-m00000000-8b56-165b-806e-0a3fcf220000" variableRef="/oracle/bi/server/base/Variable/00000000-8b56-165b-806e-0a3fcf220000.xml#m00000000-8b56-165b-806e-0a3fcf220000"/>
+<RefVariable refId="m00000000-8aed-165b-806e-0a3fcf220000-m80000000-8b70-165b-806e-0a3fcf220000" variableRef="/oracle/bi/server/base/Variable/80000000-8b70-165b-806e-0a3fcf220000.xml#m80000000-8b70-165b-806e-0a3fcf220000"/>
+</RefVariables>
+<InitString><![CDATA[SELECT
+	USR_ID
+,	LVL
+FROM
+	S_GLOBI_USER_PROXY_V
+WHERE
+	UPPER('VALUEOF(NQ_SESSION.RUNAS)')=PRXY_USR_ID
+AND	UPPER(PRXY_USR_ID)=UPPER(':USER')]]></InitString>
+</InitBlock>

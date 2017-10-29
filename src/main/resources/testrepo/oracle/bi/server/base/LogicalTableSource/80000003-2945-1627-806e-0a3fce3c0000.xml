@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTableSource mdsid="m80000003-2945-1627-806e-0a3fce3c0000" name="Dim_FinancialAccount_Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isActive="true" logicalTableRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000000-28bc-1627-806e-0a3fce3c0000">
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000001-01f4-0000-8fd4-ccc800000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Financial Account"."Key (WID)"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-8fd4-ccc800000000-m40000018-28bc-1627-806e-0a3fce3c0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000018-28bc-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000002-01f4-0000-0865-673700000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Common"."ROW_WID"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-0865-673700000000-m80000004-2893-1627-806e-0a3fce3c0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000004-2893-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000003-01f4-0000-b9e4-31fd00000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Financial Account"."Account Name"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000003-01f4-0000-b9e4-31fd00000000-m40000003-28bc-1627-806e-0a3fce3c0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000003-28bc-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000004-01f4-0000-e1d1-070800000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Common"."ACCNT_NAME"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000004-01f4-0000-e1d1-070800000000-m80000001-2893-1627-806e-0a3fce3c0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000001-2893-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000005-01f4-0000-35b6-a05300000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Financial Account"."Account Number"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000005-01f4-0000-35b6-a05300000000-m40000004-28bc-1627-806e-0a3fce3c0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000004-28bc-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000006-01f4-0000-8b07-dd9a00000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Common"."ACCNT_NUM"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000006-01f4-0000-8b07-dd9a00000000-m80000002-2893-1627-806e-0a3fce3c0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000002-2893-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000007-01f4-0000-5b5b-0bf100000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Financial Account"."Account Status"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000007-01f4-0000-5b5b-0bf100000000-m40000007-28bc-1627-806e-0a3fce3c0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000007-28bc-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000008-01f4-0000-6309-41df00000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_FinancialAccount_Common"."ACCNT_STAT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000008-01f4-0000-6309-41df00000000-m80000003-2893-1627-806e-0a3fce3c0000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000003-2893-1627-806e-0a3fce3c0000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<Link startNodeTableRef="/oracle/bi/server/base/PhysicalTable/80000000-2893-1627-806e-0a3fce3c0000.xml#m80000000-2893-1627-806e-0a3fce3c0000">
+</Link>
+<WhereClause mdsid="m00000009-01f4-0000-faa0-8c7c00000000" name="WhereClause">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</WhereClause>
+<GroupBy mdsid="m0000000a-01f4-0000-c908-c51100000000" name="GroupBy">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</GroupBy>
+<FragmentContent mdsid="m0000000b-01f4-0000-7ade-799500000000" name="FragmentContent">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</FragmentContent>
+</LogicalTableSource>

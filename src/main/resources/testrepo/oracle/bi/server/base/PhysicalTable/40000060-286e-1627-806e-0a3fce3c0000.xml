@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m40000060-286e-1627-806e-0a3fce3c0000" name="D_CUSTOMER_M" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m40000061-286e-1627-806e-0a3fce3c0000" name="ACCNT_NAME" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000062-286e-1627-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

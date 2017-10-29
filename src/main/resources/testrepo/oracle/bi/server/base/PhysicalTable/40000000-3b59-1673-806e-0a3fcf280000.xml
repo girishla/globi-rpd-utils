@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m40000000-3b59-1673-806e-0a3fcf280000" name="Dim_Period_PerformanceMetricSnapshot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" pollFreq="0" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000" sourceTableRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000000-b82f-1629-ac27-0a3fce1e0000">
+<PhysicalColumn mdsid="m40000007-3b59-1673-806e-0a3fcf280000" name="HLF_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000009-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000008-3b59-1673-806e-0a3fcf280000" name="HLF_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000a-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000009-3b59-1673-806e-0a3fcf280000" name="HLF_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000b-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000a-3b59-1673-806e-0a3fcf280000" name="HLF_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000c-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000b-3b59-1673-806e-0a3fcf280000" name="HLF_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000d-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000c-3b59-1673-806e-0a3fcf280000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000e-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000d-3b59-1673-806e-0a3fcf280000" name="PER_END_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000000f-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000e-3b59-1673-806e-0a3fcf280000" name="PER_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000010-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000f-3b59-1673-806e-0a3fcf280000" name="PER_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000011-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000010-3b59-1673-806e-0a3fcf280000" name="PER_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000012-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000011-3b59-1673-806e-0a3fcf280000" name="PER_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000013-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000012-3b59-1673-806e-0a3fcf280000" name="PER_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000014-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000013-3b59-1673-806e-0a3fcf280000" name="PER_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000015-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000014-3b59-1673-806e-0a3fcf280000" name="PER_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000016-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000015-3b59-1673-806e-0a3fcf280000" name="PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000017-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000016-3b59-1673-806e-0a3fcf280000" name="QTR_END_DT" dataType="DATETIME" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000018-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000017-3b59-1673-806e-0a3fcf280000" name="QTR_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000019-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000018-3b59-1673-806e-0a3fcf280000" name="QTR_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001a-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000019-3b59-1673-806e-0a3fcf280000" name="QTR_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001b-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001a-3b59-1673-806e-0a3fcf280000" name="QTR_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001c-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001b-3b59-1673-806e-0a3fcf280000" name="QTR_START_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001d-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001c-3b59-1673-806e-0a3fcf280000" name="QTR_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001e-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001d-3b59-1673-806e-0a3fcf280000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000001f-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001e-3b59-1673-806e-0a3fcf280000" name="S_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000020-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000001f-3b59-1673-806e-0a3fcf280000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000021-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000020-3b59-1673-806e-0a3fcf280000" name="W_CREATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000022-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000021-3b59-1673-806e-0a3fcf280000" name="W_UPDATED_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000023-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000022-3b59-1673-806e-0a3fcf280000" name="YR_END_DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000024-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000023-3b59-1673-806e-0a3fcf280000" name="YR_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000025-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000024-3b59-1673-806e-0a3fcf280000" name="YR_HLF" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000026-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000025-3b59-1673-806e-0a3fcf280000" name="YR_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000027-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000026-3b59-1673-806e-0a3fcf280000" name="YR_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000028-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000027-3b59-1673-806e-0a3fcf280000" name="YR_PER" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000029-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000028-3b59-1673-806e-0a3fcf280000" name="YR_QTR" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000002a-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000029-3b59-1673-806e-0a3fcf280000" name="YR_START_DT" dataType="DATETIME" precision="15" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000002b-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000002a-3b59-1673-806e-0a3fcf280000" name="YR_START_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m0000002c-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000002b-3b59-1673-806e-0a3fcf280000" name="CALENDAR" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m40000001-202d-165e-806e-0a3fcf3a0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000001-3b59-1673-806e-0a3fcf280000" name="BU_PGUID" dataType="VARCHAR" precision="100" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000002-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000002-3b59-1673-806e-0a3fcf280000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000004-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000003-3b59-1673-806e-0a3fcf280000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000005-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000004-3b59-1673-806e-0a3fcf280000" name="HASH_RECORD" dataType="VARCHAR" precision="32" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000006-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000005-3b59-1673-806e-0a3fcf280000" name="HLF_END_DT" dataType="DATETIME" precision="32" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000007-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000006-3b59-1673-806e-0a3fcf280000" name="HLF_END_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/00000000-b82f-1629-ac27-0a3fce1e0000.xml#m00000008-b82f-1629-ac27-0a3fce1e0000">
+</PhysicalColumn>
+<PhysicalKey mdsid="m00000000-3b70-1673-806e-0a3fcf280000" name="Dim_Period_PerformanceMetricSnapshot_Key">
+<RefColumns>
+<RefColumn refId="m00000000-3b70-1673-806e-0a3fcf280000-m40000014-3b59-1673-806e-0a3fcf280000" columnRef="/oracle/bi/server/base/PhysicalTable/40000000-3b59-1673-806e-0a3fcf280000.xml#m40000014-3b59-1673-806e-0a3fcf280000"/>
+<RefColumn refId="m00000000-3b70-1673-806e-0a3fcf280000-m4000002b-3b59-1673-806e-0a3fcf280000" columnRef="/oracle/bi/server/base/PhysicalTable/40000000-3b59-1673-806e-0a3fcf280000.xml#m4000002b-3b59-1673-806e-0a3fcf280000"/>
+</RefColumns>
+</PhysicalKey>
+</PhysicalTable>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m400000d5-286e-1627-806e-0a3fce3c0000" name="D_FIN_ACCNT_M" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m400000d6-286e-1627-806e-0a3fce3c0000" name="ACCNT_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000d7-286e-1627-806e-0a3fce3c0000" name="ACCNT_NUM" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000d8-286e-1627-806e-0a3fce3c0000" name="ACCNT_STAT" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m400000d9-286e-1627-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

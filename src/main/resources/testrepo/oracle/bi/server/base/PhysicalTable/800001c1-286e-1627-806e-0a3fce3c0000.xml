@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m800001c1-286e-1627-806e-0a3fce3c0000" name="F_OPTY_LN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[F_OPTY_LN]]></Value>
+</DBMapItem>
+<PhysicalColumn mdsid="m800001c2-286e-1627-806e-0a3fce3c0000" name="AG_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c3-286e-1627-806e-0a3fce3c0000" name="BU_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c5-286e-1627-806e-0a3fce3c0000" name="DT_CL_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c6-286e-1627-806e-0a3fce3c0000" name="CON_PR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c7-286e-1627-806e-0a3fce3c0000" name="CUST_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c8-286e-1627-806e-0a3fce3c0000" name="DOC_AMT" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001c9-286e-1627-806e-0a3fce3c0000" name="CURCY_CD" dataType="VARCHAR" precision="3" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001ca-286e-1627-806e-0a3fce3c0000" name="DOC_AMT_DISCNT" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001cb-286e-1627-806e-0a3fce3c0000" name="DT_FX_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001cc-286e-1627-806e-0a3fce3c0000" name="DOC_AMT_MPO" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001cd-286e-1627-806e-0a3fce3c0000" name="DOC_AMT_RRP" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001ce-286e-1627-806e-0a3fce3c0000" name="DOC_AMT_TAX" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001cf-286e-1627-806e-0a3fce3c0000" name="DT_END_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d0-286e-1627-806e-0a3fce3c0000" name="FA_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d1-286e-1627-806e-0a3fce3c0000" name="MYD_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d2-286e-1627-806e-0a3fce3c0000" name="OP_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d3-286e-1627-806e-0a3fce3c0000" name="DT_CR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d4-286e-1627-806e-0a3fce3c0000" name="POS_PR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d5-286e-1627-806e-0a3fce3c0000" name="PROD_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d6-286e-1627-806e-0a3fce3c0000" name="QTY" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d7-286e-1627-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d8-286e-1627-806e-0a3fce3c0000" name="DT_START_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001d9-286e-1627-806e-0a3fce3c0000" name="DT_STG_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001da-286e-1627-806e-0a3fce3c0000" name="STG_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001db-286e-1627-806e-0a3fce3c0000" name="SUBR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m800001dc-286e-1627-806e-0a3fce3c0000" name="SUB_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000002-c3c9-162a-98ff-0a3fce3e0000" name="FX_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-61e5-162e-ac27-0aac74cf0000" name="USR_CR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000003-2f5a-1639-b07b-ac1d84090000" name="DT_OP_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000003-926d-163b-b3c9-ac1d82620000" name="USR_PR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000003-ff88-163b-8edd-ac1d82620000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-2094-165e-806e-0a3fcf3a0000" name="AGR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000003-2095-165e-806e-0a3fcf3a0000" name="AGR_CUR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000001-209c-165e-806e-0a3fcf3a0000" name="ACTN_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-20a3-165e-806e-0a3fcf3a0000" name="PROD_PAR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000003-032b-166c-806e-0ab93ccb0000" name="DOC_AMT_ANNUAL" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-032c-166c-806e-0ab93ccb0000" name="DOC_AMT_PB" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000003-032d-166c-806e-0ab93ccb0000" name="DOC_AMT_CC" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000003-0334-166c-806e-0ab93ccb0000" name="CAM_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000003-7f0e-1674-806e-0ab93d370000" name="DT_UP_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000000-e88f-1674-806e-ac1d635d0000" name="GBL_AMT_POS_ANNUAL" dataType="DOUBLE" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000000-e893-1674-806e-ac1d635d0000" name="GBL_AMT_POS" dataType="DOUBLE" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000000-e888-1674-806e-ac1d635d0000" name="DOC_AMT_POS_ANNUAL" dataType="DOUBLE" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000000-e88c-1674-806e-ac1d635d0000" name="DOC_AMT_POS" dataType="DOUBLE" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

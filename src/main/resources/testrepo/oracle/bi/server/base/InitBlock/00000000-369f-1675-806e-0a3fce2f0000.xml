@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InitBlock mdsid="m00000000-369f-1675-806e-0a3fce2f0000" name="USER_CACHE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" refreshPeriod="86400" connectionPoolRef="/oracle/bi/server/base/ConnectionPool/40000000-c408-162a-98ff-0a3fce3e0000.xml#m40000000-c408-162a-98ff-0a3fce3e0000">
+<DBMapItem name="Oracle12c">
+<Value><![CDATA[SELECT 1 FROM DUAL]]></Value>
+</DBMapItem>
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT 1 FROM DUAL]]></Value>
+</DBMapItem>
+<RefVariables>
+<RefVariable refId="m00000000-369f-1675-806e-0a3fce2f0000-m00000000-369e-1675-806e-0a3fce2f0000" variableRef="/oracle/bi/server/base/Variable/00000000-369e-1675-806e-0a3fce2f0000.xml#m00000000-369e-1675-806e-0a3fce2f0000"/>
+</RefVariables>
+<InitString><![CDATA[SELECT 1 FROM DUAL]]></InitString>
+</InitBlock>

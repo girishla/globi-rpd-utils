@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m80000000-c3bc-162a-98ff-0a3fce3e0000" name="Dim_ExchangeRate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" pollFreq="0" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000" sourceTableRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#mc0000002-c3b7-162a-98ff-0a3fce3e0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[D_FX_RATE_M]]></Value>
+</DBMapItem>
+<PhysicalColumn mdsid="m80000001-c3bc-162a-98ff-0a3fce3e0000" name="EXCH_CD" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#mc0000003-c3b7-162a-98ff-0a3fce3e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000002-c3bc-162a-98ff-0a3fce3e0000" name="CURCY_CD_TO" dataType="VARCHAR" precision="3" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#mc0000004-c3b7-162a-98ff-0a3fce3e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000005-c3bc-162a-98ff-0a3fce3e0000" name="EXCH_RATE" dataType="DOUBLE" scale="7" precision="22" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#mc0000007-c3b7-162a-98ff-0a3fce3e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000006-c3bc-162a-98ff-0a3fce3e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#mc0000008-c3b7-162a-98ff-0a3fce3e0000">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000003-c3db-162a-98ff-0a3fce3e0000" name="FX_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none" sourceColumnRef="/oracle/bi/server/base/PhysicalTable/c0000002-c3b7-162a-98ff-0a3fce3e0000.xml#m00000002-c3db-162a-98ff-0a3fce3e0000">
+</PhysicalColumn>
+<PhysicalKey mdsid="mc0000000-c3ef-162a-98ff-0a3fce3e0000" name="PK">
+<RefColumns>
+<RefColumn refId="mc0000000-c3ef-162a-98ff-0a3fce3e0000-m80000002-c3bc-162a-98ff-0a3fce3e0000" columnRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000002-c3bc-162a-98ff-0a3fce3e0000"/>
+<RefColumn refId="mc0000000-c3ef-162a-98ff-0a3fce3e0000-m80000005-c3bc-162a-98ff-0a3fce3e0000" columnRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m80000005-c3bc-162a-98ff-0a3fce3e0000"/>
+<RefColumn refId="mc0000000-c3ef-162a-98ff-0a3fce3e0000-m00000003-c3db-162a-98ff-0a3fce3e0000" columnRef="/oracle/bi/server/base/PhysicalTable/80000000-c3bc-162a-98ff-0a3fce3e0000.xml#m00000003-c3db-162a-98ff-0a3fce3e0000"/>
+</RefColumns>
+</PhysicalKey>
+</PhysicalTable>

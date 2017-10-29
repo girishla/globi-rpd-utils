@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="m00000000-c2cb-162a-98ff-0a3fce3e0000" name="LAW_TNS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository">
+<Description><![CDATA[The TNS name given to the LexisNexis Analytics Warehouse]]></Description>
+<Expr mdsid="m00000001-01f4-0000-786a-423a00000000" name="Expr">
+<ExprText><![CDATA['LAW']]></ExprText>
+<ExprTextDesc><![CDATA['LAW']]></ExprTextDesc>
+</Expr>
+</Variable>

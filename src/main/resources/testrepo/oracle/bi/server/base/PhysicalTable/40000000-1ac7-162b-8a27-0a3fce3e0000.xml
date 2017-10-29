@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m40000000-1ac7-162b-8a27-0a3fce3e0000" name="D_PERIOD_DT_M" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="m40000002-1ac7-162b-8a27-0a3fce3e0000" name="DT" dataType="DATETIME" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000003-1ac7-162b-8a27-0a3fce3e0000" name="PER_DT_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000004-1ac7-162b-8a27-0a3fce3e0000" name="PER_INDX" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000005-1ac7-162b-8a27-0a3fce3e0000" name="PER_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000006-1ac7-162b-8a27-0a3fce3e0000" name="PER_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000007-1ac7-162b-8a27-0a3fce3e0000" name="ROW_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000008-1ac7-162b-8a27-0a3fce3e0000" name="YR_NAME" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m40000009-1ac7-162b-8a27-0a3fce3e0000" name="YR_NUM" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m4000000a-1ac7-162b-8a27-0a3fce3e0000" name="YR_PER" dataType="VARCHAR" precision="15" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000001-2033-165e-806e-0a3fcf3a0000" name="CALENDAR" dataType="VARCHAR" precision="30" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

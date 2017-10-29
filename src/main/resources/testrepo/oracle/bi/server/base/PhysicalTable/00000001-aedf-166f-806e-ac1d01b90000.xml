@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m00000001-aedf-166f-806e-ac1d01b90000" name="M_DMR_DATA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-fc6b-166b-806e-0ab93ccb0000.xml#m40000001-fc6b-166b-806e-0ab93ccb0000">
+<PhysicalColumn mdsid="m00000003-aedf-166f-806e-ac1d01b90000" name="CREATED_DT" dataType="DATETIME" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000005-aedf-166f-806e-ac1d01b90000" name="HASH" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000007-aedf-166f-806e-ac1d01b90000" name="ID" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m00000009-aedf-166f-806e-ac1d01b90000" name="MIS_LOC" dataType="VARCHAR" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000b-aedf-166f-806e-ac1d01b90000" name="ROW_DATA" dataType="LONGVARCHAR" precision="1000000" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000d-aedf-166f-806e-ac1d01b90000" name="RUN_ID" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m0000000f-aedf-166f-806e-ac1d01b90000" name="UPDATED_DT" dataType="DATETIME" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

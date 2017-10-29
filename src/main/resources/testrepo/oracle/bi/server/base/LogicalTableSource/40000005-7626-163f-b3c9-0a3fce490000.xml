@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTableSource mdsid="m40000005-7626-163f-b3c9-0a3fce490000" name="Dim_Opportunity_Search" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isActive="true" logicalTableRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#m80000000-b980-162a-ac27-0a3fce3e0000">
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000001-01f4-0000-9111-709a00000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Opportunity"."SEARCH_FLG"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-9111-709a00000000-m40000004-7dc0-163f-ab76-0a3fce490000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#m40000004-7dc0-163f-ab76-0a3fce490000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000002-01f4-0000-89a2-df8700000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_Opportunity_Search"."SEARCH_FLG"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-89a2-df8700000000-m80000000-7620-163f-b3c9-0a3fce490000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000001-75d6-163f-b3c9-0a3fce490000.xml#m80000000-7620-163f-b3c9-0a3fce490000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<ColumnMapping>
+<LogicalColumnExpr mdsid="m00000003-01f4-0000-329f-2a5800000000" name="LogicalColumnExpr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Opportunity"."SEARCH_TXT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000003-01f4-0000-329f-2a5800000000-m40000006-7dc0-163f-ab76-0a3fce490000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#m40000006-7dc0-163f-ab76-0a3fce490000"/>
+</ObjectRefList>
+</LogicalColumnExpr>
+<Expr mdsid="m00000004-01f4-0000-dba8-f06300000000" name="Expr">
+<ExprText><![CDATA["%1"]]></ExprText>
+<ExprTextDesc><![CDATA["GLOBI".""."LAW"."Dim_Opportunity_Search"."SEARCH_TXT"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000004-01f4-0000-dba8-f06300000000-m80000000-792c-163f-b3c9-0a3fce490000" objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000001-75d6-163f-b3c9-0a3fce490000.xml#m80000000-792c-163f-b3c9-0a3fce490000"/>
+</ObjectRefList>
+</Expr>
+</ColumnMapping>
+<Link startNodeTableRef="/oracle/bi/server/base/PhysicalTable/80000001-75d6-163f-b3c9-0a3fce490000.xml#m80000001-75d6-163f-b3c9-0a3fce490000">
+</Link>
+<WhereClause mdsid="m00000005-01f4-0000-2001-1e4d00000000" name="WhereClause">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</WhereClause>
+<GroupBy mdsid="m00000006-01f4-0000-1543-764800000000" name="GroupBy">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</GroupBy>
+<FragmentContent mdsid="m00000007-01f4-0000-c4be-d42600000000" name="FragmentContent">
+<ExprText></ExprText>
+<ExprTextDesc></ExprTextDesc>
+</FragmentContent>
+</LogicalTableSource>

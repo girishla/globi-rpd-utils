@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Variable mdsid="m40000000-c2c2-162a-98ff-0a3fce3e0000" name="LAW_USER" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository">
+<Description><![CDATA[The username for the LexisNixes Analytics Warehouse]]></Description>
+<Expr mdsid="m00000001-01f4-0000-cab5-b7ca00000000" name="Expr">
+<ExprText><![CDATA['LAW']]></ExprText>
+<ExprTextDesc><![CDATA['LAW']]></ExprTextDesc>
+</Expr>
+</Variable>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InitBlock mdsid="m00000000-c40b-162a-98ff-0a3fce3e0000" name="USER_DEFAULTS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isSessionVar="true" refreshPeriod="86400" connectionPoolRef="/oracle/bi/server/base/ConnectionPool/40000000-c408-162a-98ff-0a3fce3e0000.xml#m40000000-c408-162a-98ff-0a3fce3e0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT
+	S_GLOBI_USER.BU_PGUID
+,	S_GLOBI_USER.CALENDAR
+,	S_GLOBI_USER.CURRENCY
+,	'Daily' as FX_RATE
+,	3 as LOG_LEVEL
+,	 D_USER.LDAP_MGR_NAME
+,	NULL as SEARCH_TEXT
+FROM
+	S_GLOBI_USER
+	LEFT OUTER JOIN D_USER ON D_USER.USR_LOGIN=S_GLOBI_USER.USR_LOGIN
+WHERE
+	UPPER(S_GLOBI_USER.USR_LOGIN)=UPPER(':USER')]]></Value>
+</DBMapItem>
+<RefVariables>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-mc0000000-340f-1663-806e-ac1d63b90000" variableRef="/oracle/bi/server/base/Variable/c0000000-340f-1663-806e-ac1d63b90000.xml#mc0000000-340f-1663-806e-ac1d63b90000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-m40000000-3413-1663-806e-ac1d63b90000" variableRef="/oracle/bi/server/base/Variable/40000000-3413-1663-806e-ac1d63b90000.xml#m40000000-3413-1663-806e-ac1d63b90000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-m00000000-c411-162a-98ff-0a3fce3e0000" variableRef="/oracle/bi/server/base/Variable/00000000-c411-162a-98ff-0a3fce3e0000.xml#m00000000-c411-162a-98ff-0a3fce3e0000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-mc0000001-1978-162b-8a27-0a3fce3e0000" variableRef="/oracle/bi/server/base/Variable/c0000001-1978-162b-8a27-0a3fce3e0000.xml#mc0000001-1978-162b-8a27-0a3fce3e0000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-m00000000-1e01-162b-8a27-0a3fce3e0000" variableRef="/oracle/bi/server/base/Variable/00000000-1e01-162b-8a27-0a3fce3e0000.xml#m00000000-1e01-162b-8a27-0a3fce3e0000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-mc0000000-3188-1679-806e-0ab93cb80000" variableRef="/oracle/bi/server/base/Variable/c0000000-3188-1679-806e-0ab93cb80000.xml#mc0000000-3188-1679-806e-0ab93cb80000"/>
+<RefVariable refId="m00000000-c40b-162a-98ff-0a3fce3e0000-mc0000000-7603-163f-b3c9-0a3fce490000" variableRef="/oracle/bi/server/base/Variable/c0000000-7603-163f-b3c9-0a3fce490000.xml#mc0000000-7603-163f-b3c9-0a3fce490000"/>
+</RefVariables>
+<InitString><![CDATA[SELECT
+	S_GLOBI_USER.BU_PGUID
+,	S_GLOBI_USER.CALENDAR
+,	S_GLOBI_USER.CURRENCY
+,	'Daily' as FX_RATE
+,	3 as LOG_LEVEL
+,	 D_USER.LDAP_MGR_NAME
+,	NULL as SEARCH_TEXT
+FROM
+	S_GLOBI_USER
+	LEFT OUTER JOIN D_USER ON D_USER.USR_LOGIN=S_GLOBI_USER.USR_LOGIN
+WHERE
+	UPPER(S_GLOBI_USER.USR_LOGIN)=UPPER(':USER')]]></InitString>
+</InitBlock>

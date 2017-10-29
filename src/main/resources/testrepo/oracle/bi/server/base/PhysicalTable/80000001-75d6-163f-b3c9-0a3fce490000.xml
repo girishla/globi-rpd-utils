@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="m80000001-75d6-163f-b3c9-0a3fce490000" name="Dim_Opportunity_Search" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="select" isCacheable="false" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/40000001-286e-1627-806e-0a3fce3c0000.xml#m40000001-286e-1627-806e-0a3fce3c0000">
+<DBMapItem name="DefaultMulDB">
+<Value><![CDATA[SELECT 
+	ROW_WID as ROW_WID
+,	'Y' as SEARCH_FLG
+,	'VALUEOF(NQ_SESSION.SEARCH_TXT)' as SEARCH_TXT
+FROM
+	D_OPTY
+WHERE 
+	CONTAINS (OPTY_NAME,'VALUEOF(NQ_SESSION.SEARCH_TXT)', 1) > 0]]></Value>
+</DBMapItem>
+<PhysicalColumn mdsid="m40000000-75f1-163f-b3c9-0a3fce490000" name="ROW_WID" dataType="DOUBLE" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000000-7620-163f-b3c9-0a3fce490000" name="SEARCH_FLG" dataType="VARCHAR" precision="1" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="m80000000-792c-163f-b3c9-0a3fce490000" name="SEARCH_TXT" dataType="VARCHAR" precision="250" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalKey mdsid="m80000000-75fc-163f-b3c9-0a3fce490000" name="Dim_Opportunity_Search_Key">
+<RefColumns>
+<RefColumn refId="m80000000-75fc-163f-b3c9-0a3fce490000-m40000000-75f1-163f-b3c9-0a3fce490000" columnRef="/oracle/bi/server/base/PhysicalTable/80000001-75d6-163f-b3c9-0a3fce490000.xml#m40000000-75f1-163f-b3c9-0a3fce490000"/>
+</RefColumns>
+</PhysicalKey>
+</PhysicalTable>

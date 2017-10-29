@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PrivilegePackage mdsid="m40000007-4abe-1669-806e-0a3fcf300000" name="PrivPack_4209:233361503996663" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" roleRef="/oracle/bi/server/base/Group/00000000-0000-0000-0000-000000010101.xml#m00000000-0000-0000-0000-000000010101" LogicalQueryMaxExecTime="0">
+</PrivilegePackage>

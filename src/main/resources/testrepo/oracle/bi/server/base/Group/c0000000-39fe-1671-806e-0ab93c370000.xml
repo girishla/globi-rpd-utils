@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Group mdsid="mc0000000-39fe-1671-806e-0ab93c370000" name="BIUserAdministrator" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" displayName="GLOBI - User - Administrator ">
+<Description><![CDATA[Application role must be assigned to users who perform administrative tasks in OBI ]]></Description>
+</Group>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Group mdsid="m40000000-468d-1635-b3c9-0a3fce270000" name="BIDataAU" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" displayName="GLOBI - Data - AU">
+<Description><![CDATA[Application role used to control access to AU data only]]></Description>
+</Group>
