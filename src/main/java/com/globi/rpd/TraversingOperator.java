@@ -1,5 +1,4 @@
 
-
 package com.globi.rpd;
 
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
@@ -11,98 +10,61 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TraversingOperator<R, E extends Throwable >
-    implements Operator<R, E>
-{
+public class TraversingOperator<R, E extends Throwable> implements Operator<R, E> {
 
-    private boolean traverseFirst=false;
-    private Operator<R, E> visitor;
-    private Traverser<E> traverser;
-    private TraversingOperatorProgressMonitor progressMonitor;
+	private boolean traverseFirst = false;
+	private Operator<R, E> operator;
+	private Traverser<E> traverser;
+	private TraversingOperatorProgressMonitor progressMonitor;
 
-    public TraversingOperator(Traverser<E> aTraverser, Operator<R, E> anOperator) {
-        traverser = aTraverser;
-        visitor = anOperator;
-    }
+	public TraversingOperator(Traverser<E> aTraverser, Operator<R, E> anOperator) {
+		traverser = aTraverser;
+		operator = anOperator;
+	}
 
+	@Override
+	public R operate(PresentationCatalog presCatalog) throws E {
+		R returnVal;
+		returnVal = presCatalog.apply(operator);
+		if (progressMonitor != null) {
+			progressMonitor.visited(presCatalog);
+		}
+		traverser.traverse((PresentationCatalog) returnVal, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(presCatalog);
+		}
+		return returnVal;
+	}
 
-    
-    @Override
-    public R operate(PresentationCatalog aBean)
-        throws E
-    {
-//        if (traverseFirst == true) {
-//            getTraverser().traverse(aBean, this);
-//            if (progressMonitor!= null) {
-//                progressMonitor.traversed(aBean);
-//            }
-//        }
-        R returnVal;
-        returnVal = aBean.apply(getVisitor());
-        if (progressMonitor!= null) {
-            progressMonitor.visited(aBean);
-        }
-        if (traverseFirst == false) {
-            getTraverser().traverse((PresentationCatalog)returnVal, this);
-            if (progressMonitor!= null) {
-                progressMonitor.traversed(aBean);
-            }
-        }
-        return returnVal;
-    }
+	@Override
+	public R operate(PresentationTable presTable) throws E {
 
-    @Override
-    public R operate(PresentationTable aBean)
-        throws E
-    {
-//        if (traverseFirst == true) {
-//            getTraverser().traverse(aBean, this);
-//            if (progressMonitor!= null) {
-//                progressMonitor.traversed(aBean);
-//            }
-//        }
-        R returnVal;
-        returnVal = aBean.apply(getVisitor());
-        
-        
-        if (progressMonitor!= null) {
-            progressMonitor.visited(aBean);
-        }
-        if (traverseFirst == false) {
-            getTraverser().traverse((PresentationTable)returnVal, this);
-            if (progressMonitor!= null) {
-                progressMonitor.traversed(aBean);
-            }
-        }
-        return returnVal;
-    }
-    
-    
-    @Override
-    public R operate(PresentationColumn aBean)
-        throws E
-    {
-//        if (traverseFirst == true) {
-//            getTraverser().traverse(aBean, this);
-//            if (progressMonitor!= null) {
-//                progressMonitor.traversed(aBean);
-//            }
-//        }
-        R returnVal;
-        returnVal = aBean.apply(getVisitor());
-        if (progressMonitor!= null) {
-            progressMonitor.visited(aBean);
-        }
-        if (traverseFirst == false) {
-            getTraverser().traverse((PresentationColumn)returnVal, this);
-            if (progressMonitor!= null) {
-                progressMonitor.traversed(aBean);
-            }
-        }
-        return returnVal;
-    }
-    
-    
-    
-    
+		R returnVal;
+		returnVal = presTable.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.visited(presTable);
+		}
+		traverser.traverse((PresentationTable) returnVal, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(presTable);
+		}
+		return returnVal;
+	}
+
+	@Override
+	public R operate(PresentationColumn presColumn) throws E {
+
+		R returnVal;
+		returnVal = presColumn.apply(operator);
+		if (progressMonitor != null) {
+			progressMonitor.visited(presColumn);
+		}
+		traverser.traverse((PresentationColumn) returnVal, this);
+			if (progressMonitor != null) {
+				progressMonitor.traversed(presColumn);
+			}
+		return returnVal;
+	}
+
 }
