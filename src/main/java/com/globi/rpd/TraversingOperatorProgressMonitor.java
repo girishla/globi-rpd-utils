@@ -6,7 +6,7 @@
 //
 
 
-package com.globi;
+package com.globi.rpd;
 
 
 public interface TraversingOperatorProgressMonitor {

@@ -1,7 +1,7 @@
 package com.globi.rpd.presentationcatalog;
 
-import com.globi.Operable;
-import com.globi.Operator;
+import com.globi.rpd.Operable;
+import com.globi.rpd.Operator;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

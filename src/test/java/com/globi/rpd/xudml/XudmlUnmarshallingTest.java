@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 import org.junit.Test;
 import org.springframework.core.io.Resource;
 
-import com.globi.HydratingOperator;
-import com.globi.PresentationCatalogTraverser;
-import com.globi.TraversingOperator;
-import com.globi.XudmlMarshallingOperator;
-import com.globi.XudmlUnmarshallingOperator;
+import com.globi.rpd.HydratingOperator;
+import com.globi.rpd.PresentationCatalogTraverser;
+import com.globi.rpd.TraversingOperator;
+import com.globi.rpd.XudmlMarshallingOperator;
+import com.globi.rpd.XudmlUnmarshallingOperator;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 
 import lombok.extern.slf4j.Slf4j;

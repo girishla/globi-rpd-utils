@@ -1,4 +1,4 @@
-package com.globi;
+package com.globi.rpd;
 
 import java.util.HashMap;
 import java.util.Map;

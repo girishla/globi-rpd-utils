@@ -18,7 +18,7 @@ import org.springframework.oxm.XmlMappingException;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.util.FileCopyUtils;
 
-import com.globi.MarshallerConfig;
+import com.globi.rpd.MarshallerConfig;
 
 import lombok.extern.slf4j.Slf4j;
 

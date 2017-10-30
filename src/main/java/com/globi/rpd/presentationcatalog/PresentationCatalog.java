@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.core.io.Resource;
 
-import com.globi.Operable;
-import com.globi.Operator;
+import com.globi.rpd.Operable;
+import com.globi.rpd.Operator;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlMarshaller;

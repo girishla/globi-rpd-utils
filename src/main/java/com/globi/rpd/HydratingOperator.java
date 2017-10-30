@@ -1,4 +1,4 @@
-package com.globi;
+package com.globi.rpd;
 
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;

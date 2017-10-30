@@ -1,5 +1,5 @@
 
-package com.globi;
+package com.globi.rpd;
 
 import javax.xml.namespace.QName;
 
