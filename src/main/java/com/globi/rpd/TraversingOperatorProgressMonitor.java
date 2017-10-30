@@ -11,7 +11,6 @@ package com.globi.rpd;
 
 public interface TraversingOperatorProgressMonitor {
 
-
     void visited(Object aVisitable);
 
     void traversed(Object aVisitable);

@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 
-public class PresentationCatalogTraverser<E extends Throwable >
+public class CatalogDefaultTraverser<E extends Throwable >
     implements Traverser<E>
 {
 

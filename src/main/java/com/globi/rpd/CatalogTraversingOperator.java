@@ -10,14 +10,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TraversingOperator<R, E extends Throwable> implements Operator<R, E> {
+public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOperator<R,E> implements Operator<R, E> {
 
 	private boolean traverseFirst = false;
 	private Operator<R, E> operator;
 	private Traverser<E> traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public TraversingOperator(Traverser<E> aTraverser, Operator<R, E> anOperator) {
+	public CatalogTraversingOperator(Traverser<E> aTraverser, Operator<R, E> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
