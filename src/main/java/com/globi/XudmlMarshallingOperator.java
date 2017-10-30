@@ -9,7 +9,7 @@ import xudml.ObjectFactory;
 import xudml.PresentationCatalogW;
 
 @Slf4j
-public class XudmlMarshallingOperator extends BaseVisitor<Object, Exception> {
+public class XudmlMarshallingOperator extends BaseOperator<Object, Exception> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {

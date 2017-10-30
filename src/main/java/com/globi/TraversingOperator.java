@@ -38,7 +38,7 @@ public class TraversingOperator<R, E extends Throwable >
 //            }
 //        }
         R returnVal;
-        returnVal = aBean.accept(getVisitor());
+        returnVal = aBean.apply(getVisitor());
         if (progressMonitor!= null) {
             progressMonitor.visited(aBean);
         }
@@ -62,7 +62,7 @@ public class TraversingOperator<R, E extends Throwable >
 //            }
 //        }
         R returnVal;
-        returnVal = aBean.accept(getVisitor());
+        returnVal = aBean.apply(getVisitor());
         
         
         if (progressMonitor!= null) {
@@ -89,7 +89,7 @@ public class TraversingOperator<R, E extends Throwable >
 //            }
 //        }
         R returnVal;
-        returnVal = aBean.accept(getVisitor());
+        returnVal = aBean.apply(getVisitor());
         if (progressMonitor!= null) {
             progressMonitor.visited(aBean);
         }

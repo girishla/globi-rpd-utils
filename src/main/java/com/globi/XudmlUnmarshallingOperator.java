@@ -11,7 +11,7 @@ import xudml.PresentationCatalogW;
 import xudml.PresentationTableW;
 
 @Slf4j
-public class XudmlUnmarshallingOperator extends BaseVisitor<Object, Exception> {
+public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {

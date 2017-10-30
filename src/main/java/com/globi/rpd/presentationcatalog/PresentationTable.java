@@ -3,7 +3,7 @@ package com.globi.rpd.presentationcatalog;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.globi.Visitable;
+import com.globi.Operable;
 import com.globi.Operator;
 
 import lombok.Data;
@@ -12,7 +12,7 @@ import xudml.PresentationTableW;
 
 @Data
 @Slf4j
-public class PresentationTable     implements Visitable{
+public class PresentationTable     implements Operable{
 
 	private PresentationTableW xudmlObject;
 	private String resourceUri;
@@ -27,7 +27,7 @@ public class PresentationTable     implements Visitable{
 	
 	
 	@Override
-    public<R, E extends Throwable >R accept(Operator<R, E> anOperator)
+    public<R, E extends Throwable >R apply(Operator<R, E> anOperator)
             throws E
         {
             return anOperator.operate(this);

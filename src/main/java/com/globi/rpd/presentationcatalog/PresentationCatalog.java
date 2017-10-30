@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.core.io.Resource;
 
-import com.globi.Visitable;
+import com.globi.Operable;
 import com.globi.Operator;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -19,7 +19,7 @@ import xudml.PresentationCatalogW;
 
 @Data
 @Slf4j
-public class PresentationCatalog  implements Visitable{
+public class PresentationCatalog  implements Operable{
 
 	private String resourceUri;
 	private PresentationCatalogW xudmlObject;
@@ -62,7 +62,7 @@ public class PresentationCatalog  implements Visitable{
 //	}
 
 	@Override
-    public<R, E extends Throwable >R accept(Operator<R, E> anOperator)
+    public<R, E extends Throwable >R apply(Operator<R, E> anOperator)
             throws E
         {
             return anOperator.operate(this);

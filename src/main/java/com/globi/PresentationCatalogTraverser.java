@@ -29,7 +29,7 @@ public class PresentationCatalogTraverser<E extends Throwable >
         for (PresentationTable presTable: presCatalog.getPresentationTables()) {
         	
         	log.debug("^^^^^^^^^^^^^^^^^^^^" + presTable.getResourceUri());
-        	presTable.accept(anOperator);
+        	presTable.apply(anOperator);
         }
 
     }
@@ -40,7 +40,7 @@ public class PresentationCatalogTraverser<E extends Throwable >
     {
     	
         for (PresentationColumn presColumn: presTable.getPresentationColumns()) {
-        	presColumn.accept(anOperator);
+        	presColumn.apply(anOperator);
         }
         
     }

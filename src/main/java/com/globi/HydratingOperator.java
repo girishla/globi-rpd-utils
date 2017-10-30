@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationColumnW;
 
 @Slf4j
-public class HydratingOperator extends BaseVisitor<Object, Exception> {
+public class HydratingOperator extends BaseOperator<Object, Exception> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {

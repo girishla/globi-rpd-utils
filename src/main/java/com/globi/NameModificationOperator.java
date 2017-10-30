@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import xudml.AliasW;
 
 @Slf4j
-public class NameModificationVisitor extends BaseVisitor<Object, Exception> {
+public class NameModificationOperator extends BaseOperator<Object, Exception> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {

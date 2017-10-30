@@ -27,10 +27,10 @@ public class XudmlUnmarshallingTest {
 		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		TraversingOperator<Object, Exception> tv = new TraversingOperator<>(new PresentationCatalogTraverser<Exception>(),
+		TraversingOperator<Object, Exception> traversingUnmarshaller = new TraversingOperator<>(new PresentationCatalogTraverser<Exception>(),
 				unmarshalOperator);
 
-		presCatalog.accept(tv);
+		presCatalog.apply(traversingUnmarshaller);
 
 		assertThat(presCatalog.getXudmlObject().getName()).isEqualTo("Global Reporting - Measures - Performance Metrics");
 
@@ -42,16 +42,16 @@ public class XudmlUnmarshallingTest {
 		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		TraversingOperator<Object, Exception> tv = new TraversingOperator<>(new PresentationCatalogTraverser<Exception>(),
+		TraversingOperator<Object, Exception> traversingUnmarshaller = new TraversingOperator<>(new PresentationCatalogTraverser<Exception>(),
 				unmarshalOperator);
 
-		presCatalog.accept(tv);
+		presCatalog.apply(traversingUnmarshaller);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
-		TraversingOperator<Object, Exception> tv2 = new TraversingOperator<>(
+		TraversingOperator<Object, Exception> traversingHydrator = new TraversingOperator<>(
 				new PresentationCatalogTraverser<Exception>(), hydratingOperator);
 
-		presCatalog.accept(tv2);
+		presCatalog.apply(traversingHydrator);
 
 		assertThat(presCatalog.getPresentationTables().size()).isEqualTo(4);
 
@@ -73,12 +73,12 @@ public class XudmlUnmarshallingTest {
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 		TraversingOperator<Object, Exception> tv = new TraversingOperator<>(new PresentationCatalogTraverser<Exception>(),
 				unmarshalOperator);
-		presCatalog.accept(tv);
+		presCatalog.apply(tv);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
 		TraversingOperator<Object, Exception> tv2 = new TraversingOperator<>(
 				new PresentationCatalogTraverser<Exception>(), hydratingOperator);
-		presCatalog.accept(tv2);
+		presCatalog.apply(tv2);
 
 		presCatalog.setResourceUri(XudmlConstants.TEMP_DIR + outFile);
 
@@ -86,7 +86,7 @@ public class XudmlUnmarshallingTest {
 		TraversingOperator<Object, Exception> tv3 = new TraversingOperator<>(
 				new PresentationCatalogTraverser<Exception>(), marshallingOperator);
 		tv3.setTraverseFirst(false);
-		presCatalog.accept(tv3);
+		presCatalog.apply(tv3);
 
 		assertThat(presCatalog.getPresentationTables().size()).isEqualTo(4);
 

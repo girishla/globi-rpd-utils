@@ -1,6 +1,6 @@
 package com.globi.rpd.presentationcatalog;
 
-import com.globi.Visitable;
+import com.globi.Operable;
 import com.globi.Operator;
 
 import lombok.Data;
@@ -9,7 +9,7 @@ import xudml.PresentationColumnW;
 
 @Data
 @Slf4j
-public class PresentationColumn implements Visitable {
+public class PresentationColumn implements Operable {
 
 	private PresentationColumnW xudmlObject;
 
@@ -20,7 +20,7 @@ public class PresentationColumn implements Visitable {
 	}
 
 	@Override
-	public <R, E extends Throwable> R accept(Operator<R, E> anOperator) throws E {
+	public <R, E extends Throwable> R apply(Operator<R, E> anOperator) throws E {
 		return anOperator.operate(this);
 	}
 
