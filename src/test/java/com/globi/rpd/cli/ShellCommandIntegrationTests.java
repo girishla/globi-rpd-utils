@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes =CliConfig.class)
-public class ShellCommandIntegrationTest {
+public class ShellCommandIntegrationTests {
 
 	@Autowired
 	private Shell shell;
@@ -23,7 +23,7 @@ public class ShellCommandIntegrationTest {
 		Object result=shell.evaluate(new Input(){
 			@Override
 			public String rawText() {
-				return "add 1 3";
+				return "update-presentation-catalog StandardiseSubjectAreaNames ALL";
 			}
 			
 		});

@@ -44,7 +44,6 @@ public class PresentationCatalogOperatorTest {
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 		
-		
 		CatalogTraversingOperator<Object, Exception> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
 				unmarshalOperator);
 		
