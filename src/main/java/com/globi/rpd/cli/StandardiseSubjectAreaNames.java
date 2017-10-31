@@ -13,17 +13,17 @@ import com.globi.rpd.xudml.XudmlConstants;
 public class StandardiseSubjectAreaNames implements RpdObjectCommand<Boolean, String> {
 
 	@Override
-	public Boolean execute(String subjectAreaName) throws Exception {
+	public String execute(String subjectAreaName) throws Exception {
 
-		if(!subjectAreaName.toUpperCase().equals("ALL"))
-			throw new IllegalArgumentException("Invalid Argument " + subjectAreaName );
-		
-				
-		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+		if (!subjectAreaName.toUpperCase().equals("ALL"))
+			throw new IllegalArgumentException("Invalid Argument " + subjectAreaName);
+
+		PresentationCatalog presCatalog = new PresentationCatalog(
+				"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object, Exception> tv = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
-				unmarshalOperator);
+		CatalogTraversingOperator<Object, Exception> tv = new CatalogTraversingOperator<>(
+				new CatalogDefaultTraverser<Exception>(), unmarshalOperator);
 		tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv);
 
@@ -32,15 +32,14 @@ public class StandardiseSubjectAreaNames implements RpdObjectCommand<Boolean, St
 				new CatalogDefaultTraverser<Exception>(), hydratingOperator);
 		tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv2);
-		
-		
-		DisplayNameModificationOperator renamingOperator = new DisplayNameModificationOperator();
+
+		DisplayNameModificationOperator renamingOperator = new DisplayNameModificationOperator(
+				name -> name.replaceAll("Global Reporting - Measures - ", ""));
 		CatalogTraversingOperator<Object, Exception> traversingOperator = new CatalogTraversingOperator<>(
 				new CatalogDefaultTraverser<Exception>(), renamingOperator);
 		traversingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(traversingOperator);
 
-		
 		presCatalog.setResourceUri(XudmlConstants.XUDML_OUTPUT + "40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
@@ -48,11 +47,8 @@ public class StandardiseSubjectAreaNames implements RpdObjectCommand<Boolean, St
 				new CatalogDefaultTraverser<Exception>(), marshallingOperator);
 		tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv3);
-		
-				
-		return true;
+
+		return "COMMAND PROCESSED.";
 	}
-
-
 
 }

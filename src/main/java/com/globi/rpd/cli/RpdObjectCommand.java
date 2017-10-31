@@ -2,6 +2,6 @@ package com.globi.rpd.cli;
 
 public interface RpdObjectCommand<R, T>  {
 
-	R execute(T input) throws Exception;
+	String execute(T input) throws Exception;
 
 }

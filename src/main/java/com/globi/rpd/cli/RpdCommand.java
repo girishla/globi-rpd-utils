@@ -11,14 +11,14 @@ public class RpdCommand {
 
 	@SuppressWarnings("unchecked")
 	@ShellMethod("Update Presentation Catalog.")
-	public boolean updatePresentationCatalog(String strategyName,String subjectAreaName) throws Exception {
+	public String updatePresentationCatalog(String strategyName,String subjectAreaName) throws Exception {
 
 		Class<?> strategyClass = null;
 		try {
 			strategyClass = Class.forName("com.globi.rpd.cli." + strategyName);
 		} catch (ClassNotFoundException e) {
 			log.error("Class not found: " + strategyName );
-			return false;
+			return "COMMAND FAILED. ";
 		}
 
 		// Instantiate the strategy
