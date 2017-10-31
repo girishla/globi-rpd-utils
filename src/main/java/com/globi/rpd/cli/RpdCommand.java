@@ -3,18 +3,21 @@ package com.globi.rpd.cli;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @ShellComponent
 public class RpdCommand {
 
 	@SuppressWarnings("unchecked")
 	@ShellMethod("Update Presentation Catalog.")
-	public boolean updatePresentationCatalog(String strategyName,String subjectAreaName) {
+	public boolean updatePresentationCatalog(String strategyName,String subjectAreaName) throws Exception {
 
 		Class<?> strategyClass = null;
 		try {
 			strategyClass = Class.forName("com.globi.rpd.cli." + strategyName);
 		} catch (ClassNotFoundException e) {
-			System.err.println("Class not found: " + strategyName );
+			log.error("Class not found: " + strategyName );
 			return false;
 		}
 
@@ -23,9 +26,9 @@ public class RpdCommand {
 		try {
 			strategy = (RpdObjectCommand<Boolean, String>) strategyClass.newInstance();
 		} catch (IllegalAccessException e) {
-			System.err.println("Class not accessible: "+ strategyName );
+			log.error("Class not accessible: "+ strategyName);
 		} catch (InstantiationException e) {
-			System.err.println("Class not instantiable: "+ strategyName );
+			log.error("Class not instantiable: "+ strategyName );
 		}
 
 		return strategy.execute(subjectAreaName);

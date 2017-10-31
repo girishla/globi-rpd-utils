@@ -1,7 +1,7 @@
 package com.globi.rpd.cli;
 
-public interface RpdObjectCommand<R, T> {
+public interface RpdObjectCommand<R, T>  {
 
-	R execute(T input);
+	R execute(T input) throws Exception;
 
 }
