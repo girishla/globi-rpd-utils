@@ -4,7 +4,7 @@ import com.globi.rpd.CatalogDefaultTraverser;
 import com.globi.rpd.CatalogTraversingOperator;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.HydratingOperator;
-import com.globi.rpd.NameModificationOperator;
+import com.globi.rpd.DisplayNameModificationOperator;
 import com.globi.rpd.XudmlMarshallingOperator;
 import com.globi.rpd.XudmlUnmarshallingOperator;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
@@ -34,15 +34,14 @@ public class StandardiseSubjectAreaNames implements RpdObjectCommand<Boolean, St
 		presCatalog.apply(tv2);
 		
 		
-		
-		NameModificationOperator renamingOperator = new NameModificationOperator();
+		DisplayNameModificationOperator renamingOperator = new DisplayNameModificationOperator();
 		CatalogTraversingOperator<Object, Exception> traversingOperator = new CatalogTraversingOperator<>(
 				new CatalogDefaultTraverser<Exception>(), renamingOperator);
 		traversingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(traversingOperator);
 
 		
-		presCatalog.setResourceUri(XudmlConstants.XUDML_OUTPUT + "40000456-6dc5-167d-806e-c0a838100000");
+		presCatalog.setResourceUri(XudmlConstants.XUDML_OUTPUT + "40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 		CatalogTraversingOperator<Object, Exception> tv3 = new CatalogTraversingOperator<>(

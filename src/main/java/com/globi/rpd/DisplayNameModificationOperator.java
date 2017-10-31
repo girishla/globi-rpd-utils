@@ -5,7 +5,7 @@ import com.globi.rpd.presentationcatalog.PresentationTable;
 
 import xudml.AliasW;
 
-public class NameModificationOperator extends BaseOperator<Object, Exception> {
+public class DisplayNameModificationOperator extends BaseOperator<Object, Exception> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
@@ -17,10 +17,10 @@ public class NameModificationOperator extends BaseOperator<Object, Exception> {
 		alias.setName(presCatalog.getXudmlObject().getName());
 		presCatalog.getXudmlObject().getAlias().add(alias);
 		presCatalog.getXudmlObject().setDispName(presCatalog.getXudmlObject().getName().replaceAll("Global Reporting - Measures - ", ""));
+		presCatalog.getXudmlObject().setHasDispName(true);
 
 		return presCatalog;
 	}
-	
 	
 	
 	@Override
