@@ -5,7 +5,6 @@ import java.util.function.UnaryOperator;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationTable;
 
-import lombok.Setter;
 import xudml.AliasW;
 
 public class DisplayNameModificationOperator extends BaseOperator<Object, Exception> {
@@ -27,10 +26,7 @@ public class DisplayNameModificationOperator extends BaseOperator<Object, Except
 
 		AliasW alias = new AliasW();
 		alias.setName(presCatalog.getXudmlObject().getName());
-		presCatalog.getXudmlObject().getAlias().add(alias);
-
-		String newDispName = stringTransformer.apply(presCatalog.getXudmlObject().getName());
-		presCatalog.getXudmlObject().setDispName(newDispName);
+		presCatalog.getXudmlObject().setDispName(stringTransformer.apply(presCatalog.getXudmlObject().getName()));
 		presCatalog.getXudmlObject().setHasDispName(true);
 
 		return presCatalog;
@@ -40,7 +36,7 @@ public class DisplayNameModificationOperator extends BaseOperator<Object, Except
 	public PresentationTable operate(PresentationTable presTable) throws Exception {
 
 		if (presTable.getXudmlObject() == null)
-			throw new IllegalStateException("Cannot process withour a XUDML instance set");
+			throw new IllegalStateException("Cannot process without a XUDML instance set");
 
 		// nothing to Modify yet
 
