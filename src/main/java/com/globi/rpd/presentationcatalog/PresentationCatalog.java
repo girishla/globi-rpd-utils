@@ -3,22 +3,13 @@ package com.globi.rpd.presentationcatalog;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.core.io.Resource;
-
 import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
-import com.globi.rpd.xudml.ResourceFactory;
-import com.globi.rpd.xudml.XudmlConstants;
-import com.globi.rpd.xudml.XudmlMarshaller;
 
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-import xudml.AliasW;
-import xudml.ObjectFactory;
 import xudml.PresentationCatalogW;
 
 @Data
-@Slf4j
 public class PresentationCatalog  implements Operable{
 
 	private String resourceUri;

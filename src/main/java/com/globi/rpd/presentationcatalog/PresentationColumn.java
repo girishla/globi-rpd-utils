@@ -4,11 +4,9 @@ import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
 
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationColumnW;
 
 @Data
-@Slf4j
 public class PresentationColumn implements Operable {
 
 	private PresentationColumnW xudmlObject;

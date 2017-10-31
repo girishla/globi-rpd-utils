@@ -20,7 +20,7 @@ import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class XudmlUnmarshallingTest {
+public class PresentationCatalogOperatorTest {
 
 	@Test
 	public void unmarshalsPresentationCatalogXudmlFile() throws Exception {
@@ -99,17 +99,8 @@ public class XudmlUnmarshallingTest {
 
 	}
 
-	@Test
-	public void canLoadAllXudmlFilesFromLocation() throws IOException {
-
-		XudmlFolder folder = new XudmlFolder("testrepo/oracle/bi/server/base/PresentationCatalog");
-
-		assertThat(folder.getResources().stream().map(resource -> resource.getFilename()).collect(Collectors.toList()))
-				.contains("40000456-6dc5-167d-806e-c0a838100000.xml");
-		
-
-	}
 	
+
 	
 	
 	

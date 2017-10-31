@@ -5,10 +5,6 @@ import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;
 import com.globi.rpd.presentationcatalog.PresentationTable;
 
-import lombok.extern.slf4j.Slf4j;
-
-
-@Slf4j
 
 public class CatalogDefaultTraverser<E extends Throwable >
     implements Traverser<E>
@@ -19,16 +15,7 @@ public class CatalogDefaultTraverser<E extends Throwable >
     public void traverse(PresentationCatalog presCatalog, Operator<?, E> anOperator)
         throws E
     {
-    	
-    	log.debug("----------------------------------");
-    	log.debug("----------------------------------");
-    	log.debug("----------------------------------" + presCatalog.getPresentationTables().size());
-    	log.debug("----------------------------------" + presCatalog.getXudmlObject().getName());
-    	
-    	
         for (PresentationTable presTable: presCatalog.getPresentationTables()) {
-        	
-        	log.debug("^^^^^^^^^^^^^^^^^^^^" + presTable.getResourceUri());
         	presTable.apply(anOperator);
         }
 

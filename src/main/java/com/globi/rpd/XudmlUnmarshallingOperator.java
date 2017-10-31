@@ -18,7 +18,6 @@ public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> 
 
 		XudmlMarshaller<PresentationCatalogW> marshaller = new XudmlMarshaller<PresentationCatalogW>();
 
-		log.info("*******************Unmarshalling PresentationCatalog from file: " + presCatalog.getResourceUri());
 		
 		presCatalog.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL(presCatalog.getResourceUri())));
 		
@@ -43,8 +42,6 @@ public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> 
 	
 		XudmlMarshaller<PresentationTableW> marshaller = new XudmlMarshaller<PresentationTableW>();
 
-		log.info("================================Unmarshalling PresentationTable from file: " + presTable.getResourceUri());
-		
 		presTable.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL("file:" + presTable.getResourceUri())));
 		
 		

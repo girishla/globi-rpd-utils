@@ -7,11 +7,9 @@ import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
 
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationTableW;
 
 @Data
-@Slf4j
 public class PresentationTable     implements Operable{
 
 	private PresentationTableW xudmlObject;

@@ -3,10 +3,8 @@ package com.globi.rpd;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationTable;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.AliasW;
 
-@Slf4j
 public class NameModificationOperator extends BaseOperator<Object, Exception> {
 
 	@Override
@@ -22,7 +20,7 @@ public class NameModificationOperator extends BaseOperator<Object, Exception> {
 
 		return presCatalog;
 	}
-
+	
 	
 	
 	@Override

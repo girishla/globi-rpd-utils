@@ -4,10 +4,9 @@ import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;
 import com.globi.rpd.presentationcatalog.PresentationTable;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationColumnW;
 
-@Slf4j
+
 public class HydratingOperator extends BaseOperator<Object, Exception> {
 
 	@Override
