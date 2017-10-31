@@ -1,6 +1,7 @@
 
-package com.globi.rpd;
+package com.globi.rpd.operator;
 
+import com.globi.rpd.Operator;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;
 import com.globi.rpd.presentationcatalog.PresentationTable;

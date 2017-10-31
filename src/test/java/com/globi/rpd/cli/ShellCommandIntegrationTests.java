@@ -9,32 +9,29 @@ import org.springframework.shell.Shell;
 import org.springframework.shell.result.DefaultResultHandler;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes =CliConfig.class)
+@SpringBootTest(classes = CliConfig.class)
 public class ShellCommandIntegrationTests {
 
 	@Autowired
 	private Shell shell;
-	
+
 	@Test
-	public void runTest(){
-		
-		
-		Object result=shell.evaluate(new Input(){
+	public void canStandardiseSubjectAreaNames() {
+
+		Object result = shell.evaluate(new Input() {
 			@Override
 			public String rawText() {
-				return "update-presentation-catalog StandardiseSubjectAreaNames ALL";
+				return "update-presentation-catalog StandardisePresentationCatalog ALL";
 			}
-			
+
 		});
 
-		DefaultResultHandler  resulthandler=new DefaultResultHandler();
+		DefaultResultHandler resulthandler = new DefaultResultHandler();
 		resulthandler.handleResult(result);
-		
-		
+
 	}
-	
-	
+
 }
-
-

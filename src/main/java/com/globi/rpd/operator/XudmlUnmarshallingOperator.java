@@ -1,4 +1,4 @@
-package com.globi.rpd;
+package com.globi.rpd.operator;
 
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationTable;
@@ -26,10 +26,8 @@ public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> 
 		.getRefPresentationTable()//
 		.stream()//
 		.forEach(table -> {
-
-			log.debug(table.getPresentationTableRef());
 			presCatalog.getPresentationTables()
-					.add(new PresentationTable(XudmlConstants.XUDML_BASEURL + table.getPresentationTableRef().split("#")[0]));
+					.add(new PresentationTable(table.getRefId()));
 
 		});
 		

@@ -1,6 +1,9 @@
 
-package com.globi.rpd;
+package com.globi.rpd.operator;
 
+import com.globi.rpd.Operator;
+import com.globi.rpd.Traverser;
+import com.globi.rpd.TraversingOperatorProgressMonitor;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
 import com.globi.rpd.presentationcatalog.PresentationColumn;
 import com.globi.rpd.presentationcatalog.PresentationTable;
@@ -58,11 +61,11 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 		R returnVal;
 		returnVal = presColumn.apply(operator);
 		if (progressMonitor != null) {
-			progressMonitor.operated(operator.getClass().getName(), presColumn);
+//			progressMonitor.operated(operator.getClass().getName(), presColumn);
 		}
 		traverser.traverse((PresentationColumn) returnVal, this);
 			if (progressMonitor != null) {
-				progressMonitor.traversed(traverser.getClass().getName(), presColumn);
+//				progressMonitor.traversed(traverser.getClass().getName(), presColumn);
 			}
 		return returnVal;
 	}
