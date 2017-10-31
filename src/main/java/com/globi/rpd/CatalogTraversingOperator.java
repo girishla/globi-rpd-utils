@@ -27,11 +27,11 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 		R returnVal;
 		returnVal = presCatalog.apply(operator);
 		if (progressMonitor != null) {
-			progressMonitor.visited(presCatalog);
+			progressMonitor.operated(operator.getClass().getName(), presCatalog);
 		}
 		traverser.traverse((PresentationCatalog) returnVal, this);
 		if (progressMonitor != null) {
-			progressMonitor.traversed(presCatalog);
+			progressMonitor.traversed(traverser.getClass().getName(), presCatalog);
 		}
 		return returnVal;
 	}
@@ -43,11 +43,11 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 		returnVal = presTable.apply(operator);
 
 		if (progressMonitor != null) {
-			progressMonitor.visited(presTable);
+			progressMonitor.operated(operator.getClass().getName(), presTable);
 		}
 		traverser.traverse((PresentationTable) returnVal, this);
 		if (progressMonitor != null) {
-			progressMonitor.traversed(presTable);
+			progressMonitor.traversed(traverser.getClass().getName(), presTable);
 		}
 		return returnVal;
 	}
@@ -58,11 +58,11 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 		R returnVal;
 		returnVal = presColumn.apply(operator);
 		if (progressMonitor != null) {
-			progressMonitor.visited(presColumn);
+			progressMonitor.operated(operator.getClass().getName(), presColumn);
 		}
 		traverser.traverse((PresentationColumn) returnVal, this);
 			if (progressMonitor != null) {
-				progressMonitor.traversed(presColumn);
+				progressMonitor.traversed(traverser.getClass().getName(), presColumn);
 			}
 		return returnVal;
 	}

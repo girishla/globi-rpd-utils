@@ -14,7 +14,7 @@ public class HydratingOperator extends BaseOperator<Object, Exception> {
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
 
 		if(presCatalog.getXudmlObject()==null)
-			throw new RuntimeException("Cannot hydrate withour a XUDML instance set");
+			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
 
 
@@ -25,7 +25,7 @@ public class HydratingOperator extends BaseOperator<Object, Exception> {
 	public PresentationTable operate(PresentationTable presTable) throws Exception {
 	
 		if(presTable.getXudmlObject()==null)
-			throw new RuntimeException("Cannot hydrate withour a XUDML instance set");
+			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
 		
 		for(PresentationColumnW column:presTable.getXudmlObject().getPresentationColumn()){

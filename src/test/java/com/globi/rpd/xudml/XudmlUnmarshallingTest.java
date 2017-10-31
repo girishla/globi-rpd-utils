@@ -12,6 +12,7 @@ import org.springframework.core.io.Resource;
 import com.globi.rpd.HydratingOperator;
 import com.globi.rpd.CatalogDefaultTraverser;
 import com.globi.rpd.CatalogTraversingOperator;
+import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.XudmlMarshallingOperator;
 import com.globi.rpd.XudmlUnmarshallingOperator;
 import com.globi.rpd.presentationcatalog.PresentationCatalog;
@@ -42,8 +43,12 @@ public class XudmlUnmarshallingTest {
 		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
+		
+		
 		CatalogTraversingOperator<Object, Exception> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
 				unmarshalOperator);
+		
+		traversingUnmarshaller.setProgressMonitor(new DefaultLoggerProgressMonitor());
 
 		presCatalog.apply(traversingUnmarshaller);
 
@@ -73,11 +78,13 @@ public class XudmlUnmarshallingTest {
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 		CatalogTraversingOperator<Object, Exception> tv = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
 				unmarshalOperator);
+		tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
 		CatalogTraversingOperator<Object, Exception> tv2 = new CatalogTraversingOperator<>(
 				new CatalogDefaultTraverser<Exception>(), hydratingOperator);
+		tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv2);
 
 		presCatalog.setResourceUri(XudmlConstants.TEMP_DIR + outFile);
@@ -85,7 +92,7 @@ public class XudmlUnmarshallingTest {
 		XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 		CatalogTraversingOperator<Object, Exception> tv3 = new CatalogTraversingOperator<>(
 				new CatalogDefaultTraverser<Exception>(), marshallingOperator);
-		tv3.setTraverseFirst(false);
+		tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv3);
 
 		assertThat(presCatalog.getPresentationTables().size()).isEqualTo(4);
@@ -99,6 +106,7 @@ public class XudmlUnmarshallingTest {
 
 		assertThat(folder.getResources().stream().map(resource -> resource.getFilename()).collect(Collectors.toList()))
 				.contains("40000456-6dc5-167d-806e-c0a838100000.xml");
+		
 
 	}
 	

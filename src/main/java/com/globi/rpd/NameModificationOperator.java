@@ -13,7 +13,7 @@ public class NameModificationOperator extends BaseOperator<Object, Exception> {
 	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
 
 		if(presCatalog.getXudmlObject()==null)
-			throw new RuntimeException("Cannot process without a XUDML instance set");
+			throw new IllegalStateException("Cannot process without a XUDML instance set");
 		
 		AliasW alias=new AliasW();
 		alias.setName(presCatalog.getXudmlObject().getName());
@@ -29,7 +29,7 @@ public class NameModificationOperator extends BaseOperator<Object, Exception> {
 	public PresentationTable operate(PresentationTable presTable) throws Exception {
 	
 		if(presTable.getXudmlObject()==null)
-			throw new RuntimeException("Cannot process withour a XUDML instance set");
+			throw new IllegalStateException("Cannot process withour a XUDML instance set");
 		
 		//nothing to Modify yet
 		

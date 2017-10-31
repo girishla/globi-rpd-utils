@@ -33,5 +33,11 @@ public class PresentationTable     implements Operable{
             return anOperator.operate(this);
         }
 	
+	@Override
+	public String toString(){
+		
+		return  "  Table:" +  xudmlObject.getName();
+		
+	}
 	
 }

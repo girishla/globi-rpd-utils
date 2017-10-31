@@ -18,10 +18,19 @@ public class PresentationColumn implements Operable {
 		this.xudmlObject = col;
 
 	}
+	
 
 	@Override
 	public <R, E extends Throwable> R apply(Operator<R, E> anOperator) throws E {
 		return anOperator.operate(this);
 	}
+	
+	@Override
+	public String toString(){
+		
+		return "  Column:" + xudmlObject.getName();
+		
+	}
+	
 
 }

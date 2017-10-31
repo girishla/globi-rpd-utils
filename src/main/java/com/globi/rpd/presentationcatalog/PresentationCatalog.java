@@ -32,41 +32,20 @@ public class PresentationCatalog  implements Operable{
 		
 	}
 	
-	
-	
-
-//	public static PresentationCatalog fromFile(Resource resource) {
-//
-//		PresentationCatalog pcat = new PresentationCatalog();
-//		XudmlMarshaller<PresentationCatalogW> marshaller = new XudmlMarshaller<PresentationCatalogW>();
-//		
-//		pcat.setXudmlObject(marshaller.unmarshall(resource));
-//		
-//
-//		
-//		String dispName=pcat.xudmlObject.getName().replace("Global Reporting - Measures - ", "");
-//		pcat.xudmlObject.setHasDispName(true);
-//		
-//		AliasW alias=new AliasW();
-//		alias.setName(dispName);
-//		pcat.xudmlObject.getAlias().add(alias);
-//		pcat.xudmlObject.setDispName(dispName);
-//		
-//		ObjectFactory factory = new ObjectFactory();
-//		
-//		
-//		marshaller.marshall(resource,factory.createPresentationCatalog(pcat.xudmlObject));
-//
-//		
-//		return pcat;
-//	}
-
 	@Override
     public<R, E extends Throwable >R apply(Operator<R, E> anOperator)
             throws E
         {
             return anOperator.operate(this);
         }
+	
+	
+	@Override
+	public String toString(){
+		
+		return  "  Subject Area:" +  xudmlObject.getName();
+		
+	}
 	
 
 }
