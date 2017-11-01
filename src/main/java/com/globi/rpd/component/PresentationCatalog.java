@@ -21,14 +21,20 @@ public class PresentationCatalog implements Operable, RpdComponent, RpdMarshalle
 
 	private final List<PresentationTable> presentationTables = new ArrayList<PresentationTable>();
 
-	public PresentationCatalog(String resourceUri) {
-		this.resourceUri = resourceUri;
+	public PresentationCatalog(String id) {
+		this.id = id;
+	}
+
+	public static PresentationCatalog fromResource(String resourceUri) {
+		String id=resourceUri.substring(resourceUri.lastIndexOf("\\")+1).replace(".xml", "");
+		PresentationCatalog newCatalog=new PresentationCatalog(id);
+		newCatalog.setResourceUri(resourceUri);
+		return newCatalog;
 	}
 
 	@Override
-	public <R> R apply(Operator<R> anOperator)  {
-		
-		
+	public <R> R apply(Operator<R> anOperator) {
+
 		return anOperator.operate(this);
 	}
 

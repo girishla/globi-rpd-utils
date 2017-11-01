@@ -13,6 +13,7 @@ import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.operator.CatalogTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
+import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
 /**
@@ -56,8 +57,7 @@ public class StandardRpdBuilder {
 
 				String id = "m" + fileName.replace(".xml", "");
 
-				PresentationCatalog presCatalog = new PresentationCatalog(
-						"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+				PresentationCatalog presCatalog = PresentationCatalog.fromResource(XudmlConstants.XUDML_BASEURL + fileName);
 
 				XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 				CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),

@@ -21,15 +21,13 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 
 		try {
 
-			PresentationCatalog presCatalog = new PresentationCatalog(
+			PresentationCatalog presCatalog = PresentationCatalog.fromResource(
 					"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
-			
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 			CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),
 					unmarshalOperator);
-			
-			
+
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv);
 
