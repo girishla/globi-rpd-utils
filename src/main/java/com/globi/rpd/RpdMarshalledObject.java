@@ -1,8 +1,9 @@
 package com.globi.rpd;
 
-public interface RpdMarshalledObject {
+public interface RpdMarshalledObject<T> {
 
 	String getResourceUri();
-	boolean isUnmarshalled();
-	void marshall();
+	T getXudmlObject();
+	
+	
 }

@@ -5,35 +5,36 @@ import java.util.List;
 
 import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
+import com.globi.rpd.RpdMarshalledObject;
+import com.globi.rpd.RpdObject;
 import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.Data;
 import xudml.PresentationTableW;
 
 @Data
-public class PresentationTable     implements Operable{
+public class PresentationTable     implements Operable,RpdObject, RpdMarshalledObject<PresentationTableW>{
 
 	private PresentationTableW xudmlObject;
 	private String resourceUri;
-	
+
+	/**
+	 * MDS id. Every RPD object has one
+	 */
+	//m40000457-6dc5-167d-806e-c0a838100000
+	private String id;
 	
 	/**
-	 * Represents a reference to the {@link PresentationTable} in the format {@code parentCatalogid - tableId }. 
+	 * Represents a FULL reference to the {@link PresentationTable} in the format {@code parentCatalogid - tableId }. 
 	 * This is then used to parse and derive all the other ref related fields
 	 */
 	//m40000456-6dc5-167d-806e-c0a838100000-m40000457-6dc5-167d-806e-c0a838100000
 	private String refId;
-		
-	
 	///oracle/bi/server/base/PresentationTable/40000568-6dc5-167d-806e-c0a838100000.xml#m40000568-6dc5-167d-806e-c0a838100000
 	private String ref;
 	
-	//40000457-6dc5-167d-806e-c0a838100000
-	private String id;
-	
 	//m40000456-6dc5-167d-806e-c0a838100000
 	private String parentRefId;
-	
 
 	///oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml#m40000456-6dc5-167d-806e-c0a838100000
 	private String parentRef;
@@ -66,6 +67,13 @@ public class PresentationTable     implements Operable{
 		
 		return  "  Table:" +  xudmlObject.getName();
 		
+	}
+
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.xudmlObject.getName();
 	}
 	
 }
