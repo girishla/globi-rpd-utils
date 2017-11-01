@@ -5,12 +5,12 @@ import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
 
-public interface Operator<R, E extends Throwable> {
+public interface Operator<R> {
 
-	R operate(PresentationCatalog presCatalog) throws E;
+	R operate(PresentationCatalog presCatalog);
 
-	R operate(PresentationTable presTable) throws E;
+	R operate(PresentationTable presTable);
 
-	R operate(PresentationColumn presColumn) throws E;
+	R operate(PresentationColumn presColumn);
 
 }

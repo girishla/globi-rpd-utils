@@ -7,10 +7,10 @@ import com.globi.rpd.component.PresentationTable;
 import xudml.PresentationColumnW;
 
 
-public class HydratingOperator extends BaseOperator<Object, Exception> {
+public class HydratingOperator extends BaseOperator<Object> {
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 
 		if(presCatalog.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
@@ -21,7 +21,7 @@ public class HydratingOperator extends BaseOperator<Object, Exception> {
 	}
 
 	@Override
-	public PresentationTable operate(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) {
 	
 		if(presTable.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");

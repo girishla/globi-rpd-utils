@@ -7,7 +7,7 @@ import com.globi.rpd.component.PresentationTable;
 
 import xudml.AliasW;
 
-public class DisplayNameModificationOperator extends BaseOperator<Object, Exception> {
+public class DisplayNameModificationOperator extends BaseOperator<Object> {
 
 	private final UnaryOperator<String> stringTransformer;
 
@@ -18,7 +18,7 @@ public class DisplayNameModificationOperator extends BaseOperator<Object, Except
 	}
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 
 		if (presCatalog.getXudmlObject() == null)
 			throw new IllegalStateException("Cannot process without a XUDML instance set");
@@ -33,7 +33,7 @@ public class DisplayNameModificationOperator extends BaseOperator<Object, Except
 	}
 
 	@Override
-	public PresentationTable operate(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) {
 
 		if (presTable.getXudmlObject() == null)
 			throw new IllegalStateException("Cannot process without a XUDML instance set");

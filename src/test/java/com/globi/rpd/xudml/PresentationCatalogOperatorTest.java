@@ -3,11 +3,8 @@ package com.globi.rpd.xudml;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.stream.Collectors;
 
 import org.junit.Test;
-import org.springframework.core.io.Resource;
 
 import com.globi.rpd.CatalogDefaultTraverser;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
@@ -17,9 +14,7 @@ import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class PresentationCatalogOperatorTest {
 
 	@Test
@@ -28,7 +23,7 @@ public class PresentationCatalogOperatorTest {
 		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object, Exception> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
+		CatalogTraversingOperator<Object> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
 				unmarshalOperator);
 
 		presCatalog.apply(traversingUnmarshaller);
@@ -44,7 +39,7 @@ public class PresentationCatalogOperatorTest {
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 		
-		CatalogTraversingOperator<Object, Exception> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
+		CatalogTraversingOperator<Object> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
 				unmarshalOperator);
 		
 		traversingUnmarshaller.setProgressMonitor(new DefaultLoggerProgressMonitor());
@@ -52,8 +47,8 @@ public class PresentationCatalogOperatorTest {
 		presCatalog.apply(traversingUnmarshaller);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
-		CatalogTraversingOperator<Object, Exception> traversingHydrator = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser<Exception>(), hydratingOperator);
+		CatalogTraversingOperator<Object> traversingHydrator = new CatalogTraversingOperator<>(
+				new CatalogDefaultTraverser(), hydratingOperator);
 
 		presCatalog.apply(traversingHydrator);
 
@@ -75,22 +70,22 @@ public class PresentationCatalogOperatorTest {
 		PresentationCatalog presCatalog = new PresentationCatalog("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object, Exception> tv = new CatalogTraversingOperator<>(new CatalogDefaultTraverser<Exception>(),
+		CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
 				unmarshalOperator);
 		tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
-		CatalogTraversingOperator<Object, Exception> tv2 = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser<Exception>(), hydratingOperator);
+		CatalogTraversingOperator<Object> tv2 = new CatalogTraversingOperator<>(
+				new CatalogDefaultTraverser(), hydratingOperator);
 		tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv2);
 
 		presCatalog.setResourceUri(XudmlConstants.TEMP_DIR + outFile);
 
 		XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-		CatalogTraversingOperator<Object, Exception> tv3 = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser<Exception>(), marshallingOperator);
+		CatalogTraversingOperator<Object> tv3 = new CatalogTraversingOperator<>(
+				new CatalogDefaultTraverser(), marshallingOperator);
 		tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv3);
 

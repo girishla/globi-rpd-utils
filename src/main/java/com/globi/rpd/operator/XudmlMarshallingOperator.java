@@ -7,10 +7,10 @@ import com.globi.rpd.xudml.XudmlMarshaller;
 import xudml.ObjectFactory;
 import xudml.PresentationCatalogW;
 
-public class XudmlMarshallingOperator extends BaseOperator<Object, Exception> {
+public class XudmlMarshallingOperator extends BaseOperator<Object> {
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 
 		if(presCatalog.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot marshall withour a XUDML instance set");
@@ -24,7 +24,7 @@ public class XudmlMarshallingOperator extends BaseOperator<Object, Exception> {
 	}
 
 	@Override
-	public PresentationTable operate(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) {
 	
 		if(presTable.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot marshall withour a XUDML instance set");

@@ -9,8 +9,6 @@ package com.globi.rpd;
 public interface Operable {
 
 
-    <R, E extends Throwable >R apply(Operator<R, E> anOperator)
-        throws E
-    ;
+    <R> R apply(Operator<R> anOperator);
 
 }

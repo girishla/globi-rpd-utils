@@ -26,15 +26,15 @@ public class PresentationCatalog implements Operable, RpdComponent, RpdMarshalle
 	}
 
 	@Override
-	public <R, E extends Throwable> R apply(Operator<R, E> anOperator) throws E {
+	public <R> R apply(Operator<R> anOperator)  {
+		
+		
 		return anOperator.operate(this);
 	}
 
 	@Override
 	public String toString() {
-
 		return "  Subject Area:" + xudmlObject.getName();
-
 	}
 
 	@Override

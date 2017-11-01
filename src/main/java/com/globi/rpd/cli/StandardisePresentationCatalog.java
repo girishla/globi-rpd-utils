@@ -24,36 +24,39 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 			PresentationCatalog presCatalog = new PresentationCatalog(
 					"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
+			
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			CatalogTraversingOperator<Object, Exception> tv = new CatalogTraversingOperator<>(
-					new CatalogDefaultTraverser<Exception>(), unmarshalOperator);
+			CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),
+					unmarshalOperator);
+			
+			
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
-			CatalogTraversingOperator<Object, Exception> tv2 = new CatalogTraversingOperator<>(
-					new CatalogDefaultTraverser<Exception>(), hydratingOperator);
+			CatalogTraversingOperator<Object> tv2 = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
+					hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv2);
 
 			DisplayNameModificationOperator renamingOperator = new DisplayNameModificationOperator(
 					name -> name.replaceAll("Global Reporting - Measures - ", ""));
-			CatalogTraversingOperator<Object, Exception> traversingOperator = new CatalogTraversingOperator<>(
-					new CatalogDefaultTraverser<Exception>(), renamingOperator);
+			CatalogTraversingOperator<Object> traversingOperator = new CatalogTraversingOperator<>(
+					new CatalogDefaultTraverser(), renamingOperator);
 			traversingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(traversingOperator);
 
 			SortingOperator sortingOperator = new SortingOperator();
-			CatalogTraversingOperator<Object, Exception> traversingSortingOperator = new CatalogTraversingOperator<>(
-					new CatalogDefaultTraverser<Exception>(), sortingOperator);
+			CatalogTraversingOperator<Object> traversingSortingOperator = new CatalogTraversingOperator<>(
+					new CatalogDefaultTraverser(), sortingOperator);
 			traversingSortingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(traversingSortingOperator);
 
 			presCatalog.setResourceUri(XudmlConstants.XUDML_OUTPUT + "40000456-6dc5-167d-806e-c0a838100000.xml");
 
 			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-			CatalogTraversingOperator<Object, Exception> tv3 = new CatalogTraversingOperator<>(
-					new CatalogDefaultTraverser<Exception>(), marshallingOperator);
+			CatalogTraversingOperator<Object> tv3 = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
+					marshallingOperator);
 			tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv3);
 

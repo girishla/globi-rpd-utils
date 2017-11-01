@@ -9,7 +9,7 @@ import org.springframework.shell.Shell;
 import org.springframework.shell.result.DefaultResultHandler;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import lombok.extern.slf4j.Slf4j;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CliConfig.class)

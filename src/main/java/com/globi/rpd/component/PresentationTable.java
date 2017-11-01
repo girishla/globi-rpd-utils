@@ -56,8 +56,7 @@ public class PresentationTable     implements Operable,RpdComponent, RpdMarshall
 	}
 	
 	@Override
-    public<R, E extends Throwable >R apply(Operator<R, E> anOperator)
-            throws E
+    public<R>R apply(Operator<R> anOperator)
         {
             return anOperator.operate(this);
         }

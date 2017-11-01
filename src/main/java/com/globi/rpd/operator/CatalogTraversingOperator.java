@@ -13,22 +13,22 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOperator<R,E> {
+public class CatalogTraversingOperator<R> extends BaseOperator<Object> {
 
 	private boolean traverseFirst = false;
-	private Operator<R, E> operator;
-	private Traverser<E> traverser;
+	private Operator<R> operator;
+	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public CatalogTraversingOperator(Traverser<E> aTraverser, Operator<R, E> anOperator) {
+	public CatalogTraversingOperator(Traverser aTraverser, Operator<R> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
 
 	@Override
-	public R operate(PresentationCatalog presCatalog) throws E {
-		R returnVal;
-		returnVal = presCatalog.apply(operator);
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
+		PresentationCatalog returnVal;
+		returnVal = (PresentationCatalog) presCatalog.apply(operator);
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass().getName(), presCatalog);
 		}
@@ -40,10 +40,10 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 	}
 
 	@Override
-	public R operate(PresentationTable presTable) throws E {
+	public PresentationTable operate(PresentationTable presTable) {
 
-		R returnVal;
-		returnVal = presTable.apply(operator);
+		PresentationTable returnVal;
+		returnVal = (PresentationTable) presTable.apply(operator);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass().getName(), presTable);
@@ -56,17 +56,19 @@ public class CatalogTraversingOperator<R, E extends Throwable> extends BaseOpera
 	}
 
 	@Override
-	public R operate(PresentationColumn presColumn) throws E {
+	public R operate(PresentationColumn presColumn) {
 
 		R returnVal;
 		returnVal = presColumn.apply(operator);
 		if (progressMonitor != null) {
-//			progressMonitor.operated(operator.getClass().getName(), presColumn);
+			// progressMonitor.operated(operator.getClass().getName(),
+			// presColumn);
 		}
 		traverser.traverse((PresentationColumn) returnVal, this);
-			if (progressMonitor != null) {
-//				progressMonitor.traversed(traverser.getClass().getName(), presColumn);
-			}
+		if (progressMonitor != null) {
+			// progressMonitor.traversed(traverser.getClass().getName(),
+			// presColumn);
+		}
 		return returnVal;
 	}
 

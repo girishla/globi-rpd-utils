@@ -3,18 +3,15 @@ package com.globi.rpd.operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.xudml.ResourceFactory;
-import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlMarshaller;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationCatalogW;
 import xudml.PresentationTableW;
 
-@Slf4j
-public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> {
+public class XudmlUnmarshallingOperator extends BaseOperator<Object> {
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 
 		XudmlMarshaller<PresentationCatalogW> marshaller = new XudmlMarshaller<PresentationCatalogW>();
 
@@ -36,7 +33,7 @@ public class XudmlUnmarshallingOperator extends BaseOperator<Object, Exception> 
 	}
 
 	@Override
-	public PresentationTable operate(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) {
 	
 		XudmlMarshaller<PresentationTableW> marshaller = new XudmlMarshaller<PresentationTableW>();
 

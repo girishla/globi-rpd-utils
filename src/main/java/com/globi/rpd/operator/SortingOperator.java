@@ -6,16 +6,14 @@ import java.util.List;
 
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
-import com.globi.rpd.xudml.XudmlConstants;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.RefPresentationCatalogTableT;
 
-@Slf4j
-public class SortingOperator extends BaseOperator<Object, Exception> {
+
+public class SortingOperator extends BaseOperator<Object> {
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) throws Exception {
+	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 
 		Collections.sort(presCatalog.getPresentationTables(), new Comparator<PresentationTable>() {
 			public int compare(PresentationTable t1, PresentationTable t2) {
@@ -48,7 +46,7 @@ public class SortingOperator extends BaseOperator<Object, Exception> {
 	
 	
 	@Override
-	public PresentationTable operate(PresentationTable presTable) throws Exception {
+	public PresentationTable operate(PresentationTable presTable) {
 
 		if (presTable.getXudmlObject() == null)
 			throw new IllegalStateException("Cannot process without a XUDML instance set");

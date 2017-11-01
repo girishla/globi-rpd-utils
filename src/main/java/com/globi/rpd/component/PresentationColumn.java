@@ -19,7 +19,7 @@ public class PresentationColumn implements Operable {
 	
 
 	@Override
-	public <R, E extends Throwable> R apply(Operator<R, E> anOperator) throws E {
+	public <R> R apply(Operator<R> anOperator){
 		return anOperator.operate(this);
 	}
 	
