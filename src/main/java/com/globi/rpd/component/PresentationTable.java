@@ -6,14 +6,14 @@ import java.util.List;
 import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
 import com.globi.rpd.RpdMarshalledObject;
-import com.globi.rpd.RpdObject;
+import com.globi.rpd.RpdComponent;
 import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.Data;
 import xudml.PresentationTableW;
 
 @Data
-public class PresentationTable     implements Operable,RpdObject, RpdMarshalledObject<PresentationTableW>{
+public class PresentationTable     implements Operable,RpdComponent, RpdMarshalledObject<PresentationTableW>{
 
 	private PresentationTableW xudmlObject;
 	private String resourceUri;

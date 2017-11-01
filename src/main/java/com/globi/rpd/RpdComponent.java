@@ -1,6 +1,6 @@
 package com.globi.rpd;
 
-public interface RpdObject {
+public interface RpdComponent {
 	
 	String getName();
 	String getId();
