@@ -1,27 +1,24 @@
 package com.globi.rpd.dsl;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import com.globi.rpd.xudml.XudmlConstants;
+import com.globi.rpd.xudml.XudmlFolder;
 
 public class BasicDslTest {
-	
-	
-	
-//	 @Bean
-//	  public IntegrationFlow fileReadingFlow() {
-//	      return IntegrationFlows
-//	             .from(s -> s.file(tmpDir.getRoot()), e -> e.poller(Pollers.fixedDelay(100)))
-//	             .transform(Transformers.fileToString())
-//	             .channel(MessageChannels.queue("fileReadingResultChannel"))
-//	             .get();
-//	  }
 
-	
+	public static final String catalogPath = "file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL;
+
 	@Test
-	public void canBuildRpdWithFluentSyntax(){
-		RpdFactory.from(XudmlConstants.XUDML_COPYURL);
+	public void canBuildRpdWithFluentSyntax() throws IOException {
+		RpdFactory.newBuilder()
+				.init()
+				.catalog(new XudmlFolder(catalogPath))
+				.noMoreCatalogs()
+				.get();
+
 	}
-	
-	
+
 }

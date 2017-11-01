@@ -8,9 +8,9 @@ public class DefaultLoggerProgressMonitor implements TraversingOperatorProgressM
 
 	@Override
 	public void operated(String operationName, Object aOperable) {
-//		log.info("-----------------------------------");
-//		log.info(operationName + "::" + aOperable.toString());
-//		log.info("-----------------------------------");
+		log.info("-----------------------------------");
+		log.info(operationName + "::" + aOperable.toString());
+		log.info("-----------------------------------");
 	}
 
 	@Override

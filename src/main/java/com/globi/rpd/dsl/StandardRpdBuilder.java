@@ -24,7 +24,7 @@ import com.globi.rpd.xudml.XudmlFolder;
  */
 public class StandardRpdBuilder {
 
-	public static CatalogStep init() {
+	public CatalogStep init() {
 		return new RpdSteps();
 	}
 
@@ -55,9 +55,7 @@ public class StandardRpdBuilder {
 
 			for (String fileName : fileList) {
 
-				String id = "m" + fileName.replace(".xml", "");
-
-				PresentationCatalog presCatalog = PresentationCatalog.fromResource(XudmlConstants.XUDML_BASEURL + fileName);
+				PresentationCatalog presCatalog = PresentationCatalog.fromResource("file:\\" +XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
 
 				XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 				CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),

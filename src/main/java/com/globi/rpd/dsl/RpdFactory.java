@@ -8,7 +8,7 @@ package com.globi.rpd.dsl;
  */
 public class RpdFactory {
 	
-	public static StandardRpdBuilder from(String xudmlDirectory) {
+	public static StandardRpdBuilder newBuilder() {
 		return new StandardRpdBuilder();
 	}
 	
