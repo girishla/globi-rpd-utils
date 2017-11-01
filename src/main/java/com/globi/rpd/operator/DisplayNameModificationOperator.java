@@ -2,8 +2,8 @@ package com.globi.rpd.operator;
 
 import java.util.function.UnaryOperator;
 
-import com.globi.rpd.presentationcatalog.PresentationCatalog;
-import com.globi.rpd.presentationcatalog.PresentationTable;
+import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationTable;
 
 import xudml.AliasW;
 

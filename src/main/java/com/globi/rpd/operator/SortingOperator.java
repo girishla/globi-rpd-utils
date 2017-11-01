@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.globi.rpd.presentationcatalog.PresentationCatalog;
-import com.globi.rpd.presentationcatalog.PresentationTable;
+import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.extern.slf4j.Slf4j;

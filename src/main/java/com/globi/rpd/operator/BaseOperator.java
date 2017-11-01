@@ -2,9 +2,9 @@
 package com.globi.rpd.operator;
 
 import com.globi.rpd.Operator;
-import com.globi.rpd.presentationcatalog.PresentationCatalog;
-import com.globi.rpd.presentationcatalog.PresentationColumn;
-import com.globi.rpd.presentationcatalog.PresentationTable;
+import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationColumn;
+import com.globi.rpd.component.PresentationTable;
 
 
 public class BaseOperator<R, E extends Throwable >

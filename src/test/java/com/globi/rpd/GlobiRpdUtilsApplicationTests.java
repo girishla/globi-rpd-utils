@@ -1,4 +1,4 @@
-package com.globi;
+package com.globi.rpd;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

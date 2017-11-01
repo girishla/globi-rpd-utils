@@ -1,4 +1,4 @@
-package com.globi.rpd.presentationcatalog;
+package com.globi.rpd.component;
 
 import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;

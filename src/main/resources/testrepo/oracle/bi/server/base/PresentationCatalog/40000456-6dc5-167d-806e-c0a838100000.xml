@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<PresentationCatalog mdsid="m40000456-6dc5-167d-806e-c0a838100000" name="Global Reporting - Measures - Performance Metrics" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" hasDispName="false" hasDispDescription="false" isAutoAggr="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
-<RefTables>
-<RefPresentationTable refId="m40000456-6dc5-167d-806e-c0a838100000-m40000457-6dc5-167d-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/40000457-6dc5-167d-806e-c0a838100000.xml#m40000457-6dc5-167d-806e-c0a838100000"/>
-<RefPresentationTable refId="m40000456-6dc5-167d-806e-c0a838100000-m400004b8-6dc5-167d-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/400004b8-6dc5-167d-806e-c0a838100000.xml#m400004b8-6dc5-167d-806e-c0a838100000"/>
-<RefPresentationTable refId="m40000456-6dc5-167d-806e-c0a838100000-m400004e5-6dc5-167d-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/400004e5-6dc5-167d-806e-c0a838100000.xml#m400004e5-6dc5-167d-806e-c0a838100000"/>
-<RefPresentationTable refId="m40000456-6dc5-167d-806e-c0a838100000-m40000568-6dc5-167d-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/40000568-6dc5-167d-806e-c0a838100000.xml#m40000568-6dc5-167d-806e-c0a838100000"/>
-</RefTables>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PresentationCatalog xmlns="http://www.oracle.com/obis/repository" isAutoAggr="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" hasDispName="true" dispName="Performance Metrics" hasDispDescription="false" name="Global Reporting - Measures - Performance Metrics" mdsid="m40000456-6dc5-167d-806e-c0a838100000">
+    <RefTables>
+        <RefPresentationTable presentationTableRef="/oracle/bi/server/base/PresentationTable/40000568-6dc5-167d-806e-c0a838100000.xml#m40000568-6dc5-167d-806e-c0a838100000" refId="m40000456-6dc5-167d-806e-c0a838100000-m40000568-6dc5-167d-806e-c0a838100000"/>
+        <RefPresentationTable presentationTableRef="/oracle/bi/server/base/PresentationTable/400004e5-6dc5-167d-806e-c0a838100000.xml#m400004e5-6dc5-167d-806e-c0a838100000" refId="m40000456-6dc5-167d-806e-c0a838100000-m400004e5-6dc5-167d-806e-c0a838100000"/>
+        <RefPresentationTable presentationTableRef="/oracle/bi/server/base/PresentationTable/400004b8-6dc5-167d-806e-c0a838100000.xml#m400004b8-6dc5-167d-806e-c0a838100000" refId="m40000456-6dc5-167d-806e-c0a838100000-m400004b8-6dc5-167d-806e-c0a838100000"/>
+        <RefPresentationTable presentationTableRef="/oracle/bi/server/base/PresentationTable/40000457-6dc5-167d-806e-c0a838100000.xml#m40000457-6dc5-167d-806e-c0a838100000" refId="m40000456-6dc5-167d-806e-c0a838100000-m40000457-6dc5-167d-806e-c0a838100000"/>
+    </RefTables>
 </PresentationCatalog>

@@ -1,7 +1,7 @@
 package com.globi.rpd.operator;
 
-import com.globi.rpd.presentationcatalog.PresentationCatalog;
-import com.globi.rpd.presentationcatalog.PresentationTable;
+import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlMarshaller;
