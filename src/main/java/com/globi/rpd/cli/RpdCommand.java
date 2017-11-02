@@ -10,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 public class RpdCommand {
 
 	@SuppressWarnings("unchecked")
-	@ShellMethod("Update Presentation Catalog.")
-	public String updatePresentationCatalog(String strategyName,String subjectAreaName) throws Exception {
+	@ShellMethod("Run actions based on the input strategy class name")
+	public String run(String strategyName,String subjectAreaName) throws Exception {
 
 		Class<?> strategyClass = null;
 		try {

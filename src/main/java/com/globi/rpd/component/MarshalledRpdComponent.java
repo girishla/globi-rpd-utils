@@ -1,6 +1,5 @@
 package com.globi.rpd.component;
 
-import com.globi.rpd.RpdComponent;
 import com.globi.rpd.RpdMarshalledObject;
 
 import lombok.Data;

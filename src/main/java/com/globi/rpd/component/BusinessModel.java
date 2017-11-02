@@ -4,8 +4,8 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.globi.rpd.Operable;
-import com.globi.rpd.Operator;
+import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

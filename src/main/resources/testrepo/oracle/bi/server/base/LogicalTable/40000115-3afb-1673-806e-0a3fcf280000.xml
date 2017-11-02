@@ -1,338 +1,332 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<LogicalTable mdsid="m40000115-3afb-1673-806e-0a3fcf280000" name="Measures - Performance Metrics" iconIndex="90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
-<LogicalColumn mdsid="m40000117-3afb-1673-806e-0a3fcf280000" name="Actual" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000011e-3afb-1673-806e-0a3fcf280000" name="Performance Metric Category" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000120-3afb-1673-806e-0a3fcf280000" name="Performance Metric Type" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000050-276d-1678-806e-ac1d61f70000" name="Performance Metric Name" isWriteable="false">
-<Description><![CDATA[--]]></Description>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000122-3afb-1673-806e-0a3fcf280000" name="Published Flag" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000123-3afb-1673-806e-0a3fcf280000" name="Rank" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000125-3afb-1673-806e-0a3fcf280000" name="Target" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000001-3206-1679-806e-0a3fce2f0000" name="---------Raw Measures(Avoid Using directly in Analysis) ----------------------------" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000001-01f4-0000-5571-1ae900000000" name="Expr">
-<ExprText><![CDATA[1]]></ExprText>
-<ExprTextDesc><![CDATA[1]]></ExprTextDesc>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000003-3206-1679-806e-0a3fce2f0000" name="# Performance Metrics" isWriteable="false">
-<MeasureDefn mdsid="m4000003e-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m40000044-3206-1679-806e-0a3fce2f0000" name="AggRule_2050:377601508165657" isDefault="true">
-<Expr mdsid="m00000002-01f4-0000-7897-11d500000000" name="Expr">
-<ExprText><![CDATA[ COUNT("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ COUNT("Global Reporting"."Measures - Performance Metrics"."# Performance Metrics")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000002-01f4-0000-7897-11d500000000-m40000003-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000003-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000005-3206-1679-806e-0a3fce2f0000" name="Actual Value" isWriteable="false">
-<Description><![CDATA[--]]></Description>
-<MeasureDefn mdsid="m4000003f-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m40000045-3206-1679-806e-0a3fce2f0000" name="AggRule_2050:377611508165657" isDefault="true">
-<Expr mdsid="m00000003-01f4-0000-0574-6f3100000000" name="Expr">
-<ExprText><![CDATA[ SUM("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ SUM("Global Reporting"."Measures - Performance Metrics"."Actual Value")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000003-01f4-0000-0574-6f3100000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000007-3206-1679-806e-0a3fce2f0000" name="Target Value" isWriteable="false">
-<Description><![CDATA[--]]></Description>
-<MeasureDefn mdsid="m40000040-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m40000046-3206-1679-806e-0a3fce2f0000" name="AggRule_2050:377621508165657" isDefault="true">
-<Expr mdsid="m00000004-01f4-0000-7afd-482100000000" name="Expr">
-<ExprText><![CDATA[ SUM("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ SUM("Global Reporting"."Measures - Performance Metrics"."Target Value")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000004-01f4-0000-7afd-482100000000-m40000007-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000007-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000009-3206-1679-806e-0a3fce2f0000" name="Avg Actual Value" isWriteable="false">
-<Description><![CDATA[----]]></Description>
-<MeasureDefn mdsid="m40000041-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m80000001-329f-1679-806e-0a3fce2f0000" name="AggRule_2050:377321508166270" isDefault="true">
-<Expr mdsid="m00000005-01f4-0000-9658-b4fe00000000" name="Expr">
-<ExprText><![CDATA[ AVG("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ AVG("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000005-01f4-0000-9658-b4fe00000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000b-3206-1679-806e-0a3fce2f0000" name="Avg Target Value" isWriteable="false">
-<Description><![CDATA[----]]></Description>
-<MeasureDefn mdsid="m40000042-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m80000001-32d7-1679-806e-0a3fce2f0000" name="AggRule_2050:377331508166494" isDefault="true">
-<Expr mdsid="m00000006-01f4-0000-a58c-551f00000000" name="Expr">
-<ExprText><![CDATA[ AVG("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ AVG("Global Reporting"."Measures - Performance Metrics"."Avg Target Value")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000006-01f4-0000-a58c-551f00000000-m4000000b-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000b-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000d-3206-1679-806e-0a3fce2f0000" name="Avg Rank" isWriteable="false">
-<Description><![CDATA[---]]></Description>
-<MeasureDefn mdsid="m40000043-3206-1679-806e-0a3fce2f0000" name="Measure" isCommutative="false">
-<AggrRule mdsid="m80000001-329b-1679-806e-0a3fce2f0000" name="AggRule_2050:377311508166254" isDefault="true">
-<Expr mdsid="m00000007-01f4-0000-92c9-940c00000000" name="Expr">
-<ExprText><![CDATA[ AVG("%1")]]></ExprText>
-<ExprTextDesc><![CDATA[ AVG("Global Reporting"."Measures - Performance Metrics"."Avg Rank")]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000007-01f4-0000-92c9-940c00000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-</ObjectRefList>
-</Expr>
-</AggrRule>
-</MeasureDefn>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000f-3206-1679-806e-0a3fce2f0000" name="-------------Base measures from which KPI are derived ----------------------------" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000008-01f4-0000-2b5e-f14700000000" name="Expr">
-<ExprText><![CDATA[1]]></ExprText>
-<ExprTextDesc><![CDATA[1]]></ExprTextDesc>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000011-3206-1679-806e-0a3fce2f0000" name="Open Pipeline FY" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000009-01f4-0000-7f79-d6ca00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Open Pipeline') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000009-01f4-0000-7f79-d6ca00000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000009-01f4-0000-7f79-d6ca00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000013-3206-1679-806e-0a3fce2f0000" name="Open Pipeline - Confident FY" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000a-01f4-0000-51f1-c2dc00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Open Pipeline - Confident') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline - Confident') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000a-01f4-0000-51f1-c2dc00000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000a-01f4-0000-51f1-c2dc00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000015-3206-1679-806e-0a3fce2f0000" name="Open Pipeline - Mature FY" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000b-01f4-0000-240d-ea3c00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Open Pipeline - Mature') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline - Mature') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000b-01f4-0000-240d-ea3c00000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000b-01f4-0000-240d-ea3c00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000017-3206-1679-806e-0a3fce2f0000" name="Pipeline Total Amount FY" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000c-01f4-0000-cd61-917900000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Pipeline Total Amount') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Total Amount') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000c-01f4-0000-cd61-917900000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000c-01f4-0000-cd61-917900000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000019-3206-1679-806e-0a3fce2f0000" name="Pipeline Won Amount FY" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000d-01f4-0000-e61f-303f00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Pipeline Won Amount') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Won Amount') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000d-01f4-0000-e61f-303f00000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000d-01f4-0000-e61f-303f00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001b-3206-1679-806e-0a3fce2f0000" name="POS Billings Actual YTD" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000e-01f4-0000-c3d1-7afb00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'POS Billings') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Billings') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000e-01f4-0000-c3d1-7afb00000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000e-01f4-0000-c3d1-7afb00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001d-3206-1679-806e-0a3fce2f0000" name="POS Billings Target YTD" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000000f-01f4-0000-a512-add400000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'POS Billings') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Target Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Billings') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000000f-01f4-0000-a512-add400000000-m40000007-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000007-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000000f-01f4-0000-a512-add400000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001f-3206-1679-806e-0a3fce2f0000" name="Activity YTD" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000010-01f4-0000-c850-3e1500000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Activity') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000010-01f4-0000-c850-3e1500000000-m40000005-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000010-01f4-0000-c850-3e1500000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000021-3206-1679-806e-0a3fce2f0000" name="------------------------------------KPI Measures--------------------------------" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000011-01f4-0000-2ae0-c06300000000" name="Expr">
-<ExprText><![CDATA[1]]></ExprText>
-<ExprTextDesc><![CDATA[1]]></ExprTextDesc>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000023-3206-1679-806e-0a3fce2f0000" name="Conversion Rate" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000012-01f4-0000-0122-eca400000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Conversion Rate') )  * 100.00]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Conversion Rate') )  * 100.00]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000012-01f4-0000-0122-eca400000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000012-01f4-0000-0122-eca400000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000025-3206-1679-806e-0a3fce2f0000" name="Pipeline Maturity" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000013-01f4-0000-0b36-396d00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Pipeline Maturity') )   * 100.00]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Maturity') )   * 100.00]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000013-01f4-0000-0b36-396d00000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000013-01f4-0000-0b36-396d00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000027-3206-1679-806e-0a3fce2f0000" name="POS Per Day in Stage" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000014-01f4-0000-616c-d69c00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'POS Per Day in Stage') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Per Day in Stage') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000014-01f4-0000-616c-d69c00000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000014-01f4-0000-616c-d69c00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000029-3206-1679-806e-0a3fce2f0000" name="Confidence Level" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000015-01f4-0000-91fb-8a2200000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Confidence Level') )   * 100.00]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Confidence Level') )   * 100.00]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000015-01f4-0000-91fb-8a2200000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000015-01f4-0000-91fb-8a2200000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000002b-3206-1679-806e-0a3fce2f0000" name="Gap To Target" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000016-01f4-0000-555c-98a700000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Gap To Target') )   * 100.00]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Gap To Target') )   * 100.00]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000016-01f4-0000-555c-98a700000000-m40000009-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000016-01f4-0000-555c-98a700000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000002d-3206-1679-806e-0a3fce2f0000" name="Activity Target %" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000017-01f4-0000-7bf2-e3bf00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Activity Target %') )   * 100.00]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Target Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity Target %') )   * 100.00]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000017-01f4-0000-7bf2-e3bf00000000-m4000000b-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000b-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000017-01f4-0000-7bf2-e3bf00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000002f-3206-1679-806e-0a3fce2f0000" name="---------KPI Rank Measures ----------------------------" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000018-01f4-0000-aa6c-12c300000000" name="Expr">
-<ExprText><![CDATA[1]]></ExprText>
-<ExprTextDesc><![CDATA[1]]></ExprTextDesc>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000031-3206-1679-806e-0a3fce2f0000" name="Conversion Rate Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m00000019-01f4-0000-a5a8-1e2800000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Conversion Rate') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Conversion Rate') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000019-01f4-0000-a5a8-1e2800000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m00000019-01f4-0000-a5a8-1e2800000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000033-3206-1679-806e-0a3fce2f0000" name="Pipeline Maturity Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001a-01f4-0000-fe4a-188800000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Pipeline Maturity') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Maturity') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001a-01f4-0000-fe4a-188800000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001a-01f4-0000-fe4a-188800000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000035-3206-1679-806e-0a3fce2f0000" name="POS Per Day in Stage Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001b-01f4-0000-9727-d0db00000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'POS Per Day in Stage') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Per Day in Stage') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001b-01f4-0000-9727-d0db00000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001b-01f4-0000-9727-d0db00000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000037-3206-1679-806e-0a3fce2f0000" name="Confidence Level Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001c-01f4-0000-a04f-9b4400000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Confidence Level') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Confidence Level') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001c-01f4-0000-a04f-9b4400000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001c-01f4-0000-a04f-9b4400000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m40000039-3206-1679-806e-0a3fce2f0000" name="Gap To Target % Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001d-01f4-0000-1715-cc8000000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Gap To Target') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Gap To Target') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001d-01f4-0000-1715-cc8000000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001d-01f4-0000-1715-cc8000000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000003b-3206-1679-806e-0a3fce2f0000" name="Activity Target % Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001e-01f4-0000-bab2-bab500000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Activity Target %') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity Target %') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001e-01f4-0000-bab2-bab500000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001e-01f4-0000-bab2-bab500000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000003d-3206-1679-806e-0a3fce2f0000" name="Overall Rank" isDerived="true" isWriteable="false">
-<Expr mdsid="m0000001f-01f4-0000-e0b5-907500000000" name="Expr">
-<ExprText><![CDATA[Filter("%1"  Using  ("%2" = 'Overall') ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Overall') ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m0000001f-01f4-0000-e0b5-907500000000-m4000000d-3206-1679-806e-0a3fce2f0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000"/>
-<RefObject refId="m0000001f-01f4-0000-e0b5-907500000000-m40000050-276d-1678-806e-ac1d61f70000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<RefTableSources>
-<RefLogicalTableSource refId="m40000115-3afb-1673-806e-0a3fcf280000-m40000116-3afb-1673-806e-0a3fcf280000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000116-3afb-1673-806e-0a3fcf280000.xml#m40000116-3afb-1673-806e-0a3fcf280000"/>
-</RefTableSources>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Measures - Performance Metrics" iconIndex="90" mdsid="m40000115-3afb-1673-806e-0a3fcf280000">
+    <LogicalColumn isWriteable="false" name="Actual" mdsid="m40000117-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isWriteable="false" name="Performance Metric Category" mdsid="m4000011e-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isWriteable="false" name="Performance Metric Type" mdsid="m40000120-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isWriteable="false" name="Performance Metric Name" mdsid="m40000050-276d-1678-806e-ac1d61f70000">
+        <Description>--</Description>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Published Flag" mdsid="m40000122-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isWriteable="false" name="Rank" mdsid="m40000123-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isWriteable="false" name="Target" mdsid="m40000125-3afb-1673-806e-0a3fcf280000"/>
+    <LogicalColumn isDerived="true" isWriteable="false" name="---------Raw Measures(Avoid Using directly in Analysis) ----------------------------" mdsid="m40000001-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000001-01f4-0000-5571-1ae900000000">
+            <ExprText>1</ExprText>
+            <ExprTextDesc>1</ExprTextDesc>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="# Performance Metrics" mdsid="m40000003-3206-1679-806e-0a3fce2f0000">
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m4000003e-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377601508165657" mdsid="m40000044-3206-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000002-01f4-0000-7897-11d500000000">
+                    <ExprText> COUNT("%1")</ExprText>
+                    <ExprTextDesc> COUNT("Global Reporting"."Measures - Performance Metrics"."# Performance Metrics")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000003-3206-1679-806e-0a3fce2f0000" refId="m00000002-01f4-0000-7897-11d500000000-m40000003-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Actual Value" mdsid="m40000005-3206-1679-806e-0a3fce2f0000">
+        <Description>--</Description>
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m4000003f-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377611508165657" mdsid="m40000045-3206-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000003-01f4-0000-0574-6f3100000000">
+                    <ExprText> SUM("%1")</ExprText>
+                    <ExprTextDesc> SUM("Global Reporting"."Measures - Performance Metrics"."Actual Value")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m00000003-01f4-0000-0574-6f3100000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Target Value" mdsid="m40000007-3206-1679-806e-0a3fce2f0000">
+        <Description>--</Description>
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m40000040-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377621508165657" mdsid="m40000046-3206-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000004-01f4-0000-7afd-482100000000">
+                    <ExprText> SUM("%1")</ExprText>
+                    <ExprTextDesc> SUM("Global Reporting"."Measures - Performance Metrics"."Target Value")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000007-3206-1679-806e-0a3fce2f0000" refId="m00000004-01f4-0000-7afd-482100000000-m40000007-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Avg Actual Value" mdsid="m40000009-3206-1679-806e-0a3fce2f0000">
+        <Description>----</Description>
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m40000041-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377321508166270" mdsid="m80000001-329f-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000005-01f4-0000-9658-b4fe00000000">
+                    <ExprText> AVG("%1")</ExprText>
+                    <ExprTextDesc> AVG("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000005-01f4-0000-9658-b4fe00000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Avg Target Value" mdsid="m4000000b-3206-1679-806e-0a3fce2f0000">
+        <Description>----</Description>
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m40000042-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377331508166494" mdsid="m80000001-32d7-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000006-01f4-0000-a58c-551f00000000">
+                    <ExprText> AVG("%1")</ExprText>
+                    <ExprTextDesc> AVG("Global Reporting"."Measures - Performance Metrics"."Avg Target Value")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000b-3206-1679-806e-0a3fce2f0000" refId="m00000006-01f4-0000-a58c-551f00000000-m4000000b-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Avg Rank" mdsid="m4000000d-3206-1679-806e-0a3fce2f0000">
+        <Description>---</Description>
+        <MeasureDefn isCommutative="false" name="Measure" mdsid="m40000043-3206-1679-806e-0a3fce2f0000">
+            <AggrRule isDefault="true" name="AggRule_2050:377311508166254" mdsid="m80000001-329b-1679-806e-0a3fce2f0000">
+                <Expr name="Expr" mdsid="m00000007-01f4-0000-92c9-940c00000000">
+                    <ExprText> AVG("%1")</ExprText>
+                    <ExprTextDesc> AVG("Global Reporting"."Measures - Performance Metrics"."Avg Rank")</ExprTextDesc>
+                    <ObjectRefList>
+                        <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m00000007-01f4-0000-92c9-940c00000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                    </ObjectRefList>
+                </Expr>
+            </AggrRule>
+        </MeasureDefn>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="-------------Base measures from which KPI are derived ----------------------------" mdsid="m4000000f-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000008-01f4-0000-2b5e-f14700000000">
+            <ExprText>1</ExprText>
+            <ExprTextDesc>1</ExprTextDesc>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Open Pipeline FY" mdsid="m40000011-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000009-01f4-0000-7f79-d6ca00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Open Pipeline') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m00000009-01f4-0000-7f79-d6ca00000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000009-01f4-0000-7f79-d6ca00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Open Pipeline - Confident FY" mdsid="m40000013-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000a-01f4-0000-51f1-c2dc00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Open Pipeline - Confident') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline - Confident') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m0000000a-01f4-0000-51f1-c2dc00000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000a-01f4-0000-51f1-c2dc00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Open Pipeline - Mature FY" mdsid="m40000015-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000b-01f4-0000-240d-ea3c00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Open Pipeline - Mature') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Open Pipeline - Mature') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m0000000b-01f4-0000-240d-ea3c00000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000b-01f4-0000-240d-ea3c00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Pipeline Total Amount FY" mdsid="m40000017-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000c-01f4-0000-cd61-917900000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Pipeline Total Amount') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Total Amount') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m0000000c-01f4-0000-cd61-917900000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000c-01f4-0000-cd61-917900000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Pipeline Won Amount FY" mdsid="m40000019-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000d-01f4-0000-e61f-303f00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Pipeline Won Amount') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Won Amount') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m0000000d-01f4-0000-e61f-303f00000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000d-01f4-0000-e61f-303f00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="POS Billings Actual YTD" mdsid="m4000001b-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000e-01f4-0000-c3d1-7afb00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'POS Billings') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Billings') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m0000000e-01f4-0000-c3d1-7afb00000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000e-01f4-0000-c3d1-7afb00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="POS Billings Target YTD" mdsid="m4000001d-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000000f-01f4-0000-a512-add400000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'POS Billings') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Target Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Billings') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000007-3206-1679-806e-0a3fce2f0000" refId="m0000000f-01f4-0000-a512-add400000000-m40000007-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000000f-01f4-0000-a512-add400000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Activity YTD" mdsid="m4000001f-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000010-01f4-0000-c850-3e1500000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Activity') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000005-3206-1679-806e-0a3fce2f0000" refId="m00000010-01f4-0000-c850-3e1500000000-m40000005-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000010-01f4-0000-c850-3e1500000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="------------------------------------KPI Measures--------------------------------" mdsid="m40000021-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000011-01f4-0000-2ae0-c06300000000">
+            <ExprText>1</ExprText>
+            <ExprTextDesc>1</ExprTextDesc>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Conversion Rate" mdsid="m40000023-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000012-01f4-0000-0122-eca400000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Conversion Rate') )  * 100.00</ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Conversion Rate') )  * 100.00</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000012-01f4-0000-0122-eca400000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000012-01f4-0000-0122-eca400000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Pipeline Maturity" mdsid="m40000025-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000013-01f4-0000-0b36-396d00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Pipeline Maturity') )   * 100.00</ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Maturity') )   * 100.00</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000013-01f4-0000-0b36-396d00000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000013-01f4-0000-0b36-396d00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="POS Per Day in Stage" mdsid="m40000027-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000014-01f4-0000-616c-d69c00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'POS Per Day in Stage') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Per Day in Stage') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000014-01f4-0000-616c-d69c00000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000014-01f4-0000-616c-d69c00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Confidence Level" mdsid="m40000029-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000015-01f4-0000-91fb-8a2200000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Confidence Level') )   * 100.00</ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Confidence Level') )   * 100.00</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000015-01f4-0000-91fb-8a2200000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000015-01f4-0000-91fb-8a2200000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Gap To Target" mdsid="m4000002b-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000016-01f4-0000-555c-98a700000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Gap To Target') )   * 100.00</ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Actual Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Gap To Target') )   * 100.00</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000009-3206-1679-806e-0a3fce2f0000" refId="m00000016-01f4-0000-555c-98a700000000-m40000009-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000016-01f4-0000-555c-98a700000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Activity Target %" mdsid="m4000002d-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000017-01f4-0000-7bf2-e3bf00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Activity Target %') )   * 100.00</ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Target Value"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity Target %') )   * 100.00</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000b-3206-1679-806e-0a3fce2f0000" refId="m00000017-01f4-0000-7bf2-e3bf00000000-m4000000b-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000017-01f4-0000-7bf2-e3bf00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="---------KPI Rank Measures ----------------------------" mdsid="m4000002f-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000018-01f4-0000-aa6c-12c300000000">
+            <ExprText>1</ExprText>
+            <ExprTextDesc>1</ExprTextDesc>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Conversion Rate Rank" mdsid="m40000031-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m00000019-01f4-0000-a5a8-1e2800000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Conversion Rate') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Conversion Rate') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m00000019-01f4-0000-a5a8-1e2800000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m00000019-01f4-0000-a5a8-1e2800000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Pipeline Maturity Rank" mdsid="m40000033-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001a-01f4-0000-fe4a-188800000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Pipeline Maturity') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Pipeline Maturity') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001a-01f4-0000-fe4a-188800000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001a-01f4-0000-fe4a-188800000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="POS Per Day in Stage Rank" mdsid="m40000035-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001b-01f4-0000-9727-d0db00000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'POS Per Day in Stage') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'POS Per Day in Stage') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001b-01f4-0000-9727-d0db00000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001b-01f4-0000-9727-d0db00000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Confidence Level Rank" mdsid="m40000037-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001c-01f4-0000-a04f-9b4400000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Confidence Level') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Confidence Level') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001c-01f4-0000-a04f-9b4400000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001c-01f4-0000-a04f-9b4400000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Gap To Target % Rank" mdsid="m40000039-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001d-01f4-0000-1715-cc8000000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Gap To Target') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Gap To Target') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001d-01f4-0000-1715-cc8000000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001d-01f4-0000-1715-cc8000000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Activity Target % Rank" mdsid="m4000003b-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001e-01f4-0000-bab2-bab500000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Activity Target %') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Activity Target %') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001e-01f4-0000-bab2-bab500000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001e-01f4-0000-bab2-bab500000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isDerived="true" isWriteable="false" name="Overall Rank" mdsid="m4000003d-3206-1679-806e-0a3fce2f0000">
+        <Expr name="Expr" mdsid="m0000001f-01f4-0000-e0b5-907500000000">
+            <ExprText>Filter("%1"  Using  ("%2" = 'Overall') ) </ExprText>
+            <ExprTextDesc>Filter("Global Reporting"."Measures - Performance Metrics"."Avg Rank"  Using  ("Global Reporting"."Measures - Performance Metrics"."Performance Metric Name" = 'Overall') ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m4000000d-3206-1679-806e-0a3fce2f0000" refId="m0000001f-01f4-0000-e0b5-907500000000-m4000000d-3206-1679-806e-0a3fce2f0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000115-3afb-1673-806e-0a3fcf280000.xml#m40000050-276d-1678-806e-ac1d61f70000" refId="m0000001f-01f4-0000-e0b5-907500000000-m40000050-276d-1678-806e-ac1d61f70000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <RefTableSources>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000116-3afb-1673-806e-0a3fcf280000.xml#m40000116-3afb-1673-806e-0a3fcf280000" refId="m40000115-3afb-1673-806e-0a3fcf280000-m40000116-3afb-1673-806e-0a3fcf280000"/>
+    </RefTableSources>
 </LogicalTable>

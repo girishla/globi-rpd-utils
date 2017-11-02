@@ -24,7 +24,23 @@ public class ShellCommandIntegrationTests {
 		Object result = shell.evaluate(new Input() {
 			@Override
 			public String rawText() {
-				return "update-presentation-catalog StandardisePresentationCatalog ALL";
+				return "run StandardisePresentationCatalog ALL";
+			}
+
+		});
+
+		DefaultResultHandler resulthandler = new DefaultResultHandler();
+		resulthandler.handleResult(result);
+
+	}
+	
+	@Test
+	public void canGenerateSubjectAreas() {
+
+		Object result = shell.evaluate(new Input() {
+			@Override
+			public String rawText() {
+				return "run GenerateSubjectAreas ALL";
 			}
 
 		});
@@ -35,3 +51,6 @@ public class ShellCommandIntegrationTests {
 	}
 
 }
+
+
+

@@ -1,6 +1,5 @@
 package com.globi.rpd.cli;
 
-import com.globi.rpd.CatalogDefaultTraverser;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.operator.CatalogTraversingOperator;
@@ -9,6 +8,7 @@ import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.SortingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
+import com.globi.rpd.traverser.CatalogDefaultTraverser;
 import com.globi.rpd.xudml.XudmlConstants;
 
 public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean, String> {
@@ -22,8 +22,8 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 
 		try {
 
-			PresentationCatalog presCatalog = PresentationCatalog.fromResource(
-					"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+			PresentationCatalog presCatalog = PresentationCatalog.fromResource("file:" + XudmlConstants.XUDML_BASEURL + 
+					"/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 			CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(),

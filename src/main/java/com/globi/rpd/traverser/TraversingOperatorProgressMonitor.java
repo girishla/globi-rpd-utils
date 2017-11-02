@@ -1,6 +1,6 @@
 
 
-package com.globi.rpd;
+package com.globi.rpd.traverser;
 
 
 public interface TraversingOperatorProgressMonitor {

@@ -1,98 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<LogicalTable mdsid="mc0000001-713f-163e-ac27-0a3fce280000" name="User - Position" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
-<LogicalColumn mdsid="mc000001a-713f-163e-ac27-0a3fce280000" name="Key (WID)" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000000c-713f-163e-ac27-0a3fce280000" name="Integration ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000018-713f-163e-ac27-0a3fce280000" name="PGUID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000040-713f-163e-ac27-0a3fce280000" name="------------------[ Attributes ]------------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000034-713f-163e-ac27-0a3fce280000" name="Company" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000026-713f-163e-ac27-0a3fce280000" name="Country" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000003a-713f-163e-ac27-0a3fce280000" name="Delivery Office" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000028-713f-163e-ac27-0a3fce280000" name="Deptartment" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000003e-713f-163e-ac27-0a3fce280000" name="Domain" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000004-713f-163e-ac27-0a3fce280000" name="Email" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000010-713f-163e-ac27-0a3fce280000" name="Employee ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000002a-713f-163e-ac27-0a3fce280000" name="Expiry Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000008-713f-163e-ac27-0a3fce280000" name="First Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000000a-713f-163e-ac27-0a3fce280000" name="Full Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000000e-713f-163e-ac27-0a3fce280000" name="Job Title" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000016-713f-163e-ac27-0a3fce280000" name="Last Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000014-713f-163e-ac27-0a3fce280000" name="Ldap Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000002c-713f-163e-ac27-0a3fce280000" name="Login" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000012-713f-163e-ac27-0a3fce280000" name="Manager Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000002e-713f-163e-ac27-0a3fce280000" name="Principal Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000020-713f-163e-ac27-0a3fce280000" name="Team Owner" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000022-713f-163e-ac27-0a3fce280000" name="Telephone" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000024-713f-163e-ac27-0a3fce280000" name="Time Zone" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000042-713f-163e-ac27-0a3fce280000" name="-------------[ System Attributes ]------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000036-713f-163e-ac27-0a3fce280000" name="Current Flag" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000038-713f-163e-ac27-0a3fce280000" name="Data Source ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000003c-713f-163e-ac27-0a3fce280000" name="Delete Flag" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000030-713f-163e-ac27-0a3fce280000" name="DWH Created Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000032-713f-163e-ac27-0a3fce280000" name="DWH Updated Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000006-713f-163e-ac27-0a3fce280000" name="ETL Process ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000001c-713f-163e-ac27-0a3fce280000" name="Source Created Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000001e-713f-163e-ac27-0a3fce280000" name="Source Updated Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000058-713f-163e-ac27-0a3fce280000" name="-------------[ User Hierarchy ]------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000056-713f-163e-ac27-0a3fce280000" name="L01 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000044-713f-163e-ac27-0a3fce280000" name="L02 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000046-713f-163e-ac27-0a3fce280000" name="L03 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000048-713f-163e-ac27-0a3fce280000" name="L04 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000004a-713f-163e-ac27-0a3fce280000" name="L05 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000004c-713f-163e-ac27-0a3fce280000" name="L06 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc000004e-713f-163e-ac27-0a3fce280000" name="L07 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000050-713f-163e-ac27-0a3fce280000" name="L08 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000052-713f-163e-ac27-0a3fce280000" name="L09 User" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000054-713f-163e-ac27-0a3fce280000" name="L10 User" isWriteable="false">
-</LogicalColumn>
-<LogicalKey mdsid="mc000005a-713f-163e-ac27-0a3fce280000" name="PK" isPrimary="true">
-<RefColumns>
-<RefLogicalColumn refId="mc000005a-713f-163e-ac27-0a3fce280000-mc000001a-713f-163e-ac27-0a3fce280000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000001-713f-163e-ac27-0a3fce280000.xml#mc000001a-713f-163e-ac27-0a3fce280000"/>
-</RefColumns>
-</LogicalKey>
-<RefTableSources>
-<RefLogicalTableSource refId="mc0000001-713f-163e-ac27-0a3fce280000-mc000005c-713f-163e-ac27-0a3fce280000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000005c-713f-163e-ac27-0a3fce280000.xml#mc000005c-713f-163e-ac27-0a3fce280000"/>
-<RefLogicalTableSource refId="mc0000001-713f-163e-ac27-0a3fce280000-mc000005e-713f-163e-ac27-0a3fce280000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000005e-713f-163e-ac27-0a3fce280000.xml#mc000005e-713f-163e-ac27-0a3fce280000"/>
-</RefTableSources>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="User - Position" mdsid="mc0000001-713f-163e-ac27-0a3fce280000">
+    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc000001a-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000000c-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc0000018-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="mc0000040-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Company" mdsid="mc0000034-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Country" mdsid="mc0000026-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Delivery Office" mdsid="mc000003a-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Deptartment" mdsid="mc0000028-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Domain" mdsid="mc000003e-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Email" mdsid="mc0000004-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Employee ID" mdsid="mc0000010-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Expiry Date" mdsid="mc000002a-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="First Name" mdsid="mc0000008-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Full Name" mdsid="mc000000a-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Job Title" mdsid="mc000000e-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Last Name" mdsid="mc0000016-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Ldap Name" mdsid="mc0000014-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Login" mdsid="mc000002c-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Manager Name" mdsid="mc0000012-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Principal Name" mdsid="mc000002e-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Team Owner" mdsid="mc0000020-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Telephone" mdsid="mc0000022-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Time Zone" mdsid="mc0000024-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="mc0000042-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Current Flag" mdsid="mc0000036-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000038-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Delete Flag" mdsid="mc000003c-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc0000030-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc0000032-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc0000006-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc000001c-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc000001e-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="-------------[ User Hierarchy ]------------" mdsid="mc0000058-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L01 User" mdsid="mc0000056-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L02 User" mdsid="mc0000044-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L03 User" mdsid="mc0000046-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L04 User" mdsid="mc0000048-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L05 User" mdsid="mc000004a-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L06 User" mdsid="mc000004c-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L07 User" mdsid="mc000004e-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L08 User" mdsid="mc0000050-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L09 User" mdsid="mc0000052-713f-163e-ac27-0a3fce280000"/>
+    <LogicalColumn isWriteable="false" name="L10 User" mdsid="mc0000054-713f-163e-ac27-0a3fce280000"/>
+    <LogicalKey isPrimary="true" name="PK" mdsid="mc000005a-713f-163e-ac27-0a3fce280000">
+        <RefColumns>
+            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000001-713f-163e-ac27-0a3fce280000.xml#mc000001a-713f-163e-ac27-0a3fce280000" refId="mc000005a-713f-163e-ac27-0a3fce280000-mc000001a-713f-163e-ac27-0a3fce280000"/>
+        </RefColumns>
+    </LogicalKey>
+    <RefTableSources>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000005c-713f-163e-ac27-0a3fce280000.xml#mc000005c-713f-163e-ac27-0a3fce280000" refId="mc0000001-713f-163e-ac27-0a3fce280000-mc000005c-713f-163e-ac27-0a3fce280000"/>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000005e-713f-163e-ac27-0a3fce280000.xml#mc000005e-713f-163e-ac27-0a3fce280000" refId="mc0000001-713f-163e-ac27-0a3fce280000-mc000005e-713f-163e-ac27-0a3fce280000"/>
+    </RefTableSources>
 </LogicalTable>

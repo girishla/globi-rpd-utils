@@ -1,5 +1,5 @@
 
-package com.globi.rpd;
+package com.globi.rpd.traverser;
 
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalColumn;
@@ -7,12 +7,18 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.operator.Operator;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CatalogDefaultTraverser implements Traverser {
 
 	@Override
 	public void traverse(PresentationCatalog presCatalog, Operator anOperator) {
+
 		for (PresentationTable presTable : presCatalog.getPresentationTables()) {
+			
 			presTable.apply(anOperator);
 		}
 	}
@@ -22,23 +28,6 @@ public class CatalogDefaultTraverser implements Traverser {
 
 		for (PresentationColumn presColumn : presTable.getPresentationColumns()) {
 			presColumn.apply(anOperator);
-		}
-
-	}
-
-	@Override
-	public void traverse(BusinessModel model, Operator anOperator) {
-
-		for (LogicalTable table : model.getLogicalTables()) {
-			table.apply(anOperator);
-		}
-
-	}
-
-	@Override
-	public void traverse(LogicalTable logicalTable, Operator anOperator) {
-		for (LogicalColumn column : logicalTable.getLogicalColumns()) {
-			column.apply(anOperator);
 		}
 
 	}

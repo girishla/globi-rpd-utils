@@ -2,7 +2,6 @@ package com.globi.rpd.operator;
 
 import java.util.function.UnaryOperator;
 
-import com.globi.rpd.Operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 

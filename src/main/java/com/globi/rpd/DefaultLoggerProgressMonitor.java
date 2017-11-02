@@ -1,5 +1,7 @@
 package com.globi.rpd;
 
+import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

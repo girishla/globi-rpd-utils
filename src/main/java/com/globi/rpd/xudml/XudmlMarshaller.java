@@ -71,8 +71,6 @@ public class XudmlMarshaller<T>  implements ResourceLoaderAware {
 		
 		  FileOutputStream os = null;
 		  
-		  log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^"+uri);
-		  
 		  File newFile = new File(uri);
 		  
 	        try {

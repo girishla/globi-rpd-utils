@@ -1,7 +1,7 @@
 package com.globi.rpd.component;
 
-import com.globi.rpd.Operable;
-import com.globi.rpd.Operator;
+import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
 
 import lombok.Data;
 import xudml.LogicalColumnW;
@@ -23,5 +23,18 @@ public class LogicalColumn implements Operable<LogicalColumn> {
 	@Override
 	public LogicalColumn apply(Operator anOperator) {
 		return anOperator.operate(this);
+	}
+	
+	
+	public String getId(){
+		
+		return xudmlObject.getId();
+		
+	}
+	
+	
+	public String getName(){
+		return xudmlObject.getName();
+		
 	}
 }

@@ -6,13 +6,13 @@ import java.io.File;
 
 import org.junit.Test;
 
-import com.globi.rpd.CatalogDefaultTraverser;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.operator.CatalogTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
+import com.globi.rpd.traverser.CatalogDefaultTraverser;
 
 public class PresentationCatalogOperatorTest {
 

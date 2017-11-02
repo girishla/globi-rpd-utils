@@ -1,5 +1,5 @@
 
-package com.globi.rpd;
+package com.globi.rpd.traverser;
 
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalColumn;
@@ -7,6 +7,7 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.operator.Operator;
 
 public interface Traverser {
 

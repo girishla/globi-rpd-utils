@@ -1,109 +1,66 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<LogicalTable mdsid="m40000000-28bc-1627-806e-0a3fce3c0000" name="Financial Account" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
-<LogicalColumn mdsid="m40000018-28bc-1627-806e-0a3fce3c0000" name="Key (WID)" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000015-28bc-1627-806e-0a3fce3c0000" name="Integration ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000016-28bc-1627-806e-0a3fce3c0000" name="PGUID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m00000002-c28f-162a-98ff-0a3fce3e0000" name="-------------------[ Common ]-------------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000003-28bc-1627-806e-0a3fce3c0000" name="Account Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000004-28bc-1627-806e-0a3fce3c0000" name="Account Number" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000007-28bc-1627-806e-0a3fce3c0000" name="Account Status" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m80000000-2912-1627-806e-0a3fce3c0000" name="------------------[ Attributes ]------------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000005-28bc-1627-806e-0a3fce3c0000" name="Account Parent PGUID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000008-28bc-1627-806e-0a3fce3c0000" name="Account Type" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000b-28bc-1627-806e-0a3fce3c0000" name="Customer Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000c-28bc-1627-806e-0a3fce3c0000" name="Customer Number" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000d-28bc-1627-806e-0a3fce3c0000" name="Customer Status" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000002-0908-162b-ac27-0a3fce3e0000" name="Data Source" isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m4000000e-28bc-1627-806e-0a3fce3c0000">
-<Expr mdsid="m00000001-01f4-0000-8cab-b5b900000000" name="Expr">
-<ExprText><![CDATA[Lookup(SPARSE "%1",'Unspecified' ,"%2" ) ]]></ExprText>
-<ExprTextDesc><![CDATA[Lookup(SPARSE "Global Reporting"."Lookup - Data Source"."Source Name",'Unspecified' ,"Global Reporting"."Financial Account"."Data Source ID" ) ]]></ExprTextDesc>
-<ObjectRefList>
-<RefObject refId="m00000001-01f4-0000-8cab-b5b900000000-m80000003-c7cd-162a-98ff-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-<RefObject refId="m00000001-01f4-0000-8cab-b5b900000000-m4000000e-28bc-1627-806e-0a3fce3c0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m4000000e-28bc-1627-806e-0a3fce3c0000"/>
-</ObjectRefList>
-</Expr>
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000f-28bc-1627-806e-0a3fce3c0000" name="Delete Flag" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000004-571a-162f-98ff-0a3fce190000" name="------------------[ Legacy ]------------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m00000002-571a-162f-98ff-0a3fce190000" name="Legacy Account Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m00000005-571a-162f-98ff-0a3fce190000" name="Legacy Account Number" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000001-571a-162f-98ff-0a3fce190000" name="Legacy Account Status" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000a-571a-162f-98ff-0a3fce190000" name="Legacy Account Reference" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000d-571a-162f-98ff-0a3fce190000" name="Legacy Account Type" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000010-571a-162f-98ff-0a3fce190000" name="Legacy Customer Name" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000013-571a-162f-98ff-0a3fce190000" name="Legacy Customer Number" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000009-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Version" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000b-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Deployment Status" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000d-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Indicator" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000f-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Licenses" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000011-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Target Users" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000013-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Total Users" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000015-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Trained Users" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000017-37d0-1672-806e-0a3fce2f0000" name="LexisDraft Type" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000002-2930-1627-806e-0a3fce3c0000" name="--------------[ SCD Attributes ]--------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000a-28bc-1627-806e-0a3fce3c0000" name="Current Flag" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000010-28bc-1627-806e-0a3fce3c0000" name="Effective End Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000011-28bc-1627-806e-0a3fce3c0000" name="Effective Start Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000002-2938-1627-806e-0a3fce3c0000" name="-------------[ System Attributes ]------------" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000009-28bc-1627-806e-0a3fce3c0000" name="BU PGUID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000000e-28bc-1627-806e-0a3fce3c0000" name="Data Source ID" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000019-28bc-1627-806e-0a3fce3c0000" name="Source Created Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001a-28bc-1627-806e-0a3fce3c0000" name="Source Updated Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001c-28bc-1627-806e-0a3fce3c0000" name="DWH Created Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001d-28bc-1627-806e-0a3fce3c0000" name="DWH Updated Date" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m4000001b-28bc-1627-806e-0a3fce3c0000" name="Time Zone" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m40000012-28bc-1627-806e-0a3fce3c0000" name="ETL Process ID" isWriteable="false">
-</LogicalColumn>
-<LogicalKey mdsid="m4000001e-28bc-1627-806e-0a3fce3c0000" name="PK" isPrimary="true">
-<RefColumns>
-<RefLogicalColumn refId="m4000001e-28bc-1627-806e-0a3fce3c0000-m40000018-28bc-1627-806e-0a3fce3c0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000018-28bc-1627-806e-0a3fce3c0000"/>
-</RefColumns>
-</LogicalKey>
-<RefTableSources>
-<RefLogicalTableSource refId="m40000000-28bc-1627-806e-0a3fce3c0000-m80000003-2945-1627-806e-0a3fce3c0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/80000003-2945-1627-806e-0a3fce3c0000.xml#m80000003-2945-1627-806e-0a3fce3c0000"/>
-<RefLogicalTableSource refId="m40000000-28bc-1627-806e-0a3fce3c0000-m40000002-28bc-1627-806e-0a3fce3c0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000002-28bc-1627-806e-0a3fce3c0000.xml#m40000002-28bc-1627-806e-0a3fce3c0000"/>
-<RefLogicalTableSource refId="m40000000-28bc-1627-806e-0a3fce3c0000-m00000001-5753-162f-98ff-0a3fce190000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/00000001-5753-162f-98ff-0a3fce190000.xml#m00000001-5753-162f-98ff-0a3fce190000"/>
-</RefTableSources>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Financial Account" mdsid="m40000000-28bc-1627-806e-0a3fce3c0000">
+    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="m40000018-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="m40000015-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="PGUID" mdsid="m40000016-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="-------------------[ Common ]-------------------" mdsid="m00000002-c28f-162a-98ff-0a3fce3e0000"/>
+    <LogicalColumn isWriteable="false" name="Account Name" mdsid="m40000003-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Account Number" mdsid="m40000004-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Account Status" mdsid="m40000007-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000000-2912-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Account Parent PGUID" mdsid="m40000005-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Account Type" mdsid="m40000008-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Customer Name" mdsid="m4000000b-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Customer Number" mdsid="m4000000c-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Customer Status" mdsid="m4000000d-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m4000000e-28bc-1627-806e-0a3fce3c0000" name="Data Source" mdsid="m40000002-0908-162b-ac27-0a3fce3e0000">
+        <Expr name="Expr" mdsid="m00000001-01f4-0000-8cab-b5b900000000">
+            <ExprText>Lookup(SPARSE "%1",'Unspecified' ,"%2" ) </ExprText>
+            <ExprTextDesc>Lookup(SPARSE "Global Reporting"."Lookup - Data Source"."Source Name",'Unspecified' ,"Global Reporting"."Financial Account"."Data Source ID" ) </ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-8cab-b5b900000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m4000000e-28bc-1627-806e-0a3fce3c0000" refId="m00000001-01f4-0000-8cab-b5b900000000-m4000000e-28bc-1627-806e-0a3fce3c0000"/>
+            </ObjectRefList>
+        </Expr>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Delete Flag" mdsid="m4000000f-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="------------------[ Legacy ]------------------" mdsid="m40000004-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Account Name" mdsid="m00000002-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Account Number" mdsid="m00000005-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Account Status" mdsid="m40000001-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Account Reference" mdsid="m4000000a-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Account Type" mdsid="m4000000d-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Customer Name" mdsid="m40000010-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="Legacy Customer Number" mdsid="m40000013-571a-162f-98ff-0a3fce190000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Version" mdsid="m40000009-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Deployment Status" mdsid="m4000000b-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Indicator" mdsid="m4000000d-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Licenses" mdsid="m4000000f-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Target Users" mdsid="m40000011-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Total Users" mdsid="m40000013-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Trained Users" mdsid="m40000015-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="LexisDraft Type" mdsid="m40000017-37d0-1672-806e-0a3fce2f0000"/>
+    <LogicalColumn isWriteable="false" name="--------------[ SCD Attributes ]--------------" mdsid="m40000002-2930-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Current Flag" mdsid="m4000000a-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Effective End Date" mdsid="m40000010-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Effective Start Date" mdsid="m40000011-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m40000002-2938-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="BU PGUID" mdsid="m40000009-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="m4000000e-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="m40000019-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="m4000001a-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="m4000001c-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="m4000001d-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="Time Zone" mdsid="m4000001b-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="m40000012-28bc-1627-806e-0a3fce3c0000"/>
+    <LogicalKey isPrimary="true" name="PK" mdsid="m4000001e-28bc-1627-806e-0a3fce3c0000">
+        <RefColumns>
+            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000000-28bc-1627-806e-0a3fce3c0000.xml#m40000018-28bc-1627-806e-0a3fce3c0000" refId="m4000001e-28bc-1627-806e-0a3fce3c0000-m40000018-28bc-1627-806e-0a3fce3c0000"/>
+        </RefColumns>
+    </LogicalKey>
+    <RefTableSources>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/80000003-2945-1627-806e-0a3fce3c0000.xml#m80000003-2945-1627-806e-0a3fce3c0000" refId="m40000000-28bc-1627-806e-0a3fce3c0000-m80000003-2945-1627-806e-0a3fce3c0000"/>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000002-28bc-1627-806e-0a3fce3c0000.xml#m40000002-28bc-1627-806e-0a3fce3c0000" refId="m40000000-28bc-1627-806e-0a3fce3c0000-m40000002-28bc-1627-806e-0a3fce3c0000"/>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/00000001-5753-162f-98ff-0a3fce190000.xml#m00000001-5753-162f-98ff-0a3fce190000" refId="m40000000-28bc-1627-806e-0a3fce3c0000-m00000001-5753-162f-98ff-0a3fce190000"/>
+    </RefTableSources>
 </LogicalTable>

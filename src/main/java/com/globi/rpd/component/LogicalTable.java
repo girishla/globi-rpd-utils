@@ -3,8 +3,9 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.globi.rpd.Operable;
-import com.globi.rpd.Operator;
+import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
+import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,6 +20,9 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 
 	public LogicalTable(String id) {
 		super(id);
+		
+		this.setResourceUri(XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/LogicalTable/" + id + ".xml");
+
 	}
 	
 	public static LogicalTable fromResource(String resourceUri) {

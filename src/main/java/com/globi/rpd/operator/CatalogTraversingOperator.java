@@ -1,12 +1,11 @@
 
 package com.globi.rpd.operator;
 
-import com.globi.rpd.Operator;
-import com.globi.rpd.Traverser;
-import com.globi.rpd.TraversingOperatorProgressMonitor;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.traverser.Traverser;
+import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package com.globi.rpd.component;
 
-import com.globi.rpd.Operable;
-import com.globi.rpd.Operator;
+import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
 
 import lombok.Data;
 import xudml.PresentationColumnW;
@@ -24,8 +24,13 @@ public class PresentationColumn implements Operable<PresentationColumn> {
 	
 	@Override
 	public String toString(){
-		
 		return " Presentation Column:" + xudmlObject.getName();
+	}
+	
+	
+	public String getId(){
+		
+		return xudmlObject.getId();
 		
 	}
 	

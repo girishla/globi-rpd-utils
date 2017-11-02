@@ -1,5 +1,5 @@
 
-package com.globi.rpd;
+package com.globi.rpd.operator;
 
 /**
  * An object on which Operators can perform Actions

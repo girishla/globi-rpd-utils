@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.globi.rpd.Operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 
