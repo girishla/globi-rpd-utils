@@ -1,4 +1,3 @@
-
 package com.globi.rpd.component;
 
 import java.util.ArrayList;
@@ -11,24 +10,23 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import xudml.BusinessModelW;
 
+
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implements Operable{
+public class LogicalTable extends MarshalledRpdComponent<BusinessModelW> implements Operable {
 
+	private final List<LogicalColumn> logicalColumns = new ArrayList<LogicalColumn>();
 
-	private final List<LogicalTable> logicalTables = new ArrayList<LogicalTable>();
-
-	public BusinessModel(String id) {
+	public LogicalTable(String id) {
 		super(id);
 	}
 	
-	public static BusinessModel fromResource(String resourceUri) {
+	public static LogicalTable fromResource(String resourceUri) {
 		String id=resourceUri.substring(resourceUri.lastIndexOf("\\")+1).replace(".xml", "");
-		BusinessModel newModel=new BusinessModel(id);
-		newModel.setResourceUri(resourceUri);
-		return newModel;
+		LogicalTable newTable=new LogicalTable(id);
+		newTable.setResourceUri(resourceUri);
+		return newTable;
 	}
-
 	
 	@Override
 	public <R> R apply(Operator<R> anOperator) {
@@ -37,9 +35,8 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 
 	@Override
 	public String toString() {
-		return "  Business Model:" + this.getXudmlObject().getName();
+		return "  Logical Table:" + this.getXudmlObject().getName();
 	}
 
 
 }
-

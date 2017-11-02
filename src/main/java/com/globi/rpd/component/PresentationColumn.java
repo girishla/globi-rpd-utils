@@ -16,7 +16,6 @@ public class PresentationColumn implements Operable {
 		this.xudmlObject = col;
 
 	}
-	
 
 	@Override
 	public <R> R apply(Operator<R> anOperator){
@@ -26,7 +25,7 @@ public class PresentationColumn implements Operable {
 	@Override
 	public String toString(){
 		
-		return "  Column:" + xudmlObject.getName();
+		return " Presentation Column:" + xudmlObject.getName();
 		
 	}
 	

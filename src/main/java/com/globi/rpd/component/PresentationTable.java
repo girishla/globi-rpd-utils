@@ -5,24 +5,16 @@ import java.util.List;
 
 import com.globi.rpd.Operable;
 import com.globi.rpd.Operator;
-import com.globi.rpd.RpdMarshalledObject;
-import com.globi.rpd.RpdComponent;
 import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import xudml.PresentationTableW;
 
 @Data
-public class PresentationTable implements Operable, RpdComponent, RpdMarshalledObject<PresentationTableW> {
+@EqualsAndHashCode(callSuper=true)
+public class PresentationTable extends MarshalledRpdComponent<PresentationTableW> implements Operable {
 
-	private PresentationTableW xudmlObject;
-	private String resourceUri;
-
-	/**
-	 * MDS id. Every RPD object has one
-	 */
-	// m40000457-6dc5-167d-806e-c0a838100000
-	private String id;
 
 	/**
 	 * Represents a FULL reference to the {@link PresentationTable} in the
@@ -44,10 +36,12 @@ public class PresentationTable implements Operable, RpdComponent, RpdMarshalledO
 
 	public PresentationTable(String refId) {
 
+		super(refId.split("-m")[1]);
+		
 		this.refId = refId;
-		this.id = refId.split("-m")[1];
-		this.resourceUri = XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/PresentationTable/" + id + ".xml";
-		this.ref = "/oracle/bi/server/base/PresentationTable/" + id + ".xml#m" + id;
+		this.setId(refId.split("-m")[1]);
+		this.setResourceUri(XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/PresentationTable/" + this.getId() + ".xml");
+		this.ref = "/oracle/bi/server/base/PresentationTable/" + this.getId()  + ".xml#m" + this.getId() ;
 		this.parentRefId = refId.split("-m")[0];
 		this.parentRef = "/oracle/bi/server/base/PresentationCatalog/" + parentRefId.substring(1) + ".xml#"
 				+ parentRefId;
@@ -61,13 +55,8 @@ public class PresentationTable implements Operable, RpdComponent, RpdMarshalledO
 
 	@Override
 	public String toString() {
-		return "  Table:" + xudmlObject.getName();
+		return "  Presentation Table:" + this.getXudmlObject().getName();
 	}
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return this.xudmlObject.getName();
-	}
 
 }
