@@ -13,7 +13,7 @@ import xudml.PresentationTableW;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class PresentationTable extends MarshalledRpdComponent<PresentationTableW> implements Operable {
+public class PresentationTable extends MarshalledRpdComponent<PresentationTableW> implements Operable<PresentationTable> {
 
 
 	/**
@@ -49,7 +49,7 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 
 	
 	@Override
-	public <R> R apply(Operator<R> anOperator) {
+	public PresentationTable apply(Operator anOperator) {
 		return anOperator.operate(this);
 	}
 

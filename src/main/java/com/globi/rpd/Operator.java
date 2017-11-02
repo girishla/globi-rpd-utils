@@ -8,18 +8,31 @@ import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
 
-public interface Operator<R> {
+public interface Operator {
 
-	R operate(PresentationCatalog presCatalog);
 
-	R operate(PresentationTable presTable);
+	default public PresentationCatalog operate(PresentationCatalog prescatalog) {
+		return null;
+	}
 
-	R operate(PresentationColumn presColumn);
-	
-	R operate(BusinessModel model);
-	
-	R operate(LogicalTable model);
-		
-	R operate(LogicalColumn model);
+	default public PresentationTable operate(PresentationTable presTable) {
+		return null;
+	}
+
+	default public PresentationColumn operate(PresentationColumn presColumn) {
+		return null;
+	}
+
+	default public BusinessModel operate(BusinessModel model) {
+		return null;
+	}
+
+	default public LogicalTable operate(LogicalTable model) {
+		return null;
+	}
+
+	default public LogicalColumn operate(LogicalColumn model) {
+		return null;
+	}
 
 }

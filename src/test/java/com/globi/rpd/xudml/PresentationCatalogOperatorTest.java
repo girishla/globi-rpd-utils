@@ -14,34 +14,37 @@ import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 
-
 public class PresentationCatalogOperatorTest {
 
 	@Test
 	public void unmarshalsPresentationCatalogXudmlFile() throws Exception {
 
-		PresentationCatalog presCatalog = PresentationCatalog.fromResource("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+		PresentationCatalog presCatalog = PresentationCatalog.fromResource(
+				"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
+		CatalogTraversingOperator traversingUnmarshaller = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
 				unmarshalOperator);
 		presCatalog.apply(traversingUnmarshaller);
-		assertThat(presCatalog.getXudmlObject().getName()).isEqualTo("Global Reporting - Measures - Performance Metrics");
+		assertThat(presCatalog.getXudmlObject()
+				.getName()).isEqualTo("Global Reporting - Measures - Performance Metrics");
 	}
 
 	@Test
 	public void CanHydratePresentationtablesFromXudmlFile() throws Exception {
 
-		PresentationCatalog presCatalog = PresentationCatalog.fromResource("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+		PresentationCatalog presCatalog = PresentationCatalog.fromResource(
+				"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object> traversingUnmarshaller = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
+		CatalogTraversingOperator traversingUnmarshaller = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
 				unmarshalOperator);
 		traversingUnmarshaller.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(traversingUnmarshaller);
 		HydratingOperator hydratingOperator = new HydratingOperator();
-		CatalogTraversingOperator<Object> traversingHydrator = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser(), hydratingOperator);
+		CatalogTraversingOperator traversingHydrator = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
+				hydratingOperator);
 		presCatalog.apply(traversingHydrator);
-		assertThat(presCatalog.getPresentationTables().size()).isEqualTo(4);
+		assertThat(presCatalog.getPresentationTables()
+				.size()).isEqualTo(4);
 
 	}
 
@@ -56,38 +59,30 @@ public class PresentationCatalogOperatorTest {
 			file.delete();
 		}
 
-		PresentationCatalog presCatalog = PresentationCatalog.fromResource("testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
+		PresentationCatalog presCatalog = PresentationCatalog.fromResource(
+				"testrepo/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 		XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-		CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<>(new CatalogDefaultTraverser(),
-				unmarshalOperator);
+		CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(), unmarshalOperator);
 		tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv);
 
 		HydratingOperator hydratingOperator = new HydratingOperator();
-		CatalogTraversingOperator<Object> tv2 = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser(), hydratingOperator);
+		CatalogTraversingOperator tv2 = new CatalogTraversingOperator(new CatalogDefaultTraverser(), hydratingOperator);
 		tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv2);
 
 		presCatalog.setResourceUri(XudmlConstants.TEMP_DIR + outFile);
 
 		XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-		CatalogTraversingOperator<Object> tv3 = new CatalogTraversingOperator<>(
-				new CatalogDefaultTraverser(), marshallingOperator);
+		CatalogTraversingOperator tv3 = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
+				marshallingOperator);
 		tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 		presCatalog.apply(tv3);
 
-		assertThat(presCatalog.getPresentationTables().size()).isEqualTo(4);
+		assertThat(presCatalog.getPresentationTables()
+				.size()).isEqualTo(4);
 
 	}
-
-	
-
-	
-	
-	
-	
-	
 
 }

@@ -4,13 +4,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.globi.rpd.Operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 
 import xudml.RefPresentationCatalogTableT;
 
 
-public class SortingOperator extends BaseOperator<Object> {
+public class SortingOperator implements Operator {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {

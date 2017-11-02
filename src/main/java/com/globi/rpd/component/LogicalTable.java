@@ -8,12 +8,12 @@ import com.globi.rpd.Operator;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import xudml.BusinessModelW;
+import xudml.LogicalTableW;
 
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class LogicalTable extends MarshalledRpdComponent<BusinessModelW> implements Operable {
+public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implements Operable<LogicalTable> {
 
 	private final List<LogicalColumn> logicalColumns = new ArrayList<LogicalColumn>();
 
@@ -29,7 +29,7 @@ public class LogicalTable extends MarshalledRpdComponent<BusinessModelW> impleme
 	}
 	
 	@Override
-	public <R> R apply(Operator<R> anOperator) {
+	public LogicalTable apply(Operator anOperator) {
 		return anOperator.operate(this);
 	}
 

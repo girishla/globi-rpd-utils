@@ -13,7 +13,7 @@ import xudml.BusinessModelW;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implements Operable{
+public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implements Operable<BusinessModel>{
 
 
 	private final List<LogicalTable> logicalTables = new ArrayList<LogicalTable>();
@@ -31,7 +31,7 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 
 	
 	@Override
-	public <R> R apply(Operator<R> anOperator) {
+	public BusinessModel apply(Operator anOperator) {
 		return anOperator.operate(this);
 	}
 

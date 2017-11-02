@@ -18,36 +18,36 @@ import com.globi.rpd.component.PresentationTable;
  *
  * @param <R>
  */
-public class BaseOperator<R> implements Operator<R> {
+public class BaseOperator implements Operator {
 
 	@Override
-	public R operate(PresentationCatalog prescatalog) {
+	public PresentationCatalog operate(PresentationCatalog prescatalog) {
 		return null;
 	}
 
 	@Override
-	public R operate(PresentationTable presTable) {
+	public PresentationTable operate(PresentationTable presTable) {
 		return null;
 	}
 
 	@Override
-	public R operate(PresentationColumn presColumn) {
+	public PresentationColumn operate(PresentationColumn presColumn) {
 		return null;
 	}
 
 	@Override
-	public R operate(BusinessModel model) {
+	public BusinessModel operate(BusinessModel model) {
 		return null;
 	}
 
 	@Override
-	public R operate(LogicalTable model) {
+	public LogicalTable operate(LogicalTable model) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public R operate(LogicalColumn model) {
+	public LogicalColumn operate(LogicalColumn model) {
 		// TODO Auto-generated method stub
 		return null;
 	}

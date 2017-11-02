@@ -13,14 +13,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CatalogTraversingOperator<R> extends BaseOperator<Object> {
+public class CatalogTraversingOperator implements Operator{
 
 	private boolean traverseFirst = false;
-	private Operator<R> operator;
+	private Operator operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public CatalogTraversingOperator(Traverser aTraverser, Operator<R> anOperator) {
+	public CatalogTraversingOperator(Traverser aTraverser, Operator anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
@@ -56,9 +56,9 @@ public class CatalogTraversingOperator<R> extends BaseOperator<Object> {
 	}
 
 	@Override
-	public R operate(PresentationColumn presColumn) {
+	public PresentationColumn operate(PresentationColumn presColumn) {
 
-		R returnVal;
+		PresentationColumn returnVal;
 		returnVal = presColumn.apply(operator);
 		if (progressMonitor != null) {
 			// progressMonitor.operated(operator.getClass().getName(),

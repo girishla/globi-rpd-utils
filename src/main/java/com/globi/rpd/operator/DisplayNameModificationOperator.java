@@ -2,12 +2,13 @@ package com.globi.rpd.operator;
 
 import java.util.function.UnaryOperator;
 
+import com.globi.rpd.Operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 
 import xudml.AliasW;
 
-public class DisplayNameModificationOperator extends BaseOperator<Object> {
+public class DisplayNameModificationOperator implements Operator {
 
 	private final UnaryOperator<String> stringTransformer;
 

@@ -10,27 +10,27 @@ import com.globi.rpd.component.PresentationTable;
 
 public interface Traverser {
 
-	default public void traverse(PresentationCatalog presCatalog, Operator<?> anOperator) {
+	default public void traverse(PresentationCatalog presCatalog, Operator anOperator) {
 		// default no-op
 	}
 
-	default public void traverse(PresentationTable prestable, Operator<?> anOperator) {
+	default public void traverse(PresentationTable prestable, Operator anOperator) {
 		// default no-op
 	}
 
-	default public void traverse(PresentationColumn presColumn, Operator<?> anOperator) {
+	default public void traverse(PresentationColumn presColumn, Operator anOperator) {
 		// default no-op
 	}
 
-	default public void traverse(BusinessModel model, Operator<?> anOperator) {
+	default public void traverse(BusinessModel model, Operator anOperator) {
 		// default no-op
 	}
 
-	default public void traverse(LogicalTable logicalTable, Operator<?> anOperator) {
+	default public void traverse(LogicalTable logicalTable, Operator anOperator) {
 		// default no-op
 	}
 
-	default public void traverse(LogicalColumn logicalColumn, Operator<?> anOperator) {
+	default public void traverse(LogicalColumn logicalColumn, Operator anOperator) {
 		// default no-op
 	}
 

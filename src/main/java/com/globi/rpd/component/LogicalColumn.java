@@ -7,7 +7,7 @@ import lombok.Data;
 import xudml.LogicalColumnW;
 
 @Data
-public class LogicalColumn implements Operable {
+public class LogicalColumn implements Operable<LogicalColumn> {
 	private LogicalColumnW xudmlObject;
 
 	public LogicalColumn(LogicalColumnW col) {
@@ -21,7 +21,7 @@ public class LogicalColumn implements Operable {
 	}
 
 	@Override
-	public <R> R apply(Operator<R> anOperator) {
+	public LogicalColumn apply(Operator anOperator) {
 		return anOperator.operate(this);
 	}
 }

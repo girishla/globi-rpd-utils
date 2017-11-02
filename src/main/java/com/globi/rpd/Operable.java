@@ -6,9 +6,9 @@ package com.globi.rpd;
  * @author LAKSHMG4
  *
  */
-public interface Operable {
+public interface Operable<R> {
 
 
-    <R> R apply(Operator<R> anOperator);
+    R apply(Operator anOperator);
 
 }

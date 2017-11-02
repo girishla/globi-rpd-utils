@@ -50,21 +50,24 @@ public class StandardRpdBuilder {
 
 		public CatalogStep catalog(XudmlFolder folder) {
 
-			List<String> fileList = folder.getResources().stream().map(resource -> resource.getFilename())//
+			List<String> fileList = folder.getResources()
+					.stream()
+					.map(resource -> resource.getFilename())//
 					.collect(Collectors.toList());
 
 			for (String fileName : fileList) {
 
-				PresentationCatalog presCatalog = PresentationCatalog.fromResource("file:\\" +XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
+				PresentationCatalog presCatalog = PresentationCatalog.fromResource(
+						"file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
 
 				XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-				CatalogTraversingOperator<Object> tv = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),
+				CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
 						unmarshalOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				presCatalog.apply(tv);
 
 				HydratingOperator hydratingOperator = new HydratingOperator();
-				CatalogTraversingOperator<Object> tv2 = new CatalogTraversingOperator<Object>(new CatalogDefaultTraverser(),
+				CatalogTraversingOperator tv2 = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
 						hydratingOperator);
 				tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				presCatalog.apply(tv2);

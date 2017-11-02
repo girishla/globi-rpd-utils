@@ -12,7 +12,7 @@ import xudml.PresentationCatalogW;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class PresentationCatalog extends MarshalledRpdComponent<PresentationCatalogW> implements Operable{
+public class PresentationCatalog extends MarshalledRpdComponent<PresentationCatalogW> implements Operable<PresentationCatalog>{
 
 
 
@@ -30,7 +30,7 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 	}
 
 	@Override
-	public <R> R apply(Operator<R> anOperator) {
+	public PresentationCatalog apply(Operator anOperator) {
 
 		return anOperator.operate(this);
 	}

@@ -1,5 +1,6 @@
 package com.globi.rpd.operator;
 
+import com.globi.rpd.Operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
@@ -7,7 +8,7 @@ import com.globi.rpd.component.PresentationTable;
 import xudml.PresentationColumnW;
 
 
-public class HydratingOperator extends BaseOperator<Object> {
+public class HydratingOperator implements Operator {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {
