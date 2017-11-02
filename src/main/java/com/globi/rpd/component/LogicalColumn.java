@@ -24,17 +24,15 @@ public class LogicalColumn implements Operable<LogicalColumn> {
 	public LogicalColumn apply(Operator anOperator) {
 		return anOperator.operate(this);
 	}
-	
-	
-	public String getId(){
-		
+
+	public String getId() {
+
 		return xudmlObject.getId();
-		
+
 	}
-	
-	
-	public String getName(){
+
+	public String getName() {
 		return xudmlObject.getName();
-		
+
 	}
 }
