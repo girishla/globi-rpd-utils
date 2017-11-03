@@ -31,7 +31,7 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 
 	
 	@Override
-	public BusinessModel apply(Operator<RpdComponent> anOperator) {
+	public BusinessModel apply(Operator<? extends RpdComponent> anOperator) {
 		return (BusinessModel)anOperator.operate(this);
 	}
 

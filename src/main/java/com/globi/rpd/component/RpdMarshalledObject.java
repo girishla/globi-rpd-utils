@@ -1,4 +1,4 @@
-package com.globi.rpd;
+package com.globi.rpd.component;
 
 public interface RpdMarshalledObject<T> {
 

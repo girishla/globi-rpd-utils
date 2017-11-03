@@ -10,12 +10,14 @@ import com.globi.rpd.xudml.XudmlFolder;
 public class BasicDslTest {
 
 	public static final String catalogPath = "file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL;
+	public static final String modelPath = "file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_MODELURL;
 
 	@Test
 	public void canBuildRpdWithFluentSyntax() throws IOException {
 		RpdFactory.newBuilder()
 				.init()
 				.catalog(new XudmlFolder(catalogPath))
+				.model(new XudmlFolder(modelPath))
 				.noMoreCatalogs()
 				.get();
 

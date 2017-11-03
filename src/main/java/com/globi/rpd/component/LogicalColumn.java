@@ -21,7 +21,7 @@ public class LogicalColumn implements Operable<RpdComponent>,RpdComponent {
 	}
 
 	@Override
-	public LogicalColumn apply(Operator<RpdComponent> anOperator) {
+	public LogicalColumn apply(Operator<? extends RpdComponent> anOperator) {
 		return (LogicalColumn)anOperator.operate(this);
 	}
 

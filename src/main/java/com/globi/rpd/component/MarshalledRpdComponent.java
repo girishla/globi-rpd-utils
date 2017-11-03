@@ -1,7 +1,5 @@
 package com.globi.rpd.component;
 
-import com.globi.rpd.RpdMarshalledObject;
-
 import lombok.Data;
 import xudml.ObjectW;
 

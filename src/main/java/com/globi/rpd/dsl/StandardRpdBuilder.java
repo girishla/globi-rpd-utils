@@ -1,5 +1,7 @@
 package com.globi.rpd.dsl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,10 +11,12 @@ import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
-import com.globi.rpd.operator.CatalogTraversingOperator;
+import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.operator.TraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
+import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
-import com.globi.rpd.traverser.CatalogDefaultTraverser;
+import com.globi.rpd.traverser.DefaultTraverser;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
@@ -52,30 +56,24 @@ public class StandardRpdBuilder {
 
 		public HydrateStep catalog(XudmlFolder folder) {
 
-			List<String> fileList = folder.getResources()
+			List<File> fileList = folder.getResources()
 					.stream()
-					.map(resource -> resource.getFilename())//
+					.map(resource -> {
+						try {
+							return resource.getFile();
+						} catch (IOException e) {
+
+							e.printStackTrace();
+							throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+						}
+					})
 					.collect(Collectors.toList());
 
-			for (String fileName : fileList) {
-				
-				this.hydrate(
-						"file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
+			for (File file : fileList) {
+				String resourceUri = "file:" + file.getAbsolutePath();
 
-				PresentationCatalog presCatalog = PresentationCatalog.fromResource(
-						"file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
-
-				XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-				CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
-						unmarshalOperator);
-				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-				presCatalog.apply(tv);
-
-				HydratingOperator hydratingOperator = new HydratingOperator();
-				CatalogTraversingOperator tv2 = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
-						hydratingOperator);
-				tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
-				presCatalog.apply(tv2);
+				PresentationCatalog presCatalog = PresentationCatalog.fromResource(resourceUri);
+				this.hydrate(presCatalog, resourceUri);
 
 			}
 
@@ -97,27 +95,44 @@ public class StandardRpdBuilder {
 
 		@Override
 		public HydrateStep model(XudmlFolder folder) {
-			// TODO Auto-generated method stub
-			return null;
+
+			List<File> fileList = folder.getResources()
+					.stream()
+					.map(resource -> {
+						try {
+							return resource.getFile();
+						} catch (IOException e) {
+
+							e.printStackTrace();
+							throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+						}
+					})
+					.collect(Collectors.toList());
+
+			for (File file : fileList) {
+				String resourceUri = "file:" + file.getAbsolutePath();
+
+				BusinessModel model = BusinessModel.fromResource(resourceUri);
+				this.hydrate(model, resourceUri);
+
+			}
+
+			return this;
+
 		}
 
-		private PresentationCatalog hydrate(String ResourceName) {
-
-			PresentationCatalog presCatalog = PresentationCatalog.fromResource(ResourceName);
+		private void hydrate(Operable<? extends RpdComponent> rpdComponent, String ResourceName) {
 
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
-					unmarshalOperator);
+			TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), unmarshalOperator);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			presCatalog.apply(tv);
+			rpdComponent.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
-			CatalogTraversingOperator tv2 = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
-					hydratingOperator);
+			TraversingOperator tv2 = new TraversingOperator(new DefaultTraverser(), hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			presCatalog.apply(tv2);
+			rpdComponent.apply(tv2);
 
-			return presCatalog;
 		}
 
 	}

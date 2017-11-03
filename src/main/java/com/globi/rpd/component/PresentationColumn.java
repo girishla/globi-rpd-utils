@@ -18,7 +18,7 @@ public class PresentationColumn implements Operable<RpdComponent>,RpdComponent {
 	}
 
 	@Override
-	public PresentationColumn apply(Operator<RpdComponent> anOperator){
+	public PresentationColumn apply(Operator<? extends RpdComponent> anOperator){
 		return (PresentationColumn)anOperator.operate(this);
 	}
 	

@@ -48,7 +48,7 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 	}
 	
 	@Override
-	public PresentationTable apply(Operator<RpdComponent> anOperator) {
+	public PresentationTable apply(Operator<? extends RpdComponent> anOperator) {
 		return (PresentationTable)anOperator.operate(this);
 	}
 

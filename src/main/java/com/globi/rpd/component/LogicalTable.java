@@ -33,7 +33,7 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	}
 	
 	@Override
-	public LogicalTable apply(Operator<RpdComponent> anOperator) {
+	public LogicalTable apply(Operator<? extends RpdComponent> anOperator) {
 		return (LogicalTable)anOperator.operate(this);
 	}
 

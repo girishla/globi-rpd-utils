@@ -11,6 +11,6 @@ import com.globi.rpd.component.RpdComponent;
 public interface Operable<R extends RpdComponent> {
 
 
-    R apply(Operator<R> anOperator);
+    R apply(Operator<? extends RpdComponent> anOperator);
 
 }

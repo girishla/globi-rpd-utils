@@ -30,7 +30,7 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 	}
 
 	@Override
-	public RpdComponent apply(Operator<RpdComponent> operator) {
+	public RpdComponent apply(Operator<? extends RpdComponent> operator) {
 
 		return  operator.operate(this);
 	}
@@ -39,6 +39,8 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 	public String toString() {
 		return "  Presentation Catalog:" + this.getXudmlObject().getName();
 	}
+
+
 
 	
 }

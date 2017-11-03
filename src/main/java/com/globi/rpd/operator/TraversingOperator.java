@@ -1,6 +1,8 @@
 
 package com.globi.rpd.operator;
 
+import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
@@ -13,14 +15,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CatalogTraversingOperator implements Operator<RpdComponent>{
+public class TraversingOperator implements Operator<RpdComponent>{
 
 	private boolean traverseFirst = false;
 	private Operator<RpdComponent> operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public CatalogTraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
+	public TraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
@@ -68,6 +70,40 @@ public class CatalogTraversingOperator implements Operator<RpdComponent>{
 		if (progressMonitor != null) {
 			// progressMonitor.traversed(traverser.getClass().getName(),
 			// presColumn);
+		}
+		return returnVal;
+	}
+	
+	
+	@Override
+	public BusinessModel operate(BusinessModel model) {
+
+		BusinessModel returnVal;
+		returnVal = (BusinessModel) model.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass().getName(), model);
+		}
+		traverser.traverse((BusinessModel) returnVal, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass().getName(), model);
+		}
+		return returnVal;
+	}
+	
+	
+	@Override
+	public LogicalTable operate(LogicalTable model) {
+
+		LogicalTable returnVal;
+		returnVal = (LogicalTable) model.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass().getName(), model);
+		}
+		traverser.traverse((LogicalTable) returnVal, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass().getName(), model);
 		}
 		return returnVal;
 	}
