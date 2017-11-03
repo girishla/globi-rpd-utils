@@ -14,7 +14,7 @@ import xudml.LogicalTableW;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implements Operable<LogicalTable> {
+public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implements Operable<RpdComponent> {
 
 	private final List<LogicalColumn> logicalColumns = new ArrayList<LogicalColumn>();
 
@@ -33,8 +33,8 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	}
 	
 	@Override
-	public LogicalTable apply(Operator anOperator) {
-		return anOperator.operate(this);
+	public LogicalTable apply(Operator<RpdComponent> anOperator) {
+		return (LogicalTable)anOperator.operate(this);
 	}
 
 	@Override

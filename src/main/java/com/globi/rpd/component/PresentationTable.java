@@ -13,7 +13,7 @@ import xudml.PresentationTableW;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class PresentationTable extends MarshalledRpdComponent<PresentationTableW> implements Operable<PresentationTable> {
+public class PresentationTable extends MarshalledRpdComponent<PresentationTableW> implements Operable<RpdComponent> {
 
 
 	/**
@@ -46,11 +46,10 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 		this.parentRef = "/oracle/bi/server/base/PresentationCatalog/" + parentRefId.substring(1) + ".xml#"
 				+ parentRefId;
 	}
-
 	
 	@Override
-	public PresentationTable apply(Operator anOperator) {
-		return anOperator.operate(this);
+	public PresentationTable apply(Operator<RpdComponent> anOperator) {
+		return (PresentationTable)anOperator.operate(this);
 	}
 
 	@Override

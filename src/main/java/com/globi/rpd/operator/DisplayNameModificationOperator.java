@@ -4,10 +4,11 @@ import java.util.function.UnaryOperator;
 
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 
 import xudml.AliasW;
 
-public class DisplayNameModificationOperator implements Operator {
+public class DisplayNameModificationOperator implements Operator<RpdComponent> {
 
 	private final UnaryOperator<String> stringTransformer;
 

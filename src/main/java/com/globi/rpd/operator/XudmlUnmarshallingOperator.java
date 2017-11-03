@@ -6,19 +6,19 @@ import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 import com.globi.rpd.xudml.XudmlMarshaller;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.BusinessModelW;
 import xudml.LogicalTableW;
 import xudml.PresentationCatalogW;
 import xudml.PresentationTableW;
 
-@Slf4j
-public class XudmlUnmarshallingOperator implements Operator {
+
+public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {

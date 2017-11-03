@@ -4,6 +4,7 @@ package com.globi.rpd.operator;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.traverser.Traverser;
 import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
@@ -12,14 +13,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CatalogTraversingOperator implements Operator{
+public class CatalogTraversingOperator implements Operator<RpdComponent>{
 
 	private boolean traverseFirst = false;
-	private Operator operator;
+	private Operator<RpdComponent> operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public CatalogTraversingOperator(Traverser aTraverser, Operator anOperator) {
+	public CatalogTraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
@@ -27,7 +28,7 @@ public class CatalogTraversingOperator implements Operator{
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 		PresentationCatalog returnVal;
-		returnVal = (PresentationCatalog) presCatalog.apply(operator);
+		returnVal =  presCatalog.apply(operator);
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass().getName(), presCatalog);
 		}

@@ -46,6 +46,7 @@ public class PresentationCatalogOperatorTest {
 		assertThat(presCatalog.getPresentationTables()
 				.size()).isEqualTo(4);
 
+		
 	}
 
 	@Test

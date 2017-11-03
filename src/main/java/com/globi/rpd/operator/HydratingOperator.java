@@ -6,12 +6,13 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 
 import xudml.LogicalColumnW;
 import xudml.PresentationColumnW;
 
 
-public class HydratingOperator implements Operator {
+public class HydratingOperator implements Operator<RpdComponent> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {
@@ -48,7 +49,7 @@ public class HydratingOperator implements Operator {
 		if(table.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
-	
+		//nothing to hydrate
 
 		return table;
 		

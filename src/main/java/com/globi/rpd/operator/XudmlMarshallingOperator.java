@@ -4,6 +4,7 @@ import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.xudml.XudmlMarshaller;
 
 import xudml.BusinessModelW;
@@ -11,7 +12,7 @@ import xudml.LogicalTableW;
 import xudml.ObjectFactory;
 import xudml.PresentationCatalogW;
 
-public class XudmlMarshallingOperator implements Operator {
+public class XudmlMarshallingOperator implements Operator<RpdComponent> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {

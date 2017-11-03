@@ -6,11 +6,12 @@ import java.util.List;
 
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
 
 import xudml.RefPresentationCatalogTableT;
 
 
-public class SortingOperator implements Operator {
+public class SortingOperator implements Operator<RpdComponent> {
 
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {

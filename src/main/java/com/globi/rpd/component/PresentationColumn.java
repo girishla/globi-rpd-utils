@@ -7,7 +7,7 @@ import lombok.Data;
 import xudml.PresentationColumnW;
 
 @Data
-public class PresentationColumn implements Operable<PresentationColumn> {
+public class PresentationColumn implements Operable<RpdComponent>,RpdComponent {
 
 	private PresentationColumnW xudmlObject;
 
@@ -18,8 +18,8 @@ public class PresentationColumn implements Operable<PresentationColumn> {
 	}
 
 	@Override
-	public PresentationColumn apply(Operator anOperator){
-		return anOperator.operate(this);
+	public PresentationColumn apply(Operator<RpdComponent> anOperator){
+		return (PresentationColumn)anOperator.operate(this);
 	}
 	
 	@Override
@@ -27,11 +27,15 @@ public class PresentationColumn implements Operable<PresentationColumn> {
 		return " Presentation Column:" + xudmlObject.getName();
 	}
 	
-	
 	public String getId(){
 		
 		return xudmlObject.getId();
 		
+	}
+
+	@Override
+	public String getName() {
+		return this.xudmlObject.getName();
 	}
 	
 

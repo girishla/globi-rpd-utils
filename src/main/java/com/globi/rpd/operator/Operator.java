@@ -7,40 +7,51 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
+import com.globi.rpd.component.RpdComponent;
+
+public interface Operator<R extends RpdComponent> {
+
+	default public R operate(PresentationCatalog prescatalog) {
 
 
-public interface Operator {
-
-
-	default public PresentationCatalog operate(PresentationCatalog prescatalog) {
-			System.out.println("PresentationCatalog " +  "**************Warning: Default Method invocation*******************");
 		
-		return prescatalog;
+		System.out.println(
+				"PresentationCatalog " + "**************Warning: Default Method invocation*******************");
+		R returnVal=null;
+		return returnVal;
 	}
 
-	default public PresentationTable operate(PresentationTable presTable) {
-		System.out.println("PresentationTable " + "**************Warning: Default Method invocation*******************");
-		return presTable;
+	default public R operate(PresentationTable presTable) {
+		System.out
+				.println("PresentationTable " + "**************Warning: Default Method invocation*******************");
+		R returnVal=null;
+		return returnVal;
 	}
 
-	default public PresentationColumn operate(PresentationColumn presColumn) {
-		System.out.println("PresentationColumn" + "**************Warning: Default Method invocation*******************");
-		return presColumn;
+	default public R operate(PresentationColumn presColumn) {
+		System.out
+				.println("PresentationColumn" + "**************Warning: Default Method invocation*******************");
+		R returnVal=null;
+		return returnVal;
 	}
 
-	default public BusinessModel operate(BusinessModel model) {
+	default public R operate(BusinessModel model) {
 		System.out.println("BusinessModel " + "**************Warning: Default Method invocation*******************");
-		return model;
+		R returnVal=null;
+		return returnVal;
 	}
 
-	default public LogicalTable operate(LogicalTable table) {
+	default public R operate(LogicalTable table) {
 		System.out.println("LogicalTable " + "**************Warning: Default Method invocation*******************");
-		return table;
+		R returnVal=null;
+		return returnVal;
 	}
 
-	default public LogicalColumn operate(LogicalColumn column) {
-		System.out.println("LogicalColumn " + column.getName() + "**************Warning: Default Method invocation*******************");
-		return column;
+	default public R operate(LogicalColumn column) {
+		System.out.println("LogicalColumn " + column.getName()
+				+ "**************Warning: Default Method invocation*******************");
+		R returnVal=null;
+		return returnVal;
 	}
 
 }

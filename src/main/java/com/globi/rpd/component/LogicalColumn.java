@@ -7,7 +7,7 @@ import lombok.Data;
 import xudml.LogicalColumnW;
 
 @Data
-public class LogicalColumn implements Operable<LogicalColumn> {
+public class LogicalColumn implements Operable<RpdComponent>,RpdComponent {
 	private LogicalColumnW xudmlObject;
 
 	public LogicalColumn(LogicalColumnW col) {
@@ -21,8 +21,8 @@ public class LogicalColumn implements Operable<LogicalColumn> {
 	}
 
 	@Override
-	public LogicalColumn apply(Operator anOperator) {
-		return anOperator.operate(this);
+	public LogicalColumn apply(Operator<RpdComponent> anOperator) {
+		return (LogicalColumn)anOperator.operate(this);
 	}
 
 	public String getId() {

@@ -3,6 +3,7 @@ package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.traverser.Traverser;
 import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
@@ -11,14 +12,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ModelTraversingOperator implements Operator{
+public class ModelTraversingOperator implements Operator<RpdComponent>{
 
 	private boolean traverseFirst = false;
-	private Operator operator;
+	private Operator<RpdComponent> operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public ModelTraversingOperator(Traverser aTraverser, Operator anOperator) {
+	public ModelTraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
