@@ -20,9 +20,7 @@ import org.springframework.util.FileCopyUtils;
 
 import com.globi.rpd.config.MarshallerConfig;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class XudmlMarshaller<T>  implements ResourceLoaderAware {
 
 	private static final Jaxb2Marshaller marshaller=MarshallerConfig.INSTANCE.jaxb2Marshaller();

@@ -11,15 +11,16 @@ import com.globi.rpd.component.BusinessModel;
  */
 public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 	
-
+	/**
+	 *  populate joinedFrom and joinedTo on relevant LogicalTable object based on already available LogicalComplexJoin objects in the model
+	 */
 	@Override
 	public BusinessModel operate(BusinessModel model) {
 	
 		if(model.getXudmlObject()==null)
 			throw new IllegalStateException("ResolveJoinsOperator: Cannot resolve joins without a XUDML instance set");
 		
-		// Unmarshall Logical Joins
-			
+		
 
 		
 		return null;

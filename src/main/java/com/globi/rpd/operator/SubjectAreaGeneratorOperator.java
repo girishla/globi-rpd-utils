@@ -47,6 +47,8 @@ public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalo
 		
 		
 		//find joined dimensions
+		//joinedFrom and joinedTo are LogicalTable fields on each LogicalTable pointing to joined dimensions and facts
+		//ResolveLogicalJoinsOperator will already have populated joinedFrom and joinedTo on the 
 		
 /*		for each joined dim {
 			

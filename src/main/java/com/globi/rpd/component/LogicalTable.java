@@ -17,6 +17,8 @@ import xudml.LogicalTableW;
 public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implements Operable<RpdComponent> {
 
 	private final List<LogicalColumn> logicalColumns = new ArrayList<LogicalColumn>();
+	private final List<LogicalTable> joinedFrom=new ArrayList<>();
+	private final List<LogicalTable> joinedTo=new ArrayList<>();
 
 	public LogicalTable(String id) {
 		super(id);
