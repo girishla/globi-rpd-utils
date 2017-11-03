@@ -1,17 +1,26 @@
 package com.globi.rpd.operator;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalColumn;
+import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.xudml.XudmlConstants;
+import com.globi.rpd.xudml.XudmlFolder;
 
+import lombok.extern.slf4j.Slf4j;
 import xudml.LogicalColumnW;
 import xudml.PresentationColumnW;
 
-
+@Slf4j
 public class HydratingOperator implements Operator<RpdComponent> {
 
 	@Override
@@ -44,14 +53,48 @@ public class HydratingOperator implements Operator<RpdComponent> {
 	
 	
 	@Override
-	public BusinessModel operate(BusinessModel table) {
+	public BusinessModel operate(BusinessModel model) {
 	
-		if(table.getXudmlObject()==null)
+		if(model.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
-		//nothing to hydrate
+		XudmlFolder folder= new XudmlFolder("file:" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_LOGICALJOIN);
+		
+		/**
+		 * Hydrate Logical joins
+		 */
+		List<File> fileList = folder.getResources()
+				.stream()
+				.map(resource -> {
+					try {
+						return resource.getFile();
+					} catch (IOException e) {
 
-		return table;
+						e.printStackTrace();
+						throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+					}
+				})
+				.collect(Collectors.toList());
+
+		for (File file : fileList) {
+			String resourceUri = file.getAbsolutePath();
+			LogicalComplexJoin join = LogicalComplexJoin.fromResource(resourceUri);
+			XudmlUnmarshallingOperator unmarshaller=new XudmlUnmarshallingOperator();
+			unmarshaller.operate(join);
+			model.getLogicalComplexJoins().add(join);
+			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.info("^^^^^^^^^^^^^^^^" + join.getName() + "^^^^^^^^^^^^^^^^^^^^^");
+
+		}
+
+
+		
+
+		return model;
 		
 	}
 	

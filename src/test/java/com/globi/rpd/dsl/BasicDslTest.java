@@ -19,7 +19,9 @@ public class BasicDslTest {
 				.init()
 				.catalog(new XudmlFolder(catalogPath))
 				.model(new XudmlFolder(modelPath))
-				.applyModelOperator(SubjectAreaGeneratorOperator.class,model-> model.getName().equals("Global Reporting"))
+				.catalogFromModelOperator(SubjectAreaGeneratorOperator.class, model -> model.getName()
+						.equals("Global Reporting"))
+				.noMoreWork()
 				.save()
 				.get();
 

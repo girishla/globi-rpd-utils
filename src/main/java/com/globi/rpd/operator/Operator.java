@@ -3,6 +3,7 @@ package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalColumn;
+import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
@@ -48,6 +49,15 @@ public interface Operator<R extends RpdComponent> {
 	}
 
 	default public R operate(LogicalColumn column) {
+//		System.out.println("LogicalColumn " + column.getName()
+//				+ "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+
+	
+	
+	default public R operate(LogicalComplexJoin column) {
 //		System.out.println("LogicalColumn " + column.getName()
 //				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;

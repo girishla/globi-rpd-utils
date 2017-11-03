@@ -17,6 +17,8 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 
 
 	private final List<LogicalTable> logicalTables = new ArrayList<LogicalTable>();
+	private final List<LogicalComplexJoin> logicalComplexJoins = new ArrayList<LogicalComplexJoin>();
+	
 
 	public BusinessModel(String id) {
 		super(id);

@@ -13,9 +13,15 @@ public class XudmlFolder {
 	
 	private List<Resource> resources;
 	
-	public XudmlFolder(String uri) throws IOException{
+	public XudmlFolder(String uri){
 		
-		this.resources=Arrays.asList(ResourceFactory.loadResources(uri + "/*.xml"));
+		try {
+			this.resources=Arrays.asList(ResourceFactory.loadResources(uri + "/*.xml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Error during reading of folder " + uri);
+
+		}
 		
 	}
 

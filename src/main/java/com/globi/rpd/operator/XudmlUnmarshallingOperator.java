@@ -1,8 +1,7 @@
 package com.globi.rpd.operator;
 
-import java.io.IOException;
-
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
@@ -13,10 +12,10 @@ import com.globi.rpd.xudml.XudmlFolder;
 import com.globi.rpd.xudml.XudmlMarshaller;
 
 import xudml.BusinessModelW;
+import xudml.LogicalComplexJoinW;
 import xudml.LogicalTableW;
 import xudml.PresentationCatalogW;
 import xudml.PresentationTableW;
-
 
 public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 
@@ -68,20 +67,15 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		 */
 		XudmlFolder folder;
 
-		try {
-			folder = new XudmlFolder("file:" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_LOGICALTABLEURL);
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Error during reading of folder " + XudmlConstants.XUDML_BASEURL
-					+ XudmlConstants.XUDML_LOGICALTABLEURL);
-
-		}
+		folder = new XudmlFolder("file:" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_LOGICALTABLEURL);
 
 		folder.getResources()
 				.stream()
 				.map(resource -> resource.getFilename())
 				.map(name -> name.replace(".xml", ""))
-				.forEach(id -> {
+				.forEach(id ->
+
+		{
 					model.getLogicalTables()
 							.add(new LogicalTable(id));
 				});
@@ -97,6 +91,15 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		logicalTable.setXudmlObject(
 				marshaller.unmarshall(ResourceFactory.fromURL("file:" + logicalTable.getResourceUri())));
 		return logicalTable;
+
+	}
+
+	@Override
+	public LogicalComplexJoin operate(LogicalComplexJoin join) {
+
+		XudmlMarshaller<LogicalComplexJoinW> marshaller = new XudmlMarshaller<LogicalComplexJoinW>();
+		join.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL("file:" + join.getResourceUri())));
+		return join;
 
 	}
 

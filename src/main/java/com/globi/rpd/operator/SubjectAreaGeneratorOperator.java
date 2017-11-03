@@ -4,10 +4,19 @@ import java.util.UUID;
 
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationColumn;
 
+import xudml.LogicalColumnW;
 import xudml.PresentationCatalogW;
+import xudml.PresentationColumnW;
 import xudml.RefTablePresentationCatalogTableT;
 
+/**
+ * Generates a Presentation Catalog given a Logical Table
+ * Will only process Logical Tables that are measures.
+ * @author Girish Lakshmanan
+ *
+ */
 public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalog> {
 	
 	
@@ -17,6 +26,10 @@ public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalo
 		if(table.getXudmlObject()==null)
 			throw new IllegalStateException("SubjectAreaGeneratorOperator: Cannot generate subject area without a XUDML instance set");
 		
+		if(!table.getName().contains("Measures")){
+			return null;
+		}
+
 		
 		String newcatalogId="m" + UUID.randomUUID().toString();
 		PresentationCatalog catalog=new PresentationCatalog(newcatalogId);
@@ -32,9 +45,32 @@ public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalo
 		xudmlObject.setRefTables(emptyRefTable);
 		catalog.setXudmlObject(xudmlObject);
 		
-//		for(LogicalColumnW column:table.getXudmlObject().getLogicalColumn()){
-//			table.getLogicalColumns().add(new LogicalColumn(column));
-//		}
+		
+		//find joined dimensions
+		
+/*		for each joined dim {
+			
+			add dimensions as PresentationTables
+			Loop though logical columns and add each col as presentation Column
+		}
+		*/
+
+		
+		for(LogicalColumnW column:table.getXudmlObject().getLogicalColumn()){
+
+			String newPresColId="m" + UUID.randomUUID().toString();
+			PresentationColumnW xudmlPresColObject=new PresentationColumnW();
+			xudmlPresColObject.setDescription("");
+			xudmlPresColObject.setHasDispName(false);
+
+			//TODO add remaining col values
+			
+			
+			PresentationColumn presColumn=new PresentationColumn(xudmlPresColObject);
+			presColumn.setId(newPresColId);
+			
+			
+		}
 		
 		return catalog;
 		

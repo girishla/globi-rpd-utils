@@ -1,6 +1,7 @@
 package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
@@ -8,6 +9,7 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.xudml.XudmlMarshaller;
 
 import xudml.BusinessModelW;
+import xudml.LogicalComplexJoinW;
 import xudml.LogicalTableW;
 import xudml.ObjectFactory;
 import xudml.PresentationCatalogW;
@@ -72,6 +74,21 @@ public class XudmlMarshallingOperator implements Operator<RpdComponent> {
 		marshaller.marshall(table.getResourceUri(),factory.createLogicalTable(table.getXudmlObject()));
 		
 		return table;
+		
+	}
+	
+	
+	@Override
+	public LogicalComplexJoin operate(LogicalComplexJoin join) {
+	
+		if(join.getXudmlObject()==null)
+			throw new IllegalStateException("Cannot marshall withour a XUDML instance set");
+		
+		XudmlMarshaller<LogicalComplexJoinW> marshaller = new XudmlMarshaller<LogicalComplexJoinW>();
+		ObjectFactory factory = new ObjectFactory();
+		marshaller.marshall(join.getResourceUri(),factory.createLogicalComplexJoin(join.getXudmlObject()));
+		
+		return join;
 		
 	}
 

@@ -32,6 +32,10 @@ public class PresentationColumn implements Operable<RpdComponent>,RpdComponent {
 		return xudmlObject.getId();
 		
 	}
+	
+	public void setId(String id){
+		xudmlObject.setId(id);
+	}
 
 	@Override
 	public String getName() {

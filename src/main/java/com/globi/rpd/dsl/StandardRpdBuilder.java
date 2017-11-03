@@ -16,6 +16,7 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
+import com.globi.rpd.operator.ResolveLogicalJoinsOperator;
 import com.globi.rpd.operator.TraversingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
@@ -46,9 +47,11 @@ public class StandardRpdBuilder {
 
 		HydrateStep model(XudmlFolder folder);
 
+		HydrateStep catalogFromModelOperator(Class<? extends Operator<PresentationCatalog>> cl,
+				Predicate<BusinessModel> predicate);
+
 		SaveStep noMoreWork();
 
-		SaveStep applyModelOperator(Class<?> cl, Predicate<BusinessModel> predicate);
 	}
 
 	public interface GetStep {
@@ -57,6 +60,7 @@ public class StandardRpdBuilder {
 
 	public interface SaveStep {
 		GetStep nothingToSave();
+
 		GetStep save();
 	}
 
@@ -128,6 +132,15 @@ public class StandardRpdBuilder {
 
 				BusinessModel model = BusinessModel.fromResource(resourceUri);
 				this.hydrate(model, resourceUri);
+
+				/*
+				 * Hydrate all logical Joins into the model. Needs to be done
+				 * here because it requires all children of the model to be
+				 * hydrated*
+				 */
+				ResolveLogicalJoinsOperator resolveJoinsOperator = new ResolveLogicalJoinsOperator();
+				model.apply(resolveJoinsOperator);
+
 				this.modelObjects.add(model);
 			}
 
@@ -149,9 +162,12 @@ public class StandardRpdBuilder {
 
 		}
 
-		@SuppressWarnings("unchecked")
+		/**
+		 * Transforms a Model Object to another Model Object
+		 */
 		@Override
-		public SaveStep applyModelOperator(Class<?> cl, Predicate<BusinessModel> predicate) {
+		public HydrateStep catalogFromModelOperator(Class<? extends Operator<PresentationCatalog>> cl,
+				Predicate<BusinessModel> predicate) {
 
 			Set<BusinessModel> models = this.modelObjects.stream()
 					.filter(predicate)
@@ -162,7 +178,7 @@ public class StandardRpdBuilder {
 				// Instantiate the strategy
 				Operator<PresentationCatalog> strategy = null;
 				try {
-					strategy = (Operator<PresentationCatalog>) cl.newInstance();
+					strategy = cl.newInstance();
 				} catch (IllegalAccessException e) {
 					System.err.println("Class not accessible: " + cl);
 					throw new IllegalArgumentException(" Operator Class not accessible");
@@ -171,7 +187,8 @@ public class StandardRpdBuilder {
 					throw new IllegalArgumentException("Operator Class not instantiable");
 				}
 
-				this.catalogObjects.add(strategy.operate(model));
+				PresentationCatalog resultComponent = strategy.operate(model);
+				this.catalogObjects.add(resultComponent);
 
 				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
 				logger.operated(cl.getName(), model);
@@ -184,24 +201,18 @@ public class StandardRpdBuilder {
 
 		@Override
 		public GetStep save() {
-			
+
 			Set<BusinessModel> models = this.modelObjects;
-			
-			
+
 			for (BusinessModel model : models) {
-				
+
 				model.setResourceUri(XudmlConstants.TEMP_DIR + "modeltest.xml");
 
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(),
-						marshallingOperator);
+				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				model.apply(tv);
 			}
-			
-			
-			
-			
 
 			return this;
 		}
