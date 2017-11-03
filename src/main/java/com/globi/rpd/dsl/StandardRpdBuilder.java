@@ -24,15 +24,17 @@ import com.globi.rpd.xudml.XudmlFolder;
  */
 public class StandardRpdBuilder {
 
-	public CatalogStep init() {
+	public HydrateStep init() {
 		return new RpdSteps();
 	}
 
 	StandardRpdBuilder() {
 	}
 
-	public interface CatalogStep {
-		CatalogStep catalog(XudmlFolder folder);
+	public interface HydrateStep {
+		HydrateStep catalog(XudmlFolder folder);
+
+		HydrateStep model(XudmlFolder folder);
 
 		GetStep noMoreCatalogs();
 	}
@@ -41,14 +43,14 @@ public class StandardRpdBuilder {
 		StandardRpd get();
 	}
 
-	public static class RpdSteps implements CatalogStep, GetStep {
+	public static class RpdSteps implements HydrateStep, GetStep {
 
 		private StandardRpd rpd;
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
 		private final Set<BusinessModel> modelObjects = new HashSet<BusinessModel>();
 		private final Set<Database> physicalObjects = new HashSet<Database>();
 
-		public CatalogStep catalog(XudmlFolder folder) {
+		public HydrateStep catalog(XudmlFolder folder) {
 
 			List<String> fileList = folder.getResources()
 					.stream()
@@ -56,6 +58,9 @@ public class StandardRpdBuilder {
 					.collect(Collectors.toList());
 
 			for (String fileName : fileList) {
+				
+				this.hydrate(
+						"file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
 
 				PresentationCatalog presCatalog = PresentationCatalog.fromResource(
 						"file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL + fileName);
@@ -88,6 +93,31 @@ public class StandardRpdBuilder {
 		@Override
 		public GetStep noMoreCatalogs() {
 			return this;
+		}
+
+		@Override
+		public HydrateStep model(XudmlFolder folder) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		private PresentationCatalog hydrate(String ResourceName) {
+
+			PresentationCatalog presCatalog = PresentationCatalog.fromResource(ResourceName);
+
+			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
+			CatalogTraversingOperator tv = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
+					unmarshalOperator);
+			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			presCatalog.apply(tv);
+
+			HydratingOperator hydratingOperator = new HydratingOperator();
+			CatalogTraversingOperator tv2 = new CatalogTraversingOperator(new CatalogDefaultTraverser(),
+					hydratingOperator);
+			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			presCatalog.apply(tv2);
+
+			return presCatalog;
 		}
 
 	}
