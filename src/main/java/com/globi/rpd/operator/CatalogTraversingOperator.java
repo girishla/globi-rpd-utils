@@ -28,7 +28,7 @@ public class CatalogTraversingOperator implements Operator<RpdComponent>{
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 		PresentationCatalog returnVal;
-		returnVal =  presCatalog.apply(operator);
+		returnVal =  (PresentationCatalog)presCatalog.apply(operator);
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass().getName(), presCatalog);
 		}

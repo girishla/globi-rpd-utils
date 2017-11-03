@@ -30,9 +30,9 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 	}
 
 	@Override
-	public PresentationCatalog apply(Operator<RpdComponent> operator) {
+	public RpdComponent apply(Operator<RpdComponent> operator) {
 
-		return (PresentationCatalog) operator.operate(this);
+		return  operator.operate(this);
 	}
 
 	@Override
