@@ -31,8 +31,8 @@ public interface Traverser {
 	default public void traverse(PresentationColumn presColumn, Operator<? extends RpdComponent> anOperator) {
 		// default no-op
 		
-		System.out.println(
-				"PresentationColumn Traverser" + "**************Warning: Default Method invocation*******************");
+//		System.out.println(
+//				"PresentationColumn Traverser" + "**************Warning: Default Method invocation*******************");
 	}
 
 	default public void traverse(BusinessModel model, Operator<? extends RpdComponent> anOperator) {
@@ -51,9 +51,9 @@ public interface Traverser {
 
 	default public void traverse(LogicalColumn logicalColumn, Operator<? extends RpdComponent> anOperator) {
 		// default no-op
-		
-		System.out.println(
-				"LogicalColumn Traverser" + "**************Warning: Default Method invocation*******************");
+//		
+//		System.out.println(
+//				"LogicalColumn Traverser" + "**************Warning: Default Method invocation*******************");
 	}
 
 }

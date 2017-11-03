@@ -27,8 +27,8 @@ public interface Operator<R extends RpdComponent> {
 	}
 
 	default public R operate(PresentationColumn presColumn) {
-		System.out.println(
-				"PresentationColumn Operator" + "**************Warning: Default Method invocation*******************");
+//		System.out.println(
+//				"PresentationColumn Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
@@ -48,8 +48,8 @@ public interface Operator<R extends RpdComponent> {
 	}
 
 	default public R operate(LogicalColumn column) {
-		System.out.println("LogicalColumn " + column.getName()
-				+ "**************Warning: Default Method invocation*******************");
+//		System.out.println("LogicalColumn " + column.getName()
+//				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}

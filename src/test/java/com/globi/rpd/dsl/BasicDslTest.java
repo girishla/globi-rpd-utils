@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import com.globi.rpd.operator.SubjectAreaGeneratorOperator;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
@@ -18,7 +19,7 @@ public class BasicDslTest {
 				.init()
 				.catalog(new XudmlFolder(catalogPath))
 				.model(new XudmlFolder(modelPath))
-				.noMoreCatalogs()
+				.applyModelOperator(SubjectAreaGeneratorOperator.class,model-> model.getName().equals("Global Reporting"))
 				.get();
 
 	}

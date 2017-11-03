@@ -10,6 +10,7 @@ import xudml.RefTablePresentationCatalogTableT;
 
 public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalog> {
 	
+	
 	@Override
 	public PresentationCatalog operate(LogicalTable table) {
 	

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.globi.rpd.DefaultLoggerProgressMonitor;
@@ -12,13 +13,15 @@ import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.RpdComponent;
-import com.globi.rpd.operator.TraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
+import com.globi.rpd.operator.TraversingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 import com.globi.rpd.traverser.DefaultTraverser;
-import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The builder implementation for the fluent method chain
@@ -26,6 +29,7 @@ import com.globi.rpd.xudml.XudmlFolder;
  * @author Girish Lakshmanan
  *
  */
+@Slf4j
 public class StandardRpdBuilder {
 
 	public HydrateStep init() {
@@ -41,6 +45,8 @@ public class StandardRpdBuilder {
 		HydrateStep model(XudmlFolder folder);
 
 		GetStep noMoreCatalogs();
+
+		GetStep applyModelOperator(Class<?> cl, Predicate<BusinessModel> predicate);
 	}
 
 	public interface GetStep {
@@ -74,6 +80,7 @@ public class StandardRpdBuilder {
 
 				PresentationCatalog presCatalog = PresentationCatalog.fromResource(resourceUri);
 				this.hydrate(presCatalog, resourceUri);
+				this.catalogObjects.add(presCatalog);
 
 			}
 
@@ -114,7 +121,7 @@ public class StandardRpdBuilder {
 
 				BusinessModel model = BusinessModel.fromResource(resourceUri);
 				this.hydrate(model, resourceUri);
-
+				this.modelObjects.add(model);
 			}
 
 			return this;
@@ -132,6 +139,42 @@ public class StandardRpdBuilder {
 			TraversingOperator tv2 = new TraversingOperator(new DefaultTraverser(), hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv2);
+
+		}
+		
+		
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public GetStep applyModelOperator(Class<?> cl, Predicate<BusinessModel> predicate) {
+
+			Set<BusinessModel> models = this.modelObjects
+					.stream()
+					.filter(predicate)
+					.collect(Collectors.toSet());
+			
+			for (BusinessModel model : models) {
+
+				// Instantiate the strategy
+				Operator<BusinessModel> strategy = null;
+				try {
+					strategy = (Operator<BusinessModel>) cl.newInstance();
+				} catch (IllegalAccessException e) {
+					System.err.println("Class not accessible: " + cl);
+					throw new IllegalArgumentException(" Operator Class not accessible");
+				} catch (InstantiationException e) {
+					System.err.println("Class not instantiable: " + cl);
+					throw new IllegalArgumentException("Operator Class not instantiable");
+				}
+
+				strategy.operate(model);
+
+				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
+				logger.operated(cl.getName(), model);
+
+			}
+
+			return this;
 
 		}
 
