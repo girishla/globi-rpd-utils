@@ -47,7 +47,7 @@ public class StandardRpdBuilder {
 
 		HydrateStep model(XudmlFolder folder);
 
-		HydrateStep catalogFromModelOperator(Class<? extends Operator<PresentationCatalog>> cl,
+		HydrateStep applyModelOperator(Class<? extends Operator<BusinessModel>> cl,
 				Predicate<BusinessModel> predicate);
 
 		SaveStep noMoreWork();
@@ -164,7 +164,7 @@ public class StandardRpdBuilder {
 		 * Transforms a Model Object to another Model Object
 		 */
 		@Override
-		public HydrateStep catalogFromModelOperator(Class<? extends Operator<PresentationCatalog>> cl,
+		public HydrateStep applyModelOperator(Class<? extends Operator<BusinessModel>> cl,
 				Predicate<BusinessModel> predicate) {
 
 			Set<BusinessModel> models = this.modelObjects.stream()
@@ -174,7 +174,7 @@ public class StandardRpdBuilder {
 			for (BusinessModel model : models) {
 
 				// Instantiate the strategy
-				Operator<PresentationCatalog> strategy = null;
+				Operator<BusinessModel> strategy = null;
 				try {
 					strategy = cl.newInstance();
 				} catch (IllegalAccessException e) {
@@ -185,9 +185,8 @@ public class StandardRpdBuilder {
 					throw new IllegalArgumentException("Operator Class not instantiable");
 				}
 
-				PresentationCatalog resultComponent = strategy.operate(model);
-				this.catalogObjects.add(resultComponent);
-
+				strategy.operate(model);
+				
 				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
 				logger.operated(cl.getName(), model);
 
