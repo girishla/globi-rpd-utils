@@ -66,16 +66,10 @@ public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 					table.getJoinedToDimensions()
 							.add(table1);
 
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
 
-					log.debug("******************Adding dimension " + table1.getName() + " to fact " + table.getName()
-							+ "**************************");
+					log.debug("******************Adding join:  "+table.getName() + "--->" + table1.getName());
 
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
+
 
 				}
 
@@ -91,20 +85,63 @@ public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 							.add(table2);
 					
 					
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
-
-					log.debug("******************Adding dimension " + table2.getName() + " to fact " + table.getName()
-							+ "**************************");
-
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
-					log.debug("*********************************************************");
+					log.debug("******************Adding join:  "+table.getName() + "--->" + table2.getName());
 
 					
 
 				}
+				
+				
+				
+				
+				
+				
+				
+				
+				/**
+				 * if table1 has fact cardinality(0..n) and Table2's id is same
+				 * as current logical table, add it to the joinedFromFacts
+				 * List of the current logicaltable
+				 */
+				if ((table2Id.equals(table.getId())) && (join.getXudmlObject()
+						.getMultiplicity1()
+						.equals("0..n") || join.getXudmlObject()
+						.getMultiplicity1()
+						.equals("n..n"))) {
+
+					table.getJoinedFromFacts()
+							.add(table1);
+
+
+					log.debug("******************Adding join " + table.getName() + "<---" + table1.getName());
+
+
+				}
+
+				/**
+				 * if table2 has fact cardinality(0..n) and Table1's id is same
+				 * as current logical table, add it to the joinedToDimensions
+				 * List of the current logicaltable
+				 */
+				if ((table1Id.equals(table.getId())) && (join.getXudmlObject()
+						.getMultiplicity2()
+						.equals("0..n") || join.getXudmlObject()
+						.getMultiplicity1()
+						.equals("n..n"))) {
+					table.getJoinedFromFacts()
+							.add(table2);
+					
+					
+					log.debug("******************Adding join " + table.getName() + "<---" + table2.getName());
+
+					
+
+				}
+				
+				
+				
+				
+				
 
 			}
 
