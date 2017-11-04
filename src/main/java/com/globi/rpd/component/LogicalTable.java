@@ -46,12 +46,12 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	}
 	
 	
-	boolean isFactTable(){
+	public boolean isFactTable(){
 		return !this.joinedToDimensions.isEmpty();
 	
 	}
 	
-	boolean isDimTable(){
+	public boolean isDimTable(){
 		return !this.joinedFromFacts.isEmpty();
 	
 	}

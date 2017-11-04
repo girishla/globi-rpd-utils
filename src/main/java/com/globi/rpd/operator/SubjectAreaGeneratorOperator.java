@@ -26,24 +26,17 @@ public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalo
 		if(table.getXudmlObject()==null)
 			throw new IllegalStateException("SubjectAreaGeneratorOperator: Cannot generate subject area without a XUDML instance set");
 		
-		if(!table.getName().contains("Measures")){
+		
+		/**
+		 * Generation is only for fact tables
+		 */
+		if(!table.isFactTable()){
 			return null;
 		}
 
 		
-		String newcatalogId="m" + UUID.randomUUID().toString();
-		PresentationCatalog catalog=new PresentationCatalog(newcatalogId);
-		
-		PresentationCatalogW xudmlObject=new PresentationCatalogW();
-		xudmlObject.setMdsid(newcatalogId);
-		xudmlObject.setName("Autogen - " + table.getName());
-		xudmlObject.setHasDispName(false);
-		xudmlObject.setHasDispDescription(false);
-		xudmlObject.setIsAutoAggr(false);
-		xudmlObject.setSubjectAreaRef(table.getXudmlObject().getSubjectAreaRef());
-		RefTablePresentationCatalogTableT emptyRefTable=new RefTablePresentationCatalogTableT();
-		xudmlObject.setRefTables(emptyRefTable);
-		catalog.setXudmlObject(xudmlObject);
+	
+		PresentationCatalog catalog=getCatalogFrom(table);
 		
 		
 		//find joined dimensions
@@ -76,6 +69,28 @@ public class SubjectAreaGeneratorOperator implements Operator<PresentationCatalo
 		
 		return catalog;
 		
+	}
+	
+	
+	private PresentationCatalog getCatalogFrom(LogicalTable table){
+		
+		
+		String newcatalogId="m" + UUID.randomUUID().toString();
+		PresentationCatalog catalog=new PresentationCatalog(newcatalogId);
+		
+		PresentationCatalogW xudmlObject=new PresentationCatalogW();
+		xudmlObject.setMdsid(newcatalogId);
+		xudmlObject.setName("Autogen - " + table.getName());
+		xudmlObject.setHasDispName(false);
+		xudmlObject.setHasDispDescription(false);
+		xudmlObject.setIsAutoAggr(false);
+		xudmlObject.setSubjectAreaRef(table.getXudmlObject().getSubjectAreaRef());
+		RefTablePresentationCatalogTableT emptyRefTable=new RefTablePresentationCatalogTableT();
+		xudmlObject.setRefTables(emptyRefTable);
+		catalog.setXudmlObject(xudmlObject);
+		
+		
+		return catalog;
 	}
 	
 
