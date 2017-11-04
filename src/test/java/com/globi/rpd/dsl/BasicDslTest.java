@@ -21,6 +21,7 @@ public class BasicDslTest {
 	@Test
 	public void canBuildRpdWithFluentSyntax() throws IOException {
 		
+		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
 		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
 		
 		RpdFactory.newBuilder()

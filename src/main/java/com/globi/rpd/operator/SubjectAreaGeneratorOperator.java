@@ -7,6 +7,7 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.dsl.StandardRpd;
 
+import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationCatalogW;
 import xudml.RefTablePresentationCatalogTableT;
 
@@ -17,6 +18,7 @@ import xudml.RefTablePresentationCatalogTableT;
  * @author Girish Lakshmanan
  *
  */
+@Slf4j
 public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 	@Override
@@ -38,6 +40,14 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 				 * Generation applies only for fact tables
 				 */
 				if (table.isFactTable()) {
+					log.info("*****************************************************************************");
+					log.info("*****************************************************************************");
+					log.info("*****************************************************************************");
+					log.info("*****************************************************************************");
+					log.info("*****************************************************************************");
+					log.info("*****************************************************************************");
+					log.info("Generating for Table: " + table.getName());
+					
 
 					PresentationCatalog catalog = getCatalogFrom(table);
 

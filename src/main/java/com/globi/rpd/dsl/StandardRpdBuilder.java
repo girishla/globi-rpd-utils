@@ -238,6 +238,7 @@ public class StandardRpdBuilder {
 			for (PresentationCatalog catalog : this.catalogObjects) {
 
 				catalog.setResourceUri(XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
+				
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
