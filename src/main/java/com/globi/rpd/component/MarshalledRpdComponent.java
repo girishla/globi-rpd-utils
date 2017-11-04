@@ -1,6 +1,7 @@
 package com.globi.rpd.component;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import xudml.ObjectW;
 
 
@@ -11,7 +12,8 @@ import xudml.ObjectW;
  * @param <T>
  */
 
-@Data
+@Getter
+@Setter
 public abstract class MarshalledRpdComponent<T extends ObjectW> implements RpdComponent,RpdMarshalledObject<T> {
 
 	/**

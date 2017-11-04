@@ -134,9 +134,7 @@ public class StandardRpdBuilder {
 				this.hydrate(model, resourceUri);
 
 				/*
-				 * Hydrate all logical Joins into the model. Needs to be done
-				 * here because it requires all children of the model to be
-				 * hydrated*
+				 * Resolve all logical Joins into the model.
 				 */
 				ResolveLogicalJoinsOperator resolveJoinsOperator = new ResolveLogicalJoinsOperator();
 				model.apply(resolveJoinsOperator);

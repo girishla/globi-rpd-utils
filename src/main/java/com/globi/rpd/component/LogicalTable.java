@@ -13,15 +13,16 @@ import xudml.LogicalTableW;
 
 
 @Data
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper=true,exclude={"joinedToDimensions", "joinedFromFacts"})
 public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implements Operable<RpdComponent> {
 
 	private final List<LogicalColumn> logicalColumns = new ArrayList<LogicalColumn>();
-	private final List<LogicalTable> joinedFrom=new ArrayList<>();
-	private final List<LogicalTable> joinedTo=new ArrayList<>();
+	private final List<LogicalTable> joinedToDimensions=new ArrayList<>();
+	private final List<LogicalTable> joinedFromFacts=new ArrayList<>();
 
 	public LogicalTable(String id) {
 		super(id);
+		
 		
 		this.setResourceUri(XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/LogicalTable/" + id + ".xml");
 
@@ -42,6 +43,17 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	@Override
 	public String toString() {
 		return "  Logical Table:" + this.getXudmlObject().getName();
+	}
+	
+	
+	boolean isFactTable(){
+		return !this.joinedToDimensions.isEmpty();
+	
+	}
+	
+	boolean isDimTable(){
+		return !this.joinedFromFacts.isEmpty();
+	
 	}
 
 
