@@ -5,17 +5,25 @@ import java.util.Set;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.operator.Operable;
+import com.globi.rpd.operator.Operator;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Container for RPD Component Objects
  * @author Girish Lakshmanan
  *
  */
-@Data
-public class StandardRpd implements Rpd {
+@Getter
+@Setter
+public class StandardRpd implements Rpd,RpdComponent,Operable<RpdComponent> {
 
+	private final String id="STANDARDRPD";
+	private final String name="STANDARDRPD";
+	
 	
 	private final Set<PresentationCatalog> catalogObjects;
 	private final Set<BusinessModel> modelObjects;
@@ -25,6 +33,12 @@ public class StandardRpd implements Rpd {
 		this.catalogObjects = catalogObjects;
 		this.modelObjects=modelObjects;
 		this.physicalObjects=physicalObjects;
+	}
+
+	@Override
+	public RpdComponent apply(Operator<? extends RpdComponent> anOperator) {
+		return (StandardRpd)anOperator.operate(this);
+
 	}
 	
 

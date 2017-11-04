@@ -36,7 +36,7 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			model.apply(tv2);
 
-			model.setResourceUri(XudmlConstants.XUDML_OUTPUT + "00000000-28a1-1627-806e-0a3fce3c0000.xml");
+			model.setResourceUri(XudmlConstants.XUDML_COPYURL + "00000000-28a1-1627-806e-0a3fce3c0000.xml");
 
 			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 			TraversingOperator tv3 = new TraversingOperator(new DefaultTraverser(),

@@ -51,7 +51,7 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 			traversingSortingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(traversingSortingOperator);
 
-			presCatalog.setResourceUri(XudmlConstants.XUDML_OUTPUT + "40000456-6dc5-167d-806e-c0a838100000.xml");
+			presCatalog.setResourceUri(XudmlConstants.XUDML_COPYURL + "40000456-6dc5-167d-806e-c0a838100000.xml");
 
 			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 			TraversingOperator tv3 = new TraversingOperator(new DefaultTraverser(),

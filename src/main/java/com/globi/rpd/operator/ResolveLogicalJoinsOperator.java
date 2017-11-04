@@ -147,7 +147,7 @@ public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 
 		}
 
-		return null;
+		return model;
 
 	}
 

@@ -2,11 +2,14 @@ package com.globi.rpd.dsl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import org.springframework.core.io.Resource;
 
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
@@ -47,8 +50,7 @@ public class StandardRpdBuilder {
 
 		HydrateStep model(XudmlFolder folder);
 
-		HydrateStep applyModelOperator(Class<? extends Operator<BusinessModel>> cl,
-				Predicate<BusinessModel> predicate);
+		HydrateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
 
 		SaveStep noMoreWork();
 
@@ -70,6 +72,7 @@ public class StandardRpdBuilder {
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
 		private final Set<BusinessModel> modelObjects = new HashSet<BusinessModel>();
 		private final Set<Database> physicalObjects = new HashSet<Database>();
+		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
 
 		public HydrateStep catalog(XudmlFolder folder) {
 
@@ -94,6 +97,8 @@ public class StandardRpdBuilder {
 				this.catalogObjects.add(presCatalog);
 
 			}
+
+			folders.put(XudmlFolder.FolderType.CATALOG, folder);
 
 			return this;
 		}
@@ -140,6 +145,9 @@ public class StandardRpdBuilder {
 				model.apply(resolveJoinsOperator);
 
 				this.modelObjects.add(model);
+
+				folders.put(XudmlFolder.FolderType.MODEL, folder);
+
 			}
 
 			return this;
@@ -164,33 +172,23 @@ public class StandardRpdBuilder {
 		 * Transforms a Model Object to another Model Object
 		 */
 		@Override
-		public HydrateStep applyModelOperator(Class<? extends Operator<BusinessModel>> cl,
-				Predicate<BusinessModel> predicate) {
+		public HydrateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl) {
 
-			Set<BusinessModel> models = this.modelObjects.stream()
-					.filter(predicate)
-					.collect(Collectors.toSet());
-
-			for (BusinessModel model : models) {
-
-				// Instantiate the strategy
-				Operator<BusinessModel> strategy = null;
-				try {
-					strategy = cl.newInstance();
-				} catch (IllegalAccessException e) {
-					System.err.println("Class not accessible: " + cl);
-					throw new IllegalArgumentException(" Operator Class not accessible");
-				} catch (InstantiationException e) {
-					System.err.println("Class not instantiable: " + cl);
-					throw new IllegalArgumentException("Operator Class not instantiable");
-				}
-
-				strategy.operate(model);
-				
-				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
-				logger.operated(cl.getName(), model);
-
+			// Instantiate the strategy
+			Operator<StandardRpd> strategy = null;
+			try {
+				strategy = cl.newInstance();
+			} catch (IllegalAccessException e) {
+				System.err.println("Class not accessible: " + cl);
+				throw new IllegalArgumentException(" Operator Class not accessible");
+			} catch (InstantiationException e) {
+				System.err.println("Class not instantiable: " + cl);
+				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
+			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
+			strategy.operate(rpdOperable);
+			DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
+			logger.operated(cl.getName(), rpdOperable);
 
 			return this;
 
@@ -199,17 +197,80 @@ public class StandardRpdBuilder {
 		@Override
 		public GetStep save() {
 
-			Set<BusinessModel> models = this.modelObjects;
+			for (BusinessModel model : this.modelObjects) {
 
-			for (BusinessModel model : models) {
-
-				model.setResourceUri(XudmlConstants.TEMP_DIR + "modeltest.xml");
+				model.setResourceUri(XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_MODELURL + model.getId() + ".xml");
 
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				model.apply(tv);
+
 			}
+
+			
+			/**
+			 * Delete any model files that aren't in context anymore
+			 */
+			XudmlFolder modelFolder = folders.get(XudmlFolder.FolderType.MODEL);
+			modelFolder.getResources()
+					.stream()
+					.filter(resource -> {
+
+						boolean delete = true;
+						for (BusinessModel model : this.modelObjects) {
+							delete = !model.getResourceUri()
+									.endsWith(resource.getFilename());
+
+						}
+						return delete;
+					})
+					.forEach(resource -> {
+						try {
+							resource.getFile()
+									.delete();
+						} catch (IOException e) {
+							e.printStackTrace();
+							throw new RuntimeException("Error during delete of file " + resource.getFilename());
+						}
+					});
+
+			for (PresentationCatalog catalog : this.catalogObjects) {
+
+				catalog.setResourceUri(XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
+				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
+				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
+				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+				catalog.apply(tv);
+			}
+			
+			
+			/**
+			 * Delete any catalog files that aren't in context anymore
+			 */
+			XudmlFolder catFolder = folders.get(XudmlFolder.FolderType.CATALOG);
+			catFolder.getResources()
+					.stream()
+					.filter(resource -> {
+
+						boolean delete = true;
+						for (PresentationCatalog model : this.catalogObjects) {
+							delete = !model.getResourceUri()
+									.endsWith(resource.getFilename());
+
+						}
+						return delete;
+					})
+					.forEach(resource -> {
+						try {
+							resource.getFile()
+									.delete();
+						} catch (IOException e) {
+							e.printStackTrace();
+							throw new RuntimeException("Error during deleting of file " + resource.getFilename());
+						}
+					});
+
 
 			return this;
 		}

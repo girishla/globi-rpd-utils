@@ -9,6 +9,7 @@ import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.dsl.StandardRpd;
 
 public interface Operator<R extends RpdComponent> {
 
@@ -63,5 +64,14 @@ public interface Operator<R extends RpdComponent> {
 		R returnVal = null;
 		return returnVal;
 	}
+
+	
+	default public R operate(StandardRpd rpd) {
+//		System.out.println("StandardRpd " + rpd.getName()
+//				+ "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+
 
 }
