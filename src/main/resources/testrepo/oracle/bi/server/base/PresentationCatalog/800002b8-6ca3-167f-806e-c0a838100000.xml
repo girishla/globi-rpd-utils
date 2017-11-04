@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PresentationCatalog mdsid="m800002b8-6ca3-167f-806e-c0a838100000" name="Global Reporting - Measures - Performance Metrics" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" hasDispName="false" hasDispDescription="false" isAutoAggr="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<RefTables>
+<RefPresentationTable refId="m800002b8-6ca3-167f-806e-c0a838100000-m800002b9-6ca3-167f-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/800002b9-6ca3-167f-806e-c0a838100000.xml#m800002b9-6ca3-167f-806e-c0a838100000"/>
+<RefPresentationTable refId="m800002b8-6ca3-167f-806e-c0a838100000-m800002e0-6ca3-167f-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/800002e0-6ca3-167f-806e-c0a838100000.xml#m800002e0-6ca3-167f-806e-c0a838100000"/>
+<RefPresentationTable refId="m800002b8-6ca3-167f-806e-c0a838100000-m8000030d-6ca3-167f-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/8000030d-6ca3-167f-806e-c0a838100000.xml#m8000030d-6ca3-167f-806e-c0a838100000"/>
+<RefPresentationTable refId="m800002b8-6ca3-167f-806e-c0a838100000-m8000033d-6ca3-167f-806e-c0a838100000" presentationTableRef="/oracle/bi/server/base/PresentationTable/8000033d-6ca3-167f-806e-c0a838100000.xml#m8000033d-6ca3-167f-806e-c0a838100000"/>
+</RefTables>
+</PresentationCatalog>

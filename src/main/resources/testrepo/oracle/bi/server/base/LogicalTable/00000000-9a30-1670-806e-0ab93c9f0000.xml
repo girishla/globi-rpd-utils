@@ -1,20 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<LogicalTable mdsid="m00000000-9a30-1670-806e-0ab93c9f0000" name="Lookup - DMR Discrepancies" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" isLookupTable="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
-<LogicalColumn mdsid="m80000003-9a35-1670-806e-0ab93c9f0000" name="Key (RUN_ID)" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m00000002-9a3a-1670-806e-0ab93c9f0000" name="Key (LOCATION)" isWriteable="false">
-</LogicalColumn>
-<LogicalColumn mdsid="m00000002-9a3b-1670-806e-0ab93c9f0000" name="Data" isWriteable="false" customSortOrderRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000" descriptorIDRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000">
-</LogicalColumn>
-<LogicalColumn mdsid="mc0000002-9ad3-1670-806e-0ab93c9f0000" name="Data Hash" isWriteable="false">
-</LogicalColumn>
-<LogicalKey mdsid="m80000000-9a41-1670-806e-0ab93c9f0000" name="PK" isPrimary="true">
-<RefColumns>
-<RefLogicalColumn refId="m80000000-9a41-1670-806e-0ab93c9f0000-m80000003-9a35-1670-806e-0ab93c9f0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m80000003-9a35-1670-806e-0ab93c9f0000"/>
-<RefLogicalColumn refId="m80000000-9a41-1670-806e-0ab93c9f0000-m00000002-9a3a-1670-806e-0ab93c9f0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3a-1670-806e-0ab93c9f0000"/>
-</RefColumns>
-</LogicalKey>
-<RefTableSources>
-<RefLogicalTableSource refId="m00000000-9a30-1670-806e-0ab93c9f0000-m80000005-9a35-1670-806e-0ab93c9f0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/80000005-9a35-1670-806e-0ab93c9f0000.xml#m80000005-9a35-1670-806e-0ab93c9f0000"/>
-</RefTableSources>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LogicalTable xmlns="http://www.oracle.com/obis/repository" isLookupTable="true" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Lookup - DMR Discrepancies" mdsid="m00000000-9a30-1670-806e-0ab93c9f0000">
+    <LogicalColumn isWriteable="false" name="Key (RUN_ID)" mdsid="m80000003-9a35-1670-806e-0ab93c9f0000">
+        <AttributeDefn name="AttributeDefn" mdsid="m00000001-01f4-0000-a9ca-098400000000">
+            <ExprText>"%1"</ExprText>
+            <ExprTextDesc>"GLOBI".""."MDT"."Fact_DMR_Discrepancies"."RUN_ID"</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000006-9a25-1670-806e-0ab93c9f0000" refId="m00000001-01f4-0000-a9ca-098400000000-m80000006-9a25-1670-806e-0ab93c9f0000"/>
+            </ObjectRefList>
+        </AttributeDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Key (LOCATION)" mdsid="m00000002-9a3a-1670-806e-0ab93c9f0000">
+        <AttributeDefn name="AttributeDefn" mdsid="m00000002-01f4-0000-1117-821900000000">
+            <ExprText>"%1"</ExprText>
+            <ExprTextDesc>"GLOBI".""."MDT"."Fact_DMR_Discrepancies"."MIS_LOC"</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000004-9a25-1670-806e-0ab93c9f0000" refId="m00000002-01f4-0000-1117-821900000000-m80000004-9a25-1670-806e-0ab93c9f0000"/>
+            </ObjectRefList>
+        </AttributeDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" customSortOrderRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000" descriptorIDRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#mc0000002-9ad3-1670-806e-0ab93c9f0000" name="Data" mdsid="m00000002-9a3b-1670-806e-0ab93c9f0000">
+        <AttributeDefn name="AttributeDefn" mdsid="m00000003-01f4-0000-0364-cd3a00000000">
+            <ExprText>"%1"</ExprText>
+            <ExprTextDesc>"GLOBI".""."MDT"."Fact_DMR_Discrepancies"."ROW_DATA"</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000005-9a25-1670-806e-0ab93c9f0000" refId="m00000003-01f4-0000-0364-cd3a00000000-m80000005-9a25-1670-806e-0ab93c9f0000"/>
+            </ObjectRefList>
+        </AttributeDefn>
+    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Data Hash" mdsid="mc0000002-9ad3-1670-806e-0ab93c9f0000">
+        <AttributeDefn name="AttributeDefn" mdsid="m00000004-01f4-0000-82be-dc8e00000000">
+            <ExprText>"%1"</ExprText>
+            <ExprTextDesc>"GLOBI".""."MDT"."Fact_DMR_Discrepancies"."HASH"</ExprTextDesc>
+            <ObjectRefList>
+                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-9a25-1670-806e-0ab93c9f0000.xml#m80000002-9a25-1670-806e-0ab93c9f0000" refId="m00000004-01f4-0000-82be-dc8e00000000-m80000002-9a25-1670-806e-0ab93c9f0000"/>
+            </ObjectRefList>
+        </AttributeDefn>
+    </LogicalColumn>
+    <LogicalKey isPrimary="true" name="PK" mdsid="m80000000-9a41-1670-806e-0ab93c9f0000">
+        <RefColumns>
+            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m80000003-9a35-1670-806e-0ab93c9f0000" refId="m80000000-9a41-1670-806e-0ab93c9f0000-m80000003-9a35-1670-806e-0ab93c9f0000"/>
+            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-9a30-1670-806e-0ab93c9f0000.xml#m00000002-9a3a-1670-806e-0ab93c9f0000" refId="m80000000-9a41-1670-806e-0ab93c9f0000-m00000002-9a3a-1670-806e-0ab93c9f0000"/>
+        </RefColumns>
+    </LogicalKey>
+    <RefTableSources>
+        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/80000005-9a35-1670-806e-0ab93c9f0000.xml#m80000005-9a35-1670-806e-0ab93c9f0000" refId="m00000000-9a30-1670-806e-0ab93c9f0000-m80000005-9a35-1670-806e-0ab93c9f0000"/>
+    </RefTableSources>
 </LogicalTable>

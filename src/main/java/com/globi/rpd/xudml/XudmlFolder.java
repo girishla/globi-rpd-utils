@@ -18,7 +18,7 @@ public class XudmlFolder {
 	public XudmlFolder(String uri) {
 
 		try {
-			this.resources = Arrays.asList(ResourceFactory.loadResources(uri + "/*.xml"));
+			this.resources = Arrays.asList(ResourceFactory.loadResources(  uri + "/*.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error during reading of folder " + uri);
@@ -40,7 +40,7 @@ public class XudmlFolder {
 	
 
 	public enum FolderType {
-		CATALOG, MODEL, PHYSICAL;
+		CATALOG, MODEL, PHYSICAL,PRESENTATIONTABLE,LOGICALTABLE;
 	}
 
 }

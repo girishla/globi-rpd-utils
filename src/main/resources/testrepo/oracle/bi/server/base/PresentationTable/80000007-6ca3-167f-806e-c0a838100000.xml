@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PresentationTable mdsid="m80000007-6ca3-167f-806e-c0a838100000" name="Measures - Pipeline - Opportunity Line" iconIndex="90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" hasDispName="false" hasDispDescription="false" containerRef="/oracle/bi/server/base/PresentationCatalog/80000006-6ca3-167f-806e-c0a838100000.xml#m80000006-6ca3-167f-806e-c0a838100000">
+<PresentationColumn mdsid="m80000008-6ca3-167f-806e-c0a838100000" name="# Opportunities" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000001-1783-162b-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000009-6ca3-167f-806e-c0a838100000" name="# Opportunity Lines" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m80000000-1786-162b-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000a-6ca3-167f-806e-c0a838100000" name="Quantity" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000095-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000b-6ca3-167f-806e-c0a838100000" name="---------------[ Global]---------------" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m00000002-ea3f-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000c-6ca3-167f-806e-c0a838100000" name="Global POS Revenue" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m00000004-ea38-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000d-6ca3-167f-806e-c0a838100000" name="Global POS Revenue Annual" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m0000000b-ea38-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000e-6ca3-167f-806e-c0a838100000" name="------------------[ Document]------------------" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m80000003-c45f-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000000f-6ca3-167f-806e-c0a838100000" name="Document Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000087-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000010-6ca3-167f-806e-c0a838100000" name="Document Annual Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000002-0387-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000011-6ca3-167f-806e-c0a838100000" name="Document Current Contract Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m80000002-038e-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000012-6ca3-167f-806e-c0a838100000" name="Document Discount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000089-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000013-6ca3-167f-806e-c0a838100000" name="Document MPO" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m4000008b-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000014-6ca3-167f-806e-c0a838100000" name="Document Previous Billings" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m00000002-0391-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000015-6ca3-167f-806e-c0a838100000" name="Document RRP" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m4000008c-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000016-6ca3-167f-806e-c0a838100000" name="Document Tax" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m4000008d-28bc-1627-806e-0a3fce3c0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000017-6ca3-167f-806e-c0a838100000" name="Document POS Revenue" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m00000004-e8c6-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000018-6ca3-167f-806e-c0a838100000" name="Document POS Revenue Annual" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m00000006-e8c6-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000019-6ca3-167f-806e-c0a838100000" name="---------------[ User Currency ]---------------" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000002-c45f-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001a-6ca3-167f-806e-c0a838100000" name="Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000004-c449-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001b-6ca3-167f-806e-c0a838100000" name="Annual Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000001-0395-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001c-6ca3-167f-806e-c0a838100000" name="Current Contract Amount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000006-0395-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001d-6ca3-167f-806e-c0a838100000" name="Discount" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc000000c-c449-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001e-6ca3-167f-806e-c0a838100000" name="MPO" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000014-c449-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m8000001f-6ca3-167f-806e-c0a838100000" name="Previous Billings" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc000000b-0395-166c-806e-0ab93ccb0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000020-6ca3-167f-806e-c0a838100000" name="RRP" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc000001c-c449-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000021-6ca3-167f-806e-c0a838100000" name="Tax" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#mc0000024-c449-162a-98ff-0a3fce3e0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000022-6ca3-167f-806e-c0a838100000" name="POS Revenue" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000002-e8d7-1674-806e-ac1d635d0000">
+</PresentationColumn>
+<PresentationColumn mdsid="m80000023-6ca3-167f-806e-c0a838100000" name="POS Revenue Annual" hasDispName="false" hasDispDescription="false" overrideLogicalName="false" logicalColumnRef="/oracle/bi/server/base/LogicalTable/4000007e-28bc-1627-806e-0a3fce3c0000.xml#m40000007-e8d7-1674-806e-ac1d635d0000">
+</PresentationColumn>
+</PresentationTable>

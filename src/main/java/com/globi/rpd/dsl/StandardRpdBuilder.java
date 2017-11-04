@@ -15,6 +15,7 @@ import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.Operable;
@@ -38,11 +39,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StandardRpdBuilder {
 
-	public HydrateStep init() {
+	public SetRepoPathStep init() {
 		return new RpdSteps();
 	}
 
 	StandardRpdBuilder() {
+	}
+
+	public interface SetRepoPathStep {
+		HydrateStep setRepoPath(String path);
 	}
 
 	public interface HydrateStep {
@@ -63,16 +68,17 @@ public class StandardRpdBuilder {
 	public interface SaveStep {
 		GetStep nothingToSave();
 
-		GetStep save();
+		GetStep save(String path);
 	}
 
-	public static class RpdSteps implements HydrateStep, GetStep, SaveStep {
+	public static class RpdSteps implements SetRepoPathStep, HydrateStep, GetStep, SaveStep {
 
 		private StandardRpd rpd;
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
 		private final Set<BusinessModel> modelObjects = new HashSet<BusinessModel>();
 		private final Set<Database> physicalObjects = new HashSet<Database>();
 		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
+		private String repoPath;
 
 		public HydrateStep catalog(XudmlFolder folder) {
 
@@ -195,11 +201,11 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
-		public GetStep save() {
+		public GetStep save(String basePath) {
 
 			for (BusinessModel model : this.modelObjects) {
 
-				model.setResourceUri(XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_MODELURL + model.getId() + ".xml");
+				model.setResourceUri(basePath + XudmlConstants.XUDML_MODELURL + model.getId() + ".xml");
 
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
@@ -208,11 +214,39 @@ public class StandardRpdBuilder {
 
 			}
 
-			
+			for (PresentationCatalog catalog : this.catalogObjects) {
+
+				catalog.setResourceUri(basePath + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
+
+				for(PresentationTable table:catalog.getPresentationTables()){
+					table.setResourceUri(basePath + XudmlConstants.XUDML_PRESTABLEURL + table.getId() + ".xml");
+					
+				}
+				
+				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
+				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
+				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+				catalog.apply(tv);
+				
+				
+			}
+
+			this.pruneFolders(basePath);
+
+			return this;
+		}
+
+		@Override
+		public GetStep nothingToSave() {
+			return this;
+		}
+
+		private void pruneFolders(String basePath) {
+
 			/**
 			 * Delete any model files that aren't in context anymore
 			 */
-			XudmlFolder modelFolder = folders.get(XudmlFolder.FolderType.MODEL);
+			XudmlFolder modelFolder = new XudmlFolder("file:" + basePath + XudmlConstants.XUDML_MODELURL);
 			modelFolder.getResources()
 					.stream()
 					.filter(resource -> {
@@ -225,35 +259,39 @@ public class StandardRpdBuilder {
 						}
 						return delete;
 					})
-					.forEach(resource -> {
-						try {
-							resource.getFile()
-									.delete();
-						} catch (IOException e) {
-							e.printStackTrace();
-							throw new RuntimeException("Error during delete of file " + resource.getFilename());
-						}
-					});
+					.forEach(this::deleteFile);
+
+			/**
+			 * Delete any presentation table files that aren't in context
+			 * anymore
+			 */
 
 			for (PresentationCatalog catalog : this.catalogObjects) {
 
-				catalog.setResourceUri(XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
-				
-				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
-				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-				catalog.apply(tv);
+				XudmlFolder presTableFolder = new XudmlFolder("file:" +basePath + XudmlConstants.XUDML_PRESTABLEURL);
+				presTableFolder.getResources()
+						.stream()
+						.filter(resource -> {
+
+							boolean delete = true;
+							for (PresentationTable table : catalog.getPresentationTables()) {
+								delete = !table.getResourceUri()
+										.endsWith(resource.getFilename());
+
+							}
+							return delete;
+						})
+						.forEach(this::deleteFile);
+
 			}
-			
-			
+
 			/**
 			 * Delete any catalog files that aren't in context anymore
 			 */
-			XudmlFolder catFolder = folders.get(XudmlFolder.FolderType.CATALOG);
+			XudmlFolder catFolder = new XudmlFolder("file:" +basePath + XudmlConstants.XUDML_CATALOGURL);
 			catFolder.getResources()
 					.stream()
 					.filter(resource -> {
-
 						boolean delete = true;
 						for (PresentationCatalog model : this.catalogObjects) {
 							delete = !model.getResourceUri()
@@ -262,22 +300,24 @@ public class StandardRpdBuilder {
 						}
 						return delete;
 					})
-					.forEach(resource -> {
-						try {
-							resource.getFile()
-									.delete();
-						} catch (IOException e) {
-							e.printStackTrace();
-							throw new RuntimeException("Error during deleting of file " + resource.getFilename());
-						}
-					});
+					.forEach(this::deleteFile);
 
+		}
 
-			return this;
+		private void deleteFile(Resource resource) {
+
+			try {
+				resource.getFile()
+						.delete();
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new RuntimeException("Error during deleting of file " + resource.getFilename());
+			}
 		}
 
 		@Override
-		public GetStep nothingToSave() {
+		public HydrateStep setRepoPath(String path) {
+			this.repoPath = path;
 			return this;
 		}
 
