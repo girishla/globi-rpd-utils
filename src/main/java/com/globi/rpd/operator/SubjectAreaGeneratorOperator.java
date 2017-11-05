@@ -38,23 +38,22 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 			return rpd;
 		}
 
-		log.debug("*****************************************************************************");
-		log.debug("*****************************************************************************");
-		log.debug("*****************************************************************************");
-		log.debug("*****************************************************************************");
-		log.debug("*****************************************************************************");
-		log.debug("*****************************************************************************");
 		log.debug("Going to delete : " + rpd.getCatalogObjects()
 				.size() + " Catalog Objects");
 
 		for (PresentationCatalog catalog : rpd.getCatalogObjects()) {
 
-			DeletingOperator deletingOperator = new DeletingOperator();
-			DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(
-					new DefaultTraverser(), deletingOperator);
-			traverseDeleteOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			catalog.apply(traverseDeleteOperator);
-
+			/**
+			 * Delete only if NOT pinned
+			 */
+			if (!(catalog.getXudmlObject()
+					.getIconIndex() == 89)) {
+				DeletingOperator deletingOperator = new DeletingOperator();
+				DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(
+						new DefaultTraverser(), deletingOperator);
+				traverseDeleteOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
+				catalog.apply(traverseDeleteOperator);
+			}
 		}
 
 		rpd.getCatalogObjects()
@@ -62,8 +61,12 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		for (BusinessModel model : rpd.getModelObjects()) {
 
-			log.debug("Table object Count: " + model.getLogicalTables()
-					.size());
+			/**
+			 * Add ONE combined Admin subject Area per Model
+			 */
+			PresentationCatalog combinedCatalog = getCombinedCatalogForModel(model);
+			rpd.getCatalogObjects()
+					.add(combinedCatalog);
 
 			for (LogicalTable table : model.getLogicalTables()) {
 
@@ -81,18 +84,30 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 					 */
 					for (LogicalTable dimTable : table.getJoinedToDimensions()) {
 
-						PresentationTable presTable=updateCatalogAndGetPresentationTableFrom(catalog, dimTable);
-						addPresentationColumnsFromLogicalTable(dimTable,presTable);
-						
+						PresentationTable presTable = updateCatalogAndGetPresentationTableFrom(catalog, dimTable);
+						addPresentationColumnsFromLogicalTable(dimTable, presTable);
+
+						/**
+						 * Add to combined catalog only if the Dimension Table
+						 * does not already have a corresponding Presentation
+						 * table
+						 */
+						if (!tableExistsInCatalog(dimTable, combinedCatalog)) {
+							PresentationTable presTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
+									combinedCatalog, dimTable);
+							addPresentationColumnsFromLogicalTable(dimTable, presTableForCombinedCatalog);
+						}
 
 					}
 
 					/**
 					 * Add Presentation table and column for 1 Fact table
 					 */
-					PresentationTable presFactTable=updateCatalogAndGetPresentationTableFrom(catalog, table);
-					addPresentationColumnsFromLogicalTable(table,presFactTable);
-
+					PresentationTable presFactTable = updateCatalogAndGetPresentationTableFrom(catalog, table);
+					addPresentationColumnsFromLogicalTable(table, presFactTable);
+					PresentationTable presFactTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
+							combinedCatalog, table);
+					addPresentationColumnsFromLogicalTable(table, presFactTableForCombinedCatalog);
 
 					rpd.getCatalogObjects()
 							.add(catalog);
@@ -106,6 +121,36 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 	}
 
+	private boolean tableExistsInCatalog(LogicalTable table, PresentationCatalog catalog) {
+
+		return catalog.getPresentationTables()
+				.stream()
+				.anyMatch(t -> t.getName()
+						.contains(table.getName()));
+
+	}
+
+	private PresentationCatalog getCombinedCatalogForModel(BusinessModel model) {
+
+		String newcatalogId = UUID.randomUUID()
+				.toString();
+		PresentationCatalog catalog = new PresentationCatalog(newcatalogId);
+
+		PresentationCatalogW xudmlObject = new PresentationCatalogW();
+		xudmlObject.setMdsid("m" + newcatalogId);
+		xudmlObject.setName("Administration - Global Reporting");
+		xudmlObject.setHasDispName(false);
+		xudmlObject.setHasDispDescription(false);
+		xudmlObject.setIsAutoAggr(false);
+		xudmlObject.setSubjectAreaRef(XudmlConstants.XUDML_MODELURL + model.getId() + ".xml#m" + model.getId());
+		RefTablePresentationCatalogTableT emptyRefTable = new RefTablePresentationCatalogTableT();
+		xudmlObject.setRefTables(emptyRefTable);
+		catalog.setXudmlObject(xudmlObject);
+
+		return catalog;
+
+	}
+
 	private PresentationCatalog getCatalogFrom(LogicalTable table) {
 
 		String newcatalogId = UUID.randomUUID()
@@ -114,7 +159,8 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		PresentationCatalogW xudmlObject = new PresentationCatalogW();
 		xudmlObject.setMdsid("m" + newcatalogId);
-		xudmlObject.setName("Autogen - " + table.getName());
+		xudmlObject.setName(table.getName()
+				.replace("Measures - ", ""));
 		xudmlObject.setHasDispName(false);
 		xudmlObject.setHasDispDescription(false);
 		xudmlObject.setIsAutoAggr(false);
@@ -127,7 +173,8 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		return catalog;
 	}
 
-	private PresentationTable updateCatalogAndGetPresentationTableFrom(PresentationCatalog catalog, LogicalTable table) {
+	private PresentationTable updateCatalogAndGetPresentationTableFrom(PresentationCatalog catalog,
+			LogicalTable table) {
 
 		String id = UUID.randomUUID()
 				.toString();
@@ -152,9 +199,8 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		return presTable;
 	}
-	
-	private void addPresentationColumnsFromLogicalTable(LogicalTable logicalTable,PresentationTable presTable){
-		
+
+	private void addPresentationColumnsFromLogicalTable(LogicalTable logicalTable, PresentationTable presTable) {
 
 		for (LogicalColumnW column : logicalTable.getXudmlObject()
 				.getLogicalColumn()) {
@@ -166,17 +212,20 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 			xudmlPresColObject.setHasDispName(false);
 			xudmlPresColObject.setMdsid("m" + newPresColId);
 			xudmlPresColObject.setOverrideLogicalName(false);
-			xudmlPresColObject.setLogicalColumnRef(XudmlConstants.XUDML_LOGICALTABLEURL + logicalTable.getId() + ".xml#" + column.getMdsid());
+			xudmlPresColObject.setLogicalColumnRef(
+					XudmlConstants.XUDML_LOGICALTABLEURL + logicalTable.getId() + ".xml#" + column.getMdsid());
 			xudmlPresColObject.setName(column.getName());
-			
-			log.debug("table col ref" + XudmlConstants.XUDML_LOGICALTABLEURL + logicalTable.getId() + ".xml#" + column.getMdsid() );
+
 			PresentationColumn presColumn = new PresentationColumn(xudmlPresColObject);
 			presColumn.setId(newPresColId);
-			presTable.getPresentationColumns().add(presColumn);
-			presTable.getXudmlObject().getPresentationColumn().add(xudmlPresColObject);
+			presTable.getPresentationColumns()
+					.add(presColumn);
+			presTable.getXudmlObject()
+					.getPresentationColumn()
+					.add(xudmlPresColObject);
 
 		}
-		
+
 	}
 
 }

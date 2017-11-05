@@ -7,6 +7,7 @@ import java.util.List;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.xudml.XudmlConstants;
 
 import xudml.RefPresentationCatalogTableT;
 
@@ -35,7 +36,7 @@ public class SortingOperator implements Operator<RpdComponent> {
 		//Reorder Refs Using the Ordered List
 		presCatalog.getPresentationTables().stream().forEach(presTable->{
 			RefPresentationCatalogTableT refTable=new RefPresentationCatalogTableT();
-			refTable.setPresentationTableRef("/oracle/bi/server/base/PresentationTable/" + presTable.getId() + ".xml#m" +  presTable.getId());
+			refTable.setPresentationTableRef(XudmlConstants.XUDML_PRESTABLEURL + presTable.getId() + ".xml#m" +  presTable.getId());
 			refTable.setRefId(presTable.getRefId());
 			xudmlTables.add(refTable);
 		});
@@ -45,18 +46,6 @@ public class SortingOperator implements Operator<RpdComponent> {
 		return presCatalog;
 	}
 	
-	
-	@Override
-	public PresentationTable operate(PresentationTable presTable) {
-
-		if (presTable.getXudmlObject() == null)
-			throw new IllegalStateException("Cannot process without a XUDML instance set");
-
-		// nothing to Sort yet
-
-		return presTable;
-
-	}
 
 
 }

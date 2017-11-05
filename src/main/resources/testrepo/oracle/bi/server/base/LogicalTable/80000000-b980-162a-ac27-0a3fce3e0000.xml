@@ -1,77 +1,114 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Opportunity" mdsid="m80000000-b980-162a-ac27-0a3fce3e0000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc0000057-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000004d-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc0000055-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000003-b9ed-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000044-b984-162a-ac27-0a3fce3e0000" name="Data Source" mdsid="m80000002-090c-162b-ac27-0a3fce3e0000">
-        <Expr name="Expr" mdsid="m00000001-01f4-0000-8db7-757400000000">
-            <ExprText>Lookup(SPARSE "%1",'Unspecified', "%2" ) </ExprText>
-            <ExprTextDesc>Lookup(SPARSE "Global Reporting"."Lookup - Data Source"."Source Name",'Unspecified', "Global Reporting"."Opportunity"."Data Source ID" ) </ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-8db7-757400000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000044-b984-162a-ac27-0a3fce3e0000" refId="m00000001-01f4-0000-8db7-757400000000-mc0000044-b984-162a-ac27-0a3fce3e0000"/>
-            </ObjectRefList>
-        </Expr>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="MYD Flag" mdsid="mc000004e-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="MYD Term" mdsid="mc000004f-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="MYD Year" mdsid="mc0000050-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Opportunity Name" mdsid="mc0000051-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Opportunity Status" mdsid="mc0000052-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Opportunity Status Date" mdsid="mc0000053-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Opportunity Type" mdsid="mc0000054-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Processing Type" mdsid="m00000002-01d8-166c-806e-0ab93ccb0000"/>
-    <LogicalColumn isWriteable="false" name="Reason Won/Lost" mdsid="mc0000056-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Renewal Type" mdsid="m80000004-aa35-164e-806e-0a3fce1f0000"/>
-    <LogicalColumn isWriteable="false" name="Sales Stage" mdsid="mc000005a-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Sales Stage Date" mdsid="mc000005b-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Probability" mdsid="m00000002-2c30-1675-806e-0a3fce2f0000"/>
-    <LogicalColumn isWriteable="false" name="------------------[ Legacy ]------------------" mdsid="m00000002-b9f6-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Confidence Level" mdsid="mc0000041-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Confidence Level (Highest)" mdsid="mc0000042-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Expected Close Date" mdsid="mc0000049-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="--------------[ SCD Attributes ]--------------" mdsid="m80000008-b9ed-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Current Flag" mdsid="mc0000043-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Effective End Date" mdsid="mc0000046-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Effective Start Date" mdsid="mc0000047-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m8000000c-b9ed-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="BU PGUID" mdsid="mc0000040-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000044-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Delete Flag" mdsid="mc0000045-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc000005d-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc000005e-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc0000048-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc0000058-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc0000059-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isWriteable="false" name="Time Zone" mdsid="mc000005c-b984-162a-ac27-0a3fce3e0000"/>
-    <LogicalColumn isDerived="true" isWriteable="false" name="Opportunity Search" mdsid="m80000000-6af7-163f-ac27-ac1d819c0000">
-        <Expr name="Expr" mdsid="m00000002-01f4-0000-763e-16de00000000">
-            <ExprText>"%1" || "%2" || "%3" || 
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="m80000000-b980-162a-ac27-0a3fce3e0000" name="Opportunity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="mc0000057-b984-162a-ac27-0a3fce3e0000" name="Key (WID)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000004d-b984-162a-ac27-0a3fce3e0000" name="Integration ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000055-b984-162a-ac27-0a3fce3e0000" name="PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000003-b9ed-162a-ac27-0a3fce3e0000" name="------------------[ Attributes ]------------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000002-090c-162b-ac27-0a3fce3e0000" name="Data Source" isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000044-b984-162a-ac27-0a3fce3e0000">
+<Expr mdsid="m00000001-01f4-0000-8db7-757400000000" name="Expr">
+<ExprText><![CDATA[Lookup(SPARSE "%1",'Unspecified', "%2" ) ]]></ExprText>
+<ExprTextDesc><![CDATA[Lookup(SPARSE "Global Reporting"."Lookup - Data Source"."Source Name",'Unspecified', "Global Reporting"."Opportunity"."Data Source ID" ) ]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-8db7-757400000000-m80000003-c7cd-162a-98ff-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-8db7-757400000000-mc0000044-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000044-b984-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</Expr>
+</LogicalColumn>
+<LogicalColumn mdsid="mc000004e-b984-162a-ac27-0a3fce3e0000" name="MYD Flag" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000004f-b984-162a-ac27-0a3fce3e0000" name="MYD Term" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000050-b984-162a-ac27-0a3fce3e0000" name="MYD Year" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000051-b984-162a-ac27-0a3fce3e0000" name="Opportunity Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000052-b984-162a-ac27-0a3fce3e0000" name="Opportunity Status" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000053-b984-162a-ac27-0a3fce3e0000" name="Opportunity Status Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000054-b984-162a-ac27-0a3fce3e0000" name="Opportunity Type" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000002-01d8-166c-806e-0ab93ccb0000" name="Processing Type" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000056-b984-162a-ac27-0a3fce3e0000" name="Reason Won/Lost" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000004-aa35-164e-806e-0a3fce1f0000" name="Renewal Type" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005a-b984-162a-ac27-0a3fce3e0000" name="Sales Stage" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005b-b984-162a-ac27-0a3fce3e0000" name="Sales Stage Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000002-2c30-1675-806e-0a3fce2f0000" name="Probability" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000002-b9f6-162a-ac27-0a3fce3e0000" name="------------------[ Legacy ]------------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000041-b984-162a-ac27-0a3fce3e0000" name="Confidence Level" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000042-b984-162a-ac27-0a3fce3e0000" name="Confidence Level (Highest)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000049-b984-162a-ac27-0a3fce3e0000" name="Expected Close Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000008-b9ed-162a-ac27-0a3fce3e0000" name="--------------[ SCD Attributes ]--------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000043-b984-162a-ac27-0a3fce3e0000" name="Current Flag" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000046-b984-162a-ac27-0a3fce3e0000" name="Effective End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000047-b984-162a-ac27-0a3fce3e0000" name="Effective Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m8000000c-b9ed-162a-ac27-0a3fce3e0000" name="-------------[ System Attributes ]------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000040-b984-162a-ac27-0a3fce3e0000" name="BU PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000044-b984-162a-ac27-0a3fce3e0000" name="Data Source ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000045-b984-162a-ac27-0a3fce3e0000" name="Delete Flag" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005d-b984-162a-ac27-0a3fce3e0000" name="DWH Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005e-b984-162a-ac27-0a3fce3e0000" name="DWH Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000048-b984-162a-ac27-0a3fce3e0000" name="ETL Process ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000058-b984-162a-ac27-0a3fce3e0000" name="Source Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000059-b984-162a-ac27-0a3fce3e0000" name="Source Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005c-b984-162a-ac27-0a3fce3e0000" name="Time Zone" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000000-6af7-163f-ac27-ac1d819c0000" name="Opportunity Search" isDerived="true" isWriteable="false">
+<Expr mdsid="m00000002-01f4-0000-763e-16de00000000" name="Expr">
+<ExprText><![CDATA["%1" || "%2" || "%3" || 
 "%4" || 
-"%5"</ExprText>
-            <ExprTextDesc>"Global Reporting"."Opportunity"."Opportunity Name" || "Global Reporting"."Opportunity"."Opportunity Status" || "Global Reporting"."Opportunity"."Opportunity Type" || 
+"%5"]]></ExprText>
+<ExprTextDesc><![CDATA["Global Reporting"."Opportunity"."Opportunity Name" || "Global Reporting"."Opportunity"."Opportunity Status" || "Global Reporting"."Opportunity"."Opportunity Type" || 
 "Global Reporting"."Opportunity"."Reason Won/Lost" || 
-"Global Reporting"."Opportunity"."Sales Stage"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000051-b984-162a-ac27-0a3fce3e0000" refId="m00000002-01f4-0000-763e-16de00000000-mc0000051-b984-162a-ac27-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000052-b984-162a-ac27-0a3fce3e0000" refId="m00000002-01f4-0000-763e-16de00000000-mc0000052-b984-162a-ac27-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000054-b984-162a-ac27-0a3fce3e0000" refId="m00000002-01f4-0000-763e-16de00000000-mc0000054-b984-162a-ac27-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000056-b984-162a-ac27-0a3fce3e0000" refId="m00000002-01f4-0000-763e-16de00000000-mc0000056-b984-162a-ac27-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc000005a-b984-162a-ac27-0a3fce3e0000" refId="m00000002-01f4-0000-763e-16de00000000-mc000005a-b984-162a-ac27-0a3fce3e0000"/>
-            </ObjectRefList>
-        </Expr>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="SEARCH_FLG" mdsid="m40000004-7dc0-163f-ab76-0a3fce490000"/>
-    <LogicalColumn isWriteable="false" name="SEARCH_TXT" mdsid="m40000006-7dc0-163f-ab76-0a3fce490000"/>
-    <LogicalKey isPrimary="true" name="PK" mdsid="mc000005f-b984-162a-ac27-0a3fce3e0000">
-        <RefColumns>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000057-b984-162a-ac27-0a3fce3e0000" refId="mc000005f-b984-162a-ac27-0a3fce3e0000-mc0000057-b984-162a-ac27-0a3fce3e0000"/>
-        </RefColumns>
-    </LogicalKey>
-    <RefTableSources>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000007f-b984-162a-ac27-0a3fce3e0000.xml#mc000007f-b984-162a-ac27-0a3fce3e0000" refId="m80000000-b980-162a-ac27-0a3fce3e0000-mc000007f-b984-162a-ac27-0a3fce3e0000"/>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000002-6150-162e-ac27-0aac74cf0000.xml#m40000002-6150-162e-ac27-0aac74cf0000" refId="m80000000-b980-162a-ac27-0a3fce3e0000-m40000002-6150-162e-ac27-0aac74cf0000"/>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000005-7626-163f-b3c9-0a3fce490000.xml#m40000005-7626-163f-b3c9-0a3fce490000" refId="m80000000-b980-162a-ac27-0a3fce3e0000-m40000005-7626-163f-b3c9-0a3fce490000"/>
-    </RefTableSources>
+"Global Reporting"."Opportunity"."Sales Stage"]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000002-01f4-0000-763e-16de00000000-mc0000051-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000051-b984-162a-ac27-0a3fce3e0000"/>
+<RefObject refId="m00000002-01f4-0000-763e-16de00000000-mc0000052-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000052-b984-162a-ac27-0a3fce3e0000"/>
+<RefObject refId="m00000002-01f4-0000-763e-16de00000000-mc0000054-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000054-b984-162a-ac27-0a3fce3e0000"/>
+<RefObject refId="m00000002-01f4-0000-763e-16de00000000-mc0000056-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000056-b984-162a-ac27-0a3fce3e0000"/>
+<RefObject refId="m00000002-01f4-0000-763e-16de00000000-mc000005a-b984-162a-ac27-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc000005a-b984-162a-ac27-0a3fce3e0000"/>
+</ObjectRefList>
+</Expr>
+</LogicalColumn>
+<LogicalColumn mdsid="m40000004-7dc0-163f-ab76-0a3fce490000" name="SEARCH_FLG" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000006-7dc0-163f-ab76-0a3fce490000" name="SEARCH_TXT" isWriteable="false">
+</LogicalColumn>
+<LogicalKey mdsid="mc000005f-b984-162a-ac27-0a3fce3e0000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="mc000005f-b984-162a-ac27-0a3fce3e0000-mc0000057-b984-162a-ac27-0a3fce3e0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/80000000-b980-162a-ac27-0a3fce3e0000.xml#mc0000057-b984-162a-ac27-0a3fce3e0000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="m80000000-b980-162a-ac27-0a3fce3e0000-mc000007f-b984-162a-ac27-0a3fce3e0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c000007f-b984-162a-ac27-0a3fce3e0000.xml#mc000007f-b984-162a-ac27-0a3fce3e0000"/>
+<RefLogicalTableSource refId="m80000000-b980-162a-ac27-0a3fce3e0000-m40000002-6150-162e-ac27-0aac74cf0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000002-6150-162e-ac27-0aac74cf0000.xml#m40000002-6150-162e-ac27-0aac74cf0000"/>
+<RefLogicalTableSource refId="m80000000-b980-162a-ac27-0a3fce3e0000-m40000005-7626-163f-b3c9-0a3fce490000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000005-7626-163f-b3c9-0a3fce490000.xml#m40000005-7626-163f-b3c9-0a3fce490000"/>
+</RefTableSources>
 </LogicalTable>

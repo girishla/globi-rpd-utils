@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.junit.Test;
 import org.springframework.util.FileSystemUtils;
 
+import com.globi.rpd.operator.SortingOperator;
 import com.globi.rpd.operator.SubjectAreaGeneratorOperator;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
@@ -27,6 +28,7 @@ public class BasicDslTest {
 				.catalog(new XudmlFolder(catalogPath))
 				.model(new XudmlFolder(modelPath))
 				.applyRpdOperator(SubjectAreaGeneratorOperator.class)
+				.applyOperatorToAllCatalogs(SortingOperator.class)
 				.noMoreWork()
 				.save(XudmlConstants.XUDML_COPYURL)
 				.get();

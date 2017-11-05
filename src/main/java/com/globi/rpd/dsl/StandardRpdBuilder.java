@@ -50,15 +50,16 @@ public class StandardRpdBuilder {
 	}
 
 	public interface SetRepoPathStep {
-		HydrateStep setRepoPath(String path);
+		MutateStep setRepoPath(String path);
 	}
 
-	public interface HydrateStep {
-		HydrateStep catalog(XudmlFolder folder);
+	public interface MutateStep {
+		MutateStep catalog(XudmlFolder folder);
 
-		HydrateStep model(XudmlFolder folder);
+		MutateStep model(XudmlFolder folder);
 
-		HydrateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
+		MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
+		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
 
 		SaveStep noMoreWork();
 
@@ -74,7 +75,7 @@ public class StandardRpdBuilder {
 		GetStep save(String path);
 	}
 
-	public static class RpdSteps implements SetRepoPathStep, HydrateStep, GetStep, SaveStep {
+	public static class RpdSteps implements SetRepoPathStep, MutateStep, GetStep, SaveStep {
 
 		private StandardRpd rpd;
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
@@ -83,7 +84,7 @@ public class StandardRpdBuilder {
 		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
 		private String repoPath;
 
-		public HydrateStep catalog(XudmlFolder folder) {
+		public MutateStep catalog(XudmlFolder folder) {
 
 			List<File> fileList = folder.getResources()
 					.stream()
@@ -126,7 +127,7 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
-		public HydrateStep model(XudmlFolder folder) {
+		public MutateStep model(XudmlFolder folder) {
 
 			List<File> fileList = folder.getResources()
 					.stream()
@@ -183,10 +184,10 @@ public class StandardRpdBuilder {
 		}
 
 		/**
-		 * Transforms a Model Object to another Model Object
+		 * Applies the operator to the overall Rpd 
 		 */
 		@Override
-		public HydrateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl) {
+		public MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl) {
 
 			// Instantiate the strategy
 			Operator<StandardRpd> strategy = null;
@@ -208,6 +209,7 @@ public class StandardRpdBuilder {
 
 		}
 
+		
 		@Override
 		public GetStep save(String basePath) {
 
@@ -231,7 +233,6 @@ public class StandardRpdBuilder {
 					table.setResourceUri(basePath + XudmlConstants.XUDML_PRESTABLEURL + table.getId() + ".xml");
 
 				}
-
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 						marshallingOperator);
@@ -250,28 +251,36 @@ public class StandardRpdBuilder {
 			return this;
 		}
 
-//		private void deleteCatalog(PresentationCatalog catalog) {
-//
-//			log.debug("*****************************************************************************");
-//			log.debug("*****************************************************************************");
-//			log.debug("*****************************************************************************");
-//			log.debug("*****************************************************************************");
-//			log.debug("*****************************************************************************");
-//			log.debug("*****************************************************************************");
-//			log.debug("Going to delete : " + catalog.getName());
-//
-//			DeletingOperator deletingOperator = new DeletingOperator();
-//			DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(
-//					new DefaultTraverser(), deletingOperator);
-//			catalog.apply(traverseDeleteOperator);
-//
-//		}
-
 		@Override
-		public HydrateStep setRepoPath(String path) {
+		public MutateStep setRepoPath(String path) {
 			this.repoPath = path;
 			AppProperties.INSTANCE.setBasePath(path);
 			return this;
+		}
+
+		@Override
+		public MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl) {
+
+			// Instantiate the strategy
+			Operator<RpdComponent> strategy = null;
+			try {
+				strategy = cl.newInstance();
+			} catch (IllegalAccessException e) {
+				System.err.println("Class not accessible: " + cl);
+				throw new IllegalArgumentException(" Operator Class not accessible");
+			} catch (InstantiationException e) {
+				System.err.println("Class not instantiable: " + cl);
+				throw new IllegalArgumentException("Operator Class not instantiable");
+			}
+			for(PresentationCatalog catalog:this.catalogObjects){
+				strategy.operate(catalog);
+				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
+				logger.operated(cl.getName(), catalog);
+				
+			}
+
+			return this;
+
 		}
 
 	}

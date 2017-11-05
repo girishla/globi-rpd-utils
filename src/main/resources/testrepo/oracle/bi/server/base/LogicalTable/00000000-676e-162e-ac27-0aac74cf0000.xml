@@ -1,37 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Sales Stage" mdsid="m00000000-676e-162e-ac27-0aac74cf0000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc0000018-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000003e-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc0000040-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000003-6790-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000" name="Data Source" mdsid="m00000005-8952-165e-806e-ac1de8660000">
-        <Expr name="Expr" mdsid="m00000001-01f4-0000-093d-0f6700000000">
-            <ExprText>Lookup(DENSE "%1", "%2" ) </ExprText>
-            <ExprTextDesc>Lookup(DENSE "Global Reporting"."Lookup - Data Source"."Source Name", "Global Reporting"."Sales Stage"."Data Source ID" ) </ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-093d-0f6700000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000" refId="m00000001-01f4-0000-093d-0f6700000000-mc0000030-6771-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </Expr>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Stage Status" mdsid="mc000001e-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Stage Description" mdsid="mc0000020-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Stage Name" mdsid="mc0000022-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Stage Number" mdsid="mc0000024-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m80000008-6790-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Business Unit" mdsid="mc000002c-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc0000038-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc0000028-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc000002a-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000030-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc000001a-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc000001c-6771-162e-ac27-0aac74cf0000"/>
-    <LogicalKey isPrimary="true" name="PK" mdsid="mc0000042-6771-162e-ac27-0aac74cf0000">
-        <RefColumns>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000018-6771-162e-ac27-0aac74cf0000" refId="mc0000042-6771-162e-ac27-0aac74cf0000-mc0000018-6771-162e-ac27-0aac74cf0000"/>
-        </RefColumns>
-    </LogicalKey>
-    <RefTableSources>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c0000044-6771-162e-ac27-0aac74cf0000.xml#mc0000044-6771-162e-ac27-0aac74cf0000" refId="m00000000-676e-162e-ac27-0aac74cf0000-mc0000044-6771-162e-ac27-0aac74cf0000"/>
-    </RefTableSources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="m00000000-676e-162e-ac27-0aac74cf0000" name="Sales Stage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="mc0000018-6771-162e-ac27-0aac74cf0000" name="Key (WID)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000003e-6771-162e-ac27-0aac74cf0000" name="Integration ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000040-6771-162e-ac27-0aac74cf0000" name="PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000003-6790-162e-ac27-0aac74cf0000" name="------------------[ Attributes ]------------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000005-8952-165e-806e-ac1de8660000" name="Data Source" isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000">
+<Expr mdsid="m00000001-01f4-0000-093d-0f6700000000" name="Expr">
+<ExprText><![CDATA[Lookup(DENSE "%1", "%2" ) ]]></ExprText>
+<ExprTextDesc><![CDATA[Lookup(DENSE "Global Reporting"."Lookup - Data Source"."Source Name", "Global Reporting"."Sales Stage"."Data Source ID" ) ]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-093d-0f6700000000-m80000003-c7cd-162a-98ff-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-093d-0f6700000000-mc0000030-6771-162e-ac27-0aac74cf0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000"/>
+</ObjectRefList>
+</Expr>
+</LogicalColumn>
+<LogicalColumn mdsid="mc000001e-6771-162e-ac27-0aac74cf0000" name="Stage Status" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000020-6771-162e-ac27-0aac74cf0000" name="Stage Description" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000022-6771-162e-ac27-0aac74cf0000" name="Stage Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000024-6771-162e-ac27-0aac74cf0000" name="Stage Number" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000008-6790-162e-ac27-0aac74cf0000" name="-------------[ System Attributes ]------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000002c-6771-162e-ac27-0aac74cf0000" name="Business Unit" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000038-6771-162e-ac27-0aac74cf0000" name="ETL Process ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000028-6771-162e-ac27-0aac74cf0000" name="DWH Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000002a-6771-162e-ac27-0aac74cf0000" name="DWH Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000030-6771-162e-ac27-0aac74cf0000" name="Data Source ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000001a-6771-162e-ac27-0aac74cf0000" name="Source Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000001c-6771-162e-ac27-0aac74cf0000" name="Source Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalKey mdsid="mc0000042-6771-162e-ac27-0aac74cf0000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="mc0000042-6771-162e-ac27-0aac74cf0000-mc0000018-6771-162e-ac27-0aac74cf0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000018-6771-162e-ac27-0aac74cf0000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="m00000000-676e-162e-ac27-0aac74cf0000-mc0000044-6771-162e-ac27-0aac74cf0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c0000044-6771-162e-ac27-0aac74cf0000.xml#mc0000044-6771-162e-ac27-0aac74cf0000"/>
+</RefTableSources>
 </LogicalTable>

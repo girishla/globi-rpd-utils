@@ -1,24 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Data Source" mdsid="mc0000000-ff12-163b-8edd-ac1d82620000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="m00000021-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="m0000001d-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="m0000001f-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000004-ff32-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Data Source Code" mdsid="m00000013-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="m00000011-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Data Source Name" mdsid="m00000015-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m8000000b-ff32-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="m00000027-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="m00000029-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="m00000017-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="m00000023-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="m00000025-ff17-163b-8edd-ac1d82620000"/>
-    <LogicalKey isPrimary="true" name="PK" mdsid="m0000002d-ff17-163b-8edd-ac1d82620000">
-        <RefColumns>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000000-ff12-163b-8edd-ac1d82620000.xml#m00000021-ff17-163b-8edd-ac1d82620000" refId="m0000002d-ff17-163b-8edd-ac1d82620000-m00000021-ff17-163b-8edd-ac1d82620000"/>
-        </RefColumns>
-    </LogicalKey>
-    <RefTableSources>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/0000002f-ff17-163b-8edd-ac1d82620000.xml#m0000002f-ff17-163b-8edd-ac1d82620000" refId="mc0000000-ff12-163b-8edd-ac1d82620000-m0000002f-ff17-163b-8edd-ac1d82620000"/>
-    </RefTableSources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="mc0000000-ff12-163b-8edd-ac1d82620000" name="Data Source" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="m00000021-ff17-163b-8edd-ac1d82620000" name="Key (WID)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m0000001d-ff17-163b-8edd-ac1d82620000" name="Integration ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m0000001f-ff17-163b-8edd-ac1d82620000" name="PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000004-ff32-163b-8edd-ac1d82620000" name="------------------[ Attributes ]------------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000013-ff17-163b-8edd-ac1d82620000" name="Data Source Code" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000011-ff17-163b-8edd-ac1d82620000" name="Data Source ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000015-ff17-163b-8edd-ac1d82620000" name="Data Source Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m8000000b-ff32-163b-8edd-ac1d82620000" name="-------------[ System Attributes ]------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000027-ff17-163b-8edd-ac1d82620000" name="DWH Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000029-ff17-163b-8edd-ac1d82620000" name="DWH Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000017-ff17-163b-8edd-ac1d82620000" name="ETL Process ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000023-ff17-163b-8edd-ac1d82620000" name="Source Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000025-ff17-163b-8edd-ac1d82620000" name="Source Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalKey mdsid="m0000002d-ff17-163b-8edd-ac1d82620000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="m0000002d-ff17-163b-8edd-ac1d82620000-m00000021-ff17-163b-8edd-ac1d82620000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000000-ff12-163b-8edd-ac1d82620000.xml#m00000021-ff17-163b-8edd-ac1d82620000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="mc0000000-ff12-163b-8edd-ac1d82620000-m0000002f-ff17-163b-8edd-ac1d82620000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/0000002f-ff17-163b-8edd-ac1d82620000.xml#m0000002f-ff17-163b-8edd-ac1d82620000"/>
+</RefTableSources>
 </LogicalTable>

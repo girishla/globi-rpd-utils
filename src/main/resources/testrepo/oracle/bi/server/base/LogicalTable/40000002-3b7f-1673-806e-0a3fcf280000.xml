@@ -1,68 +1,114 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Snapshot" iconIndex="94" mdsid="m40000002-3b7f-1673-806e-0a3fcf280000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="m40000004-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Key (Calendar)" mdsid="m40000006-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="m40000008-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="m4000000a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="---------------[ Year Attributes ]---------------" mdsid="m4000000c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year End Date" mdsid="m4000000e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year End Date WID" mdsid="m40000010-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Name" mdsid="m40000012-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year" mdsid="m40000014-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Start Date" mdsid="m40000016-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Start Date WID" mdsid="m40000018-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="---------------[ Half Attributes ]---------------" mdsid="m4000001a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half End Date" mdsid="m4000001c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half End Date WID" mdsid="m4000001e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half Index" mdsid="m40000020-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half Name" mdsid="m40000022-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half Number" mdsid="m40000024-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half Start Date" mdsid="m40000026-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Half Start Date WID" mdsid="m40000028-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Half" mdsid="m4000002a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ Quarter Attributes ]-------------" mdsid="m4000002c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter End Date" mdsid="m4000002e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter End Date WID" mdsid="m40000030-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter Index" mdsid="m40000032-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter Name" mdsid="m40000034-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter Number" mdsid="m40000036-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter Start Date" mdsid="m40000038-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Quarter Start Date WID" mdsid="m4000003a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Quarter" mdsid="m4000003c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="--------------[ Month Attributes ]--------------" mdsid="m4000003e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period End Date" mdsid="m40000040-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period End Date WID" mdsid="m40000042-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period Index" mdsid="m40000044-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" customSortOrderRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000044-3b7f-1673-806e-0a3fcf280000" name="Period Name" mdsid="m40000046-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period Number" mdsid="m40000048-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period Start Date" mdsid="m4000004a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Period Start Date WID" mdsid="m4000004c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Year Period" mdsid="m4000004e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m4000005e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="BU PGUID" mdsid="m40000060-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000064-3b7f-1673-806e-0a3fcf280000" name="Data Source" mdsid="m40000062-3b7f-1673-806e-0a3fcf280000">
-        <Expr name="Expr" mdsid="m00000001-01f4-0000-bff3-168000000000">
-            <ExprText> LOOKUP( SPARSE "%1", 'Unspecified', "%2")</ExprText>
-            <ExprTextDesc> LOOKUP( SPARSE "Global Reporting"."Lookup - Data Source"."Source Name", 'Unspecified', "Global Reporting"."Snapshot"."Data Source ID")</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-bff3-168000000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000064-3b7f-1673-806e-0a3fcf280000" refId="m00000001-01f4-0000-bff3-168000000000-m40000064-3b7f-1673-806e-0a3fcf280000"/>
-            </ObjectRefList>
-        </Expr>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="m40000064-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="m40000066-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="m40000068-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="m4000006a-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="m4000006c-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="m4000006e-3b7f-1673-806e-0a3fcf280000"/>
-    <LogicalKey isPrimary="true" name="PK" mdsid="m40000071-3b7f-1673-806e-0a3fcf280000">
-        <RefColumns>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000006-3b7f-1673-806e-0a3fcf280000" refId="m40000071-3b7f-1673-806e-0a3fcf280000-m40000006-3b7f-1673-806e-0a3fcf280000"/>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000004-3b7f-1673-806e-0a3fcf280000" refId="m40000071-3b7f-1673-806e-0a3fcf280000-m40000004-3b7f-1673-806e-0a3fcf280000"/>
-        </RefColumns>
-    </LogicalKey>
-    <RefTableSources>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000075-3b7f-1673-806e-0a3fcf280000.xml#m40000075-3b7f-1673-806e-0a3fcf280000" refId="m40000002-3b7f-1673-806e-0a3fcf280000-m40000075-3b7f-1673-806e-0a3fcf280000"/>
-    </RefTableSources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="m40000002-3b7f-1673-806e-0a3fcf280000" name="Snapshot" iconIndex="94" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="m40000004-3b7f-1673-806e-0a3fcf280000" name="Key (WID)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000006-3b7f-1673-806e-0a3fcf280000" name="Key (Calendar)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000008-3b7f-1673-806e-0a3fcf280000" name="Integration ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000000a-3b7f-1673-806e-0a3fcf280000" name="PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000000c-3b7f-1673-806e-0a3fcf280000" name="---------------[ Year Attributes ]---------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000000e-3b7f-1673-806e-0a3fcf280000" name="Year End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000010-3b7f-1673-806e-0a3fcf280000" name="Year End Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000012-3b7f-1673-806e-0a3fcf280000" name="Year Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000014-3b7f-1673-806e-0a3fcf280000" name="Year" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000016-3b7f-1673-806e-0a3fcf280000" name="Year Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000018-3b7f-1673-806e-0a3fcf280000" name="Year Start Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000001a-3b7f-1673-806e-0a3fcf280000" name="---------------[ Half Attributes ]---------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000001c-3b7f-1673-806e-0a3fcf280000" name="Half End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000001e-3b7f-1673-806e-0a3fcf280000" name="Half End Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000020-3b7f-1673-806e-0a3fcf280000" name="Half Index" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000022-3b7f-1673-806e-0a3fcf280000" name="Half Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000024-3b7f-1673-806e-0a3fcf280000" name="Half Number" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000026-3b7f-1673-806e-0a3fcf280000" name="Half Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000028-3b7f-1673-806e-0a3fcf280000" name="Half Start Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000002a-3b7f-1673-806e-0a3fcf280000" name="Year Half" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000002c-3b7f-1673-806e-0a3fcf280000" name="-------------[ Quarter Attributes ]-------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000002e-3b7f-1673-806e-0a3fcf280000" name="Quarter End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000030-3b7f-1673-806e-0a3fcf280000" name="Quarter End Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000032-3b7f-1673-806e-0a3fcf280000" name="Quarter Index" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000034-3b7f-1673-806e-0a3fcf280000" name="Quarter Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000036-3b7f-1673-806e-0a3fcf280000" name="Quarter Number" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000038-3b7f-1673-806e-0a3fcf280000" name="Quarter Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000003a-3b7f-1673-806e-0a3fcf280000" name="Quarter Start Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000003c-3b7f-1673-806e-0a3fcf280000" name="Year Quarter" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000003e-3b7f-1673-806e-0a3fcf280000" name="--------------[ Month Attributes ]--------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000040-3b7f-1673-806e-0a3fcf280000" name="Period End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000042-3b7f-1673-806e-0a3fcf280000" name="Period End Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000044-3b7f-1673-806e-0a3fcf280000" name="Period Index" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000046-3b7f-1673-806e-0a3fcf280000" name="Period Name" isWriteable="false" customSortOrderRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000044-3b7f-1673-806e-0a3fcf280000">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000048-3b7f-1673-806e-0a3fcf280000" name="Period Number" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000004a-3b7f-1673-806e-0a3fcf280000" name="Period Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000004c-3b7f-1673-806e-0a3fcf280000" name="Period Start Date WID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000004e-3b7f-1673-806e-0a3fcf280000" name="Year Period" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000005e-3b7f-1673-806e-0a3fcf280000" name="-------------[ System Attributes ]------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000060-3b7f-1673-806e-0a3fcf280000" name="BU PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000062-3b7f-1673-806e-0a3fcf280000" name="Data Source" isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000064-3b7f-1673-806e-0a3fcf280000">
+<Expr mdsid="m00000001-01f4-0000-bff3-168000000000" name="Expr">
+<ExprText><![CDATA[ LOOKUP( SPARSE "%1", 'Unspecified', "%2")]]></ExprText>
+<ExprTextDesc><![CDATA[ LOOKUP( SPARSE "Global Reporting"."Lookup - Data Source"."Source Name", 'Unspecified', "Global Reporting"."Snapshot"."Data Source ID")]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-bff3-168000000000-m80000003-c7cd-162a-98ff-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-bff3-168000000000-m40000064-3b7f-1673-806e-0a3fcf280000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000064-3b7f-1673-806e-0a3fcf280000"/>
+</ObjectRefList>
+</Expr>
+</LogicalColumn>
+<LogicalColumn mdsid="m40000064-3b7f-1673-806e-0a3fcf280000" name="Data Source ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000066-3b7f-1673-806e-0a3fcf280000" name="DWH Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m40000068-3b7f-1673-806e-0a3fcf280000" name="DWH Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000006a-3b7f-1673-806e-0a3fcf280000" name="ETL Process ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000006c-3b7f-1673-806e-0a3fcf280000" name="Source Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m4000006e-3b7f-1673-806e-0a3fcf280000" name="Source Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalKey mdsid="m40000071-3b7f-1673-806e-0a3fcf280000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="m40000071-3b7f-1673-806e-0a3fcf280000-m40000006-3b7f-1673-806e-0a3fcf280000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000006-3b7f-1673-806e-0a3fcf280000"/>
+<RefLogicalColumn refId="m40000071-3b7f-1673-806e-0a3fcf280000-m40000004-3b7f-1673-806e-0a3fcf280000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/40000002-3b7f-1673-806e-0a3fcf280000.xml#m40000004-3b7f-1673-806e-0a3fcf280000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="m40000002-3b7f-1673-806e-0a3fcf280000-m40000075-3b7f-1673-806e-0a3fcf280000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/40000075-3b7f-1673-806e-0a3fcf280000.xml#m40000075-3b7f-1673-806e-0a3fcf280000"/>
+</RefTableSources>
 </LogicalTable>

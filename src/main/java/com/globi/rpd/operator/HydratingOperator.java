@@ -1,9 +1,7 @@
 package com.globi.rpd.operator;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.component.BusinessModel;
@@ -17,11 +15,9 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.LogicalColumnW;
 import xudml.PresentationColumnW;
 
-@Slf4j
 public class HydratingOperator implements Operator<RpdComponent> {
 
 	@Override

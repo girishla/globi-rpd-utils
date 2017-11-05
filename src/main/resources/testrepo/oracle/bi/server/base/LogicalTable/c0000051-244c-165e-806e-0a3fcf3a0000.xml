@@ -1,42 +1,63 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Campaign" mdsid="mc0000051-244c-165e-806e-0a3fcf3a0000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc0000060-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000005e-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc000005f-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000002-250c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Campaign Name" mdsid="mc0000054-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000057-244c-165e-806e-0a3fcf3a0000" name="Data Source" mdsid="m00000005-88ab-165e-806e-ac1de8660000">
-        <Expr name="Expr" mdsid="m00000001-01f4-0000-a5f7-fc4200000000">
-            <ExprText>Lookup(DENSE "%1", "%2" ) </ExprText>
-            <ExprTextDesc>Lookup(DENSE "Global Reporting"."Lookup - Data Source"."Source Name", "Global Reporting"."Campaign"."Data Source ID" ) </ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-a5f7-fc4200000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000057-244c-165e-806e-0a3fcf3a0000" refId="m00000001-01f4-0000-a5f7-fc4200000000-mc0000057-244c-165e-806e-0a3fcf3a0000"/>
-            </ObjectRefList>
-        </Expr>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Status" mdsid="mc0000055-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Start Date" mdsid="mc0000063-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="--------------[ SCD Attributes ]--------------" mdsid="m80000005-250c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Current Flag" mdsid="mc0000056-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Effective End Date" mdsid="mc0000059-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Effective Start Date" mdsid="mc000005a-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m80000008-250c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Business Unit" mdsid="mc0000053-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000057-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Delete Flag" mdsid="mc0000058-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc0000065-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc0000066-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc000005b-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc0000061-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc0000062-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalColumn isWriteable="false" name="Time Zone" mdsid="mc0000064-244c-165e-806e-0a3fcf3a0000"/>
-    <LogicalKey isPrimary="true" name="PK" mdsid="mc0000067-244c-165e-806e-0a3fcf3a0000">
-        <RefColumns>
-            <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000060-244c-165e-806e-0a3fcf3a0000" refId="mc0000067-244c-165e-806e-0a3fcf3a0000-mc0000060-244c-165e-806e-0a3fcf3a0000"/>
-        </RefColumns>
-    </LogicalKey>
-    <RefTableSources>
-        <RefLogicalTableSource logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c0000052-244c-165e-806e-0a3fcf3a0000.xml#mc0000052-244c-165e-806e-0a3fcf3a0000" refId="mc0000051-244c-165e-806e-0a3fcf3a0000-mc0000052-244c-165e-806e-0a3fcf3a0000"/>
-    </RefTableSources>
+<?xml version="1.0" encoding="UTF-8" ?>
+<LogicalTable mdsid="mc0000051-244c-165e-806e-0a3fcf3a0000" name="Campaign" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000">
+<LogicalColumn mdsid="mc0000060-244c-165e-806e-0a3fcf3a0000" name="Key (WID)" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005e-244c-165e-806e-0a3fcf3a0000" name="Integration ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005f-244c-165e-806e-0a3fcf3a0000" name="PGUID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000002-250c-165e-806e-0a3fcf3a0000" name="------------------[ Attributes ]------------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000054-244c-165e-806e-0a3fcf3a0000" name="Campaign Name" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m00000005-88ab-165e-806e-ac1de8660000" name="Data Source" isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000057-244c-165e-806e-0a3fcf3a0000">
+<Expr mdsid="m00000001-01f4-0000-a5f7-fc4200000000" name="Expr">
+<ExprText><![CDATA[Lookup(DENSE "%1", "%2" ) ]]></ExprText>
+<ExprTextDesc><![CDATA[Lookup(DENSE "Global Reporting"."Lookup - Data Source"."Source Name", "Global Reporting"."Campaign"."Data Source ID" ) ]]></ExprTextDesc>
+<ObjectRefList>
+<RefObject refId="m00000001-01f4-0000-a5f7-fc4200000000-m80000003-c7cd-162a-98ff-0a3fce3e0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+<RefObject refId="m00000001-01f4-0000-a5f7-fc4200000000-mc0000057-244c-165e-806e-0a3fcf3a0000" objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000057-244c-165e-806e-0a3fcf3a0000"/>
+</ObjectRefList>
+</Expr>
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000055-244c-165e-806e-0a3fcf3a0000" name="Status" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000063-244c-165e-806e-0a3fcf3a0000" name="Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000005-250c-165e-806e-0a3fcf3a0000" name="--------------[ SCD Attributes ]--------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000056-244c-165e-806e-0a3fcf3a0000" name="Current Flag" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000059-244c-165e-806e-0a3fcf3a0000" name="Effective End Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005a-244c-165e-806e-0a3fcf3a0000" name="Effective Start Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="m80000008-250c-165e-806e-0a3fcf3a0000" name="-------------[ System Attributes ]------------" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000053-244c-165e-806e-0a3fcf3a0000" name="Business Unit" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000057-244c-165e-806e-0a3fcf3a0000" name="Data Source ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000058-244c-165e-806e-0a3fcf3a0000" name="Delete Flag" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000065-244c-165e-806e-0a3fcf3a0000" name="DWH Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000066-244c-165e-806e-0a3fcf3a0000" name="DWH Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc000005b-244c-165e-806e-0a3fcf3a0000" name="ETL Process ID" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000061-244c-165e-806e-0a3fcf3a0000" name="Source Created Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000062-244c-165e-806e-0a3fcf3a0000" name="Source Updated Date" isWriteable="false">
+</LogicalColumn>
+<LogicalColumn mdsid="mc0000064-244c-165e-806e-0a3fcf3a0000" name="Time Zone" isWriteable="false">
+</LogicalColumn>
+<LogicalKey mdsid="mc0000067-244c-165e-806e-0a3fcf3a0000" name="PK" isPrimary="true">
+<RefColumns>
+<RefLogicalColumn refId="mc0000067-244c-165e-806e-0a3fcf3a0000-mc0000060-244c-165e-806e-0a3fcf3a0000" logicalColumnRef="/oracle/bi/server/base/LogicalTable/c0000051-244c-165e-806e-0a3fcf3a0000.xml#mc0000060-244c-165e-806e-0a3fcf3a0000"/>
+</RefColumns>
+</LogicalKey>
+<RefTableSources>
+<RefLogicalTableSource refId="mc0000051-244c-165e-806e-0a3fcf3a0000-mc0000052-244c-165e-806e-0a3fcf3a0000" logicalTableSourceRef="/oracle/bi/server/base/LogicalTableSource/c0000052-244c-165e-806e-0a3fcf3a0000.xml#mc0000052-244c-165e-806e-0a3fcf3a0000"/>
+</RefTableSources>
 </LogicalTable>
