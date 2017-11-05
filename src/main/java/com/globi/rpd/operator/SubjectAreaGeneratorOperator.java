@@ -76,57 +76,32 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 					PresentationCatalog catalog = getCatalogFrom(table);
 
-					// find joined dimensions
-					// joinedFrom and joinedTo are LogicalTable fields on each
-					// LogicalTable pointing to joined dimensions and facts
-					// ResolveLogicalJoinsOperator will already have populated
-					// joinedFrom and joinedTo on the
+					for (LogicalTable dimTable : table.getJoinedToDimensions()) {
 
-					/*
-					 * for each joined dim {
-					 * 
-					 * add dimensions as PresentationTables Loop though logical
-					 * columns and add each col as presentation Column }
-					 */
+						getPresentationTableFrom(catalog, dimTable);
 
-					for(LogicalTable dimTable:table.getJoinedToDimensions()){
-						
-						String id=UUID.randomUUID().toString();
-						
-						PresentationTable presTable=new PresentationTable("m" + catalog.getId() + "-m" +  id);
-						PresentationTableW xudmlObject = new PresentationTableW();
-						xudmlObject.setMdsid("m"+id);
-						xudmlObject.setName(dimTable.getName());
-						xudmlObject.setHasDispName(false);
-						xudmlObject.setHasDispDescription(false);
-						xudmlObject.setContainerRef(XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml#m" + catalog.getId());
-						presTable.setXudmlObject(xudmlObject);
-						catalog.getPresentationTables().add(presTable);
-						RefPresentationCatalogTableT refTable=new RefPresentationCatalogTableT();
-						refTable.setPresentationTableRef(XudmlConstants.XUDML_PRESTABLEURL +  presTable.getId() + ".xml#m" + presTable.getId());
-						refTable.setRefId(presTable.getRefId());
-						catalog.getXudmlObject().getRefTables().getRefPresentationTable().add(refTable);
-						
-						
-						
 					}
+
+					getPresentationTableFrom(catalog, table);
 					
-					
-/*					for (LogicalColumnW column : table.getXudmlObject()
-							.getLogicalColumn()) {
-
-						String newPresColId = "m" + UUID.randomUUID()
-								.toString();
-						PresentationColumnW xudmlPresColObject = new PresentationColumnW();
-						xudmlPresColObject.setDescription("");
-						xudmlPresColObject.setHasDispName(false);
-
-						// TODO add remaining col values
-
-						PresentationColumn presColumn = new PresentationColumn(xudmlPresColObject);
-						presColumn.setId(newPresColId);
-
-					}*/
+					/*
+					 * for (LogicalColumnW column : table.getXudmlObject()
+					 * .getLogicalColumn()) {
+					 * 
+					 * String newPresColId = "m" + UUID.randomUUID()
+					 * .toString(); PresentationColumnW xudmlPresColObject = new
+					 * PresentationColumnW();
+					 * xudmlPresColObject.setDescription("");
+					 * xudmlPresColObject.setHasDispName(false);
+					 * 
+					 * // TODO add remaining col values
+					 * 
+					 * PresentationColumn presColumn = new
+					 * PresentationColumn(xudmlPresColObject);
+					 * presColumn.setId(newPresColId);
+					 * 
+					 * }
+					 */
 
 					rpd.getCatalogObjects()
 							.add(catalog);
@@ -147,7 +122,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		PresentationCatalog catalog = new PresentationCatalog(newcatalogId);
 
 		PresentationCatalogW xudmlObject = new PresentationCatalogW();
-		xudmlObject.setMdsid("m" +newcatalogId);
+		xudmlObject.setMdsid("m" + newcatalogId);
 		xudmlObject.setName("Autogen - " + table.getName());
 		xudmlObject.setHasDispName(false);
 		xudmlObject.setHasDispDescription(false);
@@ -159,6 +134,32 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		catalog.setXudmlObject(xudmlObject);
 
 		return catalog;
+	}
+
+	private PresentationTable getPresentationTableFrom(PresentationCatalog catalog, LogicalTable table) {
+
+		String id = UUID.randomUUID()
+				.toString();
+		PresentationTable presTable = new PresentationTable("m" + catalog.getId() + "-m" + id);
+		PresentationTableW xudmlObject = new PresentationTableW();
+		xudmlObject.setMdsid("m" + id);
+		xudmlObject.setName(table.getName());
+		xudmlObject.setHasDispName(false);
+		xudmlObject.setHasDispDescription(false);
+		xudmlObject.setContainerRef(XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml#m" + catalog.getId());
+		presTable.setXudmlObject(xudmlObject);
+		catalog.getPresentationTables()
+				.add(presTable);
+		RefPresentationCatalogTableT refTable = new RefPresentationCatalogTableT();
+		refTable.setPresentationTableRef(
+				XudmlConstants.XUDML_PRESTABLEURL + presTable.getId() + ".xml#m" + presTable.getId());
+		refTable.setRefId(presTable.getRefId());
+		catalog.getXudmlObject()
+				.getRefTables()
+				.getRefPresentationTable()
+				.add(refTable);
+
+		return presTable;
 	}
 
 }
