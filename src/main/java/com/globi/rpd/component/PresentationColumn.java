@@ -34,7 +34,7 @@ public class PresentationColumn implements Operable<RpdComponent>,RpdComponent {
 	}
 	
 	public void setId(String id){
-		xudmlObject.setId(id);
+		xudmlObject.setMdsid("m" + id);
 	}
 
 	@Override

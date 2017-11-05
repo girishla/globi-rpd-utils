@@ -76,32 +76,23 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 					PresentationCatalog catalog = getCatalogFrom(table);
 
+					/**
+					 * Add Presentation table and column for Dim tables
+					 */
 					for (LogicalTable dimTable : table.getJoinedToDimensions()) {
 
-						getPresentationTableFrom(catalog, dimTable);
+						PresentationTable presTable=updateCatalogAndGetPresentationTableFrom(catalog, dimTable);
+						addPresentationColumnsFromLogicalTable(dimTable,presTable);
+						
 
 					}
 
-					getPresentationTableFrom(catalog, table);
-					
-					/*
-					 * for (LogicalColumnW column : table.getXudmlObject()
-					 * .getLogicalColumn()) {
-					 * 
-					 * String newPresColId = "m" + UUID.randomUUID()
-					 * .toString(); PresentationColumnW xudmlPresColObject = new
-					 * PresentationColumnW();
-					 * xudmlPresColObject.setDescription("");
-					 * xudmlPresColObject.setHasDispName(false);
-					 * 
-					 * // TODO add remaining col values
-					 * 
-					 * PresentationColumn presColumn = new
-					 * PresentationColumn(xudmlPresColObject);
-					 * presColumn.setId(newPresColId);
-					 * 
-					 * }
+					/**
+					 * Add Presentation table and column for 1 Fact table
 					 */
+					PresentationTable presFactTable=updateCatalogAndGetPresentationTableFrom(catalog, table);
+					addPresentationColumnsFromLogicalTable(table,presFactTable);
+
 
 					rpd.getCatalogObjects()
 							.add(catalog);
@@ -136,7 +127,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		return catalog;
 	}
 
-	private PresentationTable getPresentationTableFrom(PresentationCatalog catalog, LogicalTable table) {
+	private PresentationTable updateCatalogAndGetPresentationTableFrom(PresentationCatalog catalog, LogicalTable table) {
 
 		String id = UUID.randomUUID()
 				.toString();
@@ -160,6 +151,32 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 				.add(refTable);
 
 		return presTable;
+	}
+	
+	private void addPresentationColumnsFromLogicalTable(LogicalTable logicalTable,PresentationTable presTable){
+		
+
+		for (LogicalColumnW column : logicalTable.getXudmlObject()
+				.getLogicalColumn()) {
+
+			String newPresColId = UUID.randomUUID()
+					.toString();
+			PresentationColumnW xudmlPresColObject = new PresentationColumnW();
+			xudmlPresColObject.setDescription("");
+			xudmlPresColObject.setHasDispName(false);
+			xudmlPresColObject.setMdsid("m" + newPresColId);
+			xudmlPresColObject.setOverrideLogicalName(false);
+			xudmlPresColObject.setLogicalColumnRef(XudmlConstants.XUDML_LOGICALTABLEURL + logicalTable.getId() + ".xml#" + column.getMdsid());
+			xudmlPresColObject.setName(column.getName());
+			
+			log.debug("table col ref" + XudmlConstants.XUDML_LOGICALTABLEURL + logicalTable.getId() + ".xml#" + column.getMdsid() );
+			PresentationColumn presColumn = new PresentationColumn(xudmlPresColObject);
+			presColumn.setId(newPresColId);
+			presTable.getPresentationColumns().add(presColumn);
+			presTable.getXudmlObject().getPresentationColumn().add(xudmlPresColObject);
+
+		}
+		
 	}
 
 }
