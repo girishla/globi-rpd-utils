@@ -1,10 +1,12 @@
 package com.globi.rpd.xudml;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.core.io.Resource;
 
@@ -18,7 +20,7 @@ public class XudmlFolder {
 	public XudmlFolder(String uri) {
 
 		try {
-			this.resources = Arrays.asList(ResourceFactory.loadResources(  uri + "/*.xml"));
+			this.resources = Arrays.asList(ResourceFactory.loadResources( "file:" + uri + "/*.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error during reading of folder " + uri);
@@ -36,7 +38,23 @@ public class XudmlFolder {
 	}
 	
 	
-	
+	public List<File> getFiles(){
+		
+		return this.resources
+		.stream()
+		.map(resource -> {
+			try {
+				return resource.getFile();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+				throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+			}
+		})
+		.collect(Collectors.toList());
+
+		
+	}
 	
 
 	public enum FolderType {

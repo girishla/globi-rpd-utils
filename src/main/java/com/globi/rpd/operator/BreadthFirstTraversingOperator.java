@@ -15,14 +15,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TraversingOperator implements Operator<RpdComponent>{
+public class BreadthFirstTraversingOperator implements Operator<RpdComponent>{
 
 	private boolean traverseFirst = false;
 	private Operator<RpdComponent> operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 
-	public TraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
+	public BreadthFirstTraversingOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
 		traverser = aTraverser;
 		operator = anOperator;
 	}
@@ -107,5 +107,7 @@ public class TraversingOperator implements Operator<RpdComponent>{
 		}
 		return returnVal;
 	}
+	
+	
 
 }

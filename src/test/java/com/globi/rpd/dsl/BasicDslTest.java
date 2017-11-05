@@ -11,8 +11,8 @@ import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
 public class BasicDslTest {
-	public static final String catalogPath = "file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_CATALOGURL;
-	public static final String modelPath = "file:\\" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_MODELURL;
+	public static final String catalogPath =  XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL;
+	public static final String modelPath =  XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_MODELURL;
 	
 	
 	@Test
@@ -23,7 +23,7 @@ public class BasicDslTest {
 
 		RpdFactory.newBuilder()
 				.init()
-				.setRepoPath("file:\\" + XudmlConstants.XUDML_BASEURL)
+				.setRepoPath(XudmlConstants.XUDML_COPYURL)
 				.catalog(new XudmlFolder(catalogPath))
 				.model(new XudmlFolder(modelPath))
 				.applyRpdOperator(SubjectAreaGeneratorOperator.class)

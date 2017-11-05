@@ -11,17 +11,20 @@ import java.util.stream.Collectors;
 
 import org.springframework.core.io.Resource;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.operator.BreadthFirstTraversingOperator;
+import com.globi.rpd.operator.DeletingOperator;
+import com.globi.rpd.operator.DepthFirstTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.operator.ResolveLogicalJoinsOperator;
-import com.globi.rpd.operator.TraversingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 import com.globi.rpd.traverser.DefaultTraverser;
@@ -163,12 +166,14 @@ public class StandardRpdBuilder {
 		private void hydrate(Operable<? extends RpdComponent> rpdComponent, String ResourceName) {
 
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), unmarshalOperator);
+			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
+					unmarshalOperator);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
-			TraversingOperator tv2 = new TraversingOperator(new DefaultTraverser(), hydratingOperator);
+			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
+					hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv2);
 
@@ -208,7 +213,8 @@ public class StandardRpdBuilder {
 				model.setResourceUri(basePath + XudmlConstants.XUDML_MODELURL + model.getId() + ".xml");
 
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
+				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
+						marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				model.apply(tv);
 
@@ -218,20 +224,20 @@ public class StandardRpdBuilder {
 
 				catalog.setResourceUri(basePath + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
 
-				for(PresentationTable table:catalog.getPresentationTables()){
+				for (PresentationTable table : catalog.getPresentationTables()) {
 					table.setResourceUri(basePath + XudmlConstants.XUDML_PRESTABLEURL + table.getId() + ".xml");
-					
+
 				}
-				
+
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-				TraversingOperator tv = new TraversingOperator(new DefaultTraverser(), marshallingOperator);
+				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
+						marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				catalog.apply(tv);
-				
-				
+
 			}
 
-			this.pruneFolders(basePath);
+
 
 			return this;
 		}
@@ -241,83 +247,27 @@ public class StandardRpdBuilder {
 			return this;
 		}
 
-		private void pruneFolders(String basePath) {
-
-			/**
-			 * Delete any model files that aren't in context anymore
-			 */
-			XudmlFolder modelFolder = new XudmlFolder("file:" + basePath + XudmlConstants.XUDML_MODELURL);
-			modelFolder.getResources()
-					.stream()
-					.filter(resource -> {
-
-						boolean delete = true;
-						for (BusinessModel model : this.modelObjects) {
-							delete = !model.getResourceUri()
-									.endsWith(resource.getFilename());
-
-						}
-						return delete;
-					})
-					.forEach(this::deleteFile);
-
-			/**
-			 * Delete any presentation table files that aren't in context
-			 * anymore
-			 */
-
-			for (PresentationCatalog catalog : this.catalogObjects) {
-
-				XudmlFolder presTableFolder = new XudmlFolder("file:" +basePath + XudmlConstants.XUDML_PRESTABLEURL);
-				presTableFolder.getResources()
-						.stream()
-						.filter(resource -> {
-
-							boolean delete = true;
-							for (PresentationTable table : catalog.getPresentationTables()) {
-								delete = !table.getResourceUri()
-										.endsWith(resource.getFilename());
-
-							}
-							return delete;
-						})
-						.forEach(this::deleteFile);
-
-			}
-
-			/**
-			 * Delete any catalog files that aren't in context anymore
-			 */
-			XudmlFolder catFolder = new XudmlFolder("file:" +basePath + XudmlConstants.XUDML_CATALOGURL);
-			catFolder.getResources()
-					.stream()
-					.filter(resource -> {
-						boolean delete = true;
-						for (PresentationCatalog model : this.catalogObjects) {
-							delete = !model.getResourceUri()
-									.endsWith(resource.getFilename());
-
-						}
-						return delete;
-					})
-					.forEach(this::deleteFile);
-
-		}
-
-		private void deleteFile(Resource resource) {
-
-			try {
-				resource.getFile()
-						.delete();
-			} catch (IOException e) {
-				e.printStackTrace();
-				throw new RuntimeException("Error during deleting of file " + resource.getFilename());
-			}
-		}
+//		private void deleteCatalog(PresentationCatalog catalog) {
+//
+//			log.debug("*****************************************************************************");
+//			log.debug("*****************************************************************************");
+//			log.debug("*****************************************************************************");
+//			log.debug("*****************************************************************************");
+//			log.debug("*****************************************************************************");
+//			log.debug("*****************************************************************************");
+//			log.debug("Going to delete : " + catalog.getName());
+//
+//			DeletingOperator deletingOperator = new DeletingOperator();
+//			DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(
+//					new DefaultTraverser(), deletingOperator);
+//			catalog.apply(traverseDeleteOperator);
+//
+//		}
 
 		@Override
 		public HydrateStep setRepoPath(String path) {
 			this.repoPath = path;
+			AppProperties.INSTANCE.setBasePath(path);
 			return this;
 		}
 

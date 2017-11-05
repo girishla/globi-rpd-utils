@@ -2,7 +2,7 @@ package com.globi.rpd.cli;
 
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.PresentationCatalog;
-import com.globi.rpd.operator.TraversingOperator;
+import com.globi.rpd.operator.BreadthFirstTraversingOperator;
 import com.globi.rpd.operator.DisplayNameModificationOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.SortingOperator;
@@ -26,27 +26,27 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 					"/oracle/bi/server/base/PresentationCatalog/40000456-6dc5-167d-806e-c0a838100000.xml");
 
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			TraversingOperator tv = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					unmarshalOperator);
 
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
-			TraversingOperator tv2 = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv2);
 
 			DisplayNameModificationOperator renamingOperator = new DisplayNameModificationOperator(
 					name -> name.replaceAll("Global Reporting - Measures - ", ""));
-			TraversingOperator traversingOperator = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator traversingOperator = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					renamingOperator);
 			traversingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(traversingOperator);
 
 			SortingOperator sortingOperator = new SortingOperator();
-			TraversingOperator traversingSortingOperator = new TraversingOperator(
+			BreadthFirstTraversingOperator traversingSortingOperator = new BreadthFirstTraversingOperator(
 					new DefaultTraverser(), sortingOperator);
 			traversingSortingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(traversingSortingOperator);
@@ -54,7 +54,7 @@ public class StandardisePresentationCatalog implements RpdObjectCommand<Boolean,
 			presCatalog.setResourceUri(XudmlConstants.XUDML_COPYURL + "40000456-6dc5-167d-806e-c0a838100000.xml");
 
 			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-			TraversingOperator tv3 = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv3 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					marshallingOperator);
 			tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			presCatalog.apply(tv3);

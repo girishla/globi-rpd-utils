@@ -1,5 +1,6 @@
 package com.globi.rpd.component;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -17,7 +18,7 @@ public class LogicalComplexJoin extends MarshalledRpdComponent<LogicalComplexJoi
 	public LogicalComplexJoin(String id) {
 		super(id);
 		
-		this.setResourceUri(XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/LogicalComplexJoin/" + id + ".xml");
+		this.setResourceUri(AppProperties.INSTANCE.getBasePath() + "/oracle/bi/server/base/LogicalComplexJoin/" + id + ".xml");
 
 	}
 	

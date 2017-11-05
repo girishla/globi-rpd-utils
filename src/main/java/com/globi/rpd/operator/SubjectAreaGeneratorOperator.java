@@ -2,10 +2,12 @@ package com.globi.rpd.operator;
 
 import java.util.UUID;
 
+import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.dsl.StandardRpd;
+import com.globi.rpd.traverser.DefaultTraverser;
 
 import lombok.extern.slf4j.Slf4j;
 import xudml.PresentationCatalogW;
@@ -28,9 +30,31 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 				.size() > 0)) {
 			return rpd;
 		}
-
 		
-		rpd.getCatalogObjects().clear();// remove all catalog objects before regeneration
+		log.debug("*****************************************************************************");
+		log.debug("*****************************************************************************");
+		log.debug("*****************************************************************************");
+		log.debug("*****************************************************************************");
+		log.debug("*****************************************************************************");
+		log.debug("*****************************************************************************");
+		log.debug("Going to delete : " + rpd.getCatalogObjects().size() +" Catalog Objects");
+		
+		
+		for(PresentationCatalog catalog:rpd.getCatalogObjects()){
+			
+			DeletingOperator deletingOperator = new DeletingOperator();
+			DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(new DefaultTraverser(),
+					deletingOperator);
+			traverseDeleteOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			catalog.apply(traverseDeleteOperator);
+			
+			
+		}
+		
+		rpd.getCatalogObjects().clear();
+		
+		
+		log.debug("Model object Count: " + rpd.getModelObjects().size());
 		
 		for (BusinessModel model : rpd.getModelObjects()) {
 
@@ -40,12 +64,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 				 * Generation applies only for fact tables
 				 */
 				if (table.isFactTable()) {
-					log.info("*****************************************************************************");
-					log.info("*****************************************************************************");
-					log.info("*****************************************************************************");
-					log.info("*****************************************************************************");
-					log.info("*****************************************************************************");
-					log.info("*****************************************************************************");
+
 					log.info("Generating for Table: " + table.getName());
 					
 

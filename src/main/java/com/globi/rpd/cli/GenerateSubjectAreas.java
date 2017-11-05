@@ -3,7 +3,7 @@ package com.globi.rpd.cli;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.operator.HydratingOperator;
-import com.globi.rpd.operator.TraversingOperator;
+import com.globi.rpd.operator.BreadthFirstTraversingOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 import com.globi.rpd.traverser.DefaultTraverser;
@@ -24,14 +24,14 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 					"testrepo/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml");
 
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			TraversingOperator tv = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					unmarshalOperator);
 
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			model.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
-			TraversingOperator tv2 = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);
 			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			model.apply(tv2);
@@ -39,7 +39,7 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 			model.setResourceUri(XudmlConstants.XUDML_COPYURL + "00000000-28a1-1627-806e-0a3fce3c0000.xml");
 
 			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-			TraversingOperator tv3 = new TraversingOperator(new DefaultTraverser(),
+			BreadthFirstTraversingOperator tv3 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					marshallingOperator);
 			tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			model.apply(tv3);

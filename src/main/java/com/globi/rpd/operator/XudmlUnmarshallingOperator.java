@@ -1,5 +1,6 @@
 package com.globi.rpd.operator;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
@@ -67,7 +68,7 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		 */
 		XudmlFolder folder;
 
-		folder = new XudmlFolder("file:" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_LOGICALTABLEURL);
+		folder = new XudmlFolder("file:" + AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALTABLEURL);
 
 		folder.getResources()
 				.stream()

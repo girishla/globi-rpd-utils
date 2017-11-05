@@ -3,6 +3,7 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -40,7 +41,7 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 		
 		this.refId = refId;
 		this.setId(refId.split("-m")[1]);
-		this.setResourceUri(XudmlConstants.XUDML_BASEURL + "/oracle/bi/server/base/PresentationTable/" + this.getId() + ".xml");
+		this.setResourceUri(AppProperties.INSTANCE.getBasePath() + "/oracle/bi/server/base/PresentationTable/" + this.getId() + ".xml");
 		this.ref = "/oracle/bi/server/base/PresentationTable/" + this.getId()  + ".xml#m" + this.getId() ;
 		this.parentRefId = refId.split("-m")[0];
 		this.parentRef = "/oracle/bi/server/base/PresentationCatalog/" + parentRefId.substring(1) + ".xml#"

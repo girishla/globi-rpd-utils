@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalComplexJoin;
@@ -58,36 +59,18 @@ public class HydratingOperator implements Operator<RpdComponent> {
 		if(model.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
-		XudmlFolder folder= new XudmlFolder("file:" + XudmlConstants.XUDML_BASEURL + XudmlConstants.XUDML_LOGICALJOIN);
+		XudmlFolder folder= new XudmlFolder("file:" + AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALJOIN);
 		
 		/**
 		 * Hydrate Logical joins
 		 */
-		List<File> fileList = folder.getResources()
-				.stream()
-				.map(resource -> {
-					try {
-						return resource.getFile();
-					} catch (IOException e) {
-
-						e.printStackTrace();
-						throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
-					}
-				})
-				.collect(Collectors.toList());
-
+		List<File> fileList = folder.getFiles();
 		for (File file : fileList) {
 			String resourceUri = file.getAbsolutePath();
 			LogicalComplexJoin join = LogicalComplexJoin.fromResource(resourceUri);
 			XudmlUnmarshallingOperator unmarshaller=new XudmlUnmarshallingOperator();
 			unmarshaller.operate(join);
 			model.getLogicalComplexJoins().add(join);
-			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.info("^^^^^^^^^^^^^^^^" + join.getName() + "^^^^^^^^^^^^^^^^^^^^^");
 
 		}
 

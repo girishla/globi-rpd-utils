@@ -1,153 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LogicalTable xmlns="http://www.oracle.com/obis/repository" subjectAreaRef="/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml#m00000000-28a1-1627-806e-0a3fce3c0000" name="Sales Stage" mdsid="m00000000-676e-162e-ac27-0aac74cf0000">
-    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc0000018-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000001-01f4-0000-9fa3-417600000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."ROW_WID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m8000000c-675e-162e-ac27-0aac74cf0000" refId="m00000001-01f4-0000-9fa3-417600000000-m8000000c-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000003e-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000002-01f4-0000-b66e-3e5900000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."INTEGRATION_ID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m8000000a-675e-162e-ac27-0aac74cf0000" refId="m00000002-01f4-0000-b66e-3e5900000000-m8000000a-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc0000040-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000003-01f4-0000-1e03-e29200000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."PGUID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m8000000b-675e-162e-ac27-0aac74cf0000" refId="m00000003-01f4-0000-1e03-e29200000000-m8000000b-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000003-6790-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000004-01f4-0000-5ae6-17d600000000">
-            <ExprText>'Do Not Use'</ExprText>
-            <ExprTextDesc>'Do Not Use'</ExprTextDesc>
-        </AttributeDefn>
-    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Key (WID)" mdsid="mc0000018-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Integration ID" mdsid="mc000003e-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="PGUID" mdsid="mc0000040-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="------------------[ Attributes ]------------------" mdsid="m80000003-6790-162e-ac27-0aac74cf0000"/>
     <LogicalColumn isDerived="true" isWriteable="false" descriptorIDRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000" name="Data Source" mdsid="m00000005-8952-165e-806e-ac1de8660000">
-        <Expr name="Expr" mdsid="m00000005-01f4-0000-b943-b3ac00000000">
+        <Expr name="Expr" mdsid="m00000001-01f4-0000-093d-0f6700000000">
             <ExprText>Lookup(DENSE "%1", "%2" ) </ExprText>
             <ExprTextDesc>Lookup(DENSE "Global Reporting"."Lookup - Data Source"."Source Name", "Global Reporting"."Sales Stage"."Data Source ID" ) </ExprTextDesc>
             <ObjectRefList>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000005-01f4-0000-b943-b3ac00000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
-                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000" refId="m00000005-01f4-0000-b943-b3ac00000000-mc0000030-6771-162e-ac27-0aac74cf0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/80000000-b90c-162a-ac27-0a3fce3e0000.xml#m80000003-c7cd-162a-98ff-0a3fce3e0000" refId="m00000001-01f4-0000-093d-0f6700000000-m80000003-c7cd-162a-98ff-0a3fce3e0000"/>
+                <RefObject objectTypeId="2006" objectRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000030-6771-162e-ac27-0aac74cf0000" refId="m00000001-01f4-0000-093d-0f6700000000-mc0000030-6771-162e-ac27-0aac74cf0000"/>
             </ObjectRefList>
         </Expr>
     </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Stage Status" mdsid="mc000001e-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000006-01f4-0000-68a7-c96900000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."STG_STAT"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000002-2055-165e-806e-0a3fcf3a0000" refId="m00000006-01f4-0000-68a7-c96900000000-m80000002-2055-165e-806e-0a3fcf3a0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Stage Description" mdsid="mc0000020-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000007-01f4-0000-76a3-072600000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."STG_DESC"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m8000000e-675e-162e-ac27-0aac74cf0000" refId="m00000007-01f4-0000-76a3-072600000000-m8000000e-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Stage Name" mdsid="mc0000022-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000008-01f4-0000-3f5a-674c00000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."STG_NAME"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m8000000f-675e-162e-ac27-0aac74cf0000" refId="m00000008-01f4-0000-3f5a-674c00000000-m8000000f-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Stage Number" mdsid="mc0000024-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000009-01f4-0000-20db-ac9f00000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."STG_NUM"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000010-675e-162e-ac27-0aac74cf0000" refId="m00000009-01f4-0000-20db-ac9f00000000-m80000010-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m80000008-6790-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000a-01f4-0000-b2d7-b38e00000000">
-            <ExprText>'Do Not Use'</ExprText>
-            <ExprTextDesc>'Do Not Use'</ExprTextDesc>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Business Unit" mdsid="mc000002c-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000b-01f4-0000-9862-4c4100000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."BU_PGUID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000001-675e-162e-ac27-0aac74cf0000" refId="m0000000b-01f4-0000-9862-4c4100000000-m80000001-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc0000038-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000c-01f4-0000-0f28-047e00000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."ETL_PROC_WID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000007-675e-162e-ac27-0aac74cf0000" refId="m0000000c-01f4-0000-0f28-047e00000000-m80000007-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc0000028-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000d-01f4-0000-156d-c20d00000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."W_CREATED_DT"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000014-675e-162e-ac27-0aac74cf0000" refId="m0000000d-01f4-0000-156d-c20d00000000-m80000014-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc000002a-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000e-01f4-0000-30d6-b8db00000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."W_UPDATED_DT"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000015-675e-162e-ac27-0aac74cf0000" refId="m0000000e-01f4-0000-30d6-b8db00000000-m80000015-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000030-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m0000000f-01f4-0000-e387-f61800000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."DATASOURCE_NUM_ID"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000003-675e-162e-ac27-0aac74cf0000" refId="m0000000f-01f4-0000-e387-f61800000000-m80000003-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc000001a-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000010-01f4-0000-02eb-aeb000000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."S_CREATED_DT"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000011-675e-162e-ac27-0aac74cf0000" refId="m00000010-01f4-0000-02eb-aeb000000000-m80000011-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
-    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc000001c-6771-162e-ac27-0aac74cf0000">
-        <AttributeDefn name="AttributeDefn" mdsid="m00000011-01f4-0000-5dac-847600000000">
-            <ExprText>"%1"</ExprText>
-            <ExprTextDesc>"GLOBI".""."LAW"."Dim_Stage"."S_UPDATED_DT"</ExprTextDesc>
-            <ObjectRefList>
-                <RefObject objectTypeId="3003" objectRef="/oracle/bi/server/base/PhysicalTable/80000000-675e-162e-ac27-0aac74cf0000.xml#m80000012-675e-162e-ac27-0aac74cf0000" refId="m00000011-01f4-0000-5dac-847600000000-m80000012-675e-162e-ac27-0aac74cf0000"/>
-            </ObjectRefList>
-        </AttributeDefn>
-    </LogicalColumn>
+    <LogicalColumn isWriteable="false" name="Stage Status" mdsid="mc000001e-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Stage Description" mdsid="mc0000020-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Stage Name" mdsid="mc0000022-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Stage Number" mdsid="mc0000024-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="-------------[ System Attributes ]------------" mdsid="m80000008-6790-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Business Unit" mdsid="mc000002c-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="ETL Process ID" mdsid="mc0000038-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="DWH Created Date" mdsid="mc0000028-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="DWH Updated Date" mdsid="mc000002a-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Data Source ID" mdsid="mc0000030-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Source Created Date" mdsid="mc000001a-6771-162e-ac27-0aac74cf0000"/>
+    <LogicalColumn isWriteable="false" name="Source Updated Date" mdsid="mc000001c-6771-162e-ac27-0aac74cf0000"/>
     <LogicalKey isPrimary="true" name="PK" mdsid="mc0000042-6771-162e-ac27-0aac74cf0000">
         <RefColumns>
             <RefLogicalColumn logicalColumnRef="/oracle/bi/server/base/LogicalTable/00000000-676e-162e-ac27-0aac74cf0000.xml#mc0000018-6771-162e-ac27-0aac74cf0000" refId="mc0000042-6771-162e-ac27-0aac74cf0000-mc0000018-6771-162e-ac27-0aac74cf0000"/>
