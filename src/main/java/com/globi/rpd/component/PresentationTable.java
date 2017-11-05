@@ -21,10 +21,14 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 	 * Represents a FULL reference to the {@link PresentationTable} in the
 	 * format {@code parentCatalogid - tableId }. This is then used to parse and
 	 * derive all the other ref related fields
+	 * example: m40000456-6dc5-167d-806e-c0a838100000-m40000457-6dc5-167d-806e-c0a838100000
 	 */
-	// m40000456-6dc5-167d-806e-c0a838100000-m40000457-6dc5-167d-806e-c0a838100000
 	private String refId;
-	/// oracle/bi/server/base/PresentationTable/40000568-6dc5-167d-806e-c0a838100000.xml#m40000568-6dc5-167d-806e-c0a838100000
+
+	/**
+	 * path reference to the table
+	 * example: oracle/bi/server/base/PresentationTable/40000568-6dc5-167d-806e-c0a838100000.xml#m40000568-6dc5-167d-806e-c0a838100000
+	 */
 	private String ref;
 
 	// m40000456-6dc5-167d-806e-c0a838100000
