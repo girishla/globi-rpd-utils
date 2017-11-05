@@ -53,11 +53,14 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		
 		rpd.getCatalogObjects().clear();
 		
-		
-		log.debug("Model object Count: " + rpd.getModelObjects().size());
-		
+				
 		for (BusinessModel model : rpd.getModelObjects()) {
 
+			
+
+			log.debug("Table object Count: " +  model.getLogicalTables().size());
+
+			
 			for (LogicalTable table : model.getLogicalTables()) {
 
 				/**

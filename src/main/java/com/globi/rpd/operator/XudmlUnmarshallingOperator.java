@@ -68,7 +68,7 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		 */
 		XudmlFolder folder;
 
-		folder = new XudmlFolder("file:" + AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALTABLEURL);
+		folder = new XudmlFolder( AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALTABLEURL);
 
 		folder.getResources()
 				.stream()

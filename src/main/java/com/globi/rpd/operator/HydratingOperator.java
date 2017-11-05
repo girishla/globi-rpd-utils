@@ -59,7 +59,7 @@ public class HydratingOperator implements Operator<RpdComponent> {
 		if(model.getXudmlObject()==null)
 			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
 		
-		XudmlFolder folder= new XudmlFolder("file:" + AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALJOIN);
+		XudmlFolder folder= new XudmlFolder(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_LOGICALJOIN);
 		
 		/**
 		 * Hydrate Logical joins

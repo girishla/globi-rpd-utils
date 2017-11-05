@@ -140,6 +140,9 @@ public class StandardRpdBuilder {
 						}
 					})
 					.collect(Collectors.toList());
+			
+			
+			log.debug("Hydrating " + fileList.size() + " model files");
 
 			for (File file : fileList) {
 				String resourceUri = "file:" + file.getAbsolutePath();
