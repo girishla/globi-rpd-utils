@@ -31,7 +31,7 @@ public class BasicDslTest {
 				.applyOperatorToAllCatalogs(SortingOperator.class)
 				.noMoreWork()
 				.save(XudmlConstants.XUDML_COPYURL)
-				.get();
+				.get(); 
 
 	}
 
