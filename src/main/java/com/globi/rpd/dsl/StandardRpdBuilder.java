@@ -15,7 +15,9 @@ import com.globi.rpd.AppProperties;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
+import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.operator.BreadthFirstTraversingOperator;
@@ -151,6 +153,7 @@ public class StandardRpdBuilder {
 				BusinessModel model = BusinessModel.fromResource(resourceUri);
 				this.hydrate(model, resourceUri);
 
+
 				/*
 				 * Resolve all logical Joins into the model.
 				 */
@@ -174,6 +177,9 @@ public class StandardRpdBuilder {
 					unmarshalOperator);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
+			
+			
+
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
 			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
@@ -232,12 +238,19 @@ public class StandardRpdBuilder {
 				for (PresentationTable table : catalog.getPresentationTables()) {
 					table.setResourceUri(basePath + XudmlConstants.XUDML_PRESTABLEURL + table.getId() + ".xml");
 
+					
+					for (PresentationHierarchy hierarchy : table.getPresentationHierarchies()) {
+						table.setResourceUri(basePath + XudmlConstants.XUDML_PRESHIERARCHY + hierarchy.getId() + ".xml");
+
+					}
+					
 				}
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 						marshallingOperator);
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				catalog.apply(tv);
+
 
 			}
 

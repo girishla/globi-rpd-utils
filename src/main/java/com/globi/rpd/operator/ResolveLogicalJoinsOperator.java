@@ -29,7 +29,8 @@ public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 			throw new IllegalStateException("ResolveJoinsOperator: Cannot resolve joins without a XUDML instance set");
 
 		for (LogicalTable table : model.getLogicalTables()) {
-
+			
+			
 			for (LogicalComplexJoin join : model.getLogicalComplexJoins()) {
 				
 				String table1Id = join.getXudmlObject()
@@ -39,6 +40,7 @@ public class ResolveLogicalJoinsOperator implements Operator<BusinessModel> {
 						.getLogicalTable2Ref()
 						.split("#m")[1];
 
+				
 				// find table 1 and 2 in the model
 				LogicalTable table1 = model.getLogicalTables()
 						.stream()

@@ -138,7 +138,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		PresentationCatalogW xudmlObject = new PresentationCatalogW();
 		xudmlObject.setMdsid("m" + newcatalogId);
-		xudmlObject.setName("Administration - Global Reporting");
+		xudmlObject.setName("Administration - "+model.getName());
 		xudmlObject.setHasDispName(false);
 		xudmlObject.setHasDispDescription(false);
 		xudmlObject.setIsAutoAggr(false);

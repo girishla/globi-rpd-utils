@@ -11,7 +11,6 @@ import com.globi.rpd.xudml.XudmlConstants;
 
 import xudml.RefPresentationCatalogTableT;
 
-
 public class SortingOperator implements Operator<RpdComponent> {
 
 	@Override
@@ -20,32 +19,43 @@ public class SortingOperator implements Operator<RpdComponent> {
 		Collections.sort(presCatalog.getPresentationTables(), new Comparator<PresentationTable>() {
 			public int compare(PresentationTable t1, PresentationTable t2) {
 
-				if (t1.getXudmlObject().getName().contains("Measures"))
-					return 1;
-				if (t2.getXudmlObject().getName().contains("Measures"))
-					return -1;
+				boolean table1IsMeasureTable = t1.getXudmlObject()
+						.getName()
+						.contains("Measures");
+				boolean table2IsMeasureTable = t2.getXudmlObject()
+						.getName()
+						.contains("Measures");
 
-				return t1.getXudmlObject().getName().compareTo(t2.getXudmlObject().getName());
+				if (table1IsMeasureTable && !table2IsMeasureTable) {
+					return 1;
+				} else if (!table1IsMeasureTable && table1IsMeasureTable) {
+					return -1;
+				}
+
+				return t1.getXudmlObject()
+						.getName()
+						.compareTo(t2.getXudmlObject()
+								.getName());
 			}
 		});
 
-		
-		List<RefPresentationCatalogTableT> xudmlTables=presCatalog.getXudmlObject().getRefTables().getRefPresentationTable();
+		List<RefPresentationCatalogTableT> xudmlTables = presCatalog.getXudmlObject()
+				.getRefTables()
+				.getRefPresentationTable();
 		xudmlTables.clear();
-		
-		//Reorder Refs Using the Ordered List
-		presCatalog.getPresentationTables().stream().forEach(presTable->{
-			RefPresentationCatalogTableT refTable=new RefPresentationCatalogTableT();
-			refTable.setPresentationTableRef(XudmlConstants.XUDML_PRESTABLEURL + presTable.getId() + ".xml#m" +  presTable.getId());
-			refTable.setRefId(presTable.getRefId());
-			xudmlTables.add(refTable);
-		});
-		
-		
-		
+
+		// Reorder Refs Using the Ordered List
+		presCatalog.getPresentationTables()
+				.stream()
+				.forEach(presTable -> {
+					RefPresentationCatalogTableT refTable = new RefPresentationCatalogTableT();
+					refTable.setPresentationTableRef(
+							XudmlConstants.XUDML_PRESTABLEURL + presTable.getId() + ".xml#m" + presTable.getId());
+					refTable.setRefId(presTable.getRefId());
+					xudmlTables.add(refTable);
+				});
+
 		return presCatalog;
 	}
-	
-
 
 }

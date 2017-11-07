@@ -6,6 +6,7 @@ import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
+import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.operator.Operator;
@@ -56,4 +57,13 @@ public interface Traverser {
 //				"LogicalColumn Traverser" + "**************Warning: Default Method invocation*******************");
 	}
 
+	default public void traverse(PresentationHierarchy presHierarchy, Operator<? extends RpdComponent> anOperator) {
+		// default no-op
+//		
+//		System.out.println(
+//				"LogicalColumn Traverser" + "**************Warning: Default Method invocation*******************");
+	}
+
+	
+	
 }

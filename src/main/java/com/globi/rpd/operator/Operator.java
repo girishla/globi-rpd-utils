@@ -7,6 +7,8 @@ import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
+import com.globi.rpd.component.PresentationHierarchy;
+import com.globi.rpd.component.PresentationLevel;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.dsl.StandardRpd;
@@ -73,5 +75,23 @@ public interface Operator<R extends RpdComponent> {
 		return returnVal;
 	}
 
+	default public R operate(PresentationHierarchy presHierarchy) {
+//		System.out.println("StandardRpd " + rpd.getName()
+//				+ "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+
+	
+	
+	default public R operate(PresentationLevel presLevel) {
+//		System.out.println("StandardRpd " + rpd.getName()
+//				+ "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+
+	
+	
 
 }

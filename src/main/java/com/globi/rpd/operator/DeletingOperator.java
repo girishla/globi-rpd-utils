@@ -7,6 +7,7 @@ import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
+import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 
@@ -60,7 +61,7 @@ public class DeletingOperator implements Operator<RpdComponent> {
 	public LogicalTable operate(LogicalTable table) {
 
 		if (table.getXudmlObject() == null)
-			throw new IllegalStateException("Cannotdelete without a XUDML instance set");
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
 
 		
 		table.getJoinedFromFacts().clear();
@@ -73,6 +74,23 @@ public class DeletingOperator implements Operator<RpdComponent> {
 		return table;
 
 	}
+	
+	
+	@Override
+	public PresentationHierarchy operate(PresentationHierarchy table) {
+
+		if (table.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
+		
+		table.getPresentationLevels().clear();
+		DeletingOperator.deleteFile(table.getResourceUri());
+//		table.setXudmlObject(null);
+		
+
+		return table;
+
+	}
+	
 	
 	
 	@Override

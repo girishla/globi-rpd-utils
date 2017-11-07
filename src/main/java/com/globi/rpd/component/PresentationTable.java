@@ -38,6 +38,7 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 	private String parentRef;
 
 	private final List<PresentationColumn> presentationColumns = new ArrayList<PresentationColumn>();
+	private final List<PresentationHierarchy> presentationHierarchies = new ArrayList<PresentationHierarchy>();
 
 	public PresentationTable(String refId) {
 
@@ -45,10 +46,10 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 		
 		this.refId = refId;
 		this.setId(refId.split("-m")[1]);
-		this.setResourceUri(AppProperties.INSTANCE.getBasePath() + "/oracle/bi/server/base/PresentationTable/" + this.getId() + ".xml");
-		this.ref = "/oracle/bi/server/base/PresentationTable/" + this.getId()  + ".xml#m" + this.getId() ;
+		this.setResourceUri(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_PRESTABLEURL + this.getId() + ".xml");
+		this.ref =  XudmlConstants.XUDML_PRESTABLEURL  + this.getId()  + ".xml#m" + this.getId() ;
 		this.parentRefId = refId.split("-m")[0];
-		this.parentRef = "/oracle/bi/server/base/PresentationCatalog/" + parentRefId.substring(1) + ".xml#"
+		this.parentRef = XudmlConstants.XUDML_CATALOGURL + parentRefId.substring(1) + ".xml#"
 				+ parentRefId;
 	}
 	

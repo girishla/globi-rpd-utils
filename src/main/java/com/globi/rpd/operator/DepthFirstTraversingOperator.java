@@ -5,6 +5,7 @@ import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
+import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.traverser.Traverser;
@@ -114,5 +115,21 @@ public class DepthFirstTraversingOperator implements Operator<RpdComponent>{
 	}
 	
 	
+	@Override
+	public PresentationHierarchy operate(PresentationHierarchy model) {
 
+
+		traverser.traverse((PresentationHierarchy) model, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass().getName(), model);
+		}
+		
+		model = (PresentationHierarchy) model.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass().getName(), model);
+		}
+		return model;
+	}
+	
 }

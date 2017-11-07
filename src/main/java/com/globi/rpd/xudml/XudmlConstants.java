@@ -12,6 +12,7 @@ public class XudmlConstants {
 	public static final String XUDML_MODELURL="/oracle/bi/server/base/BusinessModel/";
 	public static final String XUDML_LOGICALTABLEURL="/oracle/bi/server/base/LogicalTable/";
 	public static final String XUDML_LOGICALJOIN="/oracle/bi/server/base/LogicalComplexJoin/";
+		public static final String XUDML_PRESHIERARCHY="/oracle/bi/server/base/PresentationHierarchy/";
 
 
 }
