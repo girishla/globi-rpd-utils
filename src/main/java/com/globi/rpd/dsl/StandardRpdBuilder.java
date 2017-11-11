@@ -9,20 +9,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.core.io.Resource;
-
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
-import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.operator.BreadthFirstTraversingOperator;
-import com.globi.rpd.operator.DeletingOperator;
-import com.globi.rpd.operator.DepthFirstTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
@@ -33,15 +29,13 @@ import com.globi.rpd.traverser.DefaultTraverser;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * The builder implementation for the fluent method chain
  * 
  * @author Girish Lakshmanan
  *
  */
-@Slf4j
+//@Slf4j
 public class StandardRpdBuilder {
 
 	public SetRepoPathStep init() {
@@ -145,8 +139,6 @@ public class StandardRpdBuilder {
 					.collect(Collectors.toList());
 			
 			
-			log.debug("Hydrating " + fileList.size() + " model files");
-
 			for (File file : fileList) {
 				String resourceUri = "file:" + file.getAbsolutePath();
 
@@ -190,7 +182,7 @@ public class StandardRpdBuilder {
 		}
 
 		/**
-		 * Applies the operator to the overall Rpd 
+		 * Applies an operator to the whole Rpd Tree
 		 */
 		@Override
 		public MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl) {
@@ -231,6 +223,9 @@ public class StandardRpdBuilder {
 
 			}
 
+			
+			//TODO Move this looping logic to it's own UriChangeOperator
+			//Only need this when basepath is diff to the current Uri - like a "Save As"
 			for (PresentationCatalog catalog : this.catalogObjects) {
 
 				catalog.setResourceUri(basePath + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
@@ -285,11 +280,13 @@ public class StandardRpdBuilder {
 				System.err.println("Class not instantiable: " + cl);
 				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
+		
+			
+			
 			for(PresentationCatalog catalog:this.catalogObjects){
 				strategy.operate(catalog);
 				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
 				logger.operated(cl.getName(), catalog);
-				
 			}
 
 			return this;

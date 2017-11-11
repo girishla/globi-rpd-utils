@@ -11,7 +11,7 @@ import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationLevel;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
-import com.globi.rpd.dsl.StandardRpd;
+import com.globi.rpd.component.StandardRpd;
 
 public interface Operator<R extends RpdComponent> {
 

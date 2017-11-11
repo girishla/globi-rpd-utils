@@ -8,7 +8,7 @@ import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationTable;
-import com.globi.rpd.dsl.StandardRpd;
+import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.traverser.DefaultTraverser;
 import com.globi.rpd.xudml.XudmlConstants;
 

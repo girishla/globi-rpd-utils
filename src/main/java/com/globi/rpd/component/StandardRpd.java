@@ -1,11 +1,7 @@
-package com.globi.rpd.dsl;
+package com.globi.rpd.component;
 
 import java.util.Set;
 
-import com.globi.rpd.component.BusinessModel;
-import com.globi.rpd.component.Database;
-import com.globi.rpd.component.PresentationCatalog;
-import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 

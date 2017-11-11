@@ -6,7 +6,7 @@ package com.globi.rpd.dsl;
  * @author Girish Lakshmanan
  *
  */
-public class RpdFactory {
+public class RpdBuilderFactory {
 	
 	public static StandardRpdBuilder newBuilder() {
 		return new StandardRpdBuilder();

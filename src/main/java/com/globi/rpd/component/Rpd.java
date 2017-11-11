@@ -1,4 +1,4 @@
-package com.globi.rpd.dsl;
+package com.globi.rpd.component;
 
 /**
  * Marker interface to allow for potentially different variations of RPD
