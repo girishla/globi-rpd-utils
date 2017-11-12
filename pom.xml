@@ -36,10 +36,10 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-<!-- 		<dependency>
+ 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> -->
+		</dependency> 
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -113,12 +113,6 @@
 					<!-- Default is unspecified -->
 					<generatePackage>xudml</generatePackage>
 					<addCompileSourceRoot>true</addCompileSourceRoot>
-
-
-					<!-- <args> <arg>-Xvisitor</arg> <arg>-Xvisitor-package:com.globi</arg> 
-						</args> <plugins> <plugin> <groupId>com.massfords</groupId> <artifactId>jaxb-visitor</artifactId> 
-						<version>2.7</version> </plugin> </plugins> -->
-
 
 				</configuration>
 			</plugin>

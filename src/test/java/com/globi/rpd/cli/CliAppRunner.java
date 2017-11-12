@@ -3,12 +3,12 @@ package com.globi.rpd.cli;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.test.context.TestConfiguration;
 
 
 
 
-@Component
+@TestConfiguration
 public class CliAppRunner implements ApplicationRunner {
 	public CliAppRunner() {
 

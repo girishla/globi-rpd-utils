@@ -9,17 +9,16 @@ import org.junit.Test;
 
 public class XudmlFolderTest {
 
-	
 	@Test
 	public void canLoadAllXudmlFilesFromLocation() throws IOException {
 
-		XudmlFolder folder = new XudmlFolder("testrepo/oracle/bi/server/base/PresentationCatalog");
+		XudmlFolder folder = new XudmlFolder("classpath:testrepo/oracle/bi/server/base/PresentationCatalog");
 
-		assertThat(folder.getResources().stream().map(resource -> resource.getFilename()).collect(Collectors.toList()))
-				.contains("40000456-6dc5-167d-806e-c0a838100000.xml");
-		
+		assertThat(folder.getResources()
+				.stream()
+				.map(resource -> resource.getFilename())
+				.anyMatch(fileName -> fileName.endsWith(".xml"))).isTrue();
 
 	}
-	
-	
+
 }

@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.globi.rpd.DefaultLoggerProgressMonitor;
@@ -14,6 +15,9 @@ import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 import com.globi.rpd.traverser.DefaultTraverser;
 
+
+
+@Ignore
 public class PresentationCatalogOperatorTest {
 
 	@Test

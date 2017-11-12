@@ -11,6 +11,7 @@ import com.globi.rpd.xudml.XudmlConstants;
 
 import xudml.RefPresentationCatalogTableT;
 
+
 public class SortingOperator implements Operator<RpdComponent> {
 
 	@Override
@@ -18,6 +19,8 @@ public class SortingOperator implements Operator<RpdComponent> {
 
 		Collections.sort(presCatalog.getPresentationTables(), new Comparator<PresentationTable>() {
 			public int compare(PresentationTable t1, PresentationTable t2) {
+
+
 
 				boolean table1IsMeasureTable = t1.getXudmlObject()
 						.getName()
@@ -28,9 +31,9 @@ public class SortingOperator implements Operator<RpdComponent> {
 
 				if (table1IsMeasureTable && !table2IsMeasureTable) {
 					return 1;
-				} else if (!table1IsMeasureTable && table1IsMeasureTable) {
+				} else if (!table1IsMeasureTable && table2IsMeasureTable) {
 					return -1;
-				}
+				} 
 
 				return t1.getXudmlObject()
 						.getName()

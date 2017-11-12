@@ -20,7 +20,11 @@ public class XudmlFolder {
 	public XudmlFolder(String uri) {
 
 		try {
-			this.resources = Arrays.asList(ResourceFactory.loadResources( "file:" + uri + "/*.xml"));
+
+			if (uri.contains("classpath:"))
+				this.resources = Arrays.asList(ResourceFactory.loadResources(uri.replace("classpath:", "") + "/*.xml"));
+			else
+				this.resources = Arrays.asList(ResourceFactory.loadResources("file:" + uri + "/*.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error during reading of folder " + uri);
@@ -36,29 +40,25 @@ public class XudmlFolder {
 				.delete();
 
 	}
-	
-	
-	public List<File> getFiles(){
-		
-		return this.resources
-		.stream()
-		.map(resource -> {
-			try {
-				return resource.getFile();
-			} catch (IOException e) {
 
-				e.printStackTrace();
-				throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
-			}
-		})
-		.collect(Collectors.toList());
+	public List<File> getFiles() {
 
-		
+		return this.resources.stream()
+				.map(resource -> {
+					try {
+						return resource.getFile();
+					} catch (IOException e) {
+
+						e.printStackTrace();
+						throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+					}
+				})
+				.collect(Collectors.toList());
+
 	}
-	
 
 	public enum FolderType {
-		CATALOG, MODEL, PHYSICAL,PRESENTATIONTABLE,LOGICALTABLE;
+		CATALOG, MODEL, PHYSICAL, PRESENTATIONTABLE, LOGICALTABLE;
 	}
 
 }

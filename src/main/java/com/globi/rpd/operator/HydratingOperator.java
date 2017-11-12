@@ -17,12 +17,17 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
-import lombok.extern.slf4j.Slf4j;
 import xudml.LogicalColumnW;
 import xudml.PresentationColumnW;
 import xudml.PresentationLevelW;
 
-@Slf4j
+
+
+/**
+ * Allows each RPD component to hydrate itself with any child components etc. 
+ * @author Girish Lakshmanan
+ *
+ */
 public class HydratingOperator implements Operator<RpdComponent> {
 
 	@Override

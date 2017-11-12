@@ -1,6 +1,9 @@
 package com.globi.rpd.operator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.globi.rpd.DefaultLoggerProgressMonitor;
 import com.globi.rpd.component.BusinessModel;
@@ -13,6 +16,7 @@ import com.globi.rpd.traverser.DefaultTraverser;
 import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.extern.slf4j.Slf4j;
+import xudml.AliasW;
 import xudml.LogicalColumnW;
 import xudml.PresentationCatalogW;
 import xudml.PresentationColumnW;
@@ -38,16 +42,13 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 			return rpd;
 		}
 
-		log.debug("Going to delete : " + rpd.getCatalogObjects()
-				.size() + " Catalog Objects");
-
 		for (PresentationCatalog catalog : rpd.getCatalogObjects()) {
 
 			/**
 			 * Delete only if NOT pinned
 			 */
-			if (!(catalog.getXudmlObject()
-					.getIconIndex() == 89)) {
+			if (catalog.getXudmlObject()
+					.getIconIndex() != 89) {
 				DeletingOperator deletingOperator = new DeletingOperator();
 				DepthFirstTraversingOperator traverseDeleteOperator = new DepthFirstTraversingOperator(
 						new DefaultTraverser(), deletingOperator);
@@ -56,67 +57,116 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 			}
 		}
 
+		// Make a copy of the ones not deleted before clearing the whole list
+		// because we need to reference them in the generation process to
+		// identify duplicates etc
+		List<PresentationCatalog> catalogListCopy = new ArrayList<>(rpd.getCatalogObjects());
+		catalogListCopy = catalogListCopy.stream()
+				.filter(c -> c.getXudmlObject()
+						.getIconIndex() == 89)
+				.collect(Collectors.toList());
+
+		
+		
+		/**
+		 * This is cleared because Catalog is a top level marshalled file and we
+		 * only need to keep in memory the ones we are making changes to or
+		 * newly added ones
+		 */
 		rpd.getCatalogObjects()
 				.clear();
 
 		for (BusinessModel model : rpd.getModelObjects()) {
 
 			/**
-			 * Add ONE combined Admin subject Area per Model
+			 * Do nothing if the model is pinned, else proceed
 			 */
-			PresentationCatalog combinedCatalog = getCombinedCatalogForModel(model);
-			rpd.getCatalogObjects()
-					.add(combinedCatalog);
-
-			for (LogicalTable table : model.getLogicalTables()) {
+			if (!(model.getXudmlObject()
+					.getIconIndex() == 89)) {
 
 				/**
-				 * Generation applies only for fact tables
+				 * Add ONE combined Admin subject Area per Model
 				 */
-				if (table.isFactTable()) {
+				PresentationCatalog combinedCatalog = getCombinedCatalogForModel(model);
+				/**
+				 * Add an Alias to the Combined Catalog in the Format ModelName - Administration - ModelName
+				 */
+				AliasW combinedCatalogAlias=new AliasW();
+				combinedCatalogAlias.setName(model.getName() +  " - Administration - " + model.getName());
+				combinedCatalog.getXudmlObject().getAlias().add(combinedCatalogAlias);
+				
+				rpd.getCatalogObjects()
+						.add(combinedCatalog);
 
-					log.debug("Generating Subject Area for Table: " + table.getName());
 
-					PresentationCatalog catalog = getCatalogFrom(table);
+				for (LogicalTable table : model.getLogicalTables()) {
 
 					/**
-					 * Add Presentation table and column for Dim tables
+					 * Generation applies only for fact tables
 					 */
-					for (LogicalTable dimTable : table.getJoinedToDimensions()) {
+					if (table.isFactTable()) {
 
-						PresentationTable presTable = updateCatalogAndGetPresentationTableFrom(catalog, dimTable);
-						addPresentationColumnsFromLogicalTable(dimTable, presTable);
+						log.debug("Generating Subject Area for Table: " + table.getName());
+
+						PresentationCatalog catalog = getCatalogFrom(table);
+						
+						/**
+						 * Add an Alias to the new Catalog in the Format ModelName - FactName
+						 */
+						AliasW catalogAlias=new AliasW();
+						catalogAlias.setName(model.getName() +  " - " + table.getName());
+						catalog.getXudmlObject().getAlias().add(catalogAlias);
+						
 
 						/**
-						 * Add to combined catalog only if the Dimension Table
-						 * does not already have a corresponding Presentation
-						 * table
+						 * Add Presentation table and column for Dim tables
 						 */
-						if (!tableExistsInCatalog(dimTable, combinedCatalog)) {
-							PresentationTable presTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
-									combinedCatalog, dimTable);
-							addPresentationColumnsFromLogicalTable(dimTable, presTableForCombinedCatalog);
+						for (LogicalTable dimTable : table.getJoinedToDimensions()) {
+
+							PresentationTable presTable = updateCatalogAndGetPresentationTableFrom(catalog, dimTable);
+							addPresentationColumnsFromLogicalTable(dimTable, presTable);
+
+							/**
+							 * Add to combined catalog only if the Dimension
+							 * Table does not already have a corresponding
+							 * Presentation table
+							 */
+							if (!tableExistsInCatalog(dimTable, combinedCatalog)) {
+								PresentationTable presTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
+										combinedCatalog, dimTable);
+								addPresentationColumnsFromLogicalTable(dimTable, presTableForCombinedCatalog);
+							}
+
 						}
+
+						/**
+						 * Add Presentation table and column for 1 Fact table
+						 */
+						PresentationTable presFactTable = updateCatalogAndGetPresentationTableFrom(catalog, table);
+						addPresentationColumnsFromLogicalTable(table, presFactTable);
+						PresentationTable presFactTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
+								combinedCatalog, table);
+						addPresentationColumnsFromLogicalTable(table, presFactTableForCombinedCatalog);
+
+						/**
+						 * Only add it if Name of newly generated Catalog is NOT
+						 * same as another existing catalog ending with the same
+						 * Name Note that this may not work in all cases so a
+						 * more elegant solution needs to be found. Example: If
+						 * there is an existing catalog called "Global Reporting
+						 * - Measures - Activity" and the new one is "Activity"
+						 * then it will be skipped
+						 */
+						if (!equivalentCatalogExistsForFactTable(catalogListCopy, catalog))
+							rpd.getCatalogObjects()
+									.add(catalog);
 
 					}
 
-					/**
-					 * Add Presentation table and column for 1 Fact table
-					 */
-					PresentationTable presFactTable = updateCatalogAndGetPresentationTableFrom(catalog, table);
-					addPresentationColumnsFromLogicalTable(table, presFactTable);
-					PresentationTable presFactTableForCombinedCatalog = updateCatalogAndGetPresentationTableFrom(
-							combinedCatalog, table);
-					addPresentationColumnsFromLogicalTable(table, presFactTableForCombinedCatalog);
-
-					rpd.getCatalogObjects()
-							.add(catalog);
-
 				}
-
 			}
-		}
 
+		}
 		return rpd;
 
 	}
@@ -126,8 +176,18 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 		return catalog.getPresentationTables()
 				.stream()
 				.anyMatch(t -> t.getName()
-						.contains(table.getName()));
+						.equals(table.getName()));
 
+	}
+
+	private boolean equivalentCatalogExistsForFactTable(List<PresentationCatalog> catalogListCopy,
+			PresentationCatalog catalog) {
+
+		return catalogListCopy.stream()
+				.anyMatch(c -> {
+					return c.getName()
+							.endsWith(catalog.getName());
+				});
 	}
 
 	private PresentationCatalog getCombinedCatalogForModel(BusinessModel model) {
@@ -138,7 +198,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		PresentationCatalogW xudmlObject = new PresentationCatalogW();
 		xudmlObject.setMdsid("m" + newcatalogId);
-		xudmlObject.setName("Administration - "+model.getName());
+		xudmlObject.setName("Administration - " + model.getName());
 		xudmlObject.setHasDispName(false);
 		xudmlObject.setHasDispDescription(false);
 		xudmlObject.setIsAutoAggr(false);

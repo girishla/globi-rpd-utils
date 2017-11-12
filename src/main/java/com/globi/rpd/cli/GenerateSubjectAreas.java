@@ -1,15 +1,20 @@
 package com.globi.rpd.cli;
 
-import com.globi.rpd.DefaultLoggerProgressMonitor;
-import com.globi.rpd.component.BusinessModel;
-import com.globi.rpd.operator.HydratingOperator;
-import com.globi.rpd.operator.BreadthFirstTraversingOperator;
-import com.globi.rpd.operator.XudmlMarshallingOperator;
-import com.globi.rpd.operator.XudmlUnmarshallingOperator;
-import com.globi.rpd.traverser.DefaultTraverser;
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.util.FileSystemUtils;
+
+import com.globi.rpd.dsl.RpdBuilderFactory;
+import com.globi.rpd.operator.SortingOperator;
+import com.globi.rpd.operator.SubjectAreaGeneratorOperator;
 import com.globi.rpd.xudml.XudmlConstants;
+import com.globi.rpd.xudml.XudmlFolder;
 
 public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
+
+	public static final String catalogPath = XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL;
+	public static final String modelPath = XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_MODELURL;
 
 	@Override
 	public String execute(String subjectAreaName) throws Exception {
@@ -20,29 +25,20 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 
 		try {
 
-			BusinessModel model = BusinessModel.fromResource(
-					"testrepo/oracle/bi/server/base/BusinessModel/00000000-28a1-1627-806e-0a3fce3c0000.xml");
+			FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
+			FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL),
+					new File(XudmlConstants.XUDML_COPYURL));
 
-			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
-			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
-					unmarshalOperator);
-
-			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			model.apply(tv);
-
-			HydratingOperator hydratingOperator = new HydratingOperator();
-			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
-					hydratingOperator);
-			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			model.apply(tv2);
-
-			model.setResourceUri(XudmlConstants.XUDML_COPYURL + "00000000-28a1-1627-806e-0a3fce3c0000.xml");
-
-			XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
-			BreadthFirstTraversingOperator tv3 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
-					marshallingOperator);
-			tv3.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			model.apply(tv3);
+			RpdBuilderFactory.newBuilder()
+					.init()
+					.setRepoPath(XudmlConstants.XUDML_COPYURL)
+					.catalog(new XudmlFolder(catalogPath))
+					.model(new XudmlFolder(modelPath))
+					.applyRpdOperator(SubjectAreaGeneratorOperator.class)
+					.applyOperatorToAllCatalogs(SortingOperator.class)
+					.noMoreWork()
+					.save(XudmlConstants.XUDML_COPYURL)
+					.get();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,6 +46,24 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 		}
 
 		return "COMMAND PROCESSED.";
+	}
+
+	public void canBuildRpdWithFluentSyntax() throws IOException {
+
+		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
+		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
+
+		RpdBuilderFactory.newBuilder()
+				.init()
+				.setRepoPath(XudmlConstants.XUDML_COPYURL)
+				.catalog(new XudmlFolder(catalogPath))
+				.model(new XudmlFolder(modelPath))
+				.applyRpdOperator(SubjectAreaGeneratorOperator.class)
+				.applyOperatorToAllCatalogs(SortingOperator.class)
+				.noMoreWork()
+				.save(XudmlConstants.XUDML_COPYURL)
+				.get();
+
 	}
 
 }

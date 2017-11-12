@@ -18,21 +18,6 @@ public class ShellCommandIntegrationTests {
 	@Autowired
 	private Shell shell;
 
-	@Test
-	public void canStandardiseSubjectAreaNames() {
-
-		Object result = shell.evaluate(new Input() {
-			@Override
-			public String rawText() {
-				return "run StandardisePresentationCatalog ALL";
-			}
-
-		});
-
-		DefaultResultHandler resulthandler = new DefaultResultHandler();
-		resulthandler.handleResult(result);
-
-	}
 	
 	@Test
 	public void canGenerateSubjectAreas() {
