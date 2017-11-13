@@ -1,4 +1,4 @@
-package com.globi.rpd.rest;
+/*package com.globi.rpd.rest;
 
 
 
@@ -13,4 +13,4 @@ public class RpdController {
     public String addColumn() {
         return "Can't do it now, Sorry";
     }
-}
+}*/

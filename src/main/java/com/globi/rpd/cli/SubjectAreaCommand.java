@@ -10,10 +10,14 @@ import lombok.extern.slf4j.Slf4j;
 public class SubjectAreaCommand {
 
 	@SuppressWarnings("unchecked")
-	@ShellMethod("Run actions based on the input strategy class name")
-	public String generateSubjectArea(String strategyName,String subjectAreaName,String basepath) throws Exception {
+	@ShellMethod(value="Run actions based on the input strategy class name")
+	public String generateSubjectArea(String strategyName,String subjectAreaName,String basepath) throws Exception{
 
+		
 		Class<?> strategyClass = null;
+		
+		
+		
 		try {
 			strategyClass = Class.forName("com.globi.rpd.cli." + strategyName);
 		} catch (ClassNotFoundException e) {
@@ -32,6 +36,14 @@ public class SubjectAreaCommand {
 		}
 
 		return strategy.execute(new SubjectAreaGeneratorInput(basepath,subjectAreaName));
+		
+		
 	}
+	
+	
+	 @ShellMethod(value = "Add numbers.", key = "sum")
+     public int add(int a, int b) {
+             return a + b;
+     }
 
 }
