@@ -66,8 +66,6 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 						.getIconIndex() == 89)
 				.collect(Collectors.toList());
 
-		
-		
 		/**
 		 * This is cleared because Catalog is a top level marshalled file and we
 		 * only need to keep in memory the ones we are making changes to or
@@ -89,15 +87,17 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 				 */
 				PresentationCatalog combinedCatalog = getCombinedCatalogForModel(model);
 				/**
-				 * Add an Alias to the Combined Catalog in the Format ModelName - Administration - ModelName
+				 * Add an Alias to the Combined Catalog in the Format ModelName
+				 * - Administration - ModelName
 				 */
-				AliasW combinedCatalogAlias=new AliasW();
-				combinedCatalogAlias.setName(model.getName() +  " - Administration - " + model.getName());
-				combinedCatalog.getXudmlObject().getAlias().add(combinedCatalogAlias);
-				
+				AliasW combinedCatalogAlias = new AliasW();
+				combinedCatalogAlias.setName(model.getName() + " - Administration - " + model.getName());
+				combinedCatalog.getXudmlObject()
+						.getAlias()
+						.add(combinedCatalogAlias);
+
 				rpd.getCatalogObjects()
 						.add(combinedCatalog);
-
 
 				for (LogicalTable table : model.getLogicalTables()) {
 
@@ -109,21 +109,26 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 						log.debug("Generating Subject Area for Table: " + table.getName());
 
 						PresentationCatalog catalog = getCatalogFrom(table);
-						
+
 						/**
-						 * Add an Alias to the new Catalog in the Format ModelName - FactName
+						 * Add an Alias to the new Catalog in the Format
+						 * ModelName - FactName
 						 */
-						AliasW catalogAlias=new AliasW();
-						catalogAlias.setName(model.getName() +  " - " + table.getName());
-						catalog.getXudmlObject().getAlias().add(catalogAlias);
-						
+						AliasW catalogAlias = new AliasW();
+						catalogAlias.setName(model.getName() + " - " + table.getName());
+						catalog.getXudmlObject()
+								.getAlias()
+								.add(catalogAlias);
+
 						/**
 						 * Add a display name without the LN prefix
 						 */
-						catalog.getXudmlObject().setHasDispName(true);
-						catalog.getXudmlObject().setDispName(table.getName());
-					
-						
+						catalog.getXudmlObject()
+								.setHasDispName(true);
+						catalog.getXudmlObject()
+								.setDispName(table.getName()
+										.replace("Measures - ", ""));
+
 						/**
 						 * Add Presentation table and column for Dim tables
 						 */
