@@ -1,15 +1,16 @@
 package com.globi.rpd.cli;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.springframework.util.FileSystemUtils;
-
 import com.globi.rpd.dsl.RpdBuilderFactory;
 import com.globi.rpd.operator.SortingOperator;
 import com.globi.rpd.operator.SubjectAreaGeneratorOperator;
-import com.globi.rpd.xudml.XudmlConstants;
 
+
+
+/**
+ * Command Executor responsible for generating all subject areas from the BuinessModel
+ * @author Girish Lakshmanan
+ *
+ */
 public class GenerateSubjectAreasExecutor implements RpdCommandExecutor<Boolean, SubjectAreaGeneratorInput> {
 
 
@@ -39,24 +40,6 @@ public class GenerateSubjectAreasExecutor implements RpdCommandExecutor<Boolean,
 		}
 
 		return "COMMAND PROCESSED.";
-	}
-
-	public void canBuildRpdWithFluentSyntax() throws IOException {
-
-		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
-		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
-
-		RpdBuilderFactory.newBuilder()
-				.init()
-				.setRepoPath(XudmlConstants.XUDML_COPYURL)
-				.loadCatalog()
-				.loadModel()
-				.applyRpdOperator(SubjectAreaGeneratorOperator.class)
-				.applyOperatorToAllCatalogs(SortingOperator.class)
-				.noMoreWork()
-				.save(XudmlConstants.XUDML_COPYURL)
-				.get();
-
 	}
 
 }
