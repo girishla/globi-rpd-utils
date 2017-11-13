@@ -21,10 +21,13 @@ public class XudmlFolder {
 
 		try {
 
+
 			if (uri.contains("classpath:"))
 				this.resources = Arrays.asList(ResourceFactory.loadResources(uri.replace("classpath:", "") + "/*.xml"));
 			else
 				this.resources = Arrays.asList(ResourceFactory.loadResources("file:" + uri + "/*.xml"));
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error during reading of folder " + uri);

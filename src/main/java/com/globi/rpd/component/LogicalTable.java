@@ -6,7 +6,6 @@ import java.util.List;
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
-import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

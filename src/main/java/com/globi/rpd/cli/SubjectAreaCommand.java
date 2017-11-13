@@ -7,11 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ShellComponent
-public class RpdCommand {
+public class SubjectAreaCommand {
 
 	@SuppressWarnings("unchecked")
 	@ShellMethod("Run actions based on the input strategy class name")
-	public String run(String strategyName,String subjectAreaName) throws Exception {
+	public String generateSubjectArea(String strategyName,String subjectAreaName,String basepath) throws Exception {
 
 		Class<?> strategyClass = null;
 		try {
@@ -22,16 +22,16 @@ public class RpdCommand {
 		}
 
 		// Instantiate the strategy
-		RpdObjectCommand<Boolean, String> strategy = null;
+		RpdCommandExecutor<Boolean, SubjectAreaGeneratorInput> strategy = null;
 		try {
-			strategy = (RpdObjectCommand<Boolean, String>) strategyClass.newInstance();
+			strategy = (RpdCommandExecutor<Boolean, SubjectAreaGeneratorInput>) strategyClass.newInstance();
 		} catch (IllegalAccessException e) {
 			log.error("Class not accessible: "+ strategyName);
 		} catch (InstantiationException e) {
 			log.error("Class not instantiable: "+ strategyName );
 		}
 
-		return strategy.execute(subjectAreaName);
+		return strategy.execute(new SubjectAreaGeneratorInput(basepath,subjectAreaName));
 	}
 
 }

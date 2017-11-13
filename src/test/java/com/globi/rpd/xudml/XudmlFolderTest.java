@@ -3,7 +3,6 @@ package com.globi.rpd.xudml;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 import org.junit.Test;
 

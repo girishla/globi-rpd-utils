@@ -9,40 +9,33 @@ import com.globi.rpd.dsl.RpdBuilderFactory;
 import com.globi.rpd.operator.SortingOperator;
 import com.globi.rpd.operator.SubjectAreaGeneratorOperator;
 import com.globi.rpd.xudml.XudmlConstants;
-import com.globi.rpd.xudml.XudmlFolder;
 
-public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
+public class GenerateSubjectAreasExecutor implements RpdCommandExecutor<Boolean, SubjectAreaGeneratorInput> {
 
-	public static final String catalogPath = XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_CATALOGURL;
-	public static final String modelPath = XudmlConstants.XUDML_COPYURL + XudmlConstants.XUDML_MODELURL;
 
 	@Override
-	public String execute(String subjectAreaName) throws Exception {
+	public String execute(SubjectAreaGeneratorInput input) throws Exception {
 
-		if (!subjectAreaName.toUpperCase()
+		if (!input.getSubjectAreaName().toUpperCase()
 				.equals("ALL"))
-			throw new IllegalArgumentException("Invalid Argument " + subjectAreaName);
+			throw new IllegalArgumentException("Invalid Argument " + input.getSubjectAreaName() + "; Only ALL is supported at the moment");
 
 		try {
 
-			FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
-			FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL),
-					new File(XudmlConstants.XUDML_COPYURL));
-
 			RpdBuilderFactory.newBuilder()
 					.init()
-					.setRepoPath(XudmlConstants.XUDML_COPYURL)
-					.catalog(new XudmlFolder(catalogPath))
-					.model(new XudmlFolder(modelPath))
+					.setRepoPath(input.basepath)
+					.loadCatalog()
+					.loadModel()
 					.applyRpdOperator(SubjectAreaGeneratorOperator.class)
 					.applyOperatorToAllCatalogs(SortingOperator.class)
 					.noMoreWork()
-					.save(XudmlConstants.XUDML_COPYURL)
+					.save(input.basepath)
 					.get();
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "COMMAND FAILED.";
+			return "COMMAND FAILED: " + e.getMessage();
 		}
 
 		return "COMMAND PROCESSED.";
@@ -56,8 +49,8 @@ public class GenerateSubjectAreas implements RpdObjectCommand<Boolean, String> {
 		RpdBuilderFactory.newBuilder()
 				.init()
 				.setRepoPath(XudmlConstants.XUDML_COPYURL)
-				.catalog(new XudmlFolder(catalogPath))
-				.model(new XudmlFolder(modelPath))
+				.loadCatalog()
+				.loadModel()
 				.applyRpdOperator(SubjectAreaGeneratorOperator.class)
 				.applyOperatorToAllCatalogs(SortingOperator.class)
 				.noMoreWork()

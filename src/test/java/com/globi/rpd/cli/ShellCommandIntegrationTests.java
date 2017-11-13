@@ -25,7 +25,7 @@ public class ShellCommandIntegrationTests {
 		Object result = shell.evaluate(new Input() {
 			@Override
 			public String rawText() {
-				return "run GenerateSubjectAreas ALL";
+				return "generate-subject-area GenerateSubjectAreasExecutor ALL C:\\temp\\RPDTest\\";
 			}
 
 		});

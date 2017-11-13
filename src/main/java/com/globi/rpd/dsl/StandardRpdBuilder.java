@@ -50,9 +50,9 @@ public class StandardRpdBuilder {
 	}
 
 	public interface MutateStep {
-		MutateStep catalog(XudmlFolder folder);
+		MutateStep loadCatalog();
 
-		MutateStep model(XudmlFolder folder);
+		MutateStep loadModel();
 
 		MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
@@ -80,7 +80,9 @@ public class StandardRpdBuilder {
 		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
 		private String repoPath;
 
-		public MutateStep catalog(XudmlFolder folder) {
+		public MutateStep loadCatalog() {
+			
+			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_CATALOGURL);
 
 			List<File> fileList = folder.getResources()
 					.stream()
@@ -123,8 +125,10 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
-		public MutateStep model(XudmlFolder folder) {
+		public MutateStep loadModel() {
 
+			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_MODELURL);
+			
 			List<File> fileList = folder.getResources()
 					.stream()
 					.map(resource -> {
@@ -261,6 +265,13 @@ public class StandardRpdBuilder {
 
 		@Override
 		public MutateStep setRepoPath(String path) {
+			
+			File repoModelDirectory=new File(path + XudmlConstants.XUDML_MODELURL);
+			
+			if (!(repoModelDirectory.exists())) {
+				throw new IllegalArgumentException("Supplied Path does not appear to be a valid RPD XML Folder@ " + path);
+			}
+			
 			this.repoPath = path;
 			AppProperties.INSTANCE.setBasePath(path);
 			return this;
