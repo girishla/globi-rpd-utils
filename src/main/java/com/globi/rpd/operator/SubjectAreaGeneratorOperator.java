@@ -117,7 +117,13 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 						catalogAlias.setName(model.getName() +  " - " + table.getName());
 						catalog.getXudmlObject().getAlias().add(catalogAlias);
 						
-
+						/**
+						 * Add a display name without the LN prefix
+						 */
+						catalog.getXudmlObject().setHasDispName(true);
+						catalog.getXudmlObject().setDispName(table.getName());
+					
+						
 						/**
 						 * Add Presentation table and column for Dim tables
 						 */
@@ -219,7 +225,7 @@ public class SubjectAreaGeneratorOperator implements Operator<StandardRpd> {
 
 		PresentationCatalogW xudmlObject = new PresentationCatalogW();
 		xudmlObject.setMdsid("m" + newcatalogId);
-		xudmlObject.setName(table.getName()
+		xudmlObject.setName("LN " + table.getName()
 				.replace("Measures - ", ""));
 		xudmlObject.setHasDispName(false);
 		xudmlObject.setHasDispDescription(false);
