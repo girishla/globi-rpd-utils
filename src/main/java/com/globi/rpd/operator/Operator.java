@@ -2,30 +2,34 @@
 package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationLevel;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.Schema;
 import com.globi.rpd.component.StandardRpd;
 
 public interface Operator<R extends RpdComponent> {
 
 	default public R operate(PresentationCatalog prescatalog) {
-
-		System.out.println(
-				"PresentationCatalog Operator" + "**************Warning: Default Method invocation*******************");
+//
+//		System.out.println(
+//				"PresentationCatalog Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(PresentationTable presTable) {
-		System.out.println(
-				"PresentationTable Operator" + "**************Warning: Default Method invocation*******************");
+//		System.out.println(
+//				"PresentationTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
@@ -38,15 +42,15 @@ public interface Operator<R extends RpdComponent> {
 	}
 
 	default public R operate(BusinessModel model) {
-		System.out.println(
-				"BusinessModel Operator" + "**************Warning: Default Method invocation*******************");
+//		System.out.println(
+//				"BusinessModel Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(LogicalTable table) {
-		System.out.println(
-				"LogicalTable Operator" + "**************Warning: Default Method invocation*******************");
+//		System.out.println(
+//				"LogicalTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
@@ -92,6 +96,33 @@ public interface Operator<R extends RpdComponent> {
 	}
 
 	
+	default public R operate(Database database) {
+		System.out.println(
+				"Database Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
 	
-
+	default public R operate(Schema schema) {
+		System.out.println(
+				"Schema Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+	
+	default public R operate(PhysicalTable physicalTable) {
+		System.out.println(
+				"PhysicalTable Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+	
+	default public R operate(PhysicalColumn physicalColumn) {
+		System.out.println(
+				"PhysicalColumn Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+	
+	
 }
