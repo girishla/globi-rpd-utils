@@ -33,4 +33,5 @@ public class PhysicalColumn implements Operable<RpdComponent>, RpdComponent {
 	public String getName() {
 		return xudmlObject.getName();
 	}
+	
 }

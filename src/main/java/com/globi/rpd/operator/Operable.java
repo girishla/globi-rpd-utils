@@ -5,7 +5,7 @@ import com.globi.rpd.component.RpdComponent;
 
 /**
  * An object on which Operators can perform Actions
- * @author LAKSHMG4
+ * @author Girish lakshmanan
  *
  */
 public interface Operable<R extends RpdComponent> {

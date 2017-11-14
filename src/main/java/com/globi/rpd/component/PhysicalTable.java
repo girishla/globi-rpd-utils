@@ -15,8 +15,9 @@ import xudml.PhysicalTableW;
 @EqualsAndHashCode(callSuper=true)
 public class PhysicalTable extends MarshalledRpdComponent<PhysicalTableW> implements Operable<RpdComponent>{
 
-
 	private final List<PhysicalColumn> physicalColumns = new ArrayList<PhysicalColumn>();
+	private final List<PhysicalKey> physicalKeys = new ArrayList<PhysicalKey>();
+	private final List<PhysicalForeignKey> physicalForeignKeys = new ArrayList<PhysicalForeignKey>();
 	
 
 	public PhysicalTable(String id) {
@@ -40,7 +41,6 @@ public class PhysicalTable extends MarshalledRpdComponent<PhysicalTableW> implem
 	public String toString() {
 		return "  PhysicalTable:" + this.getXudmlObject().getName();
 	}
-
 
 }
 

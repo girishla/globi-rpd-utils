@@ -1,6 +1,7 @@
 package com.globi.rpd.component;
 
 import java.util.Set;
+import java.util.UUID;
 
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
@@ -17,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class StandardRpd implements Rpd,RpdComponent,Operable<RpdComponent> {
 
-	private final String id="STANDARDRPD";
+	private final String id= UUID.randomUUID().toString();
 	private final String name="STANDARDRPD";
 	
 	

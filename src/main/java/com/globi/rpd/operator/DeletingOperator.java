@@ -22,7 +22,6 @@ public class DeletingOperator implements Operator<RpdComponent> {
 		
 		presCatalog.getPresentationTables().clear();
 		DeletingOperator.deleteFile(presCatalog.getResourceUri());
-//		presCatalog.setXudmlObject(null);
 		
 		return presCatalog;
 	}
@@ -35,8 +34,6 @@ public class DeletingOperator implements Operator<RpdComponent> {
 
 		presTable.getPresentationColumns().clear();
 		DeletingOperator.deleteFile(presTable.getResourceUri());
-//		presTable.setXudmlObject(null);
-
 
 		return presTable;
 

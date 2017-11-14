@@ -23,7 +23,6 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	public LogicalTable(String id) {
 		super(id);
 		
-		
 		this.setResourceUri(AppProperties.INSTANCE.getBasePath()+ "/oracle/bi/server/base/LogicalTable/" + id + ".xml");
 
 	}

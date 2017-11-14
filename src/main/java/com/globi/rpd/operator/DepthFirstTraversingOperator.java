@@ -2,12 +2,19 @@
 package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.ConnectionPool;
+import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalForeignKey;
+import com.globi.rpd.component.PhysicalKey;
+import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.Schema;
 import com.globi.rpd.traverser.Traverser;
 import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
@@ -131,5 +138,145 @@ public class DepthFirstTraversingOperator implements Operator<RpdComponent>{
 		}
 		return model;
 	}
+	
+	
+	
+	@Override
+	public Database operate(Database db) {
+
+	
+		traverser.traverse((Database) db, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), db);
+		}
+
+		db = (Database) db.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), db);
+		}
+
+		return db;
+	}
+	
+	
+	@Override
+	public ConnectionPool operate(ConnectionPool cp) {
+
+		
+		traverser.traverse((ConnectionPool) cp, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), cp);
+		}
+		
+		cp = (ConnectionPool) cp.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), cp);
+		}
+
+		return cp;
+	}
+	
+	@Override
+	public Schema operate(Schema schema) {
+
+		traverser.traverse((Schema) schema, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), schema);
+		}
+
+		schema = (Schema) schema.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), schema);
+		}
+
+		return schema;
+	}
+
+	@Override
+	public PhysicalTable operate(PhysicalTable table) {
+
+		traverser.traverse((PhysicalTable) table, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), table);
+		}
+		
+		table = (PhysicalTable) table.apply(operator);
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), table);
+		}
+
+		return table;
+	}
+
+	@Override
+	public PhysicalColumn operate(PhysicalColumn col) {
+
+
+		traverser.traverse((PhysicalColumn) col, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), col);
+		}
+		
+		col = (PhysicalColumn) col.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), col);
+		}
+
+		return col;
+	}
+
+	@Override
+	public PhysicalKey operate(PhysicalKey key) {
+
+		traverser.traverse((PhysicalKey) key, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), key);
+		}
+		
+		key = (PhysicalKey) key.apply(operator);
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), key);
+		}
+
+		return key;
+	}
+
+
+	@Override
+	public PhysicalForeignKey operate(PhysicalForeignKey key) {
+
+		traverser.traverse((PhysicalForeignKey) key, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), key);
+		}
+
+		key = (PhysicalForeignKey) key.apply(operator);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), key);
+		}
+
+		return key;
+	}
+
+	
 	
 }

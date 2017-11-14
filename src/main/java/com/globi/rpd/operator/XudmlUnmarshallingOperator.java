@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.ConnectionPool;
+import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PresentationCatalog;
@@ -23,8 +25,10 @@ import xudml.LogicalTableW;
 import xudml.PresentationCatalogW;
 import xudml.PresentationHierarchyW;
 import xudml.PresentationTableW;
+import xudml.RefTableDBConnPoolT;
 import xudml.RefTablePresentationCatalogTableT;
 import xudml.RefTablePresentationHierarchyT;
+import xudml.DatabaseW;
 
 @Slf4j
 public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
@@ -172,5 +176,43 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		return join;
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public Database operate(Database db) {
+
+		XudmlMarshaller<DatabaseW> marshaller = new XudmlMarshaller<DatabaseW>();
+
+		db.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL(db.getResourceUri())));
+
+		/**
+		 * basic Hydration of children is done here so that the child references
+		 * are available during unmarshalling each child Full hydration can only
+		 * be done after unmarshalling each child
+		 */
+		RefTableDBConnPoolT refTableConnectionPool = db.getXudmlObject().getRefConnectionPools();
+	
+		if (refTableConnectionPool != null) {
+			refTableConnectionPool.getRefConnectionPool()
+					.stream()//
+					.forEach(cp -> {
+						db.getConnectionPools()
+								.add(ConnectionPool.fromRef(cp.getRefId()));
+
+					});
+		}
+
+		
+		
+		
+		return db;
+	}
+	
+	
 
 }

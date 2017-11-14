@@ -2,11 +2,14 @@
 package com.globi.rpd.operator;
 
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.ConnectionPool;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
 import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalForeignKey;
+import com.globi.rpd.component.PhysicalKey;
 import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
@@ -102,6 +105,14 @@ public interface Operator<R extends RpdComponent> {
 		R returnVal = null;
 		return returnVal;
 	}
+
+	
+	default public R operate(ConnectionPool schema) {
+		System.out.println(
+				"ConnectionPool Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
 	
 	default public R operate(Schema schema) {
 		System.out.println(
@@ -120,6 +131,20 @@ public interface Operator<R extends RpdComponent> {
 	default public R operate(PhysicalColumn physicalColumn) {
 		System.out.println(
 				"PhysicalColumn Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+	
+	default public R operate(PhysicalKey physicalColumn) {
+		System.out.println(
+				"PhysicalKey Operator" + "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+	
+	default public R operate(PhysicalForeignKey physicalColumn) {
+		System.out.println(
+				"PhysicalForeignKey Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
