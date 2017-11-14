@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.globi.rpd.AppProperties;
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -39,6 +40,12 @@ public class PhysicalTable extends MarshalledRpdComponent<PhysicalTableW> implem
 	public PhysicalTable apply(Operator<? extends RpdComponent> anOperator) {
 		return (PhysicalTable)anOperator.operate(this);
 	}
+	
+	@Override
+	public PhysicalTable applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (PhysicalTable)anOperator.operate(this);
+	}
+
 
 	@Override
 	public String toString() {

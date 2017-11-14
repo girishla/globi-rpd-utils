@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.globi.rpd.AppProperties;
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -59,6 +60,12 @@ public class PresentationHierarchy extends MarshalledRpdComponent<PresentationHi
 	public PresentationHierarchy apply(Operator<? extends RpdComponent> anOperator) {
 		return (PresentationHierarchy)anOperator.operate(this);
 	}
+	
+	@Override
+	public PresentationHierarchy applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (PresentationHierarchy)anOperator.operate(this);
+	}
+
 
 	@Override
 	public String toString() {

@@ -3,6 +3,7 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -36,6 +37,14 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 
 		return  operator.operate(this);
 	}
+	
+	
+	
+	@Override
+	public PresentationCatalog applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (PresentationCatalog)anOperator.operate(this);
+	}
+
 
 	@Override
 	public String toString() {

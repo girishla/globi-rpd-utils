@@ -4,6 +4,7 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -36,6 +37,13 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 	public BusinessModel apply(Operator<? extends RpdComponent> anOperator) {
 		return (BusinessModel)anOperator.operate(this);
 	}
+	
+	
+	@Override
+	public BusinessModel applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (BusinessModel)anOperator.operate(this);
+	}
+	
 
 	@Override
 	public String toString() {

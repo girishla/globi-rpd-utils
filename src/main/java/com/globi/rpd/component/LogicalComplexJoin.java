@@ -1,6 +1,7 @@
 package com.globi.rpd.component;
 
 import com.globi.rpd.AppProperties;
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -32,6 +33,12 @@ public class LogicalComplexJoin extends MarshalledRpdComponent<LogicalComplexJoi
 	public LogicalComplexJoin apply(Operator<? extends RpdComponent> anOperator) {
 		return (LogicalComplexJoin)anOperator.operate(this);
 	}
+	
+	@Override
+	public LogicalComplexJoin applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (LogicalComplexJoin)anOperator.operate(this);
+	}
+
 
 	@Override
 	public String toString() {

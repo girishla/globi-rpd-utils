@@ -1,5 +1,6 @@
 package com.globi.rpd.component;
 
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -22,6 +23,11 @@ public class LogicalColumn implements Operable<RpdComponent>,RpdComponent {
 
 	@Override
 	public LogicalColumn apply(Operator<? extends RpdComponent> anOperator) {
+		return (LogicalColumn)anOperator.operate(this);
+	}
+	
+	@Override
+	public LogicalColumn applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
 		return (LogicalColumn)anOperator.operate(this);
 	}
 
