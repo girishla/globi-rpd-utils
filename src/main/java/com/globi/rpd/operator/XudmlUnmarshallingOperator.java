@@ -9,10 +9,12 @@ import com.globi.rpd.component.ConnectionPool;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.Schema;
 import com.globi.rpd.xudml.ResourceFactory;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
@@ -20,15 +22,17 @@ import com.globi.rpd.xudml.XudmlMarshaller;
 
 import lombok.extern.slf4j.Slf4j;
 import xudml.BusinessModelW;
+import xudml.DatabaseW;
 import xudml.LogicalComplexJoinW;
 import xudml.LogicalTableW;
+import xudml.PhysicalTableW;
 import xudml.PresentationCatalogW;
 import xudml.PresentationHierarchyW;
 import xudml.PresentationTableW;
 import xudml.RefTableDBConnPoolT;
 import xudml.RefTablePresentationCatalogTableT;
 import xudml.RefTablePresentationHierarchyT;
-import xudml.DatabaseW;
+import xudml.SchemaW;
 
 @Slf4j
 public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
@@ -131,11 +135,6 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 				model.getLogicalTables()
 						.add(logicalTable);
 
-				log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				log.debug("Unmarshalled  " + logicalTable.getName());
-
 			} else {
 				log.debug("Skipped  " + logicalTable.getResourceUri());
 
@@ -143,21 +142,12 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 
 		}
 
-
-
 		return model;
 
 	}
 
 	@Override
 	public LogicalTable operate(LogicalTable logicalTable) {
-
-		/*
-		 * XudmlMarshaller<LogicalTableW> marshaller = new
-		 * XudmlMarshaller<LogicalTableW>(); logicalTable.setXudmlObject(
-		 * marshaller.unmarshall(ResourceFactory.fromURL("file:" +
-		 * logicalTable.getResourceUri())));
-		 */
 
 		/**
 		 * Unmarshalling already done along with the Model - because of weird
@@ -170,19 +160,11 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 
 	@Override
 	public LogicalComplexJoin operate(LogicalComplexJoin join) {
-
 		XudmlMarshaller<LogicalComplexJoinW> marshaller = new XudmlMarshaller<LogicalComplexJoinW>();
 		join.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL("file:" + join.getResourceUri())));
 		return join;
-
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public Database operate(Database db) {
 
@@ -195,8 +177,9 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		 * are available during unmarshalling each child Full hydration can only
 		 * be done after unmarshalling each child
 		 */
-		RefTableDBConnPoolT refTableConnectionPool = db.getXudmlObject().getRefConnectionPools();
-	
+		RefTableDBConnPoolT refTableConnectionPool = db.getXudmlObject()
+				.getRefConnectionPools();
+
 		if (refTableConnectionPool != null) {
 			refTableConnectionPool.getRefConnectionPool()
 					.stream()//
@@ -207,12 +190,87 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 					});
 		}
 
-		
-		
-		
+		/**
+		 * Note that Schema is unmarshalled here instead of it's own
+		 * overloaded method due to weird xudml structure
+		 */
+		XudmlFolder folder;
+
+		folder = new XudmlFolder(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_SCHEMAURL);
+		List<String> idList = folder.getResources()
+				.stream()
+				.map(resource -> resource.getFilename())
+				.map(name -> name.replace(".xml", ""))
+				.collect(Collectors.toList());
+
+		for (String id : idList) {
+
+			Schema schema = new Schema(id);
+			XudmlMarshaller<SchemaW> schemaMarshaller = new XudmlMarshaller<SchemaW>();
+			schema.setXudmlObject(
+					schemaMarshaller.unmarshall(ResourceFactory.fromURL("file:" + schema.getResourceUri())));
+			String databaseRef = schema.getXudmlObject()
+					.getContainerRef();
+			if (databaseRef.contains(db.getId())) {
+				db.getSchemas()
+						.add(schema);
+			} else {
+				log.debug("Skipped  " + schema.getResourceUri());
+			}
+
+		}
+
 		return db;
 	}
 	
 	
+	@Override
+	public Schema operate(Schema schema) {
+
+		/**
+		 * Unmarshalling of schema already done along with the Database - because of weird
+		 * XUDML structure. database XUDML has no references to the Children
+		 * We unmarshall Physical Tables here, again due to the weird xudml structure
+		 */
+		
+		
+		XudmlFolder folder;
+
+		folder = new XudmlFolder(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_PHYSICALTABLEURL);
+		List<String> idList = folder.getResources()
+				.stream()
+				.map(resource -> resource.getFilename())
+				.map(name -> name.replace(".xml", ""))
+				.collect(Collectors.toList());
+
+		for (String id : idList) {
+
+			PhysicalTable table = new PhysicalTable(id);
+			XudmlMarshaller<PhysicalTableW> tableMarshaller = new XudmlMarshaller<PhysicalTableW>();
+			table.setXudmlObject(
+					tableMarshaller.unmarshall(ResourceFactory.fromURL("file:" + table.getResourceUri())));
+			String schemaRef = table.getXudmlObject()
+					.getContainerRef();
+			if (schemaRef.contains(schema.getId())) {
+				schema.getPhysicalTables()
+						.add(table);
+			} else {
+				log.debug("Skipped  " + table.getResourceUri());
+			}
+		}
+		
+		return schema;
+
+	}
+	
+	@Override
+	public PhysicalTable operate(PhysicalTable table) {
+		/**
+		 * Unmarshalling already done along with the Schema - because of weird
+		 * XUDML structure. Model XUDML has no references to the Children
+		 */
+		return table;
+
+	}
 
 }
