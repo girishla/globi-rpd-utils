@@ -4,6 +4,7 @@ package com.globi.rpd.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.globi.rpd.AppProperties;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -22,6 +23,8 @@ public class PhysicalTable extends MarshalledRpdComponent<PhysicalTableW> implem
 
 	public PhysicalTable(String id) {
 		super(id);
+		this.setResourceUri(AppProperties.INSTANCE.getBasePath()+ "/oracle/bi/server/base/PhysicalTable/" + id + ".xml");
+
 	}
 	
 	public static PhysicalTable fromResource(String resourceUri) {

@@ -33,6 +33,7 @@ import xudml.RefTableDBConnPoolT;
 import xudml.RefTablePresentationCatalogTableT;
 import xudml.RefTablePresentationHierarchyT;
 import xudml.SchemaW;
+import xudml.ConnectionPoolW;
 
 @Slf4j
 public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
@@ -136,7 +137,8 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 						.add(logicalTable);
 
 			} else {
-				log.debug("Skipped  " + logicalTable.getResourceUri());
+
+				// log.debug("Skipped " + logicalTable.getResourceUri());
 
 			}
 
@@ -191,8 +193,8 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 		}
 
 		/**
-		 * Note that Schema is unmarshalled here instead of it's own
-		 * overloaded method due to weird xudml structure
+		 * Note that Schema is unmarshalled here instead of it's own overloaded
+		 * method due to weird xudml structure
 		 */
 		XudmlFolder folder;
 
@@ -215,25 +217,31 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 				db.getSchemas()
 						.add(schema);
 			} else {
-				log.debug("Skipped  " + schema.getResourceUri());
+//				log.debug("Skipped  " + schema.getResourceUri());
 			}
 
 		}
 
 		return db;
 	}
-	
-	
+
+	@Override
+	public ConnectionPool operate(ConnectionPool cp) {
+		XudmlMarshaller<ConnectionPoolW> marshaller = new XudmlMarshaller<ConnectionPoolW>();
+		cp.setXudmlObject(marshaller.unmarshall(ResourceFactory.fromURL("file:" + cp.getResourceUri())));
+		return cp;
+	}
+
 	@Override
 	public Schema operate(Schema schema) {
 
 		/**
-		 * Unmarshalling of schema already done along with the Database - because of weird
-		 * XUDML structure. database XUDML has no references to the Children
-		 * We unmarshall Physical Tables here, again due to the weird xudml structure
+		 * Unmarshalling of schema already done along with the Database -
+		 * because of weird XUDML structure. database XUDML has no references to
+		 * the Children We unmarshall Physical Tables here, again due to the
+		 * weird xudml structure
 		 */
-		
-		
+
 		XudmlFolder folder;
 
 		folder = new XudmlFolder(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_PHYSICALTABLEURL);
@@ -247,22 +255,21 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 
 			PhysicalTable table = new PhysicalTable(id);
 			XudmlMarshaller<PhysicalTableW> tableMarshaller = new XudmlMarshaller<PhysicalTableW>();
-			table.setXudmlObject(
-					tableMarshaller.unmarshall(ResourceFactory.fromURL("file:" + table.getResourceUri())));
+			table.setXudmlObject(tableMarshaller.unmarshall(ResourceFactory.fromURL("file:" + table.getResourceUri())));
 			String schemaRef = table.getXudmlObject()
 					.getContainerRef();
 			if (schemaRef.contains(schema.getId())) {
 				schema.getPhysicalTables()
 						.add(table);
 			} else {
-				log.debug("Skipped  " + table.getResourceUri());
+//				log.debug("Skipped  " + table.getResourceUri());
 			}
 		}
-		
+
 		return schema;
 
 	}
-	
+
 	@Override
 	public PhysicalTable operate(PhysicalTable table) {
 		/**

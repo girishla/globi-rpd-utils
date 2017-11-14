@@ -5,19 +5,28 @@ import java.util.List;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalForeignKey;
+import com.globi.rpd.component.PhysicalKey;
+import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationLevel;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.Schema;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
 import xudml.LogicalColumnW;
+import xudml.PhysicalColumnW;
+import xudml.PhysicalForeignKeyW;
+import xudml.PhysicalKeyW;
 import xudml.PresentationColumnW;
 import xudml.PresentationLevelW;
 
@@ -119,6 +128,51 @@ public class HydratingOperator implements Operator<RpdComponent> {
 				.getLogicalColumn()) {
 			table.getLogicalColumns()
 					.add(new LogicalColumn(column));
+		}
+
+		return table;
+
+	}
+	
+	
+
+	@Override
+	public Database operate(Database db) {
+		if (db.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
+
+		return db;
+	}
+	
+	
+	@Override
+	public Schema operate(Schema schema) {
+		if (schema.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
+
+		return schema;
+	}
+
+	
+	@Override
+	public PhysicalTable operate(PhysicalTable table) {
+
+		if (table.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot hydrate withour a XUDML instance set");
+
+		for (PhysicalColumnW column : table.getXudmlObject().getPhysicalColumn()) {
+			table.getPhysicalColumns()
+					.add(new PhysicalColumn(column));
+		}
+		
+		for (PhysicalKeyW key : table.getXudmlObject().getPhysicalKey()) {
+			table.getPhysicalKeys()
+					.add(new PhysicalKey(key));
+		}
+		
+		for (PhysicalForeignKeyW key : table.getXudmlObject().getPhysicalForeignKey()) {
+			table.getPhysicalForeignKeys()
+					.add(new PhysicalForeignKey(key));
 		}
 
 		return table;

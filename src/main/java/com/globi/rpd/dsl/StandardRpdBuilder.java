@@ -51,8 +51,8 @@ public class StandardRpdBuilder {
 
 	public interface MutateStep {
 		MutateStep loadCatalog();
-
 		MutateStep loadModel();
+		MutateStep loadDatabase();
 
 		MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
@@ -165,6 +165,38 @@ public class StandardRpdBuilder {
 			return this;
 
 		}
+		
+		
+		public MutateStep loadDatabase() {
+			
+			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_DATABASEURL);
+
+			List<File> fileList = folder.getResources()
+					.stream()
+					.map(resource -> {
+						try {
+							return resource.getFile();
+						} catch (IOException e) {
+
+							e.printStackTrace();
+							throw new RuntimeException("Unexpected IO Exception. Aborting Operation.");
+						}
+					})
+					.collect(Collectors.toList());
+
+			for (File file : fileList) {
+				String resourceUri = "file:" + file.getAbsolutePath();
+
+				Database db = Database.fromResource(resourceUri);
+				this.hydrate(db, resourceUri);
+				this.physicalObjects.add(db);
+
+			}
+
+			folders.put(XudmlFolder.FolderType.CATALOG, folder);
+
+			return this;
+		}
 
 		private void hydrate(Operable<? extends RpdComponent> rpdComponent, String ResourceName) {
 
@@ -173,10 +205,9 @@ public class StandardRpdBuilder {
 					unmarshalOperator);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
+
 			
 			
-
-
 			HydratingOperator hydratingOperator = new HydratingOperator();
 			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);

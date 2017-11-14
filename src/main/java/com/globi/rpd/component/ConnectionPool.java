@@ -34,6 +34,8 @@ public class ConnectionPool extends MarshalledRpdComponent<ConnectionPoolW> impl
 
 	public ConnectionPool(String id) {
 		super(id);
+		this.setResourceUri(AppProperties.INSTANCE.getBasePath()+ "/oracle/bi/server/base/ConnectionPool/" + id + ".xml");
+
 	}
 	
 	public static ConnectionPool fromResource(String resourceUri) {
@@ -51,10 +53,10 @@ public class ConnectionPool extends MarshalledRpdComponent<ConnectionPoolW> impl
 		
 		newConnectionPool.refId = refId;
 		newConnectionPool.setId(refId.split("-m")[1]);
-		newConnectionPool.setResourceUri(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_PRESTABLEURL + newConnectionPool.getId() + ".xml");
-		newConnectionPool.ref =  XudmlConstants.XUDML_PRESTABLEURL  + newConnectionPool.getId()  + ".xml#m" + newConnectionPool.getId() ;
+		newConnectionPool.setResourceUri(AppProperties.INSTANCE.getBasePath() + XudmlConstants.XUDML_CONNECTIONPOOLURL + newConnectionPool.getId() + ".xml");
+		newConnectionPool.ref =  XudmlConstants.XUDML_CONNECTIONPOOLURL  + newConnectionPool.getId()  + ".xml#m" + newConnectionPool.getId() ;
 		newConnectionPool.parentRefId = refId.split("-m")[0];
-		newConnectionPool.parentRef = XudmlConstants.XUDML_CATALOGURL + newConnectionPool.parentRefId.substring(1) + ".xml#"
+		newConnectionPool.parentRef = XudmlConstants.XUDML_DATABASEURL + newConnectionPool.parentRefId.substring(1) + ".xml#"
 				+ newConnectionPool.parentRefId;
 		
 		return newConnectionPool;

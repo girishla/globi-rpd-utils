@@ -6,6 +6,9 @@ import com.globi.rpd.component.ConnectionPool;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalColumn;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalForeignKey;
+import com.globi.rpd.component.PhysicalKey;
 import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationColumn;
@@ -15,7 +18,6 @@ import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.Schema;
 import com.globi.rpd.operator.Operator;
-
 
 public class DefaultTraverser implements Traverser {
 
@@ -34,7 +36,7 @@ public class DefaultTraverser implements Traverser {
 		for (PresentationColumn presColumn : presTable.getPresentationColumns()) {
 			presColumn.apply(anOperator);
 		}
-		
+
 		for (PresentationHierarchy presHierarchy : presTable.getPresentationHierarchies()) {
 			presHierarchy.apply(anOperator);
 		}
@@ -63,7 +65,7 @@ public class DefaultTraverser implements Traverser {
 		}
 
 	}
-	
+
 	@Override
 	public void traverse(Database db, Operator<? extends RpdComponent> anOperator) {
 		for (ConnectionPool cp : db.getConnectionPools())
@@ -71,15 +73,27 @@ public class DefaultTraverser implements Traverser {
 
 		for (Schema schema : db.getSchemas())
 			schema.apply(anOperator);
+
+	}
+
+	@Override
+	public void traverse(PhysicalTable table, Operator<? extends RpdComponent> anOperator) {
+		for (PhysicalColumn col : table.getPhysicalColumns())
+			col.apply(anOperator);
+		
+		for (PhysicalKey key : table.getPhysicalKeys())
+			key.apply(anOperator);
+		
+		for (PhysicalForeignKey key : table.getPhysicalForeignKeys())
+			key.apply(anOperator);
 		
 	}
-	
+
 	@Override
 	public void traverse(Schema schema, Operator<? extends RpdComponent> anOperator) {
 		for (PhysicalTable table : schema.getPhysicalTables())
 			table.apply(anOperator);
-		
+
 	}
-	
 
 }
