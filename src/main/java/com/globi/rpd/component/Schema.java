@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -75,8 +76,8 @@ public class Schema extends MarshalledRpdComponent<SchemaW> implements Operable<
 	}
 	
 	@Override
-	public Schema applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (Schema)anOperator.operate(this);
+	public Schema applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (Schema)anOperator.operate(this,dto);
 	}
 
 

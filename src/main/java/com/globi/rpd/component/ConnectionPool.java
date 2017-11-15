@@ -4,6 +4,7 @@ package com.globi.rpd.component;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -72,8 +73,8 @@ public class ConnectionPool extends MarshalledRpdComponent<ConnectionPoolW> impl
 	
 	
 	@Override
-	public ConnectionPool applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (ConnectionPool)anOperator.operate(this);
+	public ConnectionPool applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (ConnectionPool)anOperator.operate(this,dto);
 	}
 
 	@Override

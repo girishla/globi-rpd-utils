@@ -18,13 +18,13 @@ public class BasicDslTest {
 		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
 		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
 
-		
 		RpdBuilderFactory.newBuilder()
 				.init()
 				.setRepoPath(XudmlConstants.XUDML_COPYURL)
+				.noInputs()
 				.loadCatalog()
 				.loadModel()
-				.applyRpdOperator(SubjectAreaGeneratorOperator.class)
+				.applyOperatorToRpd(SubjectAreaGeneratorOperator.class)
 				.applyOperatorToAllCatalogs(SortingOperator.class)
 				.noMoreWork()
 				.save(XudmlConstants.XUDML_COPYURL)

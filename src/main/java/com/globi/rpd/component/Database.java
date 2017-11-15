@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -38,8 +39,8 @@ public class Database extends MarshalledRpdComponent<DatabaseW> implements Opera
 	
 	
 	@Override
-	public Database applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (Database)anOperator.operate(this);
+	public Database applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (Database)anOperator.operate(this,dto);
 	}
 
 

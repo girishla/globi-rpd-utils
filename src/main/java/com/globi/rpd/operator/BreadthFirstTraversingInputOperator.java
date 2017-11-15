@@ -1,6 +1,7 @@
 
 package com.globi.rpd.operator;
 
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.ConnectionPool;
 import com.globi.rpd.component.Database;
@@ -27,8 +28,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 
 	private boolean traverseFirst = false;
 	private Operator<RpdComponent> operator;
+	private InputOperator<RpdComponent> operatorWithInput;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
+	private TableColumnMetadataDTO dto;
 
 	public BreadthFirstTraversingInputOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
 		traverser = aTraverser;
@@ -38,7 +41,7 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog) {
 		PresentationCatalog returnVal;
-		returnVal = (PresentationCatalog) presCatalog.apply(operator);
+		returnVal = (PresentationCatalog) presCatalog.applyWithInput(operatorWithInput,dto);
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
 					.getName(), presCatalog);

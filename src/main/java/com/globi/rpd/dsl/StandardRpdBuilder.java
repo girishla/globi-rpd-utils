@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.DefaultLoggerProgressMonitor;
+import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PresentationCatalog;
@@ -20,6 +21,7 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.operator.BreadthFirstTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.operator.ResolveLogicalJoinsOperator;
@@ -35,7 +37,7 @@ import com.globi.rpd.xudml.XudmlFolder;
  * @author Girish Lakshmanan
  *
  */
-//@Slf4j
+// @Slf4j
 public class StandardRpdBuilder {
 
 	public SetRepoPathStep init() {
@@ -46,17 +48,23 @@ public class StandardRpdBuilder {
 	}
 
 	public interface SetRepoPathStep {
-		MutateStep setRepoPath(String path);
+		SetInputStep setRepoPath(String path);
 	}
+	
+	public interface SetInputStep {
+		MutateStep setInput(TableColumnMetadataDTO dtoInput);
+		MutateStep noInputs();
+	}
+	
+	
 
 	public interface MutateStep {
 		MutateStep loadCatalog();
 		MutateStep loadModel();
 		MutateStep loadDatabase();
-
-		MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl);
+		MutateStep applyOperatorToRpd(Class<? extends Operator<StandardRpd>> cl);
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
-
+		MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl);
 		SaveStep noMoreWork();
 
 	}
@@ -71,7 +79,7 @@ public class StandardRpdBuilder {
 		GetStep save(String path);
 	}
 
-	public static class RpdSteps implements SetRepoPathStep, MutateStep, GetStep, SaveStep {
+	public static class RpdSteps implements SetRepoPathStep, MutateStep, GetStep, SaveStep,SetInputStep {
 
 		private StandardRpd rpd;
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
@@ -79,10 +87,11 @@ public class StandardRpdBuilder {
 		private final Set<Database> physicalObjects = new HashSet<Database>();
 		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
 		private String repoPath;
+		private TableColumnMetadataDTO dtoInput;
 
 		public MutateStep loadCatalog() {
-			
-			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_CATALOGURL);
+
+			XudmlFolder folder = new XudmlFolder(this.repoPath + XudmlConstants.XUDML_CATALOGURL);
 
 			List<File> fileList = folder.getResources()
 					.stream()
@@ -127,8 +136,8 @@ public class StandardRpdBuilder {
 		@Override
 		public MutateStep loadModel() {
 
-			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_MODELURL);
-			
+			XudmlFolder folder = new XudmlFolder(this.repoPath + XudmlConstants.XUDML_MODELURL);
+
 			List<File> fileList = folder.getResources()
 					.stream()
 					.map(resource -> {
@@ -141,14 +150,12 @@ public class StandardRpdBuilder {
 						}
 					})
 					.collect(Collectors.toList());
-			
-			
+
 			for (File file : fileList) {
 				String resourceUri = "file:" + file.getAbsolutePath();
 
 				BusinessModel model = BusinessModel.fromResource(resourceUri);
 				this.hydrate(model, resourceUri);
-
 
 				/*
 				 * Resolve all logical Joins into the model.
@@ -165,11 +172,10 @@ public class StandardRpdBuilder {
 			return this;
 
 		}
-		
-		
+
 		public MutateStep loadDatabase() {
-			
-			XudmlFolder folder=new XudmlFolder(this.repoPath + XudmlConstants.XUDML_DATABASEURL);
+
+			XudmlFolder folder = new XudmlFolder(this.repoPath + XudmlConstants.XUDML_DATABASEURL);
 
 			List<File> fileList = folder.getResources()
 					.stream()
@@ -206,8 +212,6 @@ public class StandardRpdBuilder {
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
 
-			
-			
 			HydratingOperator hydratingOperator = new HydratingOperator();
 			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);
@@ -220,7 +224,7 @@ public class StandardRpdBuilder {
 		 * Applies an operator to the whole Rpd Tree
 		 */
 		@Override
-		public MutateStep applyRpdOperator(Class<? extends Operator<StandardRpd>> cl) {
+		public MutateStep applyOperatorToRpd(Class<? extends Operator<StandardRpd>> cl) {
 
 			// Instantiate the strategy
 			Operator<StandardRpd> strategy = null;
@@ -242,7 +246,6 @@ public class StandardRpdBuilder {
 
 		}
 
-		
 		@Override
 		public GetStep save(String basePath) {
 
@@ -258,9 +261,9 @@ public class StandardRpdBuilder {
 
 			}
 
-			
-			//TODO Move this looping logic to it's own UriChangeOperator
-			//Only need this when basepath is diff to the current Uri - like a "Save As"
+			// TODO Move this looping logic to it's own UriChangeOperator
+			// Only need this when basepath is diff to the current Uri - like a
+			// "Save As"
 			for (PresentationCatalog catalog : this.catalogObjects) {
 
 				catalog.setResourceUri(basePath + XudmlConstants.XUDML_CATALOGURL + catalog.getId() + ".xml");
@@ -268,12 +271,12 @@ public class StandardRpdBuilder {
 				for (PresentationTable table : catalog.getPresentationTables()) {
 					table.setResourceUri(basePath + XudmlConstants.XUDML_PRESTABLEURL + table.getId() + ".xml");
 
-					
 					for (PresentationHierarchy hierarchy : table.getPresentationHierarchies()) {
-						table.setResourceUri(basePath + XudmlConstants.XUDML_PRESHIERARCHY + hierarchy.getId() + ".xml");
+						table.setResourceUri(
+								basePath + XudmlConstants.XUDML_PRESHIERARCHY + hierarchy.getId() + ".xml");
 
 					}
-					
+
 				}
 				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
 				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
@@ -281,10 +284,7 @@ public class StandardRpdBuilder {
 				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 				catalog.apply(tv);
 
-
 			}
-
-
 
 			return this;
 		}
@@ -295,14 +295,15 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
-		public MutateStep setRepoPath(String path) {
-			
-			File repoModelDirectory=new File(path + XudmlConstants.XUDML_MODELURL);
-			
+		public SetInputStep setRepoPath(String path) {
+
+			File repoModelDirectory = new File(path + XudmlConstants.XUDML_MODELURL);
+
 			if (!(repoModelDirectory.exists())) {
-				throw new IllegalArgumentException("Supplied Path does not appear to be a valid RPD XML Folder@ " + path);
+				throw new IllegalArgumentException(
+						"Supplied Path does not appear to be a valid RPD XML Folder@ " + path);
 			}
-			
+
 			this.repoPath = path;
 			AppProperties.INSTANCE.setBasePath(path);
 			return this;
@@ -322,10 +323,8 @@ public class StandardRpdBuilder {
 				System.err.println("Class not instantiable: " + cl);
 				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
-		
-			
-			
-			for(PresentationCatalog catalog:this.catalogObjects){
+
+			for (PresentationCatalog catalog : this.catalogObjects) {
 				strategy.operate(catalog);
 				DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
 				logger.operated(cl.getName(), catalog);
@@ -334,6 +333,46 @@ public class StandardRpdBuilder {
 			return this;
 
 		}
+
+		@Override
+		public MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl) {
+
+			if(this.dtoInput==null)
+				throw new IllegalStateException("DTO Input not set");
+			
+			// Instantiate the strategy
+			InputOperator<StandardRpd> strategy = null;
+			try {
+				strategy = cl.newInstance();
+			} catch (IllegalAccessException e) {
+				System.err.println("Class not accessible: " + cl);
+				throw new IllegalArgumentException(" Operator Class not accessible");
+			} catch (InstantiationException e) {
+				System.err.println("Class not instantiable: " + cl);
+				throw new IllegalArgumentException("Operator Class not instantiable");
+			}
+			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
+			strategy.operate(rpdOperable,this.dtoInput);
+			DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
+			logger.operated(cl.getName(), rpdOperable);
+
+			return this;
+		}
+
+		@Override
+		public MutateStep setInput(TableColumnMetadataDTO dtoInput) {
+
+			this.dtoInput=dtoInput;
+			
+			return this;
+		}
+
+		@Override
+		public MutateStep noInputs() {
+			return this;
+		}
+
+
 
 	}
 

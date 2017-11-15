@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 import com.globi.rpd.xudml.XudmlConstants;
@@ -39,10 +40,9 @@ public class PresentationCatalog extends MarshalledRpdComponent<PresentationCata
 	}
 	
 	
-	
 	@Override
-	public PresentationCatalog applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (PresentationCatalog)anOperator.operate(this);
+	public PresentationCatalog applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (PresentationCatalog)anOperator.operate(this,dto);
 	}
 
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -40,8 +41,8 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 	
 	
 	@Override
-	public BusinessModel applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (BusinessModel)anOperator.operate(this);
+	public BusinessModel applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (BusinessModel)anOperator.operate(this,dto);
 	}
 	
 

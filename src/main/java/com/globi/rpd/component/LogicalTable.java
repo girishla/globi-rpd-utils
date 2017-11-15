@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -43,8 +44,8 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	
 	
 	@Override
-	public LogicalTable applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (LogicalTable)anOperator.operate(this);
+	public LogicalTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (LogicalTable)anOperator.operate(this,dto);
 	}
 
 	

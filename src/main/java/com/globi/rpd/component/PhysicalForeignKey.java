@@ -2,6 +2,7 @@
 package com.globi.rpd.component;
 
 import com.globi.rpd.TableColumnMetadataDTO;
+import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
@@ -29,8 +30,8 @@ public class PhysicalForeignKey implements Operable<RpdComponent>, RpdComponent 
 	
 	
 	@Override
-	public PhysicalForeignKey applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
-		return (PhysicalForeignKey)anOperator.operate(this);
+	public PhysicalForeignKey applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+		return (PhysicalForeignKey)anOperator.operate(this,dto);
 	}
 
 

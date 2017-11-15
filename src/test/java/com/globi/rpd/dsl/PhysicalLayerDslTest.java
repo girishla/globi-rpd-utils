@@ -19,6 +19,7 @@ public class PhysicalLayerDslTest {
 		RpdBuilderFactory.newBuilder()
 				.init()
 				.setRepoPath(XudmlConstants.XUDML_COPYURL)
+				.noInputs()
 				.loadDatabase()
 				.noMoreWork()
 				.nothingToSave()

@@ -14,9 +14,10 @@ public interface Operable<R extends RpdComponent> {
 
     R apply(Operator<? extends RpdComponent> anOperator);
     
-    default public R applyWithInput(Operator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto){
+    default public R applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto){
     	
     	return null;
     }
+
 
 }
