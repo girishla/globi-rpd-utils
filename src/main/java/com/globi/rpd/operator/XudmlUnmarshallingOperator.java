@@ -261,6 +261,9 @@ public class XudmlUnmarshallingOperator implements Operator<RpdComponent> {
 			if (schemaRef.contains(schema.getId())) {
 				schema.getPhysicalTables()
 						.add(table);
+				
+				log.debug("Adding Table for Schema:" + schema.getName() + ":" + table.getName() );
+				
 			} else {
 //				log.debug("Skipped  " + table.getResourceUri());
 			}

@@ -28,7 +28,8 @@ public class AddLogicalColumnTest {
 //				.loadCatalog()
 				.applyInputOperatorToRpd(AddColumnOperator.class)
 				.noMoreWork()
-				.nothingToSave()
+//				.nothingToSave()
+				.save(XudmlConstants.XUDML_COPYURL)
 				.get(); 
 
 	}

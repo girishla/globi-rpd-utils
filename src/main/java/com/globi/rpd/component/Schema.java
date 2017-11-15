@@ -36,7 +36,7 @@ public class Schema extends MarshalledRpdComponent<SchemaW> implements Operable<
 	private String parentRefId;
 	private String parentRef;
 	
-	private final List<PhysicalTable> physicalTables = new ArrayList<PhysicalTable>();
+	private final List<PhysicalTable> physicalTables = new ArrayList<>();
 	
 
 	public Schema(String id) {

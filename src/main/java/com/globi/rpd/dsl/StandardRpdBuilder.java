@@ -29,6 +29,7 @@ import com.globi.rpd.operator.ResolveLogicalJoinsOperator;
 import com.globi.rpd.operator.XudmlMarshallingOperator;
 import com.globi.rpd.operator.XudmlUnmarshallingOperator;
 import com.globi.rpd.traverser.DefaultTraverser;
+import com.globi.rpd.traverser.TraverserWithInput;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
@@ -291,6 +292,19 @@ public class StandardRpdBuilder {
 				catalog.apply(tv);
 
 			}
+			
+			
+			for (Database db : this.physicalObjects) {
+
+				db.setResourceUri(basePath + XudmlConstants.XUDML_DATABASEURL + db.getId() + ".xml");
+
+				XudmlMarshallingOperator marshallingOperator = new XudmlMarshallingOperator();
+				BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
+						marshallingOperator);
+				tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+				db.apply(tv);
+
+			}
 
 			return this;
 		}
@@ -362,25 +376,13 @@ public class StandardRpdBuilder {
 			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
 			
 			
-			BreadthFirstTraversingInputOperator tv = new BreadthFirstTraversingInputOperator(new DefaultTraverser(),
+			
+			BreadthFirstTraversingInputOperator tv = new BreadthFirstTraversingInputOperator(new TraverserWithInput(),
 					strategy, this.dtoInput);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			
 			rpdOperable.applyWithInput(tv, this.dtoInput);
 			
-
-			
-/*			for(Database db:physicalObjects){
-				db.applyWithInput(strategy, this.dtoInput);
-			}
-
-			for(BusinessModel model:modelObjects){
-				model.applyWithInput(strategy, this.dtoInput);
-			}
-			
-			for(Database db:physicalObjects){
-				db.applyWithInput(strategy, this.dtoInput);
-			}*/
 
 			return this;
 		}

@@ -19,7 +19,7 @@ import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.Schema;
 import com.globi.rpd.component.StandardRpd;
-import com.globi.rpd.traverser.Traverser;
+import com.globi.rpd.traverser.InputTraverser;
 import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
 import lombok.Getter;
@@ -31,11 +31,11 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 
 	private boolean traverseFirst = false;
 	private InputOperator<? extends RpdComponent> operator;
-	private Traverser traverser;
+	private InputTraverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
 	private List<TableColumnMetadataDTO> dto;
 
-	public BreadthFirstTraversingInputOperator(Traverser aTraverser, InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> aDto) {
+	public BreadthFirstTraversingInputOperator(InputTraverser aTraverser, InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> aDto) {
 		traverser = aTraverser;
 		operator = anOperator;
 		dto=aDto;
@@ -51,7 +51,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), rpd);
 		}
-		traverser.traverse((StandardRpd) returnVal, this);
+		traverser.traverse((StandardRpd) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), rpd);
@@ -68,7 +68,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), presCatalog);
 		}
-		traverser.traverse((PresentationCatalog) returnVal, this);
+		traverser.traverse((PresentationCatalog) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), presCatalog);
@@ -86,7 +86,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), presTable);
 		}
-		traverser.traverse((PresentationTable) returnVal, this);
+		traverser.traverse((PresentationTable) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), presTable);
@@ -103,7 +103,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			// progressMonitor.operated(operator.getClass().getName(),
 			// presColumn);
 		}
-		traverser.traverse((PresentationColumn) returnVal, this);
+		traverser.traverse((PresentationColumn) returnVal, this,dto);
 		if (progressMonitor != null) {
 			// progressMonitor.traversed(traverser.getClass().getName(),
 			// presColumn);
@@ -121,7 +121,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), model);
 		}
-		traverser.traverse((BusinessModel) returnVal, this);
+		traverser.traverse((BusinessModel) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), model);
@@ -139,7 +139,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), table);
 		}
-		traverser.traverse((LogicalTable) returnVal, this);
+		traverser.traverse((LogicalTable) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), table);
@@ -157,7 +157,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), presHierarchy);
 		}
-		traverser.traverse((PresentationHierarchy) returnVal, this);
+		traverser.traverse((PresentationHierarchy) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), presHierarchy);
@@ -176,7 +176,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), db);
 		}
-		traverser.traverse((Database) returnVal, this);
+		traverser.traverse((Database) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), db);
@@ -195,7 +195,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), cp);
 		}
-		traverser.traverse((ConnectionPool) returnVal, this);
+		traverser.traverse((ConnectionPool) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), cp);
@@ -213,7 +213,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), schema);
 		}
-		traverser.traverse((Schema) returnVal, this);
+		traverser.traverse((Schema) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), schema);
@@ -231,7 +231,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), table);
 		}
-		traverser.traverse((PhysicalTable) returnVal, this);
+		traverser.traverse((PhysicalTable) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), table);
@@ -249,7 +249,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), col);
 		}
-		traverser.traverse((PhysicalColumn) returnVal, this);
+		traverser.traverse((PhysicalColumn) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), col);
@@ -267,7 +267,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), key);
 		}
-		traverser.traverse((PhysicalKey) returnVal, this);
+		traverser.traverse((PhysicalKey) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), key);
@@ -286,7 +286,7 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 			progressMonitor.operated(operator.getClass()
 					.getName(), key);
 		}
-		traverser.traverse((PhysicalForeignKey) returnVal, this);
+		traverser.traverse((PhysicalForeignKey) returnVal, this,dto);
 		if (progressMonitor != null) {
 			progressMonitor.traversed(traverser.getClass()
 					.getName(), key);
