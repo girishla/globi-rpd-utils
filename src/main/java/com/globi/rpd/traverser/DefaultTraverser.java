@@ -17,9 +17,24 @@ import com.globi.rpd.component.PresentationLevel;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.Schema;
+import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.operator.Operator;
 
 public class DefaultTraverser implements Traverser {
+
+	@Override
+	public void traverse(StandardRpd rpd, Operator<? extends RpdComponent> anOperator) {
+
+		for (Database db : rpd.getPhysicalObjects()) 
+			db.apply(anOperator);
+		
+		for (BusinessModel model : rpd.getModelObjects()) 
+			model.apply(anOperator);
+
+		for (PresentationCatalog catalog : rpd.getCatalogObjects()) 
+			catalog.apply(anOperator);
+		
+	}
 
 	@Override
 	public void traverse(PresentationCatalog presCatalog, Operator<? extends RpdComponent> anOperator) {
@@ -80,13 +95,13 @@ public class DefaultTraverser implements Traverser {
 	public void traverse(PhysicalTable table, Operator<? extends RpdComponent> anOperator) {
 		for (PhysicalColumn col : table.getPhysicalColumns())
 			col.apply(anOperator);
-		
+
 		for (PhysicalKey key : table.getPhysicalKeys())
 			key.apply(anOperator);
-		
+
 		for (PhysicalForeignKey key : table.getPhysicalForeignKeys())
 			key.apply(anOperator);
-		
+
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class PresentationHierarchy extends MarshalledRpdComponent<PresentationHi
 	}
 	
 	@Override
-	public PresentationHierarchy applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public PresentationHierarchy applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (PresentationHierarchy)anOperator.operate(this,dto);
 	}
 

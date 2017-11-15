@@ -1,5 +1,6 @@
 package com.globi.rpd.component;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,8 +41,9 @@ public class StandardRpd implements Rpd,RpdComponent,Operable<RpdComponent> {
 
 	}
 	
+	
 	@Override
-	public RpdComponent applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public RpdComponent applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (RpdComponent)anOperator.operate(this,dto);
 	}
 	

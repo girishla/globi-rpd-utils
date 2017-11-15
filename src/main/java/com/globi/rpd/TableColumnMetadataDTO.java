@@ -1,18 +1,21 @@
 package com.globi.rpd;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class TableColumnMetadataDTO {
 	
 	private String tableName;
 	private String tableType;
 	private int columnOrder;
 	private String colName;
+	private String colLogicalName;
 	private String colType;
 	private String colDataType;
-	private String colPrecision;
-	private String colScale;
+	private int colPrecision;
+	private int colScale;
 	private String colNullFlag;
 	private String colSubType;
 	private String dimTablename;

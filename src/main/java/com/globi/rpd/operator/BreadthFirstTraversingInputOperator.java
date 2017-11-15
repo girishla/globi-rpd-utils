@@ -1,6 +1,8 @@
 
 package com.globi.rpd.operator;
 
+import java.util.List;
+
 import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.ConnectionPool;
@@ -24,24 +26,24 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BreadthFirstTraversingInputOperator implements Operator<RpdComponent> {
+public class BreadthFirstTraversingInputOperator implements InputOperator<RpdComponent> {
 
 	private boolean traverseFirst = false;
-	private Operator<RpdComponent> operator;
-	private InputOperator<RpdComponent> operatorWithInput;
+	private InputOperator<? extends RpdComponent> operator;
 	private Traverser traverser;
 	private TraversingOperatorProgressMonitor progressMonitor;
-	private TableColumnMetadataDTO dto;
+	private List<TableColumnMetadataDTO> dto;
 
-	public BreadthFirstTraversingInputOperator(Traverser aTraverser, Operator<RpdComponent> anOperator) {
+	public BreadthFirstTraversingInputOperator(Traverser aTraverser, InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> aDto) {
 		traverser = aTraverser;
 		operator = anOperator;
+		dto=aDto;
 	}
 
 	@Override
-	public PresentationCatalog operate(PresentationCatalog presCatalog) {
+	public PresentationCatalog operate(PresentationCatalog presCatalog,List<TableColumnMetadataDTO> dto) {
 		PresentationCatalog returnVal;
-		returnVal = (PresentationCatalog) presCatalog.applyWithInput(operatorWithInput,dto);
+		returnVal = (PresentationCatalog) presCatalog.applyWithInput(operator,dto);
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
 					.getName(), presCatalog);
@@ -55,10 +57,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PresentationTable operate(PresentationTable presTable) {
+	public PresentationTable operate(PresentationTable presTable,List<TableColumnMetadataDTO> dto) {
 
 		PresentationTable returnVal;
-		returnVal = (PresentationTable) presTable.apply(operator);
+		returnVal = (PresentationTable) presTable.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -73,10 +75,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PresentationColumn operate(PresentationColumn presColumn) {
+	public PresentationColumn operate(PresentationColumn presColumn,List<TableColumnMetadataDTO> dto) {
 
 		PresentationColumn returnVal;
-		returnVal = presColumn.apply(operator);
+		returnVal = presColumn.applyWithInput(operator,dto);
 		if (progressMonitor != null) {
 			// progressMonitor.operated(operator.getClass().getName(),
 			// presColumn);
@@ -90,10 +92,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public BusinessModel operate(BusinessModel model) {
+	public BusinessModel operate(BusinessModel model,List<TableColumnMetadataDTO> dto) {
 
 		BusinessModel returnVal;
-		returnVal = (BusinessModel) model.apply(operator);
+		returnVal = (BusinessModel) model.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -108,10 +110,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public LogicalTable operate(LogicalTable table) {
+	public LogicalTable operate(LogicalTable table,List<TableColumnMetadataDTO> dto) {
 
 		LogicalTable returnVal;
-		returnVal = (LogicalTable) table.apply(operator);
+		returnVal = (LogicalTable) table.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -126,10 +128,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PresentationHierarchy operate(PresentationHierarchy presHierarchy) {
+	public PresentationHierarchy operate(PresentationHierarchy presHierarchy,List<TableColumnMetadataDTO> dto) {
 
 		PresentationHierarchy returnVal;
-		returnVal = (PresentationHierarchy) presHierarchy.apply(operator);
+		returnVal = (PresentationHierarchy) presHierarchy.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -145,10 +147,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	
 	
 	@Override
-	public Database operate(Database db) {
+	public Database operate(Database db,List<TableColumnMetadataDTO> dto) {
 
 		Database returnVal;
-		returnVal = (Database) db.apply(operator);
+		returnVal = (Database) db.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -164,10 +166,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	
 	
 	@Override
-	public ConnectionPool operate(ConnectionPool cp) {
+	public ConnectionPool operate(ConnectionPool cp,List<TableColumnMetadataDTO> dto) {
 
 		ConnectionPool returnVal;
-		returnVal = (ConnectionPool) cp.apply(operator);
+		returnVal = (ConnectionPool) cp.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -182,10 +184,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 	
 	@Override
-	public Schema operate(Schema schema) {
+	public Schema operate(Schema schema,List<TableColumnMetadataDTO> dto) {
 
 		Schema returnVal;
-		returnVal = (Schema) schema.apply(operator);
+		returnVal = (Schema) schema.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -200,10 +202,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PhysicalTable operate(PhysicalTable table) {
+	public PhysicalTable operate(PhysicalTable table,List<TableColumnMetadataDTO> dto) {
 
 		PhysicalTable returnVal;
-		returnVal = (PhysicalTable) table.apply(operator);
+		returnVal = (PhysicalTable) table.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -218,10 +220,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PhysicalColumn operate(PhysicalColumn col) {
+	public PhysicalColumn operate(PhysicalColumn col,List<TableColumnMetadataDTO> dto) {
 
 		PhysicalColumn returnVal;
-		returnVal = (PhysicalColumn) col.apply(operator);
+		returnVal = (PhysicalColumn) col.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -236,10 +238,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 	}
 
 	@Override
-	public PhysicalKey operate(PhysicalKey key) {
+	public PhysicalKey operate(PhysicalKey key,List<TableColumnMetadataDTO> dto) {
 
 		PhysicalKey returnVal;
-		returnVal = (PhysicalKey) key.apply(operator);
+		returnVal = (PhysicalKey) key.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()
@@ -255,10 +257,10 @@ public class BreadthFirstTraversingInputOperator implements Operator<RpdComponen
 
 
 	@Override
-	public PhysicalForeignKey operate(PhysicalForeignKey key) {
+	public PhysicalForeignKey operate(PhysicalForeignKey key,List<TableColumnMetadataDTO> dto) {
 
 		PhysicalForeignKey returnVal;
-		returnVal = (PhysicalForeignKey) key.apply(operator);
+		returnVal = (PhysicalForeignKey) key.applyWithInput(operator,dto);
 
 		if (progressMonitor != null) {
 			progressMonitor.operated(operator.getClass()

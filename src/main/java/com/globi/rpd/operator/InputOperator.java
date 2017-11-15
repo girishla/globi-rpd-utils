@@ -1,6 +1,8 @@
 
 package com.globi.rpd.operator;
 
+import java.util.List;
+
 import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.ConnectionPool;
@@ -23,7 +25,7 @@ import com.globi.rpd.component.StandardRpd;
 
 public interface InputOperator<R extends RpdComponent> {
 
-	default public R operate(PresentationCatalog prescatalog, TableColumnMetadataDTO dto) {
+	default public R operate(PresentationCatalog prescatalog, List<TableColumnMetadataDTO> dto) {
 //
 //		System.out.println(
 //				"PresentationCatalog Operator" + "**************Warning: Default Method invocation*******************");
@@ -31,35 +33,35 @@ public interface InputOperator<R extends RpdComponent> {
 		return returnVal;
 	}
 
-	default public R operate(PresentationTable presTable, TableColumnMetadataDTO dto) {
+	default public R operate(PresentationTable presTable, List<TableColumnMetadataDTO> dto) {
 //		System.out.println(
 //				"PresentationTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
-	default public R operate(PresentationColumn presColumn, TableColumnMetadataDTO dto) {
+	default public R operate(PresentationColumn presColumn, List<TableColumnMetadataDTO> dto) {
 //		System.out.println(
 //				"PresentationColumn Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
-	default public R operate(BusinessModel model, TableColumnMetadataDTO dto) {
+	default public R operate(BusinessModel model, List<TableColumnMetadataDTO> dto) {
 //		System.out.println(
 //				"BusinessModel Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
-	default public R operate(LogicalTable table, TableColumnMetadataDTO dto) {
+	default public R operate(LogicalTable table, List<TableColumnMetadataDTO> dto) {
 //		System.out.println(
 //				"LogicalTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
-	default public R operate(LogicalColumn column, TableColumnMetadataDTO dto) {
+	default public R operate(LogicalColumn column, List<TableColumnMetadataDTO> dto) {
 //		System.out.println("LogicalColumn " + column.getName()
 //				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
@@ -68,7 +70,7 @@ public interface InputOperator<R extends RpdComponent> {
 
 	
 	
-	default public R operate(LogicalComplexJoin column, TableColumnMetadataDTO dto) {
+	default public R operate(LogicalComplexJoin column, List<TableColumnMetadataDTO> dto) {
 //		System.out.println("LogicalColumn " + column.getName()
 //				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
@@ -76,23 +78,14 @@ public interface InputOperator<R extends RpdComponent> {
 	}
 
 	
-	default public R operate(StandardRpd rpd, TableColumnMetadataDTO dto) {
+	default public R operate(StandardRpd rpd, List<TableColumnMetadataDTO> dto) {
 //		System.out.println("StandardRpd " + rpd.getName()
 //				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
-	default public R operate(PresentationHierarchy presHierarchy, TableColumnMetadataDTO dto) {
-//		System.out.println("StandardRpd " + rpd.getName()
-//				+ "**************Warning: Default Method invocation*******************");
-		R returnVal = null;
-		return returnVal;
-	}
-
-	
-	
-	default public R operate(PresentationLevel presLevel, TableColumnMetadataDTO dto) {
+	default public R operate(PresentationHierarchy presHierarchy, List<TableColumnMetadataDTO> dto) {
 //		System.out.println("StandardRpd " + rpd.getName()
 //				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
@@ -100,7 +93,16 @@ public interface InputOperator<R extends RpdComponent> {
 	}
 
 	
-	default public R operate(Database database, TableColumnMetadataDTO dto) {
+	
+	default public R operate(PresentationLevel presLevel, List<TableColumnMetadataDTO> dto) {
+//		System.out.println("StandardRpd " + rpd.getName()
+//				+ "**************Warning: Default Method invocation*******************");
+		R returnVal = null;
+		return returnVal;
+	}
+
+	
+	default public R operate(Database database, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"Database Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
@@ -108,14 +110,14 @@ public interface InputOperator<R extends RpdComponent> {
 	}
 
 	
-	default public R operate(ConnectionPool schema, TableColumnMetadataDTO dto) {
+	default public R operate(ConnectionPool schema, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"ConnectionPool Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 	
-	default public R operate(Schema schema, TableColumnMetadataDTO dto) {
+	default public R operate(Schema schema, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"Schema Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
@@ -123,28 +125,28 @@ public interface InputOperator<R extends RpdComponent> {
 	}
 	
 	
-	default public R operate(PhysicalTable physicalTable, TableColumnMetadataDTO dto) {
+	default public R operate(PhysicalTable physicalTable, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"PhysicalTable TableColumnDTO Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 	
-	default public R operate(PhysicalColumn physicalColumn, TableColumnMetadataDTO dto) {
+	default public R operate(PhysicalColumn physicalColumn, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"PhysicalColumn Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 	
-	default public R operate(PhysicalKey physicalColumn, TableColumnMetadataDTO dto) {
+	default public R operate(PhysicalKey physicalColumn, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"PhysicalKey Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 	
-	default public R operate(PhysicalForeignKey physicalColumn, TableColumnMetadataDTO dto) {
+	default public R operate(PhysicalForeignKey physicalColumn, List<TableColumnMetadataDTO> dto) {
 		System.out.println(
 				"PhysicalForeignKey Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;

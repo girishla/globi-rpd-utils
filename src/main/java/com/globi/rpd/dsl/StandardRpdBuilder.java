@@ -19,6 +19,7 @@ import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.StandardRpd;
+import com.globi.rpd.operator.BreadthFirstTraversingInputOperator;
 import com.globi.rpd.operator.BreadthFirstTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.InputOperator;
@@ -50,21 +51,26 @@ public class StandardRpdBuilder {
 	public interface SetRepoPathStep {
 		SetInputStep setRepoPath(String path);
 	}
-	
+
 	public interface SetInputStep {
-		MutateStep setInput(TableColumnMetadataDTO dtoInput);
+		MutateStep setInput(List<TableColumnMetadataDTO> dtoList);
+
 		MutateStep noInputs();
 	}
-	
-	
 
 	public interface MutateStep {
 		MutateStep loadCatalog();
+
 		MutateStep loadModel();
+
 		MutateStep loadDatabase();
+
 		MutateStep applyOperatorToRpd(Class<? extends Operator<StandardRpd>> cl);
+
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
+
 		MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl);
+
 		SaveStep noMoreWork();
 
 	}
@@ -79,7 +85,7 @@ public class StandardRpdBuilder {
 		GetStep save(String path);
 	}
 
-	public static class RpdSteps implements SetRepoPathStep, MutateStep, GetStep, SaveStep,SetInputStep {
+	public static class RpdSteps implements SetRepoPathStep, MutateStep, GetStep, SaveStep, SetInputStep {
 
 		private StandardRpd rpd;
 		private final Set<PresentationCatalog> catalogObjects = new HashSet<PresentationCatalog>();
@@ -87,7 +93,7 @@ public class StandardRpdBuilder {
 		private final Set<Database> physicalObjects = new HashSet<Database>();
 		private final Map<XudmlFolder.FolderType, XudmlFolder> folders = new HashMap<>();
 		private String repoPath;
-		private TableColumnMetadataDTO dtoInput;
+		private List<TableColumnMetadataDTO> dtoInput;
 
 		public MutateStep loadCatalog() {
 
@@ -337,9 +343,9 @@ public class StandardRpdBuilder {
 		@Override
 		public MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl) {
 
-			if(this.dtoInput==null)
+			if (this.dtoInput == null)
 				throw new IllegalStateException("DTO Input not set");
-			
+
 			// Instantiate the strategy
 			InputOperator<StandardRpd> strategy = null;
 			try {
@@ -351,19 +357,35 @@ public class StandardRpdBuilder {
 				System.err.println("Class not instantiable: " + cl);
 				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
+
 			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
-			strategy.operate(rpdOperable,this.dtoInput);
-			DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
-			logger.operated(cl.getName(), rpdOperable);
+			BreadthFirstTraversingInputOperator tv = new BreadthFirstTraversingInputOperator(new DefaultTraverser(),
+					strategy, this.dtoInput);
+			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			rpdOperable.applyWithInput(strategy, this.dtoInput);
+			
+
+			
+/*			for(Database db:physicalObjects){
+				db.applyWithInput(strategy, this.dtoInput);
+			}
+
+			for(BusinessModel model:modelObjects){
+				model.applyWithInput(strategy, this.dtoInput);
+			}
+			
+			for(Database db:physicalObjects){
+				db.applyWithInput(strategy, this.dtoInput);
+			}*/
 
 			return this;
 		}
 
 		@Override
-		public MutateStep setInput(TableColumnMetadataDTO dtoInput) {
+		public MutateStep setInput(List<TableColumnMetadataDTO> dtoInput) {
 
-			this.dtoInput=dtoInput;
-			
+			this.dtoInput = dtoInput;
+
 			return this;
 		}
 
@@ -371,8 +393,6 @@ public class StandardRpdBuilder {
 		public MutateStep noInputs() {
 			return this;
 		}
-
-
 
 	}
 

@@ -39,7 +39,7 @@ public class Database extends MarshalledRpdComponent<DatabaseW> implements Opera
 	
 	
 	@Override
-	public Database applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public Database applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (Database)anOperator.operate(this,dto);
 	}
 

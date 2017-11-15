@@ -44,7 +44,7 @@ public class LogicalTable extends MarshalledRpdComponent<LogicalTableW> implemen
 	
 	
 	@Override
-	public LogicalTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public LogicalTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (LogicalTable)anOperator.operate(this,dto);
 	}
 

@@ -61,7 +61,7 @@ public class PresentationTable extends MarshalledRpdComponent<PresentationTableW
 	}
 	
 	@Override
-	public PresentationTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public PresentationTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (PresentationTable)anOperator.operate(this,dto);
 	}
 

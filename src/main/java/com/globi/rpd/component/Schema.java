@@ -76,7 +76,7 @@ public class Schema extends MarshalledRpdComponent<SchemaW> implements Operable<
 	}
 	
 	@Override
-	public Schema applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public Schema applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (Schema)anOperator.operate(this,dto);
 	}
 

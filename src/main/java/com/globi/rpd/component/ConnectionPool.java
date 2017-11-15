@@ -2,6 +2,8 @@
 
 package com.globi.rpd.component;
 
+import java.util.List;
+
 import com.globi.rpd.AppProperties;
 import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.InputOperator;
@@ -73,7 +75,7 @@ public class ConnectionPool extends MarshalledRpdComponent<ConnectionPoolW> impl
 	
 	
 	@Override
-	public ConnectionPool applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public ConnectionPool applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (ConnectionPool)anOperator.operate(this,dto);
 	}
 

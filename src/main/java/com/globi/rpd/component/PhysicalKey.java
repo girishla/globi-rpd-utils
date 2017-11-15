@@ -1,6 +1,8 @@
 
 package com.globi.rpd.component;
 
+import java.util.List;
+
 import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
@@ -29,7 +31,7 @@ public class PhysicalKey implements Operable<RpdComponent>, RpdComponent {
 	}
 
 	@Override
-	public PhysicalKey applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public PhysicalKey applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (PhysicalKey)anOperator.operate(this,dto);
 	}
 

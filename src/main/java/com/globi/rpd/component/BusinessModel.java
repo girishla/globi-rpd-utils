@@ -40,8 +40,9 @@ public class BusinessModel extends MarshalledRpdComponent<BusinessModelW> implem
 	}
 	
 	
+	
 	@Override
-	public BusinessModel applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public BusinessModel applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (BusinessModel)anOperator.operate(this,dto);
 	}
 	

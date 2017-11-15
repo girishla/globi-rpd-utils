@@ -43,7 +43,7 @@ public class PhysicalTable extends MarshalledRpdComponent<PhysicalTableW> implem
 	}
 	
 	@Override
-	public PhysicalTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,TableColumnMetadataDTO dto) {
+	public PhysicalTable applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
 		return (PhysicalTable)anOperator.operate(this,dto);
 	}
 
