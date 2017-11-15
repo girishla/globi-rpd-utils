@@ -69,7 +69,7 @@ public class StandardRpdBuilder {
 
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
 
-		MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl);
+		MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<RpdComponent>> cl);
 
 		SaveStep noMoreWork();
 
@@ -215,13 +215,13 @@ public class StandardRpdBuilder {
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					unmarshalOperator);
-			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+//			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
 			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);
-			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
+//			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv2);
 
 		}
@@ -341,13 +341,13 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
-		public MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<StandardRpd>> cl) {
+		public MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<RpdComponent>> cl) {
 
 			if (this.dtoInput == null)
 				throw new IllegalStateException("DTO Input not set");
 
 			// Instantiate the strategy
-			InputOperator<StandardRpd> strategy = null;
+			InputOperator<RpdComponent> strategy = null;
 			try {
 				strategy = cl.newInstance();
 			} catch (IllegalAccessException e) {
@@ -358,11 +358,15 @@ public class StandardRpdBuilder {
 				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
 
+			
 			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
+			
+			
 			BreadthFirstTraversingInputOperator tv = new BreadthFirstTraversingInputOperator(new DefaultTraverser(),
 					strategy, this.dtoInput);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			rpdOperable.applyWithInput(strategy, this.dtoInput);
+			
+			rpdOperable.applyWithInput(tv, this.dtoInput);
 			
 
 			

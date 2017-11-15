@@ -26,44 +26,44 @@ import com.globi.rpd.component.StandardRpd;
 public interface InputOperator<R extends RpdComponent> {
 
 	default public R operate(PresentationCatalog prescatalog, List<TableColumnMetadataDTO> dto) {
-//
-//		System.out.println(
-//				"PresentationCatalog Operator" + "**************Warning: Default Method invocation*******************");
+
+		System.out.println(
+				"PresentationCatalog Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(PresentationTable presTable, List<TableColumnMetadataDTO> dto) {
-//		System.out.println(
-//				"PresentationTable Operator" + "**************Warning: Default Method invocation*******************");
+		System.out.println(
+				"PresentationTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(PresentationColumn presColumn, List<TableColumnMetadataDTO> dto) {
-//		System.out.println(
-//				"PresentationColumn Operator" + "**************Warning: Default Method invocation*******************");
+		System.out.println(
+				"PresentationColumn Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(BusinessModel model, List<TableColumnMetadataDTO> dto) {
-//		System.out.println(
-//				"BusinessModel Operator" + "**************Warning: Default Method invocation*******************");
+		System.out.println(
+				"BusinessModel Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(LogicalTable table, List<TableColumnMetadataDTO> dto) {
-//		System.out.println(
-//				"LogicalTable Operator" + "**************Warning: Default Method invocation*******************");
+		System.out.println(
+				"LogicalTable Operator" + "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(LogicalColumn column, List<TableColumnMetadataDTO> dto) {
-//		System.out.println("LogicalColumn " + column.getName()
-//				+ "**************Warning: Default Method invocation*******************");
+		System.out.println("LogicalColumn " + column.getName()
+				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
@@ -71,23 +71,23 @@ public interface InputOperator<R extends RpdComponent> {
 	
 	
 	default public R operate(LogicalComplexJoin column, List<TableColumnMetadataDTO> dto) {
-//		System.out.println("LogicalColumn " + column.getName()
-//				+ "**************Warning: Default Method invocation*******************");
+		System.out.println("LogicalColumn " + column.getName()
+				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	
 	default public R operate(StandardRpd rpd, List<TableColumnMetadataDTO> dto) {
-//		System.out.println("StandardRpd " + rpd.getName()
-//				+ "**************Warning: Default Method invocation*******************");
+		System.out.println("StandardRpd " + rpd.getName()
+				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
 
 	default public R operate(PresentationHierarchy presHierarchy, List<TableColumnMetadataDTO> dto) {
-//		System.out.println("StandardRpd " + rpd.getName()
-//				+ "**************Warning: Default Method invocation*******************");
+		System.out.println("StandardRpd " + presHierarchy.getName()
+				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}
@@ -95,8 +95,8 @@ public interface InputOperator<R extends RpdComponent> {
 	
 	
 	default public R operate(PresentationLevel presLevel, List<TableColumnMetadataDTO> dto) {
-//		System.out.println("StandardRpd " + rpd.getName()
-//				+ "**************Warning: Default Method invocation*******************");
+		System.out.println("StandardRpd " + presLevel.getName()
+				+ "**************Warning: Default Method invocation*******************");
 		R returnVal = null;
 		return returnVal;
 	}

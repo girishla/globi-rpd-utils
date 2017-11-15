@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.util.FileSystemUtils;
 
 import com.globi.rpd.TableColumnDtoObjectMother;
+import com.globi.rpd.operator.AddColumnOperator;
 import com.globi.rpd.xudml.XudmlConstants;
 
 public class AddLogicalColumnTest {
@@ -23,8 +24,9 @@ public class AddLogicalColumnTest {
 				.setRepoPath(XudmlConstants.XUDML_COPYURL)
 				.setInput(Arrays.asList(TableColumnDtoObjectMother.getExampleDimLogicalColumn()))
 				.loadDatabase()
-				.loadModel()
-				.loadCatalog()
+//				.loadModel()
+//				.loadCatalog()
+				.applyInputOperatorToRpd(AddColumnOperator.class)
 				.noMoreWork()
 				.nothingToSave()
 				.get(); 
@@ -34,4 +36,3 @@ public class AddLogicalColumnTest {
 }
 
 
-//TableColumnDtoObjectMother

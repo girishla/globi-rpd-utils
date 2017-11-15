@@ -11,6 +11,7 @@ import com.globi.rpd.operator.Operator;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Container for RPD Component Objects
@@ -19,6 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Slf4j
 public class StandardRpd implements Rpd,RpdComponent,Operable<RpdComponent> {
 
 	private final String id= UUID.randomUUID().toString();
@@ -44,7 +46,12 @@ public class StandardRpd implements Rpd,RpdComponent,Operable<RpdComponent> {
 	
 	@Override
 	public RpdComponent applyWithInput(InputOperator<? extends RpdComponent> anOperator,List<TableColumnMetadataDTO> dto) {
-		return (RpdComponent)anOperator.operate(this,dto);
+	
+		log.debug("(((((((((((((((((((((((((((((((((");
+		log.debug("(((((((((((((((((((((((((((((((((");
+		log.debug(this.physicalObjects.size() +  anOperator.getClass().getName());
+		
+		return (StandardRpd)anOperator.operate(this,dto);
 	}
 	
 

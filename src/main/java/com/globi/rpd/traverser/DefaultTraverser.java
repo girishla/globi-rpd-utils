@@ -20,13 +20,24 @@ import com.globi.rpd.component.Schema;
 import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.operator.Operator;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DefaultTraverser implements Traverser {
 
 	@Override
 	public void traverse(StandardRpd rpd, Operator<? extends RpdComponent> anOperator) {
 
-		for (Database db : rpd.getPhysicalObjects()) 
+		for (Database db : rpd.getPhysicalObjects()) {
 			db.apply(anOperator);
+			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			log.debug(db.getName());
+			
+		}
+			
 		
 		for (BusinessModel model : rpd.getModelObjects()) 
 			model.apply(anOperator);

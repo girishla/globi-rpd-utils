@@ -18,6 +18,7 @@ import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.Schema;
+import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.traverser.Traverser;
 import com.globi.rpd.traverser.TraversingOperatorProgressMonitor;
 
@@ -40,6 +41,25 @@ public class BreadthFirstTraversingInputOperator implements InputOperator<RpdCom
 		dto=aDto;
 	}
 
+	@Override
+	public StandardRpd operate(StandardRpd rpd,List<TableColumnMetadataDTO> dto) {
+
+		StandardRpd returnVal;
+		returnVal = (StandardRpd) rpd.applyWithInput(operator,dto);
+
+		if (progressMonitor != null) {
+			progressMonitor.operated(operator.getClass()
+					.getName(), rpd);
+		}
+		traverser.traverse((StandardRpd) returnVal, this);
+		if (progressMonitor != null) {
+			progressMonitor.traversed(traverser.getClass()
+					.getName(), rpd);
+		}
+		return returnVal;
+	}
+	
+	
 	@Override
 	public PresentationCatalog operate(PresentationCatalog presCatalog,List<TableColumnMetadataDTO> dto) {
 		PresentationCatalog returnVal;
