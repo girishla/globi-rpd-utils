@@ -34,6 +34,23 @@ public class ShellCommandIntegrationTests {
 		resulthandler.handleResult(result);
 
 	}
+	
+	
+	@Test
+	public void canDeleteUnwantedConnections() {
+
+		Object result = shell.evaluate(new Input() {
+			@Override
+			public String rawText() {
+				return "delete-bad-connections C:\\temp\\RPDTest\\";
+			}
+
+		});
+
+		DefaultResultHandler resulthandler = new DefaultResultHandler();
+		resulthandler.handleResult(result);
+
+	}
 
 }
 

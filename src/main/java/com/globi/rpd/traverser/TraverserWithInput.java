@@ -35,12 +35,6 @@ public class TraverserWithInput implements InputTraverser {
 
 		for (Database db : rpd.getPhysicalObjects()) {
 			db.applyWithInput(anOperator, dto);
-			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			log.debug(db.getName());
-
 		}
 
 		for (BusinessModel model : rpd.getModelObjects())
@@ -109,7 +103,6 @@ public class TraverserWithInput implements InputTraverser {
 
 		for (Schema schema : db.getSchemas()) {
 			schema.applyWithInput(anOperator, dto);
-			log.debug("" + schema.getPhysicalTables().size());
 		}
 	}
 
@@ -131,13 +124,6 @@ public class TraverserWithInput implements InputTraverser {
 	public void traverse(Schema schema, InputOperator<? extends RpdComponent> anOperator,
 			List<TableColumnMetadataDTO> dto) {
 
-		// if(schema==null){
-		// log.debug("No Schema provided so not traversing");
-		// return;
-		// }
-
-		log.debug("" + schema.getPhysicalTables().size());
-		
 		for (PhysicalTable table : schema.getPhysicalTables())
 			table.applyWithInput(anOperator, dto);
 

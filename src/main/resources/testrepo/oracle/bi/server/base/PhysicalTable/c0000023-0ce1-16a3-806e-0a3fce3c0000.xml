@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc0000023-0ce1-16a3-806e-0a3fce3c0000" name="F_FIN_ACCNT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000b-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000b-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc0000025-0ce1-16a3-806e-0a3fce3c0000" name="ACCNT_PAR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000027-0ce1-16a3-806e-0a3fce3c0000" name="BU_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000029-0ce1-16a3-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000002b-0ce1-16a3-806e-0a3fce3c0000" name="DOC_AMT_ACTV_SUB" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000002d-0ce1-16a3-806e-0a3fce3c0000" name="DOC_AMT_SUB_CAE" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000002f-0ce1-16a3-806e-0a3fce3c0000" name="DOC_AMT_YTD" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000031-0ce1-16a3-806e-0a3fce3c0000" name="GBL_AMT_ACTV_SUB" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000033-0ce1-16a3-806e-0a3fce3c0000" name="GBL_AMT_SUB_CAE" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000035-0ce1-16a3-806e-0a3fce3c0000" name="GBL_AMT_YTD" dataType="DOUBLE" scale="7" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000037-0ce1-16a3-806e-0a3fce3c0000" name="LAST_CANC_DT" dataType="DATETIME" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000039-0ce1-16a3-806e-0a3fce3c0000" name="LST_INVOICE_DT" dataType="DATETIME" precision="22" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000003b-0ce1-16a3-806e-0a3fce3c0000" name="POS_PAS_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000003d-0ce1-16a3-806e-0a3fce3c0000" name="POS_PR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000003f-0ce1-16a3-806e-0a3fce3c0000" name="RENEW_DT_NXT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000041-0ce1-16a3-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

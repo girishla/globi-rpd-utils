@@ -9,12 +9,12 @@ import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
 import com.globi.rpd.operator.Operator;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import xudml.DatabaseW;
 
-@Data
-@EqualsAndHashCode(callSuper=true)
+@Getter
+@Setter
 public class Database extends MarshalledRpdComponent<DatabaseW> implements Operable<RpdComponent>{
 
 	private final List<ConnectionPool> connectionPools = new ArrayList<ConnectionPool>();

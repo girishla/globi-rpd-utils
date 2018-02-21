@@ -12,7 +12,7 @@ public class PhysicalLayerDslTest {
 
 	@Test
 	public void canChangePhysicalLayerOfRpdWithFluentSyntax() throws IOException {
-		
+
 		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
 		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
 
@@ -23,7 +23,26 @@ public class PhysicalLayerDslTest {
 				.loadDatabase()
 				.noMoreWork()
 				.nothingToSave()
-				.get(); 
+				.get();
+
+	}
+
+	@Test
+	public void canDeletePhysicalDatabaseWithfluentSyntax() throws IOException {
+		
+		FileSystemUtils.deleteRecursively(new File(XudmlConstants.XUDML_COPYURL));
+		FileSystemUtils.copyRecursively(new File(XudmlConstants.XUDML_BASEURL), new File(XudmlConstants.XUDML_COPYURL));
+
+		RpdBuilderFactory.newBuilder()
+				.init()
+				.setRepoPath(XudmlConstants.XUDML_COPYURL)
+				.noInputs()
+				.loadDatabase()
+				.deleteDatabase(database -> database.getName()
+						.equals("1 - DELETE (Use for Import)"))
+				.noMoreWork()
+				.save(XudmlConstants.XUDML_COPYURL)
+				.get();
 
 	}
 

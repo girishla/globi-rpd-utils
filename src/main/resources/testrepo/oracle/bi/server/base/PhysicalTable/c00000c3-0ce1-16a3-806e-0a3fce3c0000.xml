@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc00000c3-0ce1-16a3-806e-0a3fce3c0000" name="D_UT_QUERY" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000b-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000b-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc00000c5-0ce1-16a3-806e-0a3fce3c0000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000c7-0ce1-16a3-806e-0a3fce3c0000" name="BU_PGUID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000c9-0ce1-16a3-806e-0a3fce3c0000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000cb-0ce1-16a3-806e-0a3fce3c0000" name="DASH_PAGE" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000cd-0ce1-16a3-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000cf-0ce1-16a3-806e-0a3fce3c0000" name="DELETE_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000d1-0ce1-16a3-806e-0a3fce3c0000" name="DEVELOPER_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000d3-0ce1-16a3-806e-0a3fce3c0000" name="DT_START" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000d5-0ce1-16a3-806e-0a3fce3c0000" name="EFF_END_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000d7-0ce1-16a3-806e-0a3fce3c0000" name="EFF_START_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000d9-0ce1-16a3-806e-0a3fce3c0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000db-0ce1-16a3-806e-0a3fce3c0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000dd-0ce1-16a3-806e-0a3fce3c0000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000df-0ce1-16a3-806e-0a3fce3c0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000e1-0ce1-16a3-806e-0a3fce3c0000" name="PGUID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000e3-0ce1-16a3-806e-0a3fce3c0000" name="REP_TYPE" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000e5-0ce1-16a3-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000e7-0ce1-16a3-806e-0a3fce3c0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000e9-0ce1-16a3-806e-0a3fce3c0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000eb-0ce1-16a3-806e-0a3fce3c0000" name="TZ_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000ed-0ce1-16a3-806e-0a3fce3c0000" name="W_CREATED_DT" dataType="DATETIME" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

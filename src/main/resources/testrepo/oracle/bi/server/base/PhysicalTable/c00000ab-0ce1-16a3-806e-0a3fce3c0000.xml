@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc00000ab-0ce1-16a3-806e-0a3fce3c0000" name="D_NOTE_OPTY" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000b-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000b-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc00000ad-0ce1-16a3-806e-0a3fce3c0000" name="DT_NT_CURR" dataType="DATETIME" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000af-0ce1-16a3-806e-0a3fce3c0000" name="DT_NT_PREV" dataType="DATETIME" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000b1-0ce1-16a3-806e-0a3fce3c0000" name="NT_CURR" dataType="VARCHAR" precision="4000" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000b3-0ce1-16a3-806e-0a3fce3c0000" name="NT_PREV" dataType="VARCHAR" precision="4000" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000b5-0ce1-16a3-806e-0a3fce3c0000" name="OP_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

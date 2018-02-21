@@ -3,13 +3,20 @@ package com.globi.rpd.operator;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.jline.utils.Log;
+
 import com.globi.rpd.component.BusinessModel;
+import com.globi.rpd.component.ConnectionPool;
+import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
+import com.globi.rpd.component.PhysicalColumn;
+import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationHierarchy;
 import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
+import com.globi.rpd.component.Schema;
 
 public class DeletingOperator implements Operator<RpdComponent> {
 
@@ -102,11 +109,85 @@ public class DeletingOperator implements Operator<RpdComponent> {
 		return join;
 	}
 	
+	
+	@Override
+	public Database operate(Database db) {
+
+		if (db.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
+
+		db.getConnectionPools().clear();
+		db.getSchemas().clear();
+		
+		Log.info("DELETING FILE "+db.getResourceUri());
+		
+		DeletingOperator.deleteFile(db.getResourceUri());
+
+		return db;
+
+	}
+	
+	
+	@Override
+	public ConnectionPool operate(ConnectionPool pool) {
+
+		if (pool.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
+		
+		DeletingOperator.deleteFile(pool.getResourceUri());
+
+		return pool;
+
+	}
+	
+	@Override
+	public Schema operate(Schema schema) {
+
+		if (schema.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
+
+		schema.getPhysicalTables().clear();
+		
+		
+		DeletingOperator.deleteFile(schema.getResourceUri());
+
+		return schema;
+
+	}
+
+	
+	@Override
+	public PhysicalTable operate(PhysicalTable table) {
+
+		if (table.getXudmlObject() == null)
+			throw new IllegalStateException("Cannot delete without a XUDML instance set");
+
+		table.getPhysicalColumns().clear();
+		table.getPhysicalForeignKeys().clear();
+		table.getPhysicalKeys().clear();
+		
+		DeletingOperator.deleteFile(table.getResourceUri());
+
+		return table;
+
+	}
+	
+	
+	@Override
+	public PhysicalColumn operate(PhysicalColumn col) {
+
+		//dp nothing
+		return col;
+
+	}
+	
+	
+	
 	private static void deleteFile(String resourceUri){
 		Path p = Paths.get(resourceUri.replace("file:", ""));
-		p.toFile()
-				.delete();
+		p.toFile().delete();
 		
 	}
+	
 
 }

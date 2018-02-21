@@ -10,18 +10,15 @@ import lombok.extern.slf4j.Slf4j;
 public class SubjectAreaCommand {
 
 	@SuppressWarnings("unchecked")
-	@ShellMethod(value="Run actions based on the input strategy class name")
-	public String generateSubjectArea(String strategyName,String subjectAreaName,String basepath) throws Exception{
+	@ShellMethod(value = "Run Subject Area actions based on the input strategy class name")
+	public String generateSubjectArea(String strategyName, String subjectAreaName, String basepath) throws Exception {
 
-		
 		Class<?> strategyClass = null;
-		
-		
-		
+
 		try {
 			strategyClass = Class.forName("com.globi.rpd.cli." + strategyName);
 		} catch (ClassNotFoundException e) {
-			log.error("Class not found: " + strategyName );
+			log.error("Class not found: " + strategyName);
 			return "COMMAND FAILED. ";
 		}
 
@@ -30,20 +27,19 @@ public class SubjectAreaCommand {
 		try {
 			strategy = (RpdCommandExecutor<Boolean, SubjectAreaGeneratorInput>) strategyClass.newInstance();
 		} catch (IllegalAccessException e) {
-			log.error("Class not accessible: "+ strategyName);
+			log.error("Class not accessible: " + strategyName);
 		} catch (InstantiationException e) {
-			log.error("Class not instantiable: "+ strategyName );
+			log.error("Class not instantiable: " + strategyName);
 		}
 
-		return strategy.execute(new SubjectAreaGeneratorInput(basepath,subjectAreaName));
-		
-		
+		return strategy.execute(new SubjectAreaGeneratorInput(basepath, subjectAreaName));
+
 	}
-	
-	
-	 @ShellMethod(value = "Add numbers.", key = "sum")
-     public int add(int a, int b) {
-             return a + b;
-     }
+
+	@ShellMethod(value = "Add numbers.", key = "sum")
+	public int add(int a, int b) {
+		return a + b;
+	}
+
 
 }

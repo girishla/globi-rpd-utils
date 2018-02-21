@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc0000119-0ce1-16a3-806e-0a3fce3c0000" name="M_DMR_FAILURE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000d-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000d-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc000011b-0ce1-16a3-806e-0a3fce3c0000" name="COL_VALUE" dataType="VARCHAR" precision="250" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000011d-0ce1-16a3-806e-0a3fce3c0000" name="CREATED_DT" dataType="DATETIME" precision="250" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000011f-0ce1-16a3-806e-0a3fce3c0000" name="ID" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000121-0ce1-16a3-806e-0a3fce3c0000" name="REC_KEY" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000123-0ce1-16a3-806e-0a3fce3c0000" name="RUN_ID" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000125-0ce1-16a3-806e-0a3fce3c0000" name="SRC" dataType="VARCHAR" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000127-0ce1-16a3-806e-0a3fce3c0000" name="COL_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

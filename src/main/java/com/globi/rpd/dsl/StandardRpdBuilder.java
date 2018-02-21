@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.globi.rpd.AppProperties;
@@ -21,6 +22,8 @@ import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.StandardRpd;
 import com.globi.rpd.operator.BreadthFirstTraversingInputOperator;
 import com.globi.rpd.operator.BreadthFirstTraversingOperator;
+import com.globi.rpd.operator.DeletingOperator;
+import com.globi.rpd.operator.DepthFirstTraversingOperator;
 import com.globi.rpd.operator.HydratingOperator;
 import com.globi.rpd.operator.InputOperator;
 import com.globi.rpd.operator.Operable;
@@ -33,13 +36,15 @@ import com.globi.rpd.traverser.TraverserWithInput;
 import com.globi.rpd.xudml.XudmlConstants;
 import com.globi.rpd.xudml.XudmlFolder;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * The builder implementation for the fluent method chain
  * 
  * @author Girish Lakshmanan
  *
  */
-// @Slf4j
+@Slf4j
 public class StandardRpdBuilder {
 
 	public SetRepoPathStep init() {
@@ -66,9 +71,14 @@ public class StandardRpdBuilder {
 
 		MutateStep loadDatabase();
 
+		MutateStep deleteDatabase(Predicate<Database> predicate);
+
 		MutateStep applyOperatorToRpd(Class<? extends Operator<StandardRpd>> cl);
 
 		MutateStep applyOperatorToAllCatalogs(Class<? extends Operator<RpdComponent>> cl);
+
+		MutateStep applyDepthFirstOperatorToAllPhysicalDatabases(Class<? extends Operator<RpdComponent>> cl,
+				Predicate<Database> predicate);
 
 		MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<RpdComponent>> cl);
 
@@ -216,13 +226,13 @@ public class StandardRpdBuilder {
 			XudmlUnmarshallingOperator unmarshalOperator = new XudmlUnmarshallingOperator();
 			BreadthFirstTraversingOperator tv = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					unmarshalOperator);
-//			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			// tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv);
 
 			HydratingOperator hydratingOperator = new HydratingOperator();
 			BreadthFirstTraversingOperator tv2 = new BreadthFirstTraversingOperator(new DefaultTraverser(),
 					hydratingOperator);
-//			tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
+			// tv2.setProgressMonitor(new DefaultLoggerProgressMonitor());
 			rpdComponent.apply(tv2);
 
 		}
@@ -292,9 +302,10 @@ public class StandardRpdBuilder {
 				catalog.apply(tv);
 
 			}
-			
-			
+
 			for (Database db : this.physicalObjects) {
+
+				log.info("SAVING DB " + db.getName());
 
 				db.setResourceUri(basePath + XudmlConstants.XUDML_DATABASEURL + db.getId() + ".xml");
 
@@ -355,6 +366,39 @@ public class StandardRpdBuilder {
 		}
 
 		@Override
+		public MutateStep applyDepthFirstOperatorToAllPhysicalDatabases(Class<? extends Operator<RpdComponent>> cl,
+				Predicate<Database> predicate) {
+
+			// Instantiate the strategy
+			Operator<RpdComponent> strategy = null;
+			try {
+				strategy = cl.newInstance();
+			} catch (IllegalAccessException e) {
+				System.err.println("Class not accessible: " + cl);
+				throw new IllegalArgumentException(" Operator Class not accessible");
+			} catch (InstantiationException e) {
+				System.err.println("Class not instantiable: " + cl);
+				throw new IllegalArgumentException("Operator Class not instantiable");
+			}
+
+			DepthFirstTraversingOperator traversingOperator = new DepthFirstTraversingOperator(new DefaultTraverser(),
+					strategy);
+			traversingOperator.setProgressMonitor(new DefaultLoggerProgressMonitor());
+
+			for (Database db : this.physicalObjects) {
+				if (predicate.test(db)) {
+					DefaultLoggerProgressMonitor logger = new DefaultLoggerProgressMonitor();
+					db.apply(traversingOperator);
+					logger.operated(cl.getName(), db);
+				}
+
+			}
+
+			return this;
+
+		}
+
+		@Override
 		public MutateStep applyInputOperatorToRpd(Class<? extends InputOperator<RpdComponent>> cl) {
 
 			if (this.dtoInput == null)
@@ -372,17 +416,13 @@ public class StandardRpdBuilder {
 				throw new IllegalArgumentException("Operator Class not instantiable");
 			}
 
-			
 			StandardRpd rpdOperable = new StandardRpd(catalogObjects, modelObjects, physicalObjects);
-			
-			
-			
+
 			BreadthFirstTraversingInputOperator tv = new BreadthFirstTraversingInputOperator(new TraverserWithInput(),
 					strategy, this.dtoInput);
 			tv.setProgressMonitor(new DefaultLoggerProgressMonitor());
-			
+
 			rpdOperable.applyWithInput(tv, this.dtoInput);
-			
 
 			return this;
 		}
@@ -397,6 +437,16 @@ public class StandardRpdBuilder {
 
 		@Override
 		public MutateStep noInputs() {
+			return this;
+		}
+
+		@Override
+		public MutateStep deleteDatabase(Predicate<Database> predicate) {
+
+			this.applyDepthFirstOperatorToAllPhysicalDatabases(DeletingOperator.class, predicate);
+
+			this.physicalObjects.removeIf(predicate);
+
 			return this;
 		}
 

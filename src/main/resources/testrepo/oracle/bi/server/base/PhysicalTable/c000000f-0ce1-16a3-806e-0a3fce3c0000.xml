@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc000000f-0ce1-16a3-806e-0a3fce3c0000" name="F_CUSTOMER" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000b-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000b-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc0000011-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000013-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM_ACTV" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000015-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM_IP" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000017-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM_NEG" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000019-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM_NS" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000001b-0ce1-16a3-806e-0a3fce3c0000" name="NUM_CAM_POS" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000001d-0ce1-16a3-806e-0a3fce3c0000" name="POS_PR_WID" dataType="DOUBLE" precision="10" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000001f-0ce1-16a3-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000021-0ce1-16a3-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

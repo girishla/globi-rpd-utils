@@ -12,11 +12,9 @@ import com.globi.rpd.TableColumnMetadataDTO;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.PhysicalColumn;
 import com.globi.rpd.component.PhysicalTable;
-import com.globi.rpd.component.PresentationTable;
 import com.globi.rpd.component.RpdComponent;
 import com.globi.rpd.component.Schema;
 import com.globi.rpd.component.StandardRpd;
-import com.globi.rpd.xudml.XudmlConstants;
 
 import lombok.extern.slf4j.Slf4j;
 import xudml.PhysicalColumnW;
@@ -65,21 +63,6 @@ public class AddColumnOperator implements InputOperator<RpdComponent> {
 		Stream<TableColumnMetadataDTO> filteredTableColumns = dto.stream()
 				.filter(col -> col.getDimTablename()
 						.equals(table.getName()));
-
-		if (table.getName()
-				.equals(dto.get(0)
-						.getDimTablename())) {
-
-			log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			log.debug(table.getName() + ":::" + dto.get(0)
-					.getDimTablename());
-			
-			table.getPhysicalColumns().get(0).getXudmlObject().setDescription("hasdjkasbhdkasbhdkashk");
-			
-		}
 
 		/**
 		 * Select Columns that dont already exist in Table

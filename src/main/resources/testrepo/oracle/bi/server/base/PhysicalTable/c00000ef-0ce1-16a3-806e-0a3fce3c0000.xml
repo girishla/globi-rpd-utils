@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PhysicalTable mdsid="mc00000ef-0ce1-16a3-806e-0a3fce3c0000" name="D_UT_REPORT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oracle.com/obis/repository" type="none" rowCount="0.0" maxConn="0" containerRef="/oracle/bi/server/base/Schema/c000000b-0ce1-16a3-806e-0a3fce3c0000.xml#mc000000b-0ce1-16a3-806e-0a3fce3c0000">
+<PhysicalColumn mdsid="mc00000f1-0ce1-16a3-806e-0a3fce3c0000" name="BU_PGUID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000f3-0ce1-16a3-806e-0a3fce3c0000" name="CAT_PATH" dataType="VARCHAR" precision="4000" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000f5-0ce1-16a3-806e-0a3fce3c0000" name="CURRENT_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000f7-0ce1-16a3-806e-0a3fce3c0000" name="DATASOURCE_NUM_ID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000f9-0ce1-16a3-806e-0a3fce3c0000" name="DELETE_FLG" dataType="VARCHAR" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000fb-0ce1-16a3-806e-0a3fce3c0000" name="EFF_END_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000fd-0ce1-16a3-806e-0a3fce3c0000" name="EFF_START_DT" dataType="DATETIME" precision="1" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc00000ff-0ce1-16a3-806e-0a3fce3c0000" name="ETL_PROC_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000101-0ce1-16a3-806e-0a3fce3c0000" name="HASH_RECORD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000103-0ce1-16a3-806e-0a3fce3c0000" name="HASH_SCD" dataType="VARCHAR" precision="32" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000105-0ce1-16a3-806e-0a3fce3c0000" name="INTEGRATION_ID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000107-0ce1-16a3-806e-0a3fce3c0000" name="PGUID" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000109-0ce1-16a3-806e-0a3fce3c0000" name="REP_NAME" dataType="VARCHAR" precision="50" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000010b-0ce1-16a3-806e-0a3fce3c0000" name="ROOT_FOLDER" dataType="VARCHAR" precision="30" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000010d-0ce1-16a3-806e-0a3fce3c0000" name="ROW_WID" dataType="DOUBLE" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc000010f-0ce1-16a3-806e-0a3fce3c0000" name="S_CREATED_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000111-0ce1-16a3-806e-0a3fce3c0000" name="S_UPDATED_DT" dataType="DATETIME" precision="10" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000113-0ce1-16a3-806e-0a3fce3c0000" name="TZ_NAME" dataType="VARCHAR" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000115-0ce1-16a3-806e-0a3fce3c0000" name="W_CREATED_DT" dataType="DATETIME" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+<PhysicalColumn mdsid="mc0000117-0ce1-16a3-806e-0a3fce3c0000" name="W_UPDATED_DT" dataType="DATETIME" precision="100" nullable="true" rowCount="0.0" specialType="none">
+</PhysicalColumn>
+</PhysicalTable>

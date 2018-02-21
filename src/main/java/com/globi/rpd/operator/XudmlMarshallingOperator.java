@@ -1,12 +1,9 @@
 package com.globi.rpd.operator;
 
-import org.jline.utils.Log;
-
 import com.globi.rpd.component.BusinessModel;
 import com.globi.rpd.component.Database;
 import com.globi.rpd.component.LogicalComplexJoin;
 import com.globi.rpd.component.LogicalTable;
-import com.globi.rpd.component.PhysicalColumn;
 import com.globi.rpd.component.PhysicalTable;
 import com.globi.rpd.component.PresentationCatalog;
 import com.globi.rpd.component.PresentationTable;
@@ -143,15 +140,6 @@ public class XudmlMarshallingOperator implements Operator<RpdComponent> {
 		XudmlMarshaller<PhysicalTableW> marshaller = new XudmlMarshaller<PhysicalTableW>();
 		ObjectFactory factory = new ObjectFactory();
 		marshaller.marshall(table.getResourceUri(),factory.createPhysicalTable(table.getXudmlObject()));
-		
-		log.debug("££££££££££££££££££££££££££££££" + table.getXudmlObject().getName());
-		for(PhysicalColumn c:table.getPhysicalColumns()){
-			c.getXudmlObject().setDescription("aaaaaaaaaaaaaaaaa");
-			log.debug(c.getName());
-			log.debug(c.getXudmlObject().getMdsid());
-			log.debug(c.getXudmlObject().getPrecision() + "");
-		}
-		
 		
 		return table;
 		
